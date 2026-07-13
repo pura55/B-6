@@ -14,10 +14,10 @@ public class EnemyMove : MonoBehaviour
     #endregion
 
     #region State
-    [SerializeField] private Transform targetTower; // ターゲットのタワー
+    [SerializeField] private Transform targetTower;              // ターゲットのタワー
     private EnemyMoveState moveState = EnemyMoveState.attaching; // 敵の移動ステート
-    private bool isAttached = false; // 近づいているかどうかのフラグ 
-    private Vector3 avoidVelocity = new Vector3(0f, 0f, 0f); // 避ける速度
+    private bool isAttached = false;                             // 近づいているかどうかのフラグ 
+    private Vector3 avoidVelocity = new Vector3(0f, 0f, 0f);     // 避ける速度
     #endregion
 
 
@@ -128,5 +128,11 @@ public class EnemyMove : MonoBehaviour
         //else
         //{
         //    avoidVelocityY = -2f;
+    }
+
+    // ターゲットのタワーを設定する関数
+    public void SetTargetTower(Transform tower)
+    {
+        targetTower = tower;
     }
 }
