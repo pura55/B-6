@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2570283839233665180}
   - component: {fileID: 8179636804621964485}
-  - component: {fileID: -3358957461815985599}
+  - component: {fileID: 9137235300150477161}
   - component: {fileID: 3824464598173647377}
-  - component: {fileID: 3992497269464852707}
+  - component: {fileID: -9060898830839917025}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: AggressiveEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -5603193532150107634, guid: 173338cd9c3d38641873ee2078b4fa99, type: 3}
+  m_Sprite: {fileID: -8722129144896270460, guid: 24f9af18f8a305b43af35fbe356f28d6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -94,7 +94,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!58 &-3358957461815985599
+--- !u!58 &9137235300150477161
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -157,7 +157,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &3992497269464852707
+--- !u!114 &-9060898830839917025
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -166,7 +166,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 6449213048604919684}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c230e13e8dc2cde4d8ed7cdde96a6bba, type: 3}
+  m_Script: {fileID: 11500000, guid: 8290e8768a5ec3241b55a9a3d6c4c2a6, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyMove
+  m_EditorClassIdentifier: Assembly-CSharp::AggressiveEnemyMove
   targetTower: {fileID: 0}
+  targetPlayer: {fileID: 0}
