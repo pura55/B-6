@@ -52,7 +52,7 @@ public class EnemySpawner : MonoBehaviour
     // 敵を生成する関数
     private void EnemySpawn()
     {
-        //現在の病原菌のスポーン数を超えたら処理を抜ける
+        //現在の敵のスポーン数を超えたら処理を抜ける
         while (spawnCounter < currentSpawnIndex)
         {
             Debug.Log("敵のスポーン処理中");
