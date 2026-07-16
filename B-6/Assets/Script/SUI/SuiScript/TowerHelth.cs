@@ -68,5 +68,10 @@ public class TowerHealth : MonoBehaviour
             TakeDamage(1);
             Debug.Log("ダメージを受けました");
         }
+        if (other.CompareTag("Rock"))
+        {
+            TakeDamage(5);
+            Debug.Log("ダメージを受けました");
+        }
     }
 }
