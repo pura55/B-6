@@ -41,9 +41,18 @@ public class MoveScript : MonoBehaviour
 
         pos+= (Vector3)(move.normalized * speed * Time.deltaTime);
 
+        //カメラ端を取得
+        Vector3 camPos = Camera.main.transform.position;
 
-        pos.x = Mathf.Clamp(pos.x, -8.2f, 8.2f);
-        pos.y = Mathf.Clamp(pos.y, -4.5f, 4.5f);
+        float halfHeight = Camera.main.orthographicSize;
+        float halfWidth = halfHeight * Camera.main.aspect;
+
+        float marginX = 0.5f;
+        float marginY = 0.5f;
+
+        //プレイヤーを画面内に制限
+        pos.x = Mathf.Clamp(pos.x, camPos.x - halfWidth + marginX, camPos.x + halfWidth - marginX);
+        pos.y = Mathf.Clamp(pos.y, camPos.y - halfHeight+ marginY, camPos.y + halfHeight - marginY);
 
         transform.position = pos;
 
