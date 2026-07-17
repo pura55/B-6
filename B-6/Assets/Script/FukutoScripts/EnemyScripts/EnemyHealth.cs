@@ -38,7 +38,7 @@ public class EnemyDamaged : MonoBehaviour
         }
     }
 
-    void ReciveDamage(GameObject attack)
+    private void ReciveDamage(GameObject attack)
     {
         enemyHp--;
     }

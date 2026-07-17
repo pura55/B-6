@@ -44,7 +44,7 @@ public class EnemySpawner : MonoBehaviour
         else
         {
             // スポーンインターバルを加算
-            AddSpawnInterval();
+            CompleteSpawnInterval();
             return;
         }
     }
@@ -96,8 +96,8 @@ public class EnemySpawner : MonoBehaviour
         return true;
     }
 
-    // スポーンインターバルを加算する関数
-    private void AddSpawnInterval()
+    // スポーンインターバルを消費する関数
+    private void CompleteSpawnInterval()
     {
         if(currentSpawnInterval < spawnInterval)
         {
