@@ -19,7 +19,7 @@ public class EnemyMove : MonoBehaviour
     private EnemyMoveState moveState = EnemyMoveState.attaching; // 敵の移動ステート
     private bool isAttached = false;                             // 近づいているかどうかのフラグ 
     private Vector3 avoidVelocity = new Vector3(0f, 0f, 0f);     // 避ける速度
-    private bool hitWall = false;
+    private bool obstructedWall = false;                         // 壁に遮られているかどうか
     #endregion
 
 
@@ -92,7 +92,7 @@ public class EnemyMove : MonoBehaviour
         // もし壁に遮られていたら、横に移動
         if (hit.collider != null)
         {
-            if (!hitWall)
+            if (!obstructedWall)
             {
                 DecideAvoidVelocity(hit.point);
             }
@@ -101,7 +101,7 @@ public class EnemyMove : MonoBehaviour
         }
         else
         {
-            hitWall = false;
+            obstructedWall = false;
             followSpeed = 1f;
         }
     }
@@ -147,7 +147,7 @@ public class EnemyMove : MonoBehaviour
         // 決めた値を代入
         avoidVelocity = new Vector3(avoidVelocityX, avoidVelocityY, 0f);
 
-        hitWall = true;
+        obstructedWall = true;
     }
 
     // ターゲットのタワーを設定する関数
