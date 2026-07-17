@@ -6,41 +6,48 @@ public class TowerSpawner : MonoBehaviour
     // 生成する素材のPrefab
     [SerializeField] private GameObject sozaiPrefab;
 
-    // Towerを中心に素材を出現させる範囲（半径）
-    [SerializeField] private float spawnRange = 5f;
+    // 出現範囲（最小半径・最大半径）
+    [SerializeField] private float minSpawnRange = 3f;
+    [SerializeField] private float maxSpawnRange = 10f;
+
+    // 生成間隔
+    [SerializeField] private float spawnInterval = 5f;
+
+    // 消えるまでの時間
+    [SerializeField] private float destroyTime = 30f;
 
     void Start()
     {
-        // 素材を定期的に生成する処理を開始
         StartCoroutine(SpawnRoutine());
     }
 
-    // 素材を一定時間ごとに生成する処理
     IEnumerator SpawnRoutine()
     {
         while (true)
         {
-            // 5秒待つ
-            yield return new WaitForSeconds(5f);
+            // 一定時間待つ
+            yield return new WaitForSeconds(spawnInterval);
 
-            // Towerを中心とした円の中からランダムな位置を取得
-            // xが横方向、yが縦方向の位置になる
-            // Random.insideUnitCircleは半径1の円の中からランダムな座標を返す
-            Vector2 randomCircle = Random.insideUnitCircle * spawnRange;
+            // ランダムな角度（0～360度）
+            float angle = Random.Range(0f, Mathf.PI * 2f);
 
-            // Towerの位置にランダムな座標を足して、実際の出現位置を決定
-            // 2DゲームなのでZ座標は0に固定
+            // 面積が均等になるように距離を決める
+            float minSqr = minSpawnRange * minSpawnRange;
+            float maxSqr = maxSpawnRange * maxSpawnRange;
+            float distance = Mathf.Sqrt(Random.Range(minSqr, maxSqr));
+
+            // 出現位置を計算
             Vector3 randomPos = transform.position + new Vector3(
-                randomCircle.x,
-                randomCircle.y,
+                Mathf.Cos(angle) * distance,
+                Mathf.Sin(angle) * distance,
                 0f
             );
 
-            // 指定した位置に素材を生成
+            // 素材を生成
             GameObject sozai = Instantiate(sozaiPrefab, randomPos, Quaternion.identity);
 
-            // 30秒後に生成した素材を消す
-            Destroy(sozai, 30f);
+            // 一定時間後に削除
+            Destroy(sozai, destroyTime);
         }
     }
 }
