@@ -18,22 +18,18 @@ public class MoveScript : MonoBehaviour
         if (Keyboard.current.wKey.isPressed)
         {
             move.y = 1;
-            Debug.Log("W‰Ÿ‚µ‚Ä‚é");
         }
         if (Keyboard.current.sKey.isPressed)
         {
             move.y = -1;
-            Debug.Log("S‰Ÿ‚µ‚Ä‚é");
         }
         if (Keyboard.current.aKey.isPressed)
         {
             move.x = -1;
-            Debug.Log("A‰Ÿ‚µ‚Ä‚é");
         }
         if (Keyboard.current.dKey.isPressed)
         {
             move.x = 1;
-            Debug.Log("D‰Ÿ‚µ‚Ä‚é");
         }
 
         Vector3 pos = transform.position;
