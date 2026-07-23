@@ -1,5 +1,10 @@
 using UnityEngine;
 
+/// <summary>
+/// ロックロール
+/// 
+/// 落石が転がる処理を行う関数
+/// </summary>
 public class RockRoll : MonoBehaviour
 {
     #region Config
@@ -7,7 +12,7 @@ public class RockRoll : MonoBehaviour
     #endregion
 
     #region State
-    [SerializeField] private Transform targetTower;              // ターゲットのタワー
+    [SerializeField] private Transform targetTower; // ターゲットのタワー
     //private bool hitWall = false;
     #endregion
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -21,6 +26,7 @@ public class RockRoll : MonoBehaviour
         AttachTower();
     }
 
+    /// @biref タワーへの接近処理を行う関数
     private void AttachTower()
     {
         // 一定の速さで移動させる
@@ -31,6 +37,7 @@ public class RockRoll : MonoBehaviour
         );
     }
 
+    /// @brief ターゲットのタワーを設定する関数
     public void SetTargetTower(Transform tower)
     {
         targetTower = tower;

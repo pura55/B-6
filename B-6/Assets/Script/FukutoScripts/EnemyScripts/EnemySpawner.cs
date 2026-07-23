@@ -1,5 +1,10 @@
 using UnityEngine;
 
+/// <summary>
+/// エネミースポナー
+/// 
+/// 敵の生成処理を行うクラス
+/// </summary>
 public class EnemySpawner : MonoBehaviour
 {
     #region Config
@@ -49,7 +54,7 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    // 敵を生成する関数
+    /// @brief 敵を生成する関数
     private void EnemySpawn()
     {
         //現在の敵のスポーン数を超えたら処理を抜ける
@@ -84,7 +89,7 @@ public class EnemySpawner : MonoBehaviour
         spawnCounter = 0;
     }
 
-    // ゲームスタートの待機時間を計算してフラグを返す関数
+    /// @brief ゲームスタートの待機時間を計算してフラグを返す関数
     private bool FirstWaitTimer()
     {
         if(currentWaitTime < firstWaitTime)
@@ -96,7 +101,7 @@ public class EnemySpawner : MonoBehaviour
         return true;
     }
 
-    // スポーンインターバルを消費する関数
+    /// @brief スポーンインターバルを消費する関数
     private void CompleteSpawnInterval()
     {
         if(currentSpawnInterval < spawnInterval)

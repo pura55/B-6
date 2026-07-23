@@ -1,6 +1,11 @@
 using System;
 using UnityEngine;
 
+/// <summary>
+/// アグレッシブエネミームーブ
+/// 
+/// 攻撃的な敵の移動処理を行うクラス
+/// </summary>
 public class AggressiveEnemyMove : MonoBehaviour
 {
     enum AggressiveEnemyState
@@ -20,7 +25,7 @@ public class AggressiveEnemyMove : MonoBehaviour
     private AggressiveEnemyState moveState = AggressiveEnemyState.attaching; // 敵の移動ステート
     private bool isAttached = false;                             // 近づいているかどうかのフラグ 
     private Vector3 avoidVelocity = new Vector3(0f, 0f, 0f);     // 避ける速度
-    private bool hitWall = false;
+    private bool hitWall = false; // 直線上に壁があるかどうかのフラグ（true:ある, false:ない）
     #endregion
 
     void Start()
@@ -47,7 +52,7 @@ public class AggressiveEnemyMove : MonoBehaviour
         }
     }
 
-    // タワーに近づく処理を行う関数
+    /// @brief タワーに近づく処理を行う関数
     private void AttachTower()
     {
         // 割合計算で座標を移動させるため減速処理が入る
@@ -78,7 +83,7 @@ public class AggressiveEnemyMove : MonoBehaviour
         }
     }
 
-    // 一定距離に近づいたか確認する関数
+    /// @brief 一定距離に近づいたか確認する関数
     private void CheckAttaced()
     {
         if (Vector2.Distance(transform.position, currentTarget.position) < 1f)
@@ -93,7 +98,7 @@ public class AggressiveEnemyMove : MonoBehaviour
         }
     }
 
-    // 壁があるか判定する関数
+    /// @brief 壁があるか判定する関数
     private void CheckIsWall()
     {
         //Wallのレイヤーを取得
@@ -119,8 +124,7 @@ public class AggressiveEnemyMove : MonoBehaviour
         }
     }
 
-    // 座標によってよける向きや速度を決める関数
-    // 座標によってよける向きや速度を決める関数
+    /// @brief 座標によってよける向きや速度を決める関数
     private void DecideAvoidVelocity(Vector3 point)
     {
         // 距離の差分
@@ -164,12 +168,13 @@ public class AggressiveEnemyMove : MonoBehaviour
         hitWall = true;
     }
 
-    // ターゲットのタワーを設定する関数
+    /// @brief ターゲットのタワーを設定する関数
     public void SetTargetTower(Transform tower)
     {
         targetTower = tower;
     }
 
+    /// @brief ターゲットのプレイヤーを設定する関数
     public void SetTargetPlayer(Transform player)
     {
         targetPlayer = player;

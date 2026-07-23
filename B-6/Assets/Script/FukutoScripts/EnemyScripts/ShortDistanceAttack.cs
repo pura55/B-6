@@ -1,5 +1,10 @@
 using UnityEngine;
 
+/// <summary>
+/// ショートディスタンスアタック
+/// 
+/// 敵の近接攻撃処理を行うクラス
+/// </summary>
 public class ShortDistanceAttack : MonoBehaviour
 {
     #region Config
@@ -22,27 +27,32 @@ public class ShortDistanceAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // 攻撃を行ったかどうか
         if (isAttacked)
             CompleteInterval();
     }
 
-    // インターバルを消費する関数
+    /// @brief インターバルを消費する関数
     private void CompleteInterval()
     {
+        // インターバルを消費しきっいない場合、recast時間を追加
         if(currentRecastInterval < recastInterval)
         {
             currentRecastInterval += Time.deltaTime;
         }
         else
         {
+            // 消費しきった場合recast時間とフラグを初期化
             currentRecastInterval = 0f;
             isAttacked = false;
             return;
         }
     }
-
+    
+    /// @brief 攻撃オブジェクト（当たり判定）を生成する関数
     public void GenerateAttackObj()
     {
+        // オブジェクトを生成
         GameObject spawnedAttack = Instantiate(attackToSpawn, transform.position, Quaternion.identity);
     }
 }
