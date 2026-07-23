@@ -1,5 +1,10 @@
 using UnityEngine;
 
+/// <summary>
+/// ロックスポナー
+/// 
+/// 落石の生成処理を行うクラス
+/// </summary>
 public class RockSpawner : MonoBehaviour
 {
     #region Config
@@ -33,7 +38,7 @@ public class RockSpawner : MonoBehaviour
         }
     }
 
-    // 敵を生成する関数
+    /// @brief 敵を生成する関数
     private void RockSpawn()
     {
         //現在の落石のスポーン数を超えたら処理を抜ける

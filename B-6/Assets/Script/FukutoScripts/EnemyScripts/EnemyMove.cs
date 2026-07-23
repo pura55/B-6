@@ -1,6 +1,11 @@
 
 using UnityEngine;
 
+/// <summary>
+/// エネミームーブ
+/// 
+/// 敵の移動処理を行うクラス
+/// </summary>
 public class EnemyMove : MonoBehaviour
 {
 
@@ -51,7 +56,7 @@ public class EnemyMove : MonoBehaviour
 
     }
 
-    // タワーに近づく処理を行う関数
+    /// @brief タワーに近づく処理を行う関数
     private void AttachTower()
     {
         // 割合計算で座標を移動させるため減速処理が入る
@@ -70,7 +75,7 @@ public class EnemyMove : MonoBehaviour
         );
     }
 
-    // 一定距離に近づいたか確認する関数
+    /// @brief 一定距離に近づいたか確認する関数
     private void CheckAttaced()
     {
         if (Vector2.Distance(transform.position, targetTower.position) < 1f)
@@ -80,7 +85,7 @@ public class EnemyMove : MonoBehaviour
         }
     }
 
-    // 壁があるか判定する関数
+    /// @brief 壁があるか判定する関数
     private void CheckIsWall()
     {
         //Wallのレイヤーを取得
@@ -106,7 +111,7 @@ public class EnemyMove : MonoBehaviour
         }
     }
 
-    // 座標によってよける向きや速度を決める関数
+    /// @brief 座標によってよける向きや速度を決める関数
     private void DecideAvoidVelocity(Vector3 point)
     {
         // 距離の差分
@@ -150,7 +155,7 @@ public class EnemyMove : MonoBehaviour
         obstructedWall = true;
     }
 
-    // ターゲットのタワーを設定する関数
+    /// @brief ターゲットのタワーを設定する関数
     public void SetTargetTower(Transform tower)
     {
         targetTower = tower;
