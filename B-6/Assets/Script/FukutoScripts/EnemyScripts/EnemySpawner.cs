@@ -12,7 +12,7 @@ public class EnemySpawner : MonoBehaviour
     private int spawnCounter = 0;        // スポーンを数える変数
     private const float spawnZ = 0f;     // z軸のスポーン座標
     private float firstWaitTime = 3f;    // ゲームスタートの待機時間
-    private float spawnInterval = 5f;    // スポーンのインターバル
+    private float spawnInterval = 10f;    // スポーンのインターバル
     #endregion
 
     #region State
