@@ -2958,6 +2958,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3311234406434560071, guid: 851aed0350ab2b94d96c95d28d30b9b3, type: 3}
+      propertyPath: enemyProgressData
+      value: 
+      objectReference: {fileID: 11400000, guid: f1c5fd27d3e475c429457ece67e5af9d, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
