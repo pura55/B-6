@@ -43,6 +43,9 @@ public class NomalMove : BaseEnemyMove
     protected override void InitValue()
     {
         moveState = EnemyMoveState.attaching;
+        // 設定速度にデータから取得したスピードを格納
+        settingSpeed = enemyProgressData.GetFloatStat(enemyID, speedStatName);
+        followSpeed = settingSpeed;
         currentTarget = targetTower;
     }
 }

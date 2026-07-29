@@ -15,15 +15,19 @@ public abstract class BaseEnemyMove : MonoBehaviour
 
     #region Config
     protected float followSpeed = 1f; // 追従速度
+    protected float settingSpeed = 1f; // 後から変えられる変数型定数
+    [SerializeField] protected int enemyID; // 敵のID
     #endregion
 
     #region State
-    protected EnemyMoveState moveState = EnemyMoveState.attaching; // 敵の移動ステート
-    protected bool isAttached = false;                             // 近づいているかどうかのフラグ 
-    protected Vector3 avoidVelocity = new Vector3(0f, 0f, 0f);     // 避ける速度
-    protected bool obstructedWall = false;                         // 壁に遮られているかどうか
-    protected Transform currentTarget;                             // 現在のターゲット
-    [SerializeField] protected Transform targetTower;              // ターゲットのタワー
+    protected EnemyMoveState moveState = EnemyMoveState.attaching;  // 敵の移動ステート
+    protected bool isAttached = false;                              // 近づいているかどうかのフラグ 
+    protected Vector3 avoidVelocity = new Vector3(0f, 0f, 0f);      // 避ける速度
+    protected bool obstructedWall = false;                          // 壁に遮られているかどうか
+    protected Transform currentTarget;                              // 現在のターゲット
+    protected const string speedStatName = "SPEED";
+    [SerializeField] protected Transform targetTower;               // ターゲットのタワー
+    [SerializeField] protected EnemyProgressData enemyProgressData; // 敵のデータ
     #endregion
 
     /// @brief 移動を管理する関数 (子で上書き） 
@@ -35,6 +39,7 @@ public abstract class BaseEnemyMove : MonoBehaviour
     /// @brief ターゲットへの接近処理を行う関数
     protected void AttachTower()
     {
+        Debug.Log(followSpeed);
         // 一定の速さで移動させる
         transform.position = Vector3.MoveTowards(
             transform.position,
@@ -80,7 +85,7 @@ public abstract class BaseEnemyMove : MonoBehaviour
         else
         {
             obstructedWall = false;
-            followSpeed = 1f;
+            followSpeed = settingSpeed;
         }
     }
 

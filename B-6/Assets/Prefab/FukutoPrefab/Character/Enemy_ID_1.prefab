@@ -233,4 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073edbe8d4c3a8b4ba155112155c80a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NomalMove
+  followSpeed: 1
+  enemyID: 1
   targetTower: {fileID: 0}
+  enemyProgressData: {fileID: 11400000, guid: f1c5fd27d3e475c429457ece67e5af9d, type: 2}

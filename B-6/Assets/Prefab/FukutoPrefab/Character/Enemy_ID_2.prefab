@@ -208,7 +208,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8290e8768a5ec3241b55a9a3d6c4c2a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AggressiveMove
+  enemyID: 2
   targetTower: {fileID: 0}
+  enemyProgressData: {fileID: 11400000, guid: f1c5fd27d3e475c429457ece67e5af9d, type: 2}
   searchDistance: 15
   targetPlayer: {fileID: 0}
 --- !u!114 &-5910053777904288716
