@@ -73,7 +73,7 @@ public class EnemySpawner : MonoBehaviour
             GameObject spawnedEnemy = Instantiate(enemyToSpawn, spawnPosition, Quaternion.identity);
 
             // 敵のスクリプトの参照を取得
-            EnemyMove enemyScript = spawnedEnemy.GetComponent<EnemyMove>();
+            NomalMove enemyScript = spawnedEnemy.GetComponent<NomalMove>();
 
             //敵にタワーのオブジェクトの参照を渡す
             if (enemyScript != null)
