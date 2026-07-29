@@ -1,85 +1,188 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 public class PlayerAttack : MonoBehaviour
 {
-
-    [Header("攻撃パラメーター")]
+    [Header("攻撃")]
     [SerializeField] private int Attack = 1;
-    public float attackRange = 2.5f; //薙ぎ払いの届く距離
-    [Range(0, 360)]
-    public float attackAngle = 120f; //薙ぎ払いの角度
 
-    public LayerMask enemyLayer;    //敵のレイヤー（設定用）
+    [SerializeField] private float attackRange = 2.5f;
+
+    [Range(0, 360)]
+    [SerializeField] private float attackAngle = 120f;
+
+    [SerializeField] private float attackTime = 0.3f;
+
+
+    [Header("レイヤー")]
+    public LayerMask enemyLayer;
     public LayerMask wallLayer;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
 
-    }
+    private bool isAttacking;
+    private float attackTimer;
 
-    // Update is called once per frame
+    private Vector2 attackDirection;
+    private float startAngle;
+    private float currentAngle;
+
+
+    // 攻撃済み管理
+    private HashSet<EnemyDamaged> hitEnemies = new HashSet<EnemyDamaged>();
+
+
+
     void Update()
     {
-        // マウス右クリック、またはSpaceキーで攻撃を実行
-        if ((Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame))
+        if (Mouse.current != null &&
+            Mouse.current.leftButton.wasPressedThisFrame &&
+            !isAttacking)
         {
-            Debug.Log($"<color=green>【通常攻撃】</color>をした");
-            PerformSwipeAttack();
+            StartAttack();
         }
 
+
+        if (isAttacking)
+        {
+            AttackMove();
+        }
     }
 
-    void PerformSwipeAttack()
+
+
+    void StartAttack()
     {
-        // マウスの位置をワールド座標に変換
-        Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        Debug.Log("【通常攻撃開始】");
+
+
+        Vector3 mouseWorld =
+            Camera.main.ScreenToWorldPoint(
+                Mouse.current.position.ReadValue());
+
         mouseWorld.z = 0;
 
-        // プレイヤーからマウスへの方向
-        Vector2 attackDirection = (mouseWorld - transform.position).normalized;
 
-        transform.right = attackDirection;
+        attackDirection =
+            (mouseWorld - transform.position).normalized;
 
-        // プレイヤーの周りの円形範囲にいるオブジェクトをすべて検知
-        Collider2D[] targetsInMinimalRange = Physics2D.OverlapCircleAll(transform.position, attackRange, enemyLayer);
 
-        foreach (var target in targetsInMinimalRange)
-        {
-            Vector2 directionToTarget =
-                (target.transform.position - transform.position).normalized;
+        // 攻撃開始角度
+        startAngle =
+            Mathf.Atan2(
+                attackDirection.y,
+                attackDirection.x)
+            * Mathf.Rad2Deg
+            - attackAngle / 2;
 
-            // 攻撃範囲（扇形）チェック
-            float angleToTarget = Vector2.Angle(attackDirection, directionToTarget);
 
-            if (angleToTarget >= attackAngle / 2f)
-            {
-                continue;
-            }
+        currentAngle = startAngle;
 
-            // 壁チェック
-            RaycastHit2D wallHit = Physics2D.Raycast(
+
+        attackTimer = 0;
+
+        hitEnemies.Clear();
+
+        isAttacking = true;
+    }
+
+
+
+    void AttackMove()
+    {
+        attackTimer += Time.deltaTime;
+
+
+        float progress =
+            attackTimer / attackTime;
+
+
+        currentAngle =
+            Mathf.Lerp(
+                startAngle,
+                startAngle + attackAngle,
+                progress);
+
+
+
+        Vector2 swordDirection =
+            new Vector2(
+                Mathf.Cos(currentAngle * Mathf.Deg2Rad),
+                Mathf.Sin(currentAngle * Mathf.Deg2Rad));
+
+
+
+        // 壁チェック
+        RaycastHit2D wall =
+            Physics2D.Raycast(
                 transform.position,
-                directionToTarget,
-                Vector2.Distance(transform.position, target.transform.position),
+                swordDirection,
+                attackRange,
                 wallLayer);
 
-            if (wallHit.collider != null)
-            {
-                Debug.Log("壁に遮られた");
-                continue;
-            }
 
-            Debug.Log($"<color=red>【ヒット！】</color> {target.name} に攻撃！");
-
-            EnemyDamaged enemy = target.GetComponent<EnemyDamaged>();
-
-            if (enemy != null)
-            {
-                enemy.ReceiveDamage(Attack);
-            }
+        if (wall.collider != null)
+        {
+            Debug.Log("壁に当たって攻撃中断");
+            EndAttack();
+            return;
         }
 
+
+
+        // 剣の位置で判定
+        Vector2 attackPos =
+            (Vector2)transform.position
+            + swordDirection * attackRange;
+
+
+
+        Collider2D[] targets =
+            Physics2D.OverlapCircleAll(
+                attackPos,
+                0.5f,
+                enemyLayer);
+
+
+
+        foreach (Collider2D target in targets)
+        {
+            EnemyDamaged enemy =
+                target.GetComponent<EnemyDamaged>();
+
+
+            if (enemy == null)
+                continue;
+
+
+            if (hitEnemies.Contains(enemy))
+                continue;
+
+
+
+            hitEnemies.Add(enemy);
+
+
+            Debug.Log(
+                $"【ヒット】{target.name}");
+
+
+            enemy.ReceiveDamage(Attack);
+        }
+
+
+
+        if (progress >= 1)
+        {
+            EndAttack();
+        }
+    }
+
+
+
+    void EndAttack()
+    {
+        isAttacking = false;
+        Debug.Log("【通常攻撃終了】");
     }
 }
