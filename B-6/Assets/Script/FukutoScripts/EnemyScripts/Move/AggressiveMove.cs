@@ -8,6 +8,10 @@ using UnityEngine;
 /// </summary>
 public class AggressiveMove : BaseEnemyMove
 {
+    #region Config
+    [SerializeField] private float searchDistance = 10f; // 探索距離
+    #endregion
+
     #region State
     [SerializeField] private Transform targetPlayer; // ターゲットのプレイヤー
     #endregion
@@ -52,6 +56,9 @@ public class AggressiveMove : BaseEnemyMove
     /// @brief ターゲットを切り替える処理を行う関数
     private void ConvertTarget()
     {
+        // プレイヤーを探す
+        targetPlayer = FindPlayerWithinRange(searchDistance);
+
         if (targetPlayer != null)
         {
             currentTarget = targetPlayer;
@@ -60,6 +67,30 @@ public class AggressiveMove : BaseEnemyMove
         {
             currentTarget = targetTower;
         }
+    }
+
+    /// @brief プレイヤーを探索してトランスフォームを返す関数
+    private Transform FindPlayerWithinRange(float range)
+    {
+        // プレイヤーのオブジェクトの参照を取得
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        Transform p_transform = null;
+
+        // プレイヤーが見つからない場合はnullを返す
+        if (player == null) return p_transform;
+
+        // 敵とプレイヤーの距離を算出
+        float dist = Vector2.Distance(transform.position, player.transform.position);
+
+        // 距離が索敵範囲よりも小さい場合
+        if (dist < range)
+        {
+            // プレイヤーのトランスフォームを格納
+            p_transform = player.transform;
+        }
+
+        // トランスフォームを返す
+        return p_transform;
     }
 
     /// @brief ターゲットのプレイヤーを設定する関数

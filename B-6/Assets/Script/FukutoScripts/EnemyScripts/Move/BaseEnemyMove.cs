@@ -51,6 +51,11 @@ public abstract class BaseEnemyMove : MonoBehaviour
             isAttached = true;
             moveState = EnemyMoveState.idle;
         }
+        else
+        {
+            isAttached = false;
+            moveState = EnemyMoveState.attaching;
+        }
     }
 
     /// @brief •Ç‚ª‚ ‚é‚©”»’è‚·‚éŠÖ”
