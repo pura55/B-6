@@ -15,8 +15,9 @@ GameObject:
   - component: {fileID: 3824464598173647377}
   - component: {fileID: 8382550772505638371}
   - component: {fileID: 3775506764996155951}
+  - component: {fileID: -1039996338913881964}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Enemy_ID_1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86,7 +87,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -5603193532150107634, guid: 173338cd9c3d38641873ee2078b4fa99, type: 3}
+  m_Sprite: {fileID: -4795363162621231457, guid: 1f559783e85ee6d4cab01f93fd6c614a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -220,3 +221,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DropExp
   expFromDrop: {fileID: 3843828942345597724, guid: c61d0f7da4b675e40a843888303feca3, type: 3}
+--- !u!114 &-1039996338913881964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6449213048604919684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073edbe8d4c3a8b4ba155112155c80a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NomalMove
+  followSpeed: 1
+  enemyID: 1
+  targetTower: {fileID: 0}
+  enemyProgressData: {fileID: 11400000, guid: f1c5fd27d3e475c429457ece67e5af9d, type: 2}

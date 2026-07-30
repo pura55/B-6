@@ -1,68 +1,45 @@
-using System;
 using UnityEngine;
 
 /// <summary>
-/// アグレッシブエネミームーブ
+/// ベースエネミームーブ
 /// 
-/// 攻撃的な敵の移動処理を行うクラス
+/// 敵の移動処理を行う基底クラス
 /// </summary>
-public class AggressiveEnemyMove : MonoBehaviour
+public abstract class BaseEnemyMove : MonoBehaviour
 {
-    enum AggressiveEnemyState
+    protected enum EnemyMoveState
     {
-        idle,     // idle
-        attaching // 接近  
+        idle,      // idle
+        attaching  // 接近
     }
 
     #region Config
-    private float followSpeed = 1f; // 追従速度
+    protected float followSpeed = 1f; // 追従速度
+    protected float settingSpeed = 1f; // 後から変えられる変数型定数
+    [SerializeField] protected int enemyID; // 敵のID
     #endregion
 
     #region State
-    [SerializeField] private Transform targetTower;  // ターゲットのタワー
-    [SerializeField] private Transform targetPlayer; // ターゲットのプレイヤー
-    private Transform currentTarget;                 // 現在のターゲット
-    private AggressiveEnemyState moveState = AggressiveEnemyState.attaching; // 敵の移動ステート
-    private bool isAttached = false;                             // 近づいているかどうかのフラグ 
-    private Vector3 avoidVelocity = new Vector3(0f, 0f, 0f);     // 避ける速度
-    private bool hitWall = false; // 直線上に壁があるかどうかのフラグ（true:ある, false:ない）
+    protected EnemyMoveState moveState = EnemyMoveState.attaching;  // 敵の移動ステート
+    protected bool isAttached = false;                              // 近づいているかどうかのフラグ 
+    protected Vector3 avoidVelocity = new Vector3(0f, 0f, 0f);      // 避ける速度
+    protected bool obstructedWall = false;                          // 壁に遮られているかどうか
+    protected Transform currentTarget;                              // 現在のターゲット
+    protected const string speedStatName = "SPEED";
+    [SerializeField] protected Transform targetTower;               // ターゲットのタワー
+    [SerializeField] protected EnemyProgressData enemyProgressData; // 敵のデータ
     #endregion
 
-    void Start()
+    /// @brief 移動を管理する関数 (子で上書き） 
+    protected abstract void ManageMoving();
+
+    /// @brief 変数を初期化する関数（子で上書き）
+    protected abstract void InitValue();
+
+    /// @brief ターゲットへの接近処理を行う関数
+    protected void AttachTower()
     {
-    }
-
-    void Update()
-    {
-        ConvertTarget();
-
-        switch (moveState)
-        {
-            case AggressiveEnemyState.idle:
-                CheckAttaced();
-                break;
-            case AggressiveEnemyState.attaching:
-                if (!isAttached)
-                {
-                    AttachTower();
-                    CheckAttaced();
-                    CheckIsWall();
-                }
-                break;
-        }
-    }
-
-    /// @brief タワーに近づく処理を行う関数
-    private void AttachTower()
-    {
-        // 割合計算で座標を移動させるため減速処理が入る
-        // 使用するかもしれないのでコメントアウトしておく
-        //transform.position = Vector3.Lerp(
-        //                transform.position,
-        //                targetTower.position,
-        //                followSpeed * Time.deltaTime
-        //);
-
+        Debug.Log(followSpeed);
         // 一定の速さで移動させる
         transform.position = Vector3.MoveTowards(
             transform.position,
@@ -71,35 +48,23 @@ public class AggressiveEnemyMove : MonoBehaviour
         );
     }
 
-    private void ConvertTarget()
-    {
-        if (targetPlayer != null)
-        {
-            currentTarget = targetPlayer;
-        }
-        else
-        {
-            currentTarget = targetTower;
-        }
-    }
-
     /// @brief 一定距離に近づいたか確認する関数
-    private void CheckAttaced()
+    protected void CheckAttaced()
     {
         if (Vector2.Distance(transform.position, currentTarget.position) < 1f)
         {
             isAttached = true;
-            moveState = AggressiveEnemyState.idle;
+            moveState = EnemyMoveState.idle;
         }
-        else 
+        else
         {
             isAttached = false;
-            moveState = AggressiveEnemyState.attaching;
+            moveState = EnemyMoveState.attaching;
         }
     }
 
     /// @brief 壁があるか判定する関数
-    private void CheckIsWall()
+    protected void CheckIsWall()
     {
         //Wallのレイヤーを取得
         int wallLayerMask = LayerMask.GetMask("Wall");
@@ -110,7 +75,7 @@ public class AggressiveEnemyMove : MonoBehaviour
         // もし壁に遮られていたら、横に移動
         if (hit.collider != null)
         {
-            if (!hitWall)
+            if (!obstructedWall)
             {
                 DecideAvoidVelocity(hit.point);
             }
@@ -119,13 +84,13 @@ public class AggressiveEnemyMove : MonoBehaviour
         }
         else
         {
-            hitWall = false;
-            followSpeed = 1f;
+            obstructedWall = false;
+            followSpeed = settingSpeed;
         }
     }
 
     /// @brief 座標によってよける向きや速度を決める関数
-    private void DecideAvoidVelocity(Vector3 point)
+    protected void DecideAvoidVelocity(Vector3 point)
     {
         // 距離の差分
         Vector3 diffDistance = point - transform.position;
@@ -165,18 +130,12 @@ public class AggressiveEnemyMove : MonoBehaviour
         // 決めた値を代入
         avoidVelocity = new Vector3(avoidVelocityX, avoidVelocityY, 0f);
 
-        hitWall = true;
+        obstructedWall = true;
     }
 
     /// @brief ターゲットのタワーを設定する関数
     public void SetTargetTower(Transform tower)
     {
         targetTower = tower;
-    }
-
-    /// @brief ターゲットのプレイヤーを設定する関数
-    public void SetTargetPlayer(Transform player)
-    {
-        targetPlayer = player;
     }
 }
