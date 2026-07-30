@@ -47,5 +47,4 @@ MonoBehaviour:
   playerMasterData:
     players: []
   playerProgressData: {fileID: 11400000, guid: 21bc494655974a942b8c7c1b843e8755, type: 2}
-  enemyMasterData:
-    enemies: []
+  enemyProgressData: {fileID: 11400000, guid: f1c5fd27d3e475c429457ece67e5af9d, type: 2}

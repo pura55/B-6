@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcf29943860fdb7498d23142ac5f5e44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DropExp
-  expFromDrop: {fileID: 3843828942345597724, guid: c61d0f7da4b675e40a843888303feca3, type: 3}
+  expFromDrop: {fileID: 2135534983200611327, guid: df0a85e49373332449ac75a63cbecaf6, type: 3}
 --- !u!114 &-1039996338913881964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,7 +233,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073edbe8d4c3a8b4ba155112155c80a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NomalMove
-  followSpeed: 1
   enemyID: 1
   targetTower: {fileID: 0}
   enemyProgressData: {fileID: 11400000, guid: f1c5fd27d3e475c429457ece67e5af9d, type: 2}
