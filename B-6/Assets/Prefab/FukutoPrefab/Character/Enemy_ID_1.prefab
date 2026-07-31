@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: -3358957461815985599}
   - component: {fileID: -8680997276839637429}
   - component: {fileID: 3824464598173647377}
+  - component: {fileID: -1039996338913881964}
+  - component: {fileID: 6547313668685307093}
   - component: {fileID: 8382550772505638371}
   - component: {fileID: 3775506764996155951}
-  - component: {fileID: -1039996338913881964}
   m_Layer: 0
   m_Name: Enemy_ID_1
   m_TagString: Enemy
@@ -197,6 +198,35 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-1039996338913881964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6449213048604919684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073edbe8d4c3a8b4ba155112155c80a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NomalMove
+  enemyID: 1
+  targetTower: {fileID: 0}
+  enemyProgressData: {fileID: 11400000, guid: f1c5fd27d3e475c429457ece67e5af9d, type: 2}
+--- !u!114 &6547313668685307093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6449213048604919684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 927994e84194f8146a088bf6a3efc16f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShortDistanceAttack
+  enemyID: 1
+  enemyProgressData: {fileID: 11400000, guid: f1c5fd27d3e475c429457ece67e5af9d, type: 2}
 --- !u!114 &8382550772505638371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,21 +252,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DropExp
   expFromDrop: {fileID: 2135534983200611327, guid: df0a85e49373332449ac75a63cbecaf6, type: 3}
---- !u!114 &-1039996338913881964
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6449213048604919684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 073edbe8d4c3a8b4ba155112155c80a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NomalMove
-  enemyID: 1
-  targetTower: {fileID: 0}
-  enemyProgressData: {fileID: 11400000, guid: f1c5fd27d3e475c429457ece67e5af9d, type: 2}
 --- !u!1001 &8912553558857769182
 PrefabInstance:
   m_ObjectHideFlags: 0

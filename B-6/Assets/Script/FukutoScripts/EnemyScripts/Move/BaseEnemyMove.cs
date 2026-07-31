@@ -9,7 +9,7 @@ public abstract class BaseEnemyMove : MonoBehaviour
 {
     protected enum EnemyMoveState
     {
-        idle,      // idle
+        idle,      // 待機
         attaching  // 接近
     }
 
@@ -26,7 +26,7 @@ public abstract class BaseEnemyMove : MonoBehaviour
     protected Vector3 movementPerFrame = Vector3.zero;              // フレーム毎の移動量
     protected bool obstructedWall = false;                          // 壁に遮られているかどうか
     protected Transform currentTarget;                              // 現在のターゲット
-    protected const string speedStatName = "SPEED";
+    protected const string speedStatName = "SPEED";                 // ステータスの名前
     [SerializeField] protected Transform targetTower;               // ターゲットのタワー
     [SerializeField] protected EnemyProgressData enemyProgressData; // 敵のデータ
     #endregion

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6750995072437438155}
   - component: {fileID: 3824464598173647377}
   - component: {fileID: -7290046836200537275}
+  - component: {fileID: 4414791695640219721}
   - component: {fileID: -5910053777904288716}
   - component: {fileID: -8737387044889284480}
   m_Layer: 0
@@ -211,6 +212,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NomalMove
   enemyID: 2
   targetTower: {fileID: 0}
+  enemyProgressData: {fileID: 11400000, guid: f1c5fd27d3e475c429457ece67e5af9d, type: 2}
+--- !u!114 &4414791695640219721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6449213048604919684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 927994e84194f8146a088bf6a3efc16f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShortDistanceAttack
+  enemyID: 2
   enemyProgressData: {fileID: 11400000, guid: f1c5fd27d3e475c429457ece67e5af9d, type: 2}
 --- !u!114 &-5910053777904288716
 MonoBehaviour:
