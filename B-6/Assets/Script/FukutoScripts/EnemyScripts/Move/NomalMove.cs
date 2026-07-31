@@ -31,7 +31,7 @@ public class NomalMove : BaseEnemyMove
             case EnemyMoveState.attaching:
                 if (!isAttached)
                 {
-                    AttachTower();
+                    AttachTarget();
                     CheckAttaced();
                     CheckIsWall();
                 }

@@ -22,7 +22,8 @@ public abstract class BaseEnemyMove : MonoBehaviour
     #region State
     protected EnemyMoveState moveState = EnemyMoveState.attaching;  // 敵の移動ステート
     protected bool isAttached = false;                              // 近づいているかどうかのフラグ 
-    protected Vector3 avoidVelocity = new Vector3(0f, 0f, 0f);      // 避ける速度
+    protected Vector3 avoidVelocity = Vector3.zero;                 // 避ける速度
+    protected Vector3 movementPerFrame = Vector3.zero;              // フレーム毎の移動量
     protected bool obstructedWall = false;                          // 壁に遮られているかどうか
     protected Transform currentTarget;                              // 現在のターゲット
     protected const string speedStatName = "SPEED";
@@ -37,15 +38,18 @@ public abstract class BaseEnemyMove : MonoBehaviour
     protected abstract void InitValue();
 
     /// @brief ターゲットへの接近処理を行う関数
-    protected void AttachTower()
+    protected void AttachTarget()
     {
         Debug.Log(followSpeed);
+
+        // ターゲットがnullの場合処理を行わない
+        if (currentTarget == null) return;
+
+        // 移動処理を行う前にフレームごとの移動量を取得
+        movementPerFrame = MovementAmount() - transform.position;
+
         // 一定の速さで移動させる
-        transform.position = Vector3.MoveTowards(
-            transform.position,
-            currentTarget.position,
-            followSpeed * Time.deltaTime
-        );
+        transform.position = MovementAmount();
     }
 
     /// @brief 一定距離に近づいたか確認する関数
@@ -131,6 +135,18 @@ public abstract class BaseEnemyMove : MonoBehaviour
         avoidVelocity = new Vector3(avoidVelocityX, avoidVelocityY, 0f);
 
         obstructedWall = true;
+    }
+
+    /// @brief 移動量を返す関数
+    protected Vector3 MovementAmount()
+    {
+        return Vector3.MoveTowards(transform.position, currentTarget.position, followSpeed * Time.deltaTime); 
+    }
+
+    /// @brief フレーム毎の移動量を返す関数
+    public Vector3 GetMovementPerFrame()
+    {
+        return movementPerFrame;
     }
 
     /// @brief ターゲットのタワーを設定する関数

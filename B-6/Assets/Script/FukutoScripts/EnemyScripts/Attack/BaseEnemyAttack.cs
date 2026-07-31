@@ -22,7 +22,7 @@ public abstract class BaseEnemyAttack : MonoBehaviour
     /// @brief インターバルを消費する関数
     protected void CompleteInterval()
     {
-        // インターバルを消費しきっいない場合、recast時間を追加
+        // インターバルを消費しきっていない場合、recast時間を追加
         if (currentRecastInterval < recastInterval)
         {
             currentRecastInterval += Time.deltaTime;

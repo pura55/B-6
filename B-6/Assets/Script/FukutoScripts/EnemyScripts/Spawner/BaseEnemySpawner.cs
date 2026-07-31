@@ -70,7 +70,7 @@ public abstract class BaseEnemySpawner : MonoBehaviour
     /// @brief ターゲットの参照を渡す関数
     protected abstract void PassTargetReference(GameObject spawnedEnemy);
 
-    void OnDrawGizmosSelected()
+    protected void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireCube(transform.position, spawnRange);

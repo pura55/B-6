@@ -39,7 +39,7 @@ public class AggressiveMove : BaseEnemyMove
             case EnemyMoveState.attaching:
                 if (!isAttached)
                 {
-                    AttachTower();
+                    AttachTarget();
                     CheckAttaced();
                     CheckIsWall();
                 }
