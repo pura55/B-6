@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// プレイヤープログレスデータ
+/// エネミープログレスデータ
 /// 
-/// プレイヤーの進捗データを格納するクラス
+/// 敵の進捗データを格納するクラス
 /// </summary>
 [CreateAssetMenu(menuName = "Enemy_Scriptable")]
 public class EnemyProgressData : ScriptableObject
@@ -23,7 +23,7 @@ public class EnemyProgressData : ScriptableObject
     // エネミーのデータをリスト化する変数
     public List<Entity> enemies;
 
-    /// @brief 整数型のステータスを取得する関数関数
+    /// @brief 整数型のステータスを取得する関数
     /// @param id: 敵のID
     /// @param statName: ステータス名
     public int GetIntStat(int id, string statName)
@@ -54,7 +54,7 @@ public class EnemyProgressData : ScriptableObject
         return 0; // 値が返されなかった場合0を返す
     }
 
-    /// @brief 浮動小数点数型のステータスを取得する関数関数
+    /// @brief 浮動小数点数型のステータスを取得する関数
     /// @param id: 敵のID
     /// @param statName: ステータス名
     public float GetFloatStat(int id, string statName)
@@ -62,7 +62,7 @@ public class EnemyProgressData : ScriptableObject
         // 敵のデータからステータスを探す
         foreach (Entity entity in enemies)
         {
-            Debug.Log("データ検索中");
+            //Debug.Log("データ検索中");
             // IDが一致していない場合続行
             if (entity.id != id) continue;
 
@@ -75,10 +75,10 @@ public class EnemyProgressData : ScriptableObject
                 case "SKILL_CT":
                     return entity.skillCT;
                 case "SPEED":
-                    Debug.Log("スピードのデータを返します");
+                   // Debug.Log("スピードのデータを返します");
                     return entity.speed;
                 default:
-                    Debug.LogError("存在しない名前で検索をかけているか、誤字の可能性があります！");
+                    //Debug.LogError("存在しない名前で検索をかけているか、誤字の可能性があります！");
                     return 0; // ステータス名が存在しない場合0を返す
             }
         }
@@ -95,7 +95,7 @@ public class EnemyProgressData : ScriptableObject
 
         foreach (var entity in data.enemies)
         {
-            Debug.Log($"敵データコピー中");
+            //Debug.Log($"敵データコピー中");
 
             // 実体を作る
             Entity progressEntity = new Entity();

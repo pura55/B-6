@@ -1,121 +1,76 @@
 fileFormatVersion: 2
-guid: 50ff95c66e362334fbd8c7f568cb2e91
+guid: d3ca6a48b846cb1458c56e1973d06d10
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8864417648481279970
-    second: Attack_Atlas_0
+      213: 7441861488978599509
+    second: Attack2_0
   - first:
-      213: -7567237193644524970
-    second: Attack_Atlas_1
+      213: 8288915215451595207
+    second: Attack2_1
   - first:
-      213: -8118658315045746686
-    second: Attack_Atlas_2
+      213: 4668938655123782945
+    second: Attack2_2
   - first:
-      213: 6624933994748842884
-    second: Attack_Atlas_3
+      213: 5683539909772271658
+    second: Attack2_3
   - first:
-      213: 8864821960254507742
-    second: Attack_Atlas_4
+      213: 5764228812365489207
+    second: Attack2_4
   - first:
-      213: -1184667894552036232
-    second: Attack_Atlas_5
+      213: -1191510351576865934
+    second: Attack2_5
   - first:
-      213: -4036383499858773845
-    second: Attack_Atlas_6
+      213: -8937499057154260928
+    second: Attack2_6
   - first:
-      213: 4473411155364203074
-    second: Attack_Atlas_7
+      213: 5293088307283036655
+    second: Attack2_7
   - first:
-      213: 3652039337275193994
-    second: Attack_Atlas_8
+      213: 1817195990524489003
+    second: Attack2_8
   - first:
-      213: 7793528454132565503
-    second: Attack_Atlas_9
+      213: 9220252021294270350
+    second: Attack2_9
   - first:
-      213: 5170143299425054813
-    second: Attack_Atlas_10
+      213: 3493322121590164450
+    second: Attack2_10
   - first:
-      213: 1095808561437096826
-    second: Attack_Atlas_11
+      213: 1270503724755275024
+    second: Attack2_11
   - first:
-      213: -531636926430304880
-    second: Attack_Atlas_12
+      213: -6630625727208620370
+    second: Attack2_12
   - first:
-      213: -1462828001367639431
-    second: Attack_Atlas_13
+      213: 6597481699637694506
+    second: Attack2_13
   - first:
-      213: -2456440901532650797
-    second: Attack_Atlas_14
+      213: -2963747826654121326
+    second: Attack2_14
   - first:
-      213: -2567349310122650497
-    second: Attack_Atlas_15
+      213: 1001699015705876451
+    second: Attack2_15
   - first:
-      213: -8474961410246847801
-    second: Attack_Atlas_16
+      213: -380923670986178931
+    second: Attack2_16
   - first:
-      213: 5591209444787159525
-    second: Attack_Atlas_17
+      213: -5305258693565426061
+    second: Attack2_17
   - first:
-      213: -3860765630962610747
-    second: Attack_Atlas_18
+      213: 5515139265301771484
+    second: Attack2_18
   - first:
-      213: 6312999566352898334
-    second: Attack_Atlas_19
+      213: -1533618607347848689
+    second: Attack2_19
   - first:
-      213: 938690496089351280
-    second: Attack_Atlas_20
+      213: 736642909900040537
+    second: Attack2_20
   - first:
-      213: 254511793627270692
-    second: Attack_Atlas_21
+      213: -1464732610065572743
+    second: Attack2_21
   - first:
-      213: 6467448593866861236
-    second: Attack_Atlas_22
-  - first:
-      213: 6819017718435851590
-    second: Attack_Atlas_23
-  - first:
-      213: 7315328474865528062
-    second: Attack_Atlas_24
-  - first:
-      213: 5976498905966765621
-    second: Attack_Atlas_25
-  - first:
-      213: -7372093605231825852
-    second: Attack_Atlas_26
-  - first:
-      213: 1636564732057476773
-    second: Attack_Atlas_27
-  - first:
-      213: -2196937601570849723
-    second: Attack_Atlas_28
-  - first:
-      213: -3643176985775422616
-    second: Attack_Atlas_29
-  - first:
-      213: -8438363151131490483
-    second: Attack_Atlas_30
-  - first:
-      213: 1889188021583676867
-    second: Attack_Atlas_31
-  - first:
-      213: -710319592425424846
-    second: Attack_Atlas_32
-  - first:
-      213: -5726360849048661180
-    second: Attack_Atlas_33
-  - first:
-      213: -1681715200026836175
-    second: Attack_Atlas_34
-  - first:
-      213: 3618704673445704260
-    second: Attack_Atlas_35
-  - first:
-      213: 8668320619758976334
-    second: Attack_Atlas_36
-  - first:
-      213: 7372853816911537734
-    second: Attack_Atlas_37
+      213: 17666572562957988
+    second: Attack2_22
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -211,199 +166,177 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Attack_Atlas_0
+      name: Skill_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 140
-        height: 93
+        width: 250
+        height: 250
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: e10e1994d134bf480800000000000000
-      internalID: -8864417648481279970
+      spriteID: fe80896d650426644b17a2ed3b49b7f8
+      internalID: -321789006
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack_Atlas_1
+      name: Skill_1
       rect:
         serializedVersion: 2
-        x: 140
+        x: 250
         y: 0
-        width: 140
-        height: 93
+        width: 250
+        height: 250
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 65ab1b58dd5cbf690800000000000000
-      internalID: -7567237193644524970
+      spriteID: 59733f16df20a764d94a88cbaf5d2a54
+      internalID: 1136717463
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack_Atlas_2
+      name: Skill_2
       rect:
         serializedVersion: 2
-        x: 280
+        x: 500
         y: 0
-        width: 140
-        height: 93
+        width: 250
+        height: 250
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 2084de6e64bb45f80800000000000000
-      internalID: -8118658315045746686
+      spriteID: be6ea21b04466ba48b16bf0f377d1439
+      internalID: 1500137324
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack_Atlas_3
+      name: Skill_3
       rect:
         serializedVersion: 2
-        x: 420
+        x: 750
         y: 0
-        width: 140
-        height: 93
+        width: 250
+        height: 250
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 4831a692e5e70fb50800000000000000
-      internalID: 6624933994748842884
+      spriteID: d948e6274acd9024c863adb9ba694008
+      internalID: -271970406
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack_Atlas_4
+      name: Skill_4
       rect:
         serializedVersion: 2
-        x: 560
+        x: 1000
         y: 0
-        width: 140
-        height: 93
+        width: 250
+        height: 250
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: eda4d02ea9c260b70800000000000000
-      internalID: 8864821960254507742
+      spriteID: aae8cb62ce3165c41bdcee3c9e9e6ac0
+      internalID: -1078985486
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack_Atlas_5
+      name: Skill_5
       rect:
         serializedVersion: 2
-        x: 700
+        x: 1250
         y: 0
-        width: 140
-        height: 93
+        width: 250
+        height: 250
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 87c7a6893d63f8fe0800000000000000
-      internalID: -1184667894552036232
+      spriteID: 01ba498dd872c04478c9a089c1c2be23
+      internalID: 756813498
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack_Atlas_6
+      name: Skill_6
       rect:
         serializedVersion: 2
-        x: 840
+        x: 1500
         y: 0
-        width: 140
-        height: 93
+        width: 250
+        height: 250
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: ba87ba1b792ebf7c0800000000000000
-      internalID: -4036383499858773845
+      spriteID: a05b029dde8604b4b85104f52ce856f3
+      internalID: 2139668298
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack_Atlas_7
+      name: Skill_7
       rect:
         serializedVersion: 2
-        x: 980
+        x: 1750
         y: 0
-        width: 140
-        height: 93
+        width: 250
+        height: 250
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 24ac0c1aebfb41e30800000000000000
-      internalID: 4473411155364203074
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack_Atlas_8
-      rect:
-        serializedVersion: 2
-        x: 1120
-        y: 0
-        width: 140
-        height: 93
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a8a7a0c8d66aea230800000000000000
-      internalID: 3652039337275193994
+      spriteID: 27b1c98d6ef727648bba3957d6e08f13
+      internalID: -977169959
       vertices: []
       indices: 
       edges: []
@@ -412,7 +345,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 55e5ffee54ea5d24a911ad4b401a3ec0
+    spriteID: f491bc12aa10ede47b4674e9ca93d0f4
     internalID: 0
     vertices: []
     indices: 
@@ -422,17 +355,16 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":140.0,"y":93.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":250.0,"y":250.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Attack_Atlas_0: -8864417648481279970
-      Attack_Atlas_1: -7567237193644524970
-      Attack_Atlas_2: -8118658315045746686
-      Attack_Atlas_3: 6624933994748842884
-      Attack_Atlas_4: 8864821960254507742
-      Attack_Atlas_5: -1184667894552036232
-      Attack_Atlas_6: -4036383499858773845
-      Attack_Atlas_7: 4473411155364203074
-      Attack_Atlas_8: 3652039337275193994
+      Skill_0: -321789006
+      Skill_1: 1136717463
+      Skill_2: 1500137324
+      Skill_3: -271970406
+      Skill_4: -1078985486
+      Skill_5: 756813498
+      Skill_6: 2139668298
+      Skill_7: -977169959
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

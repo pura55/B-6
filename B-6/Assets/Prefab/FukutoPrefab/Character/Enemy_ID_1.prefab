@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 6547313668685307093}
   - component: {fileID: 8382550772505638371}
   - component: {fileID: 3775506764996155951}
+  - component: {fileID: 6496487315031941128}
   m_Layer: 0
   m_Name: Enemy_ID_1
   m_TagString: Enemy
@@ -252,6 +253,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DropExp
   expFromDrop: {fileID: 2135534983200611327, guid: df0a85e49373332449ac75a63cbecaf6, type: 3}
+--- !u!114 &6496487315031941128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6449213048604919684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bb73cd3e75c19341aa577348aa05881, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NomalAnimation
+  enemyId: 1
+  framePerSprite: 15
+  spriteRenderer: {fileID: 8179636804621964485}
+  enemySpriteData: {fileID: 11400000, guid: 0ae569640c76edb4ab60e7dd549c57a5, type: 2}
 --- !u!1001 &8912553558857769182
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,19 +1,58 @@
 fileFormatVersion: 2
-guid: 60d374531be4e2a4899cd9053c15edc9
+guid: c1d3cde52e4478449ad7030ed984c9ce
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4781608566269947356
-    second: Take_Atlas_0
+      213: -3218558162422763725
+    second: Skill_Atlas_0
   - first:
-      213: -8926779984557003552
-    second: Take_Atlas_1
+      213: -5673981744965032705
+    second: Skill_Atlas_1
   - first:
-      213: 6038785509177251194
-    second: Take_Atlas_2
+      213: 5658718552749437210
+    second: Skill_Atlas_2
   - first:
-      213: 5910146328526955732
-    second: Take_Atlas_3
+      213: 1977857445218346156
+    second: Skill_Atlas_3
+  - first:
+      213: 1340914320653975904
+    second: Skill_Atlas_4
+  - first:
+      213: 8842538117353703762
+    second: Skill_Atlas_5
+  - first:
+      213: 4401596251452343848
+    second: Skill_Atlas_6
+  - first:
+      213: -3564108739514976198
+    second: Skill_Atlas_7
+  - first:
+      213: -9050436320476133374
+    second: Skill_Atlas_8
+  - first:
+      213: 2239420970563518586
+    second: Skill_Atlas_9
+  - first:
+      213: -8170987746584525448
+    second: Skill_Atlas_10
+  - first:
+      213: 3692475285192508526
+    second: Skill_Atlas_11
+  - first:
+      213: 6728181889865359789
+    second: Skill_Atlas_12
+  - first:
+      213: 5931686011671450027
+    second: Skill_Atlas_13
+  - first:
+      213: 6263224075747638705
+    second: Skill_Atlas_14
+  - first:
+      213: 1164307397351118400
+    second: Skill_Atlas_15
+  - first:
+      213: -1390633372641930349
+    second: Skill_Atlas_16
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,7 +148,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Take_Atlas_0
+      name: Skill_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +163,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 422d380d75054adb0800000000000000
-      internalID: -4781608566269947356
+      spriteID: 33f6bd767626553d0800000000000000
+      internalID: -3218558162422763725
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Take_Atlas_1
+      name: Skill_1
       rect:
         serializedVersion: 2
         x: 140
@@ -146,14 +185,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0eca96076e4bd1480800000000000000
-      internalID: -8926779984557003552
+      spriteID: ff4ee4d3aa7f141b0800000000000000
+      internalID: -5673981744965032705
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Take_Atlas_2
+      name: Skill_2
       rect:
         serializedVersion: 2
         x: 280
@@ -168,14 +207,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a75594dfc631ec350800000000000000
-      internalID: 6038785509177251194
+      spriteID: a11fa84ea8ec78e40800000000000000
+      internalID: 5658718552749437210
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Take_Atlas_3
+      name: Skill_3
       rect:
         serializedVersion: 2
         x: 420
@@ -190,8 +229,118 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4d4ad62c5ce050250800000000000000
-      internalID: 5910146328526955732
+      spriteID: ca4e9960ed2c27b10800000000000000
+      internalID: 1977857445218346156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skill_4
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 0
+        width: 140
+        height: 93
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06180dc5872eb9210800000000000000
+      internalID: 1340914320653975904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skill_5
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 0
+        width: 140
+        height: 93
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25908b5619107ba70800000000000000
+      internalID: 8842538117353703762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skill_6
+      rect:
+        serializedVersion: 2
+        x: 841
+        y: 0
+        width: 140
+        height: 93
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8260284587c951d30800000000000000
+      internalID: 4401596251452343848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skill_7
+      rect:
+        serializedVersion: 2
+        x: 981
+        y: 0
+        width: 140
+        height: 93
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3838502cfdb98ec0800000000000000
+      internalID: -3564108739514976198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skill_8
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 0
+        width: 140
+        height: 93
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2080ab72e14666280800000000000000
+      internalID: -9050436320476133374
       vertices: []
       indices: 
       edges: []
@@ -200,7 +349,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 9e9c44c6c16dd524283a832887935517
+    spriteID: a1a425e58aed2824c8cea18a0aaf698f
     internalID: 0
     vertices: []
     indices: 
@@ -212,10 +361,15 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":140.0,"y":93.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Take_Atlas_0: -4781608566269947356
-      Take_Atlas_1: -8926779984557003552
-      Take_Atlas_2: 6038785509177251194
-      Take_Atlas_3: 5910146328526955732
+      Skill_0: -3218558162422763725
+      Skill_1: -5673981744965032705
+      Skill_2: 5658718552749437210
+      Skill_3: 1977857445218346156
+      Skill_4: 1340914320653975904
+      Skill_5: 8842538117353703762
+      Skill_6: 4401596251452343848
+      Skill_7: -3564108739514976198
+      Skill_8: -9050436320476133374
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

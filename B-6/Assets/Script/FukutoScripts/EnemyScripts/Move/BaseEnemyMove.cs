@@ -40,7 +40,7 @@ public abstract class BaseEnemyMove : MonoBehaviour
     /// @brief ターゲットへの接近処理を行う関数
     protected void AttachTarget()
     {
-        Debug.Log(followSpeed);
+        //Debug.Log(followSpeed);
 
         // ターゲットがnullの場合処理を行わない
         if (currentTarget == null) return;

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 /// 
 /// 敵のスプライトの骨格のクラス
 /// </summary>
-
+[Serializable]
 public class EnemyMasterSprite
 {
     /// <summary>

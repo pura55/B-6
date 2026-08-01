@@ -1,67 +1,58 @@
 fileFormatVersion: 2
-guid: ae519bdaa5080c14e98c0cef1481f5d5
+guid: 956b0f8a9222c3440a32c836bb2c5071
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6864737941021057364
-    second: Nail_Atlas_0
+      213: -2765943969934447224
+    second: Death_Atlas_0
   - first:
-      213: -8645079348490347274
-    second: Nail_Atlas_1
+      213: -5094562743309563722
+    second: Death_Atlas_1
   - first:
-      213: 5717219393092978458
-    second: Nail_Atlas_2
+      213: 4995383573353028693
+    second: Death_Atlas_2
   - first:
-      213: 3540670780806387616
-    second: Nail_Atlas_3
+      213: -3959274227747297680
+    second: Death_Atlas_3
   - first:
-      213: 5450048537791760987
-    second: Nail_Atlas_4
+      213: 8307763801020395159
+    second: Death_Atlas_4
   - first:
-      213: -4298347482862208836
-    second: Nail_Atlas_5
+      213: 7588555459134096438
+    second: Death_Atlas_5
   - first:
-      213: 9076399670686731744
-    second: Nail_Atlas_6
+      213: -3497630908068141155
+    second: Death_Atlas_6
   - first:
-      213: 848172058344392069
-    second: Nail_Atlas_7
+      213: 986572844899001367
+    second: Death_Atlas_7
   - first:
-      213: -8009711643161819830
-    second: Nail_Atlas_8
+      213: 7853347357481088846
+    second: Death_Atlas_8
   - first:
-      213: 2996116694249164982
-    second: Nail_Atlas_9
+      213: 5045123904516477552
+    second: Death_Atlas_9
   - first:
-      213: -7041536977635668967
-    second: Nail_Atlas_10
+      213: 1917889395819197350
+    second: Death_Atlas_10
   - first:
-      213: -2434612203718714479
-    second: Nail_Atlas_11
+      213: -6634491888462964888
+    second: Death_Atlas_11
   - first:
-      213: -3924737306830472765
-    second: Nail_Atlas_12
+      213: 4335214288707524268
+    second: Death_Atlas_12
   - first:
-      213: 8005897807947706702
-    second: Nail_Atlas_13
+      213: -3319363899438202412
+    second: Death_Atlas_13
   - first:
-      213: -4080757899838401281
-    second: Nail_Atlas_14
+      213: -4163038639933211003
+    second: Death_Atlas_14
   - first:
-      213: 2146177375123654768
-    second: Nail_Atlas_15
+      213: -5147816008646644134
+    second: Death_Atlas_15
   - first:
-      213: -4952039904543976869
-    second: Nail_Atlas_16
-  - first:
-      213: -8055193962452204627
-    second: Nail_Atlas_17
-  - first:
-      213: -1138159824532289092
-    second: Nail_Atlas_18
-  - first:
-      213: -7232825328766522288
-    second: Nail_Atlas_19
+      213: -9008333885404059408
+    second: Death_Atlas_16
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -157,7 +148,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Nail_Atlas_0
+      name: Death_0
       rect:
         serializedVersion: 2
         x: 0
@@ -172,14 +163,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cae1b4da63d8bb0a0800000000000000
-      internalID: -6864737941021057364
+      spriteID: 88d6c6b2d946d99d0800000000000000
+      internalID: -2765943969934447224
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Nail_Atlas_1
+      name: Death_1
       rect:
         serializedVersion: 2
         x: 140
@@ -194,14 +185,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6fcda2ad222860880800000000000000
-      internalID: -8645079348490347274
+      spriteID: 6b808175d2a7c49b0800000000000000
+      internalID: -5094562743309563722
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Nail_Atlas_2
+      name: Death_2
       rect:
         serializedVersion: 2
         x: 280
@@ -216,14 +207,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a1708443fb4a75f40800000000000000
-      internalID: 5717219393092978458
+      spriteID: 55c578ea4ea235540800000000000000
+      internalID: 4995383573353028693
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Nail_Atlas_3
+      name: Death_3
       rect:
         serializedVersion: 2
         x: 420
@@ -238,14 +229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0a7d19cd05df22130800000000000000
-      internalID: 3540670780806387616
+      spriteID: 07663c62115dd09c0800000000000000
+      internalID: -3959274227747297680
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Nail_Atlas_4
+      name: Death_4
       rect:
         serializedVersion: 2
         x: 560
@@ -260,14 +251,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b5a07bff44672ab40800000000000000
-      internalID: 5450048537791760987
+      spriteID: 79e6bad192b1b4370800000000000000
+      internalID: 8307763801020395159
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Nail_Atlas_5
+      name: Death_5
       rect:
         serializedVersion: 2
         x: 700
@@ -282,14 +273,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cb8bdcaecb33954c0800000000000000
-      internalID: -4298347482862208836
+      spriteID: 6340a04fbf6ff4960800000000000000
+      internalID: 7588555459134096438
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Nail_Atlas_6
+      name: Death_6
       rect:
         serializedVersion: 2
         x: 840
@@ -304,14 +295,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0ed41c26969d5fd70800000000000000
-      internalID: 9076399670686731744
+      spriteID: d97eb29683be57fc0800000000000000
+      internalID: -3497630908068141155
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Nail_Atlas_7
+      name: Death_7
       rect:
         serializedVersion: 2
         x: 980
@@ -326,14 +317,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 58587064eff45cb00800000000000000
-      internalID: 848172058344392069
+      spriteID: 714604d76c201bd00800000000000000
+      internalID: 986572844899001367
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Nail_Atlas_8
+      name: Death_8
       rect:
         serializedVersion: 2
         x: 1120
@@ -348,14 +339,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a458704a2b9c7d090800000000000000
-      internalID: -8009711643161819830
+      spriteID: e47b96410d1bcfc60800000000000000
+      internalID: 7853347357481088846
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Nail_Atlas_9
+      name: Death_9
       rect:
         serializedVersion: 2
         x: 1260
@@ -370,140 +361,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6b0d6526248549920800000000000000
-      internalID: 2996116694249164982
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Nail_Atlas_10
-      rect:
-        serializedVersion: 2
-        x: 1400
-        y: 0
-        width: 140
-        height: 93
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 91c8f3f2d6f674e90800000000000000
-      internalID: -7041536977635668967
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Nail_Atlas_11
-      rect:
-        serializedVersion: 2
-        x: 1540
-        y: 0
-        width: 140
-        height: 93
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 19bd38f8915863ed0800000000000000
-      internalID: -2434612203718714479
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Nail_Atlas_12
-      rect:
-        serializedVersion: 2
-        x: 1680
-        y: 0
-        width: 140
-        height: 93
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3c975ada6388889c0800000000000000
-      internalID: -3924737306830472765
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Nail_Atlas_13
-      rect:
-        serializedVersion: 2
-        x: 1820
-        y: 0
-        width: 140
-        height: 93
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e413dc6a3a9aa1f60800000000000000
-      internalID: 8005897807947706702
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Nail_Atlas_14
-      rect:
-        serializedVersion: 2
-        x: 1960
-        y: 0
-        width: 140
-        height: 93
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ff453c59f4c3e57c0800000000000000
-      internalID: -4080757899838401281
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Nail_Atlas_15
-      rect:
-        serializedVersion: 2
-        x: 2100
-        y: 0
-        width: 140
-        height: 93
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 078c935a3f0c8cd10800000000000000
-      internalID: 2146177375123654768
+      spriteID: 07259800671e30640800000000000000
+      internalID: 5045123904516477552
       vertices: []
       indices: 
       edges: []
@@ -512,7 +371,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 87f746a9c890f6046ae89896f88df46c
+    spriteID: e7bf0a03dbb7e9247b76282082a3f02d
     internalID: 0
     vertices: []
     indices: 
@@ -524,22 +383,16 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":140.0,"y":93.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Nail_Atlas_0: -6864737941021057364
-      Nail_Atlas_1: -8645079348490347274
-      Nail_Atlas_10: -7041536977635668967
-      Nail_Atlas_11: -2434612203718714479
-      Nail_Atlas_12: -3924737306830472765
-      Nail_Atlas_13: 8005897807947706702
-      Nail_Atlas_14: -4080757899838401281
-      Nail_Atlas_15: 2146177375123654768
-      Nail_Atlas_2: 5717219393092978458
-      Nail_Atlas_3: 3540670780806387616
-      Nail_Atlas_4: 5450048537791760987
-      Nail_Atlas_5: -4298347482862208836
-      Nail_Atlas_6: 9076399670686731744
-      Nail_Atlas_7: 848172058344392069
-      Nail_Atlas_8: -8009711643161819830
-      Nail_Atlas_9: 2996116694249164982
+      Death_0: -2765943969934447224
+      Death_1: -5094562743309563722
+      Death_2: 4995383573353028693
+      Death_3: -3959274227747297680
+      Death_4: 8307763801020395159
+      Death_5: 7588555459134096438
+      Death_6: -3497630908068141155
+      Death_7: 986572844899001367
+      Death_8: 7853347357481088846
+      Death_9: 5045123904516477552
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,58 +1,31 @@
 fileFormatVersion: 2
-guid: 956b0f8a9222c3440a32c836bb2c5071
+guid: 6ffd23110e20fea448226b8ac9a21ea1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2765943969934447224
-    second: Death_Atlas_0
+      213: 2784793231766541145
+    second: Idle_Atlas_0
   - first:
-      213: -5094562743309563722
-    second: Death_Atlas_1
+      213: 7721473308185230593
+    second: Idle_Atlas_1
   - first:
-      213: 4995383573353028693
-    second: Death_Atlas_2
+      213: -4103592120477949695
+    second: Idle_Atlas_2
   - first:
-      213: -3959274227747297680
-    second: Death_Atlas_3
+      213: -2007373380288250985
+    second: Idle_Atlas_3
   - first:
-      213: 8307763801020395159
-    second: Death_Atlas_4
+      213: -8306321950109456011
+    second: Idle_Atlas_4
   - first:
-      213: 7588555459134096438
-    second: Death_Atlas_5
+      213: -3015920945595564955
+    second: Idle_Atlas_5
   - first:
-      213: -3497630908068141155
-    second: Death_Atlas_6
+      213: -5524172414952022529
+    second: Idle_Atlas_6
   - first:
-      213: 986572844899001367
-    second: Death_Atlas_7
-  - first:
-      213: 7853347357481088846
-    second: Death_Atlas_8
-  - first:
-      213: 5045123904516477552
-    second: Death_Atlas_9
-  - first:
-      213: 1917889395819197350
-    second: Death_Atlas_10
-  - first:
-      213: -6634491888462964888
-    second: Death_Atlas_11
-  - first:
-      213: 4335214288707524268
-    second: Death_Atlas_12
-  - first:
-      213: -3319363899438202412
-    second: Death_Atlas_13
-  - first:
-      213: -4163038639933211003
-    second: Death_Atlas_14
-  - first:
-      213: -5147816008646644134
-    second: Death_Atlas_15
-  - first:
-      213: -9008333885404059408
-    second: Death_Atlas_16
+      213: -7970902469885415401
+    second: Idle_Atlas_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -148,7 +121,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Death_Atlas_0
+      name: Idle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -163,14 +136,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 88d6c6b2d946d99d0800000000000000
-      internalID: -2765943969934447224
+      spriteID: 9535b5890b295a620800000000000000
+      internalID: 2784793231766541145
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death_Atlas_1
+      name: Idle_1
       rect:
         serializedVersion: 2
         x: 140
@@ -185,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6b808175d2a7c49b0800000000000000
-      internalID: -5094562743309563722
+      spriteID: 10d7a0d401f282b60800000000000000
+      internalID: 7721473308185230593
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death_Atlas_2
+      name: Idle_2
       rect:
         serializedVersion: 2
         x: 280
@@ -207,14 +180,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 55c578ea4ea235540800000000000000
-      internalID: 4995383573353028693
+      spriteID: 101e1db45bc1d07c0800000000000000
+      internalID: -4103592120477949695
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death_Atlas_3
+      name: Idle_3
       rect:
         serializedVersion: 2
         x: 420
@@ -229,17 +202,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 07663c62115dd09c0800000000000000
-      internalID: -3959274227747297680
+      spriteID: 79bf750db806424e0800000000000000
+      internalID: -2007373380288250985
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death_Atlas_4
+      name: Idle_4
       rect:
         serializedVersion: 2
-        x: 560
+        x: 561
         y: 0
         width: 140
         height: 93
@@ -251,17 +224,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 79e6bad192b1b4370800000000000000
-      internalID: 8307763801020395159
+      spriteID: 57922b5f1340abc80800000000000000
+      internalID: -8306321950109456011
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death_Atlas_5
+      name: Idle_5
       rect:
         serializedVersion: 2
-        x: 700
+        x: 701
         y: 0
         width: 140
         height: 93
@@ -273,17 +246,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6340a04fbf6ff4960800000000000000
-      internalID: 7588555459134096438
+      spriteID: 56cbd1701eb4526d0800000000000000
+      internalID: -3015920945595564955
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death_Atlas_6
+      name: Idle_6
       rect:
         serializedVersion: 2
-        x: 840
+        x: 841
         y: 0
         width: 140
         height: 93
@@ -295,14 +268,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d97eb29683be57fc0800000000000000
-      internalID: -3497630908068141155
+      spriteID: ffdd5c8f4723653b0800000000000000
+      internalID: -5524172414952022529
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death_Atlas_7
+      name: Idle_7
       rect:
         serializedVersion: 2
         x: 980
@@ -317,52 +290,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 714604d76c201bd00800000000000000
-      internalID: 986572844899001367
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Death_Atlas_8
-      rect:
-        serializedVersion: 2
-        x: 1120
-        y: 0
-        width: 140
-        height: 93
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e47b96410d1bcfc60800000000000000
-      internalID: 7853347357481088846
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Death_Atlas_9
-      rect:
-        serializedVersion: 2
-        x: 1260
-        y: 0
-        width: 140
-        height: 93
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 07259800671e30640800000000000000
-      internalID: 5045123904516477552
+      spriteID: 710323f6f6aa16190800000000000000
+      internalID: -7970902469885415401
       vertices: []
       indices: 
       edges: []
@@ -371,7 +300,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: e7bf0a03dbb7e9247b76282082a3f02d
+    spriteID: cd7dcfaa987f047419a0ea2a19f14055
     internalID: 0
     vertices: []
     indices: 
@@ -383,16 +312,14 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":140.0,"y":93.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Death_Atlas_0: -2765943969934447224
-      Death_Atlas_1: -5094562743309563722
-      Death_Atlas_2: 4995383573353028693
-      Death_Atlas_3: -3959274227747297680
-      Death_Atlas_4: 8307763801020395159
-      Death_Atlas_5: 7588555459134096438
-      Death_Atlas_6: -3497630908068141155
-      Death_Atlas_7: 986572844899001367
-      Death_Atlas_8: 7853347357481088846
-      Death_Atlas_9: 5045123904516477552
+      Idle_0: 2784793231766541145
+      Idle_1: 7721473308185230593
+      Idle_2: -4103592120477949695
+      Idle_3: -2007373380288250985
+      Idle_4: -8306321950109456011
+      Idle_5: -3015920945595564955
+      Idle_6: -5524172414952022529
+      Idle_7: -7970902469885415401
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
