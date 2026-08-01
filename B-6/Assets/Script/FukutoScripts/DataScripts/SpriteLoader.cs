@@ -33,13 +33,13 @@ public class SpriteLoader : MonoBehaviour
         // マスターデータの実体を造りそこにデータを格納する
         EnemyMasterSprite data = new EnemyMasterSprite();
 
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 9; i++)
         {
             int id = i + 1;
-            //data.enemiesSprites[i].idleSprite = Texture.LoadAll<Sprite>(spriteBasePass + id + spriteIdlePass);
-            //data.enemiesSprites[i].attackSprite = Texture.LoadAll<Sprite>(spriteBasePass + id + spriteAttackPass);
-            //data.enemiesSprites[i].hitSprite = Texture.LoadAll<Sprite>(spriteBasePass + id + spriteTakeHitPass);
-            //data.enemiesSprites[i].deathSprite = Texture.LoadAll<Sprite>(spriteBasePass + id + spriteDeathPass);
+            data.enemiesSprites[i].idleSprite = Resources.LoadAll<Sprite>(spriteBasePass + id + spriteIdlePass);
+            data.enemiesSprites[i].attackSprite = Resources.LoadAll<Sprite>(spriteBasePass + id + spriteAttackPass);
+            data.enemiesSprites[i].hitSprite = Resources.LoadAll<Sprite>(spriteBasePass + id + spriteTakeHitPass);
+            data.enemiesSprites[i].deathSprite = Resources.LoadAll<Sprite>(spriteBasePass + id + spriteDeathPass);
 
             switch (id)
             {
@@ -68,6 +68,6 @@ public class SpriteLoader : MonoBehaviour
     /// @brief 移動のテクスチャーが存在する場合に読み込みを行う関数
     private void LoadMoveSprites(EnemyMasterSprite data, int element, int id)
     {
-        //data.enemiesSprites[element].moveSprite = Texture.LoadAll<Sprite>(spriteBasePass + id + spriteMovePass);
+        data.enemiesSprites[element].moveSprite = Resources.LoadAll<Sprite>(spriteBasePass + id + spriteMovePass);
     }
 }

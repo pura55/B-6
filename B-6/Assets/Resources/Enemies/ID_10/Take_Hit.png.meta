@@ -106,67 +106,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Take hit_0
+      name: Take_Hit_0
       rect:
         serializedVersion: 2
-        x: 105
-        y: 82
-        width: 47
-        height: 89
+        x: 0
+        y: 0
+        width: 250
+        height: 250
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 89efc61c4b4678e40800000000000000
-      internalID: 5658602184316354200
+      spriteID: 2ae6283f82e8cbc46b79a6c4cd0d2064
+      internalID: 1003529072
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Take hit_1
+      name: Take_Hit_1
       rect:
         serializedVersion: 2
-        x: 357
-        y: 82
-        width: 36
-        height: 88
+        x: 250
+        y: 0
+        width: 250
+        height: 250
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 1ea071c68b36edf40800000000000000
-      internalID: 5755147017564654305
+      spriteID: 0a932730586251f49aac8061ece4527a
+      internalID: -1409278618
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Take hit_2
+      name: Take_Hit_2
       rect:
         serializedVersion: 2
-        x: 607
-        y: 82
-        width: 37
-        height: 82
+        x: 500
+        y: 0
+        width: 250
+        height: 250
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: ef5cfba3cd4e5a500800000000000000
-      internalID: 406982975876482558
+      spriteID: 2be7d124379d18947980fc522b8e8a2c
+      internalID: 843884344
       vertices: []
       indices: 
       edges: []
@@ -175,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 79c67f12191222f42a9fed5c0036ec09
     internalID: 0
     vertices: []
     indices: 
@@ -183,11 +183,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":250.0,"y":250.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Take hit_0: 5658602184316354200
-      Take hit_1: 5755147017564654305
-      Take hit_2: 406982975876482558
+      Take_Hit_0: 1003529072
+      Take_Hit_1: -1409278618
+      Take_Hit_2: 843884344
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
