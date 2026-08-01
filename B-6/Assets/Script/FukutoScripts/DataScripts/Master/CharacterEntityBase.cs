@@ -2,7 +2,7 @@
 /// <summary>
 /// キャラクターエンティティベース
 /// 
-/// キャラクターのエンティティの継承元クラス
+/// キャラクターのエンティティの基底クラス
 /// </summary>
 public class CharacterEntityBase
 {
