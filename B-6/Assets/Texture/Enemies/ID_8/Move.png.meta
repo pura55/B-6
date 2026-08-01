@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8b77463f4d62adb41a628117523daeed
+guid: 8d530342a2241834186d5fe2ca7b3817
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -120,10 +120,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 146
-        height: 146
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        width: 156
+        height: 156
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -140,12 +140,12 @@ TextureImporter:
       name: walk_1
       rect:
         serializedVersion: 2
-        x: 146
+        x: 156
         y: 0
-        width: 146
-        height: 146
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        width: 156
+        height: 156
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -162,12 +162,12 @@ TextureImporter:
       name: walk_2
       rect:
         serializedVersion: 2
-        x: 292
+        x: 312
         y: 0
-        width: 146
-        height: 146
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        width: 156
+        height: 156
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -184,12 +184,12 @@ TextureImporter:
       name: walk_3
       rect:
         serializedVersion: 2
-        x: 438
+        x: 468
         y: 0
-        width: 146
-        height: 146
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        width: 156
+        height: 156
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -206,12 +206,12 @@ TextureImporter:
       name: walk_4
       rect:
         serializedVersion: 2
-        x: 584
+        x: 624
         y: 0
-        width: 146
-        height: 146
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        width: 156
+        height: 156
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -228,12 +228,12 @@ TextureImporter:
       name: walk_5
       rect:
         serializedVersion: 2
-        x: 730
+        x: 780
         y: 0
-        width: 146
-        height: 146
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        width: 156
+        height: 156
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -250,7 +250,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 024de893665450948981eaadd7dd4184
+    spriteID: 007802be98706a0458118e6a36585069
     internalID: 0
     vertices: []
     indices: 
@@ -260,7 +260,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":146.0,"y":146.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":1.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":1,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":156.0,"y":156.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":1.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":1,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       walk_0: -8296385383580801948
       walk_1: 3218353051568008401

@@ -1,31 +1,19 @@
 fileFormatVersion: 2
-guid: 1f559783e85ee6d4cab01f93fd6c614a
+guid: 2096963182f828647959ee7d9e74ece7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4795363162621231457
-    second: Flight_0
+      213: -7500690451134026123
+    second: Take Hit_0
   - first:
-      213: -3652676412848291748
-    second: Flight_1
+      213: -889859373511162655
+    second: Take Hit_1
   - first:
-      213: -596950462376016933
-    second: Flight_2
+      213: -3088938797480143695
+    second: Take Hit_2
   - first:
-      213: -4538786591655478766
-    second: Flight_3
-  - first:
-      213: 8639066506597270619
-    second: Flight_4
-  - first:
-      213: -4262185617143388622
-    second: Flight_5
-  - first:
-      213: 5066340549283584134
-    second: Flight_6
-  - first:
-      213: 7784096630628774620
-    second: Flight_7
+      213: -9206091644520726168
+    second: Take Hit_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -121,177 +109,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Flight_0
+      name: Take Hit_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 150
         height: 150
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f9eb7fa4c92737db0800000000000000
-      internalID: -4795363162621231457
+      spriteID: 57eedf966c138e790800000000000000
+      internalID: -7500690451134026123
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flight_1
+      name: Take Hit_1
       rect:
         serializedVersion: 2
         x: 150
         y: 0
         width: 150
         height: 150
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c50cabcb7261f4dc0800000000000000
-      internalID: -3652676412848291748
+      spriteID: 1e4c0dd4d9596a3f0800000000000000
+      internalID: -889859373511162655
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flight_2
+      name: Take Hit_2
       rect:
         serializedVersion: 2
         x: 300
         y: 0
         width: 150
         height: 150
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bd3829d97b437b7f0800000000000000
-      internalID: -596950462376016933
+      spriteID: 1b416439782e125d0800000000000000
+      internalID: -3088938797480143695
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flight_3
+      name: Take Hit_3
       rect:
         serializedVersion: 2
         x: 450
         y: 0
         width: 150
         height: 150
-      alignment: 1
-      pivot: {x: 0, y: 1}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 21ab11574adf201c0800000000000000
-      internalID: -4538786591655478766
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Flight_4
-      rect:
-        serializedVersion: 2
-        x: 600
-        y: 0
-        width: 150
-        height: 150
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b5484bc473124e770800000000000000
-      internalID: 8639066506597270619
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Flight_5
-      rect:
-        serializedVersion: 2
-        x: 750
-        y: 0
-        width: 150
-        height: 150
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 236a36363cca9d4c0800000000000000
-      internalID: -4262185617143388622
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Flight_6
-      rect:
-        serializedVersion: 2
-        x: 900
-        y: 0
-        width: 150
-        height: 150
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 688943f03e14f4640800000000000000
-      internalID: 5066340549283584134
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Flight_7
-      rect:
-        serializedVersion: 2
-        x: 1050
-        y: 0
-        width: 150
-        height: 150
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: cd271f5c4aaa60c60800000000000000
-      internalID: 7784096630628774620
+      spriteID: 86186aedc646d3080800000000000000
+      internalID: -9206091644520726168
       vertices: []
       indices: 
       edges: []
@@ -300,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 0a05a54a06213ef46a5646a2cd18aacd
+    spriteID: 084631121b25dcd40b068ed47c4e08d0
     internalID: 0
     vertices: []
     indices: 
@@ -312,14 +212,10 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":150.0,"y":150.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":1.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":1,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Flight_0: -4795363162621231457
-      Flight_1: -3652676412848291748
-      Flight_2: -596950462376016933
-      Flight_3: -4538786591655478766
-      Flight_4: 8639066506597270619
-      Flight_5: -4262185617143388622
-      Flight_6: 5066340549283584134
-      Flight_7: 7784096630628774620
+      Take Hit_0: -7500690451134026123
+      Take Hit_1: -889859373511162655
+      Take Hit_2: -3088938797480143695
+      Take Hit_3: -9206091644520726168
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

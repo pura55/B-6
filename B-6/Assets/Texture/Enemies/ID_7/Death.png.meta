@@ -1,34 +1,25 @@
 fileFormatVersion: 2
-guid: c21fb3b33de642641baefb4519211bd4
+guid: 28cd35a1407ea7742a4aabcb5a3aded3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8398500527302845922
-    second: idle_transformed_0
+      213: 9153557497979434003
+    second: rat-death_0
   - first:
-      213: 3450344756920649356
-    second: idle_transformed_1
+      213: -1950670873418907786
+    second: rat-death_1
   - first:
-      213: 2948049842414548865
-    second: idle_transformed_2
+      213: 509030082206802883
+    second: rat-death_2
   - first:
-      213: 6567700883130145901
-    second: idle_transformed_3
+      213: -3280853365089037962
+    second: rat-death_3
   - first:
-      213: 398285049898940978
-    second: idle_transformed_4
+      213: -7374815061640450194
+    second: rat-death_4
   - first:
-      213: -4536100436863435578
-    second: idle_transformed_5
-  - first:
-      213: -1813799993564680342
-    second: idle_transformed_6
-  - first:
-      213: 8186867084489222520
-    second: idle_transformed_7
-  - first:
-      213: -2116477776247719767
-    second: idle_transformed_8
+      213: 2154126136119794554
+    second: rat-death_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -124,199 +115,133 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: idle_transformed_0
+      name: rat-death_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 146
-        height: 146
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e1ade208448827b80800000000000000
-      internalID: -8398500527302845922
+      spriteID: 3147d2afb08f70f70800000000000000
+      internalID: 9153557497979434003
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle_transformed_1
+      name: rat-death_1
       rect:
         serializedVersion: 2
-        x: 146
+        x: 70
         y: 0
-        width: 146
-        height: 146
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c8603e4964612ef20800000000000000
-      internalID: 3450344756920649356
+      spriteID: 67f3a2cfc23dde4e0800000000000000
+      internalID: -1950670873418907786
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle_transformed_2
+      name: rat-death_2
       rect:
         serializedVersion: 2
-        x: 292
+        x: 140
         y: 0
-        width: 146
-        height: 146
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 187f34556b399e820800000000000000
-      internalID: 2948049842414548865
+      spriteID: 3c3aceda920701700800000000000000
+      internalID: 509030082206802883
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle_transformed_3
+      name: rat-death_3
       rect:
         serializedVersion: 2
-        x: 438
+        x: 210
         y: 0
-        width: 146
-        height: 146
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d6cddf1f729252b50800000000000000
-      internalID: 6567700883130145901
+      spriteID: 67119b54f311872d0800000000000000
+      internalID: -3280853365089037962
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle_transformed_4
+      name: rat-death_4
       rect:
         serializedVersion: 2
-        x: 584
+        x: 280
         y: 0
-        width: 146
-        height: 146
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 23a3396842ef68500800000000000000
-      internalID: 398285049898940978
+      spriteID: e6f68be56c467a990800000000000000
+      internalID: -7374815061640450194
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle_transformed_5
+      name: rat-death_5
       rect:
         serializedVersion: 2
-        x: 730
+        x: 350
         y: 0
-        width: 146
-        height: 146
-      alignment: 1
-      pivot: {x: 0, y: 1}
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6ccb24b9fa88c01c0800000000000000
-      internalID: -4536100436863435578
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: idle_transformed_6
-      rect:
-        serializedVersion: 2
-        x: 876
-        y: 0
-        width: 146
-        height: 146
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a6fa8f9048614d6e0800000000000000
-      internalID: -1813799993564680342
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: idle_transformed_7
-      rect:
-        serializedVersion: 2
-        x: 1022
-        y: 0
-        width: 146
-        height: 146
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 879615acc389d9170800000000000000
-      internalID: 8186867084489222520
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: idle_transformed_8
-      rect:
-        serializedVersion: 2
-        x: 1168
-        y: 0
-        width: 146
-        height: 146
-      alignment: 1
-      pivot: {x: 0, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9a8feb31da2c0a2e0800000000000000
-      internalID: -2116477776247719767
+      spriteID: a7b1ec8ce4ef4ed10800000000000000
+      internalID: 2154126136119794554
       vertices: []
       indices: 
       edges: []
@@ -325,7 +250,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 9cd4da24b8008c143b695653350c10bf
+    spriteID: 8d36a01c06961b145b724638ef8e2608
     internalID: 0
     vertices: []
     indices: 
@@ -335,17 +260,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":146.0,"y":146.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":1.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":1,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":70.0,"y":70.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":1.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":1,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      idle_transformed_0: -8398500527302845922
-      idle_transformed_1: 3450344756920649356
-      idle_transformed_2: 2948049842414548865
-      idle_transformed_3: 6567700883130145901
-      idle_transformed_4: 398285049898940978
-      idle_transformed_5: -4536100436863435578
-      idle_transformed_6: -1813799993564680342
-      idle_transformed_7: 8186867084489222520
-      idle_transformed_8: -2116477776247719767
+      rat-death_0: 9153557497979434003
+      rat-death_1: -1950670873418907786
+      rat-death_2: 509030082206802883
+      rat-death_3: -3280853365089037962
+      rat-death_4: -7374815061640450194
+      rat-death_5: 2154126136119794554
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
