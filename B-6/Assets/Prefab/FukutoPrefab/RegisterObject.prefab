@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2245092798541177618}
   - component: {fileID: 3311234406434560071}
+  - component: {fileID: 3398501241646102154}
   m_Layer: 0
   m_Name: RegisterObject
   m_TagString: Untagged
@@ -47,5 +48,17 @@ MonoBehaviour:
   playerMasterData:
     players: []
   playerProgressData: {fileID: 11400000, guid: 21bc494655974a942b8c7c1b843e8755, type: 2}
-  enemyMasterData:
-    enemies: []
+  enemyProgressData: {fileID: 11400000, guid: f1c5fd27d3e475c429457ece67e5af9d, type: 2}
+--- !u!114 &3398501241646102154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 738587637961808804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0661fd675a55bd408232227557320a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteRegister
+  enemySpriteData: {fileID: 11400000, guid: 0ae569640c76edb4ab60e7dd549c57a5, type: 2}
