@@ -7,21 +7,16 @@ using UnityEngine;
 /// </summary>
 public abstract class BaseEnemyMove : MonoBehaviour
 {
-    protected enum EnemyMoveState
-    {
-        idle,      // 待機
-        attaching  // 接近
-    }
 
     #region Config
     protected float followSpeed = 1f; // 追従速度
-    protected float settingSpeed = 1f; // 後から変えられる変数型定数
+    protected float settingSpeed = 1f; // 設定速度
     [SerializeField] protected int enemyID; // 敵のID
     #endregion
 
     #region State
-    protected EnemyMoveState moveState = EnemyMoveState.attaching;  // 敵の移動ステート
     protected bool isAttached = false;                              // 近づいているかどうかのフラグ 
+    protected bool stopMovement = false;                            // 移動を止めるかどうかのフラグ
     protected Vector3 avoidVelocity = Vector3.zero;                 // 避ける速度
     protected Vector3 movementPerFrame = Vector3.zero;              // フレーム毎の移動量
     protected bool obstructedWall = false;                          // 壁に遮られているかどうか
@@ -55,15 +50,13 @@ public abstract class BaseEnemyMove : MonoBehaviour
     /// @brief 一定距離に近づいたか確認する関数
     protected void CheckAttaced()
     {
-        if (Vector2.Distance(transform.position, currentTarget.position) < 1f)
+        if (Vector2.Distance(transform.position, currentTarget.position) < 0.95f)
         {
             isAttached = true;
-            moveState = EnemyMoveState.idle;
         }
         else
         {
             isAttached = false;
-            moveState = EnemyMoveState.attaching;
         }
     }
 
@@ -149,9 +142,21 @@ public abstract class BaseEnemyMove : MonoBehaviour
         return movementPerFrame;
     }
 
+    /// @brief 移動を止めるかどうかのフラグを設定する関数
+    public bool GetIsAttached()
+    {
+        return isAttached;
+    }
+
     /// @brief ターゲットのタワーを設定する関数
     public void SetTargetTower(Transform tower)
     {
         targetTower = tower;
+    }
+
+    /// @brief 移動を止めるかどうかのフラグを設定する関数
+    public void SetStopMovement(bool stop)
+    {
+        stopMovement = stop;
     }
 }

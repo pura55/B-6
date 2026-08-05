@@ -1,6 +1,11 @@
 using UnityEditor.Animations;
 using UnityEngine;
 
+/// <summary>
+/// インクルードムーブメントアニメーション
+/// 
+/// 移動アニメーションが含まれているスクリプト
+/// </summary>
 public class IncludeMovementAnimation: BaseEnemySpriteSelector
 {
     #region Config
@@ -13,17 +18,16 @@ public class IncludeMovementAnimation: BaseEnemySpriteSelector
     }
     void Update()
     {
-        ManageRenderer();
+        ManageDrawing();
     }
 
     /// @brief 描画を管理する関数
-    protected override void ManageRenderer()
+    protected override void ManageDrawing()
     {
         switch (animationState)
         {
             case AnimationState.idle:
                 IdleAnimation();
-                animationState = AnimationState.move;
                 break;
             case AnimationState.move:
                 MoveAnimation();

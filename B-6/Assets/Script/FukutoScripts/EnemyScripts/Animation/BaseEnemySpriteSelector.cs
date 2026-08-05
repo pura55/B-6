@@ -19,13 +19,14 @@ public abstract class BaseEnemySpriteSelector : MonoBehaviour
     }
     #region Config
     [SerializeField]protected int enemyId = 0; // 敵のID
-    protected int framePerSprite = 90; // 毎スプライトごとのフレーム数
+    protected int framePerSprite = 60; // 毎スプライトごとのフレーム数
     #endregion
 
     #region State
     protected AnimationState animationState = AnimationState.idle;
     protected int spriteIndex = 0; // スプライトの指数
     protected int currentFrame = 0; // 現在のフレーム
+    protected bool isFinishedEvent = true; // イベントアニメーションの終了フラグ
 
     protected int idleSpriteElements = 0; // 待機スプライトの要素数
     protected int attackSpriteElements = 0; // 攻撃スプライトの要素数
@@ -49,7 +50,7 @@ public abstract class BaseEnemySpriteSelector : MonoBehaviour
     #endregion
 
     /// @brief 描画を管理する関数 (子で上書き） 
-    protected abstract void ManageRenderer();
+    protected abstract void ManageDrawing();
 
     /// @brief 変数を初期化する関数（子で上書き）
     protected abstract void InitValue();
@@ -64,13 +65,15 @@ public abstract class BaseEnemySpriteSelector : MonoBehaviour
     /// @brief 攻撃アニメーション
     protected void AttackAnimation() 
     {
-        ManageFrame(attackSpriteElements);
+        isFinishedEvent = false;
+        ManageEventFrame(attackSpriteElements);
         spriteRenderer.sprite = attackSprites[spriteIndex];
     }
 
     /// @brief 被ダメージアニメーション
     protected void HitAnimation() 
     {
+        isFinishedEvent = false;
         ManageFrame(hitSpriteElements);
         spriteRenderer.sprite = hitSprites[spriteIndex];
     }
@@ -124,6 +127,7 @@ public abstract class BaseEnemySpriteSelector : MonoBehaviour
             {
                 spriteIndex = 0;
                 currentFrame = 0;
+                isFinishedEvent = true;
                 animationState = AnimationState.idle;
                 return;
             }
@@ -195,5 +199,41 @@ public abstract class BaseEnemySpriteSelector : MonoBehaviour
         attackSpriteElements = attackSprites.Length;
         hitSpriteElements = hitSprites.Length;
         deathSpriteElements = deathSprites.Length;
+    }
+
+    /// @brief フレームとスプライト指数をリセットする関数
+    public void ResetFrameAndIndex()
+    {
+        currentFrame = 0;
+        spriteIndex = 0;
+    }
+
+    /// @brief 描画状態を待機設定する関数 
+    public void SetIdle()
+    {
+        animationState = AnimationState.idle;
+    }
+
+    /// @brief 描画状態を待機設定する関数 
+    public void SetMove()
+    {
+        animationState = AnimationState.move;
+    }
+
+    /// @brief 描画状態を攻撃に設定する関数 
+    public void SetAttack()
+    {
+        animationState = AnimationState.attack;
+    }
+
+    /// @brief 
+    public bool GetFinishedEvent()
+    {
+        return isFinishedEvent;
+    }
+
+    public int GetSpriteIndex()
+    {
+        return spriteIndex;
     }
 }

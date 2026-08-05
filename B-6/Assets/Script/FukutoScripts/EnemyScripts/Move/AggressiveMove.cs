@@ -29,28 +29,28 @@ public class AggressiveMove : BaseEnemyMove
     /// @brief 移動を管理する関数
     protected override void ManageMoving()
     {
+        // 接近判定
+        CheckAttaced();
+
+        // 移動停止フラグがtrueの場合止める
+        if (stopMovement) return;
+
+        // ターゲットの切り替え
         ConvertTarget();
 
-        switch (moveState)
+        // 壁の確認
+        CheckIsWall();
+
+        // 接近していなければ接近処理
+        if (!isAttached)
         {
-            case EnemyMoveState.idle:
-                CheckAttaced();
-                break;
-            case EnemyMoveState.attaching:
-                if (!isAttached)
-                {
-                    AttachTarget();
-                    CheckAttaced();
-                    CheckIsWall();
-                }
-                break;
+            AttachTarget();
         }
     }
 
     /// @brief 変数を初期化する関数
     protected override void InitValue()
     {
-        moveState = EnemyMoveState.attaching;
         // 設定速度にデータから取得したスピードを格納
         settingSpeed = enemyProgressData.GetFloatStat(enemyID, speedStatName);
         followSpeed = settingSpeed;

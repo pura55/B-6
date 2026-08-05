@@ -1,5 +1,10 @@
 using UnityEngine;
 
+/// <summary>
+/// ノーマルアニメーション
+/// 
+/// 通常のアニメーションスクリプト
+/// </summary>
 public class NomalAnimation : BaseEnemySpriteSelector
 {
     #region Config
@@ -11,13 +16,18 @@ public class NomalAnimation : BaseEnemySpriteSelector
     }
     void Update()
     {
-        ManageRenderer();
+        ManageDrawing();
     }
-    protected override void ManageRenderer()
+
+    /// @brief 描画を管理する関数
+    protected override void ManageDrawing()
     {
         switch (animationState)
         {
             case AnimationState.idle:
+                IdleAnimation();
+                break;
+            case AnimationState.move:
                 IdleAnimation();
                 break;
             case AnimationState.attack:
@@ -33,6 +43,7 @@ public class NomalAnimation : BaseEnemySpriteSelector
         FlipSprite(nomalMove.GetMovementPerFrame());
     }
 
+    /// @brief 初期化関数
     protected override void InitValue()
     {
         SetBaseSprites();
