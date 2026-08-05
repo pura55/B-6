@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9137235300150477161}
   - component: {fileID: 6750995072437438155}
   - component: {fileID: 3824464598173647377}
-  - component: {fileID: 5540854715225546213}
+  - component: {fileID: -9060898830839917025}
   - component: {fileID: -5910053777904288716}
   - component: {fileID: -8737387044889284480}
   m_Layer: 0
@@ -196,7 +196,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &5540854715225546213
+--- !u!114 &-9060898830839917025
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -207,7 +207,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8290e8768a5ec3241b55a9a3d6c4c2a6, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AggressiveMove
+  m_EditorClassIdentifier: Assembly-CSharp::AggressiveEnemyMove
   targetTower: {fileID: 0}
   targetPlayer: {fileID: 0}
 --- !u!114 &-5910053777904288716

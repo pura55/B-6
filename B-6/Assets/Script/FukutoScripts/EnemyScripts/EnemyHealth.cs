@@ -35,11 +35,11 @@ public class EnemyHealth : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        //if (col.gameObject.CompareTag("PlayerAttack"))
-        //{
-        //    // 被ダメージ処理を実行
-        //    ReciveDamage(col.gameObject);
-        //}
+        if (col.gameObject.CompareTag("PlayerAttack"))
+        {
+            // 被ダメージ処理を実行
+            ReciveDamage(col.gameObject);
+        }
     }
 
     /// @brief 被ダメージ処理を行う関数

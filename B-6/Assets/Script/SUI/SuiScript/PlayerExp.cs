@@ -13,8 +13,6 @@ public class PlayerExp : MonoBehaviour
 
     private bool isLevelUp = false;
 
-    // レベルアップUI
-    public LevelUpUI levelUpUI;
 
     void Start()
     {
@@ -23,55 +21,71 @@ public class PlayerExp : MonoBehaviour
         expSlider.value = currentExp;
     }
 
+
     public void AddExp(int amount)
     {
-        // レベルアップ中は取得しない
+        // レベルアップ演出中は取得しない
         if (isLevelUp)
             return;
 
         currentExp += amount;
 
+        // バー更新
         expSlider.value = currentExp;
 
+        // レベルアップ判定
         if (currentExp >= maxExp)
         {
             StartCoroutine(LevelUpAnimation());
         }
     }
 
+
     IEnumerator LevelUpAnimation()
     {
         isLevelUp = true;
 
-        // バーMAX表示
+        //------------------------------------------------
+        //① バーを100%にする
+        //------------------------------------------------
+
         expSlider.value = maxExp;
+
+        //------------------------------------------------
+        //② 0.3秒止める
+        //------------------------------------------------
 
         yield return new WaitForSeconds(1f);
 
-        // 余り経験値
+        //------------------------------------------------
+        //③ 余った経験値を保存
+        //------------------------------------------------
+
         int remainExp = currentExp - maxExp;
 
-        // レベルアップ
+        //------------------------------------------------
+        //④ レベルアップ
+        //------------------------------------------------
+
         level++;
 
-        Debug.Log("Level Up!! Lv." + level);
+        Debug.Log("Level Up!!");
 
-        // 次レベル必要経験値
+        //------------------------------------------------
+        //⑤ 次のレベルの必要経験値
+        //------------------------------------------------
+
         maxExp += 50;
 
-        // バー更新
+        //------------------------------------------------
+        //⑥ バーをリセット
+        //------------------------------------------------
+
         currentExp = remainExp;
 
         expSlider.maxValue = maxExp;
         expSlider.value = currentExp;
 
-        // レベルアップ画面を開く
-        levelUpUI.Open(this);
-    }
-
-    // レベルアップ終了通知
-    public void FinishLevelUp()
-    {
         isLevelUp = false;
     }
 }

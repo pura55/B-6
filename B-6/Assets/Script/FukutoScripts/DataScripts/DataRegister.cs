@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 /// <summary>
 /// データレジスター
@@ -9,7 +10,7 @@ public class DataRegister : MonoBehaviour
 {
     [SerializeField] private PlayerMasterData playerMasterData; // プレイヤーのマスター
     [SerializeField] private PlayerProgressData playerProgressData; // プレイヤーの進捗
-    [SerializeField] private EnemyProgressData enemyProgressData; // エネミーの進捗
+    [SerializeField] private EnemyMasterData enemyMasterData; // エネミーマスターデータ
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -52,17 +53,38 @@ public class DataRegister : MonoBehaviour
         }
     }
 
-    /// @brief エネミーのデータを登録する関数
-    public void RegistEnemyData(EnemyMasterData data)
+    public void RegistEnemyData(int id, EnemyMasterData data)
     {
-        if(data != null)
+        // 中身を一度からにする
+        playerMasterData.players.Clear();
+
+        // マスターデータの骨格に実体を入れる
+        foreach (var entity in data.enemies)
         {
+            // 実体を作る
+            EnemyMasterData.Entity masterEntity = new EnemyMasterData.Entity();
+            masterEntity.id = entity.id;
+            masterEntity.atkDmg = entity.atkDmg;
+            masterEntity.atkCT = entity.atkCT;
+            masterEntity.skillDmg = entity.skillDmg;
+            masterEntity.skillCT = entity.skillCT;
+            masterEntity.speed = entity.speed;
+
+            // 実体を入れる
+            enemyMasterData.enemies.Add(masterEntity);
+        }
+
+        // idが0のより大きい時
+        if (id > 0)
+        {
+            // リストのIDを検索してその結果の実体を返す
+            EnemyMasterData.Entity result = enemyMasterData.enemies.Find(result => result.id == id);
+
             // データの実体をコピーする
-            enemyProgressData.CopyMasterData(data);
         }
         else
         {
-            Debug.LogError($"敵のデータがありません");
+            Debug.LogError($"idが正しくありません");
         }
     }
 }

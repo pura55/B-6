@@ -1,8 +1,9 @@
+using UnityEngine;
 
 /// <summary>
 /// キャラクターエンティティベース
 /// 
-/// キャラクターのエンティティの基底クラス
+/// キャラクターのエンティティの継承元クラス
 /// </summary>
 public class CharacterEntityBase
 {

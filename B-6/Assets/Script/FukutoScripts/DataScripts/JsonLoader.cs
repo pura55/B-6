@@ -15,9 +15,6 @@ public class JsonLoader : MonoBehaviour
     {
         // プレイヤーデータ読み込み
         LoadPlayerData();
-
-        // エネミーデータ読み込み
-        LoadEnemyData();
     }
 
     /// @brief プレイヤーのデータをロードする関数
@@ -60,7 +57,7 @@ public class JsonLoader : MonoBehaviour
             EnemyMasterData data = JsonUtility.FromJson<EnemyMasterData>(jsonString);
 
             // データの登録を行う
-            dataRegister.RegistEnemyData(data);
+            dataRegister.RegistEnemyData(1, data);
         }
         else
         {

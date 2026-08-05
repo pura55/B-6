@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -3358957461815985599}
   - component: {fileID: -8680997276839637429}
   - component: {fileID: 3824464598173647377}
+  - component: {fileID: 3992497269464852707}
   - component: {fileID: 8382550772505638371}
   - component: {fileID: 3775506764996155951}
   m_Layer: 0
@@ -32,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.64, y: 2.3, z: 0}
-  m_LocalScale: {x: 0.537, y: 0.549, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -90,7 +91,7 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 1
+  m_DrawMode: 0
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
@@ -195,6 +196,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &3992497269464852707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6449213048604919684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c230e13e8dc2cde4d8ed7cdde96a6bba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyMove
+  targetTower: {fileID: 0}
 --- !u!114 &8382550772505638371
 MonoBehaviour:
   m_ObjectHideFlags: 0
