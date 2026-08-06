@@ -8,6 +8,17 @@ public class LevelUpUI : MonoBehaviour
 
     private PlayerExp playerExp;
 
+    // 仮のスキル一覧
+    private string[] skillNames =
+    {
+        "ファイア",
+        "アイス",
+        "サンダー",
+        "ヒール",
+        "ダーク",
+        "シャイン"
+    };
+
     // レベルアップ画面を開く
     public void Open(PlayerExp exp)
     {
@@ -18,48 +29,32 @@ public class LevelUpUI : MonoBehaviour
         // ゲーム停止
         Time.timeScale = 0f;
 
-        // 仮の3択
+        // ランダムで3つ選ぶ
+        string s1 = skillNames[Random.Range(0, skillNames.Length)];
+        string s2 = skillNames[Random.Range(0, skillNames.Length)];
+        string s3 = skillNames[Random.Range(0, skillNames.Length)];
+
         card1.Setup(
-            "攻撃+2",
-            "攻撃力が2増える",
+            s1,
+            s1 + "を習得する",
             this);
 
         card2.Setup(
-            "攻撃+5",
-            "攻撃力が5増える",
+            s2,
+            s2 + "を習得する",
             this);
 
         card3.Setup(
-            "攻撃+10",
-            "攻撃力が10増える",
+            s3,
+            s3 + "を習得する",
             this);
     }
 
     // カード選択
     public void SelectSkill(string skillName)
     {
-        PlayerAttack2 playerAttack =
-            playerExp.GetComponent<PlayerAttack2>();
-
-        if (playerAttack != null)
-        {
-            if (skillName == "攻撃+2")
-            {
-                playerAttack.Attack += 2;
-            }
-            else if (skillName == "攻撃+5")
-            {
-                playerAttack.Attack += 5;
-            }
-            else if (skillName == "攻撃+10")
-            {
-                playerAttack.Attack += 10;
-            }
-
-            Debug.Log(
-                skillName + " を取得！ 現在攻撃力 : " +
-                playerAttack.Attack);
-        }
+        // 今は取得ログだけ
+        Debug.Log(skillName + " を取得！");
 
         // UIを閉じる
         gameObject.SetActive(false);
