@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class MoveScript : MonoBehaviour
 {
     [SerializeField] float speed;
+  
 
     private Vector2 move;
 
