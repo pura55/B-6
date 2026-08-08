@@ -5,7 +5,7 @@ public class PlayerAttack : MonoBehaviour
 {
 
     [Header("攻撃パラメーター")]
-    [SerializeField] private int Attack = 1;
+    [SerializeField] public int Attack = 1;
     public float attackRange = 2.5f; //薙ぎ払いの届く距離
     [Range(0, 360)]
     public float attackAngle = 120f; //薙ぎ払いの角度

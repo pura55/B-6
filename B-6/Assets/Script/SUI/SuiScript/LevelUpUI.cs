@@ -1,27 +1,35 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class LevelUpUI : MonoBehaviour
 {
+    [Header("カード")]
     public SkillCard card1;
     public SkillCard card2;
     public SkillCard card3;
 
-    private PlayerExp playerExp;
+    [Header("全スキル")]
+    public SkillData[] allSkills;
 
-    // 仮のスキル一覧
-    private string[] skillNames =
+    private PlayerExp playerExp;
+    private SkillManager skillManager;
+
+    // Startより先に呼ばれる
+    private void Awake()
     {
-        "ファイア",
-        "アイス",
-        "サンダー",
-        "ヒール",
-        "ダーク",
-        "シャイン"
-    };
+        skillManager = FindObjectOfType<SkillManager>();
+
+        if (skillManager == null)
+        {
+            Debug.LogError("SkillManager が見つかりません！");
+        }
+    }
 
     // レベルアップ画面を開く
     public void Open(PlayerExp exp)
     {
+        Debug.Log("LevelUpUI.Open が呼ばれた");
+
         playerExp = exp;
 
         gameObject.SetActive(true);
@@ -29,32 +37,82 @@ public class LevelUpUI : MonoBehaviour
         // ゲーム停止
         Time.timeScale = 0f;
 
-        // ランダムで3つ選ぶ
-        string s1 = skillNames[Random.Range(0, skillNames.Length)];
-        string s2 = skillNames[Random.Range(0, skillNames.Length)];
-        string s3 = skillNames[Random.Range(0, skillNames.Length)];
+        // ランダムに3つ取得
+        List<SkillData> candidates = GetRandomSkills(3);
 
-        card1.Setup(
-            s1,
-            s1 + "を習得する",
-            this);
+        // カードへ設定
+        SetupCard(card1, candidates, 0);
+        SetupCard(card2, candidates, 1);
+        SetupCard(card3, candidates, 2);
+    }
 
-        card2.Setup(
-            s2,
-            s2 + "を習得する",
-            this);
+    // カード設定
+    private void SetupCard(
+        SkillCard card,
+        List<SkillData> list,
+        int index)
+    {
+        if (index >= list.Count)
+        {
+            card.gameObject.SetActive(false);
+            return;
+        }
 
-        card3.Setup(
-            s3,
-            s3 + "を習得する",
-            this);
+        SkillData data = list[index];
+
+        int currentLevel = skillManager.GetLevel(data.type);
+
+        card.gameObject.SetActive(true);
+
+        card.Setup(data, currentLevel, this);
+    }
+
+    // ランダム抽選
+    private List<SkillData> GetRandomSkills(int count)
+    {
+        List<SkillData> candidates =
+            new List<SkillData>();
+
+        // MAX以外を候補に入れる
+        foreach (SkillData skill in allSkills)
+        {
+            if (!skillManager.IsMax(skill.type))
+            {
+                candidates.Add(skill);
+            }
+        }
+
+        // シャッフル
+        for (int i = 0; i < candidates.Count; i++)
+        {
+            int r = Random.Range(i, candidates.Count);
+
+            SkillData temp = candidates[i];
+            candidates[i] = candidates[r];
+            candidates[r] = temp;
+        }
+
+        // 先頭からcount個取得
+        List<SkillData> result =
+            new List<SkillData>();
+
+        for (int i = 0;
+             i < count && i < candidates.Count;
+             i++)
+        {
+            result.Add(candidates[i]);
+        }
+
+        return result;
     }
 
     // カード選択
-    public void SelectSkill(string skillName)
+    public void SelectSkill(SkillData data)
     {
-        // 今は取得ログだけ
-        Debug.Log(skillName + " を取得！");
+        // 実際にレベルアップ
+        skillManager.LevelUp(data);
+
+        Debug.Log(data.skillName + " を取得！");
 
         // UIを閉じる
         gameObject.SetActive(false);
