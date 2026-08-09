@@ -142,13 +142,13 @@ public class NomalEnemyManager : BaseEnemyManager
         // 遷移処理を挟む
         TransitionHit();
 
-        if (dead)
+        if (GetHitRock() && FinishedEventAnimation())
         {
             enemyState = EnemyState.Dead;
             ResetAnimation();
             return;
         }
-        else
+        else if(FinishedEventAnimation())
         {
             // 待機への遷移処理
             TransitionIdle();
@@ -164,7 +164,7 @@ public class NomalEnemyManager : BaseEnemyManager
         if(finishedAnimation)
         {
             // 死亡アニメーションが終了したら削除
-            Destroy(gameObject);
+            DeathProcess();
         }
     }
 
@@ -180,13 +180,19 @@ public class NomalEnemyManager : BaseEnemyManager
     protected void TransitionHit()
     {
         // ダメージ受けたら
-        if (isTakeHit)
+        if (isTakeHit || GetHitRock())
         {
             Debug.Log("Hitに遷移します");
             enemyState = EnemyState.Hit;
             isTakeHit = false;
             ResetAnimation();
+            SetHitAnimation();
             return;
         }
+    }
+
+    protected bool GetHitRock()
+    {
+        return enemyHealth.GetHitRock();
     }
 }

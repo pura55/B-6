@@ -118,6 +118,14 @@ public abstract class BaseEnemyManager : MonoBehaviour
         else if (onIncludeMovementAnimation) movementAnimation.SetAttack();
     }
 
+    /// @brief 被ダメージアニメーションを設定する関数
+    protected void SetHitAnimation()
+    {
+        if (onNomalAnimation) nomalAnimation.SetHit();
+
+        else if (onIncludeMovementAnimation) movementAnimation.SetHit();
+    }
+
     /// @brief アニメーションをリセットする関数
     protected void ResetAnimation()
     {
@@ -126,6 +134,7 @@ public abstract class BaseEnemyManager : MonoBehaviour
         else if (onIncludeMovementAnimation) movementAnimation.ResetFrameAndIndex();
     }
 
+    /// @brief イベントアニメーションが終了しているかどうかを判別する関数
     protected bool FinishedEventAnimation()
     {
         if (onNomalAnimation)
@@ -135,5 +144,11 @@ public abstract class BaseEnemyManager : MonoBehaviour
             return movementAnimation.GetFinishedEvent();
 
         return false;
+    }
+
+    /// @brief 死亡処理を行う関数
+    protected void DeathProcess()
+    {
+        Destroy(gameObject);
     }
 }

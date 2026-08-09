@@ -226,12 +226,18 @@ public abstract class BaseEnemySpriteSelector : MonoBehaviour
         animationState = AnimationState.attack;
     }
 
-    /// @brief 
+    public void SetHit()
+    {
+        animationState = AnimationState.hit;
+    }
+
+    /// @brief イベントアニメーションがの終了フラグを返す関数
     public bool GetFinishedEvent()
     {
         return isFinishedEvent;
     }
 
+    /// @brief スプライトの指数を返す関数
     public int GetSpriteIndex()
     {
         return spriteIndex;
