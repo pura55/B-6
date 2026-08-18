@@ -258,7 +258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShortDistanceAttack
   enemyID: 5
-  hitAnimationNumber: 6
+  hitAnimationNumber: 8
   enemyProgressData: {fileID: 11400000, guid: f1c5fd27d3e475c429457ece67e5af9d, type: 2}
   onNomalAnimation: 1
   onIncludeMovementAnimation: 0
@@ -274,7 +274,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f27a6dfc2de98a4ab0da05e270de09a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDamaged
-  enemyProgressData: {fileID: 0}
+  enemyID: 5
+  enemyProgressData: {fileID: 11400000, guid: f1c5fd27d3e475c429457ece67e5af9d, type: 2}
 --- !u!114 &-8737387044889284480
 MonoBehaviour:
   m_ObjectHideFlags: 0

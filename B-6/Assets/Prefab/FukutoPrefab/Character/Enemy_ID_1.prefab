@@ -260,7 +260,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f27a6dfc2de98a4ab0da05e270de09a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDamaged
-  enemyProgressData: {fileID: 0}
+  enemyID: 1
+  enemyProgressData: {fileID: 11400000, guid: f1c5fd27d3e475c429457ece67e5af9d, type: 2}
 --- !u!114 &3775506764996155951
 MonoBehaviour:
   m_ObjectHideFlags: 0

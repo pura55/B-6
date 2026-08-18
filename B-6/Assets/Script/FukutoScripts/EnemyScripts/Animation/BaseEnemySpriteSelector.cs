@@ -27,6 +27,7 @@ public abstract class BaseEnemySpriteSelector : MonoBehaviour
     protected int spriteIndex = 0; // スプライトの指数
     protected int currentFrame = 0; // 現在のフレーム
     protected bool isFinishedEvent = true; // イベントアニメーションの終了フラグ
+    protected bool isFinishedDeath = false; // 死亡アニメーションの終了フラグ
 
     protected int idleSpriteElements = 0; // 待機スプライトの要素数
     protected int attackSpriteElements = 0; // 攻撃スプライトの要素数
@@ -155,8 +156,9 @@ public abstract class BaseEnemySpriteSelector : MonoBehaviour
             // 指数 + 1 が要素以上だったら指数を戻す
             if (elements <= (spriteIndex + 1))
             {
-                // 死亡時は指数を固定
-                spriteIndex = elements - 1;
+                // 死亡時はreturn
+                isFinishedDeath = true;
+                return;
             }
             else
             {
@@ -226,15 +228,28 @@ public abstract class BaseEnemySpriteSelector : MonoBehaviour
         animationState = AnimationState.attack;
     }
 
+    /// @brief 描画状態を被ダメージに設定する関数 
     public void SetHit()
     {
         animationState = AnimationState.hit;
     }
 
-    /// @brief イベントアニメーションがの終了フラグを返す関数
+    /// @brief 描画状態を死亡に設定する関数 
+    public void SetDeath()
+    {
+        animationState = AnimationState.death;
+    }
+
+    /// @brief イベントアニメーションの終了フラグを返す関数
     public bool GetFinishedEvent()
     {
         return isFinishedEvent;
+    }
+
+    /// @brief 死亡アニメーションの終了フラグを返す関数
+    public bool GetFinishedDeath()
+    {
+        return isFinishedDeath;
     }
 
     /// @brief スプライトの指数を返す関数

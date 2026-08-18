@@ -65,6 +65,9 @@ public class NomalEnemyManager : BaseEnemyManager
 
         SetIdleAnimation();
 
+        // 落石ヒット時の遷移処理
+        HitRock();
+
         // 被ダメージへの遷移処理
         TransitionHit();
 
@@ -92,6 +95,9 @@ public class NomalEnemyManager : BaseEnemyManager
 
         SetMoveAnimation();
 
+        // 落石ヒット時の遷移処理
+        HitRock();
+
         // 被ダメージへの遷移処理
         TransitionHit();
 
@@ -110,6 +116,9 @@ public class NomalEnemyManager : BaseEnemyManager
         // 移動不可
         SetStopMovement(true);
 
+        // 落石ヒット時の遷移処理
+        HitRock();
+
         // 被ダメージへの遷移処理
         TransitionHit();
 
@@ -125,6 +134,7 @@ public class NomalEnemyManager : BaseEnemyManager
         // 攻撃済みフラグがfalse & イベントアニメーションが終了していたら
         if (!shortAttack.GetIsAttacked() && FinishedEventAnimation())
         {
+            ResetAnimation();
             SetAttackAnimation();
             shortAttack.SetAttackState();
             shortAttack.SetIsAttacked(true);
@@ -137,6 +147,9 @@ public class NomalEnemyManager : BaseEnemyManager
     {
         // 移動不可
         SetStopMovement(true);
+
+        // 落石ヒット時の遷移処理
+        HitRock();
 
         //ダメージを受けている最中でもアニメーションを繰り返すため
         // 遷移処理を挟む
@@ -161,7 +174,7 @@ public class NomalEnemyManager : BaseEnemyManager
         // 移動不可
         SetStopMovement(true);
 
-        if(finishedAnimation)
+        if(FinishedDeathAnimation())
         {
             // 死亡アニメーションが終了したら削除
             DeathProcess();
@@ -180,13 +193,26 @@ public class NomalEnemyManager : BaseEnemyManager
     protected void TransitionHit()
     {
         // ダメージ受けたら
-        if (isTakeHit || GetHitRock())
+        if (isTakeHit)
         {
             Debug.Log("Hitに遷移します");
             enemyState = EnemyState.Hit;
             isTakeHit = false;
             ResetAnimation();
             SetHitAnimation();
+            return;
+        }
+    }
+
+    private void HitRock()
+    {
+        // 落石に衝突していたら死亡へ
+        if (GetHitRock())
+        {
+            Debug.Log("Deadに遷移します");
+            enemyState = EnemyState.Dead;
+            ResetAnimation();
+            SetDeathAnimation();
             return;
         }
     }
