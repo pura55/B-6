@@ -8,60 +8,74 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     #region Config
-    private int enemyHp =5; // 敵のHP
+    protected int enemyHp =5; // 敵のHP
+    [SerializeField] protected int enemyID = 0;
     #endregion
 
     #region State
+    protected bool isHitRock = false;
+    protected string hpStatName = "HP"; // ステータスの名前
+    [SerializeField] protected EnemyProgressData enemyProgressData; // 敵のデータ
+    protected NomalEnemyManager nomalEnemyManager; // エネミーマネージャー
+    #endregion
 
-    #endregion 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        InitValue();
     }
 
     void Update()
     {
     }
 
-    void OnCollisionEnter2D(Collision2D col)
+    private void OnCollisionEnter2D(Collision2D col)
     {
-        if(col.gameObject.CompareTag("Rock"))
+        if (col.gameObject.CompareTag("Rock"))
         {
-            // 死亡処理を実行
-            DeathProcessing();
+            isHitRock = true;
         }
     }
 
-    void OnTriggerEnter2D(Collider2D col)
+    private void OnTriggerEnter2D(Collider2D col)
     {
         //if (col.gameObject.CompareTag("PlayerAttack"))
         //{
         //    // 被ダメージ処理を実行
         //    ReciveDamage(col.gameObject);
+        //
+        //    if(!IsAlive())
+        //        nomalEnemyManager.SetIsDead();
+        //    else 
+        //        nomalEnemyManager.SetTakeHit();
         //}
     }
 
+    /// @brief 変数の初期化を行う関数
+    protected void InitValue()
+    {
+        enemyHp = enemyProgressData.GetIntStat(enemyID, hpStatName);
+        nomalEnemyManager = gameObject.GetComponent<NomalEnemyManager>();
+    }
+
     /// @brief 被ダメージ処理を行う関数
-    private void ReciveDamage(GameObject attack)
+    protected void ReciveDamage(GameObject attack)
     {
         enemyHp--;
     }
 
-    /// @brief 死亡処理を行う関数
-    private void DeathProcessing()
+    /// @brief 生死を判定するフラグ
+    protected bool IsAlive()
     {
-        // 経験値を落とすスクリプトの参照を取得
-        DropExp dropExp = gameObject.GetComponent <DropExp>();
+        // hpが0だったらfalse
+        if (enemyHp <= 0)
+            return false;
+        else
+            return true;
+    }
 
-        // スクリプトがnullではない場合実行
-        if (dropExp != null)
-        {
-            // 経験値ドロップ処理を実行
-            dropExp.EnemyDropExp();
-        }
-
-        // エネミーを削除
-        Destroy(gameObject);
+    /// @brief isHitRockを返す関数
+    public bool GetHitRock()
+    {
+        return isHitRock;
     }
 }

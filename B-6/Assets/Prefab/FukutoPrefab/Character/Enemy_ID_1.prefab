@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 8382550772505638371}
   - component: {fileID: 3775506764996155951}
   - component: {fileID: 6496487315031941128}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy_ID_1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -260,6 +260,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f27a6dfc2de98a4ab0da05e270de09a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDamaged
+  enemyID: 1
+  enemyProgressData: {fileID: 11400000, guid: f1c5fd27d3e475c429457ece67e5af9d, type: 2}
 --- !u!114 &3775506764996155951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,7 +307,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2785340836658489949, guid: e0f49487d57f23b48bef945c11e290d3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2785340836658489949, guid: e0f49487d57f23b48bef945c11e290d3, type: 3}
       propertyPath: m_LocalRotation.w

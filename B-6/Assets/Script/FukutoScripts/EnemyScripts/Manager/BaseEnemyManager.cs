@@ -27,6 +27,7 @@ public abstract class BaseEnemyManager : MonoBehaviour
     #region State
     protected EnemyState enemyState = EnemyState.Idle; // 敵の状態
     protected bool isTakeHit = false; // ダメージを受けてかどうかのフラグ
+    protected bool isDead = false; // 死んでいるかどうかのフラグ
     protected NomalMove nomalMove; // 普通の移動
     protected AggressiveMove aggressiveMove; // 攻撃的な移動
     protected NomalAnimation nomalAnimation; // 普通のアニメーション
@@ -118,6 +119,21 @@ public abstract class BaseEnemyManager : MonoBehaviour
         else if (onIncludeMovementAnimation) movementAnimation.SetAttack();
     }
 
+    /// @brief 被ダメージアニメーションを設定する関数
+    protected void SetHitAnimation()
+    {
+        if (onNomalAnimation) nomalAnimation.SetHit();
+
+        else if (onIncludeMovementAnimation) movementAnimation.SetHit();
+    }
+
+    protected void SetDeathAnimation()
+    {
+        if (onNomalAnimation) nomalAnimation.SetDeath();
+
+        else if (onIncludeMovementAnimation) movementAnimation.SetDeath();
+    }
+
     /// @brief アニメーションをリセットする関数
     protected void ResetAnimation()
     {
@@ -126,6 +142,7 @@ public abstract class BaseEnemyManager : MonoBehaviour
         else if (onIncludeMovementAnimation) movementAnimation.ResetFrameAndIndex();
     }
 
+    /// @brief イベントアニメーションが終了しているかどうかを判別する関数
     protected bool FinishedEventAnimation()
     {
         if (onNomalAnimation)
@@ -135,5 +152,45 @@ public abstract class BaseEnemyManager : MonoBehaviour
             return movementAnimation.GetFinishedEvent();
 
         return false;
+    }
+
+    /// @brief 死亡アニメーションが終了しているかどうかを判別する関数
+    protected bool FinishedDeathAnimation()
+    {
+        if (onNomalAnimation)
+            return nomalAnimation.GetFinishedDeath();
+
+        else if (onIncludeMovementAnimation)
+            return movementAnimation.GetFinishedDeath();
+
+        return false;
+    }
+
+    /// @brief ヒットフラグをtrueにする関数
+    public void SetTakeHit()
+    {
+        isTakeHit = true;
+    }
+
+    /// @brief 死亡フラグをtrueにする関数
+    public void SetIsDead()
+    {
+        isDead = true;
+    }
+
+    /// @brief 死亡処理を行う関数
+    protected void DeathProcess()
+    {
+        // 経験値を落とすスクリプトの参照を取得
+        DropExp dropExp = gameObject.GetComponent<DropExp>();
+
+        // スクリプトがnullではない場合実行
+        if (dropExp != null)
+        {
+            // 経験値ドロップ処理を実行
+            dropExp.EnemyDropExp();
+        }
+
+        Destroy(gameObject);
     }
 }
