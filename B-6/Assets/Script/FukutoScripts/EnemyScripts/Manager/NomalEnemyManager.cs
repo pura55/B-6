@@ -7,9 +7,6 @@ using UnityEngine;
 /// </summary>
 public class NomalEnemyManager : BaseEnemyManager
 {
-    private bool dead;
-    private bool finishedAnimation = false;
-
     #region Config
     protected ShortAttack shortAttack; // ‹ßÚUŒ‚
     #endregion
