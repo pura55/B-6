@@ -73,11 +73,13 @@ public class PlayerAttack : MonoBehaviour
 
             Debug.Log($"<color=red>【ヒット！】</color> {target.name} に攻撃！");
 
-            EnemyDamaged enemy = target.GetComponent<EnemyDamaged>();
+            // 敵の体力の参照を取得
+            EnemyHealth health = target.GetComponent<EnemyHealth>();
 
-            if (enemy != null)
+            if (health != null)
             {
-                enemy.ReceiveDamage(Attack);
+                // ダメージ処理
+                health.ReceiveDamage(Attack);
             }
         }
 

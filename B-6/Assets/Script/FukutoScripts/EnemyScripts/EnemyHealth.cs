@@ -24,30 +24,12 @@ public class EnemyHealth : MonoBehaviour
         InitValue();
     }
 
-    void Update()
-    {
-    }
-
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.CompareTag("Rock"))
         {
             isHitRock = true;
         }
-    }
-
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        //if (col.gameObject.CompareTag("PlayerAttack"))
-        //{
-        //    // 被ダメージ処理を実行
-        //    ReciveDamage(col.gameObject);
-        //
-        //    if(!IsAlive())
-        //        nomalEnemyManager.SetIsDead();
-        //    else 
-        //        nomalEnemyManager.SetTakeHit();
-        //}
     }
 
     /// @brief 変数の初期化を行う関数
@@ -58,9 +40,14 @@ public class EnemyHealth : MonoBehaviour
     }
 
     /// @brief 被ダメージ処理を行う関数
-    protected void ReciveDamage(GameObject attack)
+    public void ReceiveDamage(int dmg)
     {
-        enemyHp--;
+        enemyHp -= dmg;
+
+        if (!IsAlive())
+            nomalEnemyManager.SetIsDead();
+        else
+            nomalEnemyManager.SetTakeHit();
     }
 
     /// @brief 生死を判定するフラグ

@@ -12,11 +12,16 @@ public class Bullet : MonoBehaviour
             return;
         }
 
-        EnemyDamaged enemy = other.GetComponent<EnemyDamaged>();
-
-        if (enemy != null)
+        // “G‚É“–‚½‚Á‚½ê‡
+        if (other.CompareTag("Enemy"))
         {
-            enemy.ReceiveDamage(damage);
+            // “G‚Ì‘Ì—Í‚ÌQÆ‚ğæ“¾
+            EnemyHealth health = other.GetComponent<EnemyHealth>();
+
+            // ƒ_ƒ[ƒWˆ—
+            if (health != null) health.ReceiveDamage(damage);
+
+            // ’eŠÛ‚Ìíœ
             Destroy(gameObject);
         }
     }
