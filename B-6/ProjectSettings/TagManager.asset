@@ -7,6 +7,9 @@ TagManager:
   - Enemy
   - Rock
   - ExpItem
+  - PlayerAttack
+  - Wall
+  - Tower
   layers:
   - Default
   - TransparentFX

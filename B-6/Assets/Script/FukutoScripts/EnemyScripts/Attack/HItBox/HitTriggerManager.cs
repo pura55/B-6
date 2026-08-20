@@ -15,6 +15,7 @@ public class HitTriggerManager : MonoBehaviour
     #region State
     private bool isActiveTrigger; // 当たり判定のアクティブフラグ（true: アクティブ, false: 非アクティブ)
     private Collider2D hitTrigger; // 当たり判定のトリガー
+    private bool isJustOnce = false; // トリガーを一度だけtrueにするフラグ
     #endregion
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -44,6 +45,15 @@ public class HitTriggerManager : MonoBehaviour
             // プレイヤーのHPを減らす
             playerHealth.ReceiveDamage(statAtk);
         }
+
+        if (collision.CompareTag("Tower"))
+        {
+            // プレイヤーの体力の参照を取得
+            TowerHealth towerHealth = collision.GetComponent<TowerHealth>();
+
+            // プレイヤーのHPを減らす
+            towerHealth.TakeDamage(statAtk);
+        }
     }
 
     /// @brief 当たり判定のON・OFFをスイッチする関数
@@ -51,11 +61,16 @@ public class HitTriggerManager : MonoBehaviour
     {
         if (isActiveTrigger)
         {
-            hitTrigger.enabled = true;
+            if(isJustOnce)
+            {
+                hitTrigger.enabled = true;
+                isJustOnce = false;
+            }
         }
         else
         {
             hitTrigger.enabled = false;
+            isJustOnce = true;
         }
     }
 

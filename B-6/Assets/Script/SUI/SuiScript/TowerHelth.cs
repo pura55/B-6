@@ -38,6 +38,7 @@ public class TowerHealth : MonoBehaviour
     {
         // HPを減らす
         currentHp -= damage;
+        Debug.Log(damage + "ダメージ");
 
         // 0未満にならないようにする
         if (currentHp < 0)
@@ -82,12 +83,12 @@ public class TowerHealth : MonoBehaviour
     // 衝突した瞬間に呼ばれる
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // 敵に触れた
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            TakeDamage(1);
-            Debug.Log("Enemyから1ダメージ");
-        }
+        //// 敵に触れた
+        //if (collision.gameObject.CompareTag("Enemy"))
+        //{
+        //    TakeDamage(1);
+        //    Debug.Log("Enemyから1ダメージ");
+        //}
 
         // 岩に触れた
         if (collision.gameObject.CompareTag("Rock"))
