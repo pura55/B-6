@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &357890 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 705468042484161248, guid: 4521623d95bd54a4995b126a0c711e79, type: 3}
+  m_PrefabInstance: {fileID: 4826302991812740019}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &175468003 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8549939543547087018, guid: 03a7336a28f06b747a5bf0a74be11894, type: 3}
@@ -579,6 +584,18 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8758336395527221973, guid: 4521623d95bd54a4995b126a0c711e79, type: 3}
   m_PrefabInstance: {fileID: 4826302991812740019}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &444732592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63ebc3f1ed09d3c4aa33bbb8702dc9fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TowerSize
 --- !u!1001 &543148005
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2338,10 +2355,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1686868231158421340, guid: 4521623d95bd54a4995b126a0c711e79, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 705468042484161248, guid: 4521623d95bd54a4995b126a0c711e79, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 444732592}
   m_SourcePrefab: {fileID: 100100000, guid: 4521623d95bd54a4995b126a0c711e79, type: 3}
 --- !u!1001 &7520921125581178983
 PrefabInstance:

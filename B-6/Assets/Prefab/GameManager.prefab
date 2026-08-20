@@ -1287,6 +1287,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4807990481238714564, guid: 16a38b205e84977499530a76f2732a95, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4793227285573369624}
+    - targetCorrespondingSourceObject: {fileID: 4807990481238714564, guid: 16a38b205e84977499530a76f2732a95, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7217153186504692503}
   m_SourcePrefab: {fileID: 100100000, guid: 16a38b205e84977499530a76f2732a95, type: 3}
 --- !u!114 &1330967122938852641 stripped
 MonoBehaviour:
@@ -1331,6 +1334,18 @@ MonoBehaviour:
   level: 1
   maxExp: 100
   levelUpUI: {fileID: 4047367364196834800}
+--- !u!114 &7217153186504692503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7996086720322329091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 455b9925cb028e84aac9a52c2d486028, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerSize
 --- !u!4 &8400084719294948711 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6403485163844900768, guid: 16a38b205e84977499530a76f2732a95, type: 3}
@@ -2007,8 +2022,28 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8473345745813067917, guid: 17bd59cc19b813740aba6fbaf77b4971, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4330845058519256558}
   m_SourcePrefab: {fileID: 100100000, guid: 17bd59cc19b813740aba6fbaf77b4971, type: 3}
+--- !u!1 &825509088747512003 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8473345745813067917, guid: 17bd59cc19b813740aba6fbaf77b4971, type: 3}
+  m_PrefabInstance: {fileID: 9143313484067878990}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4330845058519256558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825509088747512003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63ebc3f1ed09d3c4aa33bbb8702dc9fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TowerSize
 --- !u!4 &8221241107119088871 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 933410678294420649, guid: 17bd59cc19b813740aba6fbaf77b4971, type: 3}

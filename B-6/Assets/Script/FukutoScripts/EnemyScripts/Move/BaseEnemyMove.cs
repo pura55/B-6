@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 /// <summary>
 /// ベースエネミームーブ
@@ -22,6 +23,7 @@ public abstract class BaseEnemyMove : MonoBehaviour
     protected bool obstructedWall = false;                          // 壁に遮られているかどうか
     protected Transform currentTarget;                              // 現在のターゲット
     protected const string speedStatName = "SPEED";                 // ステータスの名前
+    protected Vector2 targetSize = Vector2.zero;                    // ターゲットのサイズ
     [SerializeField] protected Transform targetTower;               // ターゲットのタワー
     [SerializeField] protected EnemyProgressData enemyProgressData; // 敵のデータ
     #endregion
@@ -50,7 +52,16 @@ public abstract class BaseEnemyMove : MonoBehaviour
     /// @brief 一定距離に近づいたか確認する関数
     protected void CheckAttaced()
     {
-        if (Vector2.Distance(transform.position, currentTarget.position) < 0.95f)
+        //if (Vector2.Distance(transform.position, currentTarget.position) < targetSize.x + 0.95f && Vector2.Distance(transform.position, currentTarget.position) < targetSize.x + 0.95f)
+        //{
+        //    isAttached = true;
+        //}
+        //else
+        //{
+        //    isAttached = false;
+        //}
+
+        if(Mathf.Abs(transform.position.x - currentTarget.position.x) < targetSize.x / 2 && Mathf.Abs(transform.position.y - currentTarget.position.y) < targetSize.y / 2)
         {
             isAttached = true;
         }

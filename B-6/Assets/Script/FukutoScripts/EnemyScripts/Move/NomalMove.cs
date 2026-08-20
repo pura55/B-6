@@ -47,5 +47,9 @@ public class NomalMove : BaseEnemyMove
         settingSpeed = enemyProgressData.GetFloatStat(enemyID, speedStatName);
         followSpeed = settingSpeed;
         currentTarget = targetTower;
+
+        // タワーのサイズを取得
+        TowerSize towerSize = targetTower.GetComponent<TowerSize>();
+        targetSize = towerSize.GetTowerSize();
     }
 }

@@ -65,10 +65,16 @@ public class AggressiveMove : BaseEnemyMove
         if (targetPlayer != null)
         {
             currentTarget = targetPlayer;
+            // プレイヤーのサイズ取得
+            PlayerSize towerSize = targetTower.GetComponent<PlayerSize>();
+            targetSize = towerSize.GetPlayerSize();
         }
         else
         {
             currentTarget = targetTower;
+            // タワーのサイズを取得
+            TowerSize towerSize = targetTower.GetComponent<TowerSize>();
+            targetSize = towerSize.GetTowerSize();
         }
     }
 
