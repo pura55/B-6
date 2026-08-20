@@ -19,13 +19,13 @@ public abstract class BaseEnemySpriteSelector : MonoBehaviour
     }
     #region Config
     [SerializeField]protected int enemyId = 0; // 敵のID
-    protected int framePerSprite = 60; // 毎スプライトごとのフレーム数
+    protected float timePerSprite = 0.1f; // 毎スプライトごとの時間
     #endregion
 
     #region State
     protected AnimationState animationState = AnimationState.idle;
     protected int spriteIndex = 0; // スプライトの指数
-    protected int currentFrame = 0; // 現在のフレーム
+    protected float currentTime = 0; // 現在のアニメーション時間
     protected bool isFinishedEvent = true; // イベントアニメーションの終了フラグ
     protected bool isFinishedDeath = false; // 死亡アニメーションの終了フラグ
 
@@ -89,10 +89,10 @@ public abstract class BaseEnemySpriteSelector : MonoBehaviour
     /// @brief フレーム管理を行う関数
     protected void ManageFrame(int elements)
     {
-        // フレームがFPSよりも小さい場合
-        if (currentFrame < framePerSprite)
+        // 時間がよりも小さい場合
+        if (currentTime < timePerSprite)
         {
-            currentFrame++; // フレームを進める
+            currentTime += Time.deltaTime; // 時間を進める
         }
         else
         {
@@ -109,7 +109,7 @@ public abstract class BaseEnemySpriteSelector : MonoBehaviour
             }
 
             // フレームをリセット
-            currentFrame = 0;
+            currentTime = 0f;
         }
     }
 
@@ -117,9 +117,9 @@ public abstract class BaseEnemySpriteSelector : MonoBehaviour
     protected void ManageEventFrame(int elements)
     {
         // フレームがFPSよりも小さい場合
-        if (currentFrame < framePerSprite)
+        if (currentTime < timePerSprite)
         {
-            currentFrame++; // フレームを進める
+            currentTime += Time.deltaTime; // 時間を進める
         }
         else
         {
@@ -127,7 +127,7 @@ public abstract class BaseEnemySpriteSelector : MonoBehaviour
             if (elements <= (spriteIndex + 1))
             {
                 spriteIndex = 0;
-                currentFrame = 0;
+                currentTime = 0;
                 isFinishedEvent = true;
                 animationState = AnimationState.idle;
                 return;
@@ -139,7 +139,7 @@ public abstract class BaseEnemySpriteSelector : MonoBehaviour
             }
 
             // フレームをリセット
-            currentFrame = 0;
+            currentTime = 0f;
         }
     }
 
@@ -147,9 +147,9 @@ public abstract class BaseEnemySpriteSelector : MonoBehaviour
     protected void ManageDeathFrame(int elements)
     {
         // フレームがFPSよりも小さい場合
-        if (currentFrame < framePerSprite)
+        if (currentTime < timePerSprite)
         {
-            currentFrame++; // フレームを進める
+            currentTime += Time.deltaTime; // 時間を進める
         }
         else
         {
@@ -167,7 +167,7 @@ public abstract class BaseEnemySpriteSelector : MonoBehaviour
             }
 
             // フレームをリセット
-            currentFrame = 0;
+            currentTime = 0f;
         }
     }
 
@@ -206,7 +206,7 @@ public abstract class BaseEnemySpriteSelector : MonoBehaviour
     /// @brief フレームとスプライト指数をリセットする関数
     public void ResetFrameAndIndex()
     {
-        currentFrame = 0;
+        currentTime = 0;
         spriteIndex = 0;
     }
 

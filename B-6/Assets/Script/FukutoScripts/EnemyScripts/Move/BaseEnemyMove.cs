@@ -61,7 +61,7 @@ public abstract class BaseEnemyMove : MonoBehaviour
         //    isAttached = false;
         //}
 
-        if(Mathf.Abs(transform.position.x - currentTarget.position.x) < targetSize.x / 2 && Mathf.Abs(transform.position.y - currentTarget.position.y) < targetSize.y / 2)
+        if(Mathf.Abs(transform.position.x - currentTarget.position.x) < targetSize.x / 2 + 0.35f&& Mathf.Abs(transform.position.y - currentTarget.position.y) < targetSize.y / 2 + 0.35f)
         {
             isAttached = true;
         }
