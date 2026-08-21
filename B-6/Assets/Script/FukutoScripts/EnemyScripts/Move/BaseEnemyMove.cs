@@ -24,7 +24,7 @@ public abstract class BaseEnemyMove : MonoBehaviour
     protected Transform currentTarget;                              // 現在のターゲット
     protected const string speedStatName = "SPEED";                 // ステータスの名前
     protected Vector2 targetSize = Vector2.zero;                    // ターゲットのサイズ
-    [SerializeField] protected Transform targetTower;               // ターゲットのタワー
+    protected Transform targetTower;                                // ターゲットのタワー
     [SerializeField] protected EnemyProgressData enemyProgressData; // 敵のデータ
     #endregion
 

@@ -9,6 +9,8 @@ public class BaseHitBoxRotation: MonoBehaviour
 {
     #region Config
     protected static float distanceRadius = 0.3f; // 距離半径
+    [SerializeField] private bool onNomalMove = false; // 基本移動が付いているかどうかのフラグ
+    [SerializeField] private bool onAggressiveMove = false; // プレイヤー追跡の移動がついているかどうかのフラグ
     #endregion
 
     #region State
@@ -18,6 +20,7 @@ public class BaseHitBoxRotation: MonoBehaviour
     protected Vector3 distanceParent = Vector3.zero; // 親からの距離
     protected Transform parentTransform; // 親のトランスフォーム
     protected NomalMove nomalMove;       // 基本的な移動を行うスクリプト
+    protected AggressiveMove aggressiveMove; // プレイヤーの追跡を行う移動スクリプト
     #endregion
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -25,7 +28,7 @@ public class BaseHitBoxRotation: MonoBehaviour
     {
         parentTransform = transform.parent;
         // 親スクリプトの参照を取得
-        nomalMove = parentTransform.GetComponent<NomalMove>();
+        SetMoveScript();
     }
 
     // Update is called once per frame
@@ -40,7 +43,7 @@ public class BaseHitBoxRotation: MonoBehaviour
     protected void DecideRotationalMovement()
     {
         // 親が向かっている方角を取得
-        parentHeaded = nomalMove.GetMovementPerFrame();
+        GetParentHeaded();
 
         float numx = parentHeaded.x; // 親進行方向のx座標
         float numy = parentHeaded.y; // 親進行方向のy座標
@@ -75,6 +78,32 @@ public class BaseHitBoxRotation: MonoBehaviour
     protected void RotateHitBox()
     {
         transform.rotation = targetRotation;
+    }
+
+    ///@brief 移動用スクリプトの参照を取得する関数
+    protected void SetMoveScript()
+    {
+        if(onNomalMove)
+        {
+            nomalMove = parentTransform.GetComponent<NomalMove>();
+        }
+        else if(onAggressiveMove)
+        {
+            aggressiveMove = parentTransform.GetComponent<AggressiveMove>();
+        }
+    }
+
+    /// @brief 親が向かっている方角を取得する関数
+    protected void GetParentHeaded()
+    {
+        if (onNomalMove)
+        {
+            parentHeaded = nomalMove.GetMovementPerFrame();
+        }
+        else if(onAggressiveMove)
+        {
+            parentHeaded = aggressiveMove.GetMovementPerFrame();
+        }
     }
 
 }

@@ -230,6 +230,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IncludeMovementAnimation
   enemyId: 3
   enemySpriteData: {fileID: 11400000, guid: 0ae569640c76edb4ab60e7dd549c57a5, type: 2}
+  onNomalMove: 1
+  onAggressiveMove: 0
 --- !u!114 &-7290046836200537275
 MonoBehaviour:
   m_ObjectHideFlags: 0

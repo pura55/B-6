@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3824464598173647377}
   - component: {fileID: 8214699450041397718}
   - component: {fileID: -2970611619493780680}
-  - component: {fileID: -7290046836200537275}
+  - component: {fileID: -2968833444237072146}
   - component: {fileID: 4414791695640219721}
   - component: {fileID: -5910053777904288716}
   - component: {fileID: -8737387044889284480}
@@ -212,8 +212,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73bf7af226cbde14caeadf7d06066a8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NomalEnemyManager
-  onNomalMove: 1
-  onAggressiveMove: 0
+  onNomalMove: 0
+  onAggressiveMove: 1
   onNomalAnimation: 1
   onIncludeMovementAnimation: 0
 --- !u!114 &-2970611619493780680
@@ -229,8 +229,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NomalAnimation
   enemyId: 5
+  onNomalMove: 0
+  onAggressiveMove: 1
   enemySpriteData: {fileID: 11400000, guid: 0ae569640c76edb4ab60e7dd549c57a5, type: 2}
---- !u!114 &-7290046836200537275
+--- !u!114 &-2968833444237072146
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -239,12 +241,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 6449213048604919684}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 073edbe8d4c3a8b4ba155112155c80a6, type: 3}
+  m_Script: {fileID: 11500000, guid: 8290e8768a5ec3241b55a9a3d6c4c2a6, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NomalMove
+  m_EditorClassIdentifier: Assembly-CSharp::AggressiveMove
   enemyID: 5
   targetTower: {fileID: 0}
   enemyProgressData: {fileID: 11400000, guid: f1c5fd27d3e475c429457ece67e5af9d, type: 2}
+  searchDistance: 10
+  targetPlayer: {fileID: 0}
 --- !u!114 &4414791695640219721
 MonoBehaviour:
   m_ObjectHideFlags: 0

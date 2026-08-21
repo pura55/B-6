@@ -33,6 +33,7 @@ public abstract class BaseEnemyManager : MonoBehaviour
     protected NomalAnimation nomalAnimation; // 普通のアニメーション
     protected IncludeMovementAnimation movementAnimation; // 移動付きアニメーション
     protected EnemyHealth enemyHealth; // 体力管理スクリプト
+    protected ShortAttack shortAttack; // 近接攻撃
     #endregion
 
 
