@@ -12,6 +12,7 @@ public class MidBossAnimation : IncludeMovementAnimation
     protected int skillSpriteElements = 0; // スキルスプライトの要素数
     protected string skillSpriteName = "SKILL";   // スキルスプライト名
     #endregion
+
     void Start()
     {
         InitValue();

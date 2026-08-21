@@ -18,7 +18,8 @@ public abstract class BaseEnemySpriteSelector : MonoBehaviour
         skill   // スキル
     }
     #region Config
-    [SerializeField]protected int enemyId = 0; // 敵のID
+    [SerializeField] protected int enemyId = 0; // 敵のID
+    [SerializeField] protected bool reverseFlip = false; // スプライトのフリップを反転するフラグ
     [SerializeField] protected bool onNomalMove = false; // 基本移動が付いているかどうかのフラグ
     [SerializeField] protected bool onAggressiveMove = false; // プレイヤー追跡の移動がついているかどうかのフラグ
     protected float timePerSprite = 0.1f; // 毎スプライトごとの時間
@@ -178,13 +179,27 @@ public abstract class BaseEnemySpriteSelector : MonoBehaviour
     /// @briefスプライトのフリップ処理を行う関数
     protected void FlipSprite(Vector3 amount)
     {
-        if(amount.x < 0)
+        if(!reverseFlip)
         {
-            spriteRenderer.flipX = true;
+            if (amount.x < 0)
+            {
+                spriteRenderer.flipX = true;
+            }
+            else
+            {
+                spriteRenderer.flipX = false;
+            }
         }
         else
         {
-            spriteRenderer.flipX = false;
+            if (amount.x < 0)
+            {
+                spriteRenderer.flipX = false;
+            }
+            else
+            {
+                spriteRenderer.flipX = true;
+            }
         }
     }
 

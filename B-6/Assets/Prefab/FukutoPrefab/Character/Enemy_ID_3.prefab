@@ -229,9 +229,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IncludeMovementAnimation
   enemyId: 3
-  enemySpriteData: {fileID: 11400000, guid: 0ae569640c76edb4ab60e7dd549c57a5, type: 2}
   onNomalMove: 1
   onAggressiveMove: 0
+  enemySpriteData: {fileID: 11400000, guid: 0ae569640c76edb4ab60e7dd549c57a5, type: 2}
 --- !u!114 &-7290046836200537275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,7 +245,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NomalMove
   enemyID: 3
-  targetTower: {fileID: 0}
   enemyProgressData: {fileID: 11400000, guid: f1c5fd27d3e475c429457ece67e5af9d, type: 2}
 --- !u!114 &4414791695640219721
 MonoBehaviour:
@@ -299,6 +298,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2570283839233665180}
     m_Modifications:
+    - target: {fileID: -1828822045962500008, guid: e0f49487d57f23b48bef945c11e290d3, type: 3}
+      propertyPath: onNomalMove
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2785340836658489949, guid: e0f49487d57f23b48bef945c11e290d3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.3
