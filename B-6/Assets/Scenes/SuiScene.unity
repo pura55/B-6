@@ -2336,6 +2336,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1831575989071789249, guid: f04d8ef6a04066440b1234d282e31cbb, type: 3}
+      propertyPath: allSkills.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1831575989071789249, guid: f04d8ef6a04066440b1234d282e31cbb, type: 3}
+      propertyPath: 'allSkills.Array.data[5]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 95a9283cee8cbf64581f15c1a3d3276e, type: 2}
+    - target: {fileID: 1831575989071789249, guid: f04d8ef6a04066440b1234d282e31cbb, type: 3}
+      propertyPath: 'allSkills.Array.data[6]'
+      value: 
+      objectReference: {fileID: 11400000, guid: ded495af94c543940a6928ad064efa93, type: 2}
+    - target: {fileID: 1831575989071789249, guid: f04d8ef6a04066440b1234d282e31cbb, type: 3}
+      propertyPath: 'allSkills.Array.data[7]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 259cd4d9e2a94ff409bd256e028e91ae, type: 2}
+    - target: {fileID: 1831575989071789249, guid: f04d8ef6a04066440b1234d282e31cbb, type: 3}
+      propertyPath: 'allSkills.Array.data[8]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 6360cca916d6c47439f2d39c65624480, type: 2}
+    - target: {fileID: 1831575989071789249, guid: f04d8ef6a04066440b1234d282e31cbb, type: 3}
+      propertyPath: 'allSkills.Array.data[9]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 44fa4230d9f8718408bb18df3acc197f, type: 2}
+    - target: {fileID: 1831575989071789249, guid: f04d8ef6a04066440b1234d282e31cbb, type: 3}
+      propertyPath: 'allSkills.Array.data[10]'
+      value: 
+      objectReference: {fileID: 11400000, guid: da84851f593a74d4ca222c5bb54a5498, type: 2}
+    - target: {fileID: 1831575989071789249, guid: f04d8ef6a04066440b1234d282e31cbb, type: 3}
+      propertyPath: 'allSkills.Array.data[11]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 5fdc2de48a495664292dab495dbf2626, type: 2}
     - target: {fileID: 3449571084020833822, guid: f04d8ef6a04066440b1234d282e31cbb, type: 3}
       propertyPath: m_Name
       value: LevelUpPanel
