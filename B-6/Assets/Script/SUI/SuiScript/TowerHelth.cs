@@ -57,46 +57,56 @@ public class TowerHealth : MonoBehaviour
         // HPが0になったら
         if (currentHp == 0)
         {
+            // 赤バーも即座に0にする
+            damageSlider.value = 0;
+
+            // 実行中の赤バーアニメーションを停止
+            if (damageCoroutine != null)
+            {
+                StopCoroutine(damageCoroutine);
+                damageCoroutine = null;
+            }
+
             Debug.Log("ゲームオーバー！");
         }
-    }
 
-    // 赤バーを遅れて減らす処理
-    IEnumerator UpdateDamageBar()
-    {
-        // 1秒待機
-        yield return new WaitForSeconds(1f);
-
-        // 赤バーを滑らかに減らす
-        while (damageSlider.value > hpSlider.value)
+        // 赤バーを遅れて減らす処理
+        IEnumerator UpdateDamageBar()
         {
-            damageSlider.value = Mathf.MoveTowards(
-                damageSlider.value,
-                hpSlider.value,
-                50f * Time.deltaTime
-            );
+            // 1秒待機
+            yield return new WaitForSeconds(1f);
 
-            yield return null;
+            // 赤バーを滑らかに減らす
+            while (damageSlider.value > hpSlider.value)
+            {
+                damageSlider.value = Mathf.MoveTowards(
+                    damageSlider.value,
+                    hpSlider.value,
+                    50f * Time.deltaTime
+                );
+
+                yield return null;
+            }
         }
-    }
 
-    // 衝突した瞬間に呼ばれる
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        //// 敵に触れた
-        //if (collision.gameObject.CompareTag("Enemy"))
-        //{
-        //    TakeDamage(1);
-        //    Debug.Log("Enemyから1ダメージ");
-        //}
-
-        // 岩に触れた
-        if (collision.gameObject.CompareTag("Rock"))
+        // 衝突した瞬間に呼ばれる
+        void OnCollisionEnter2D(Collision2D collision)
         {
-            TakeDamage(5);
-            Debug.Log("Rockから5ダメージ");
+            //// 敵に触れた
+            //if (collision.gameObject.CompareTag("Enemy"))
+            //{
+            //    TakeDamage(1);
+            //    Debug.Log("Enemyから1ダメージ");
+            //}
 
-            Destroy(collision.gameObject); // 岩を消す
+            // 岩に触れた
+            if (collision.gameObject.CompareTag("Rock"))
+            {
+                TakeDamage(5);
+                Debug.Log("Rockから5ダメージ");
+
+                Destroy(collision.gameObject); // 岩を消す
+            }
         }
     }
 }
