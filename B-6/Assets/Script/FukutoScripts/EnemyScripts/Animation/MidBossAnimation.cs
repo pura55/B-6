@@ -84,4 +84,10 @@ public class MidBossAnimation : IncludeMovementAnimation
     {
         skillSpriteElements = skillSprites.Length;
     }
+
+    /// @brief •`‰æó‘Ô‚ğƒXƒLƒ‹‚Éİ’è‚·‚éŠÖ” 
+    public void SetSkill()
+    {
+        animationState = AnimationState.skill;
+    }
 }

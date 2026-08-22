@@ -212,4 +212,9 @@ public class MidBossManager : NomalEnemyManager
             return;
         }
     }
+
+    protected void SetSkillAnimation()
+    {
+        if (onMidBossAnimation) midBossAnimation.SetSkill();
+    }
 }
