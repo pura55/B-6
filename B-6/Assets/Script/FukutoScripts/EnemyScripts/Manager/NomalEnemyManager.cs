@@ -149,13 +149,7 @@ public class NomalEnemyManager : BaseEnemyManager
         // ‘JˆÚˆ—‚ğ‹²‚Ş
         TransitionHit();
 
-        if (GetHitRock() && FinishedEventAnimation())
-        {
-            enemyState = EnemyState.Dead;
-            ResetAnimation();
-            return;
-        }
-        else if(FinishedEventAnimation())
+        if(FinishedEventAnimation())
         {
             // ‘Ò‹@‚Ö‚Ì‘JˆÚˆ—
             TransitionIdle();
