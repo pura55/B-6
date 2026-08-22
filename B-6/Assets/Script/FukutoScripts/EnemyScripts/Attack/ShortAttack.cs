@@ -11,8 +11,10 @@ public class ShortAttack : BaseEnemyAttack
     #region State
     [SerializeField] protected bool onNomalAnimation = false; // インスペクターにNomalAnimationがあるかどうか
     [SerializeField] protected bool onIncludeMovementAnimation = false; // インスペクターにIncludeMovementAnimationがあるかどうか
+    [SerializeField] protected bool onMidBossAnimation = false;
     NomalAnimation nomalAnimation;
     IncludeMovementAnimation movementAnimation;
+    MidBossAnimation midBossAnimation;
     #endregion
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -64,7 +66,7 @@ public class ShortAttack : BaseEnemyAttack
                 ActiveHitBox();
                 isAlreadyHit = true;
             }
-            else if(isAlreadyHit == true)
+            else if(isAlreadyHit)
             {
                 // ヒットボックスオフ
                 InactiveHitBox();
@@ -108,6 +110,9 @@ public class ShortAttack : BaseEnemyAttack
 
         // IncludeMovementAnimationのコンポーネントの取得
         else if (onIncludeMovementAnimation) movementAnimation = GetComponent<IncludeMovementAnimation>();
+
+        // MidBossAnimationのコンポーネントの取得
+        else if(onMidBossAnimation) midBossAnimation = GetComponent<MidBossAnimation>();
     }
 
 }

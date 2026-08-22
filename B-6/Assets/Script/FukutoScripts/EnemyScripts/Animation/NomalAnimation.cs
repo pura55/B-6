@@ -7,9 +7,6 @@ using UnityEngine;
 /// </summary>
 public class NomalAnimation : BaseEnemySpriteSelector
 {
-    #region Config
-    protected NomalMove nomalMove;
-    #endregion
     void Start()
     {
         InitValue();
@@ -40,7 +37,7 @@ public class NomalAnimation : BaseEnemySpriteSelector
                 DeathAnimation();
                 break;
         }
-        FlipSprite(nomalMove.GetMovementPerFrame());
+        SelectFripSprite();
     }
 
     /// @brief èâä˙âªä÷êî
@@ -49,6 +46,6 @@ public class NomalAnimation : BaseEnemySpriteSelector
         SetBaseSprites();
         SetSpriteElements();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        nomalMove = GetComponent<NomalMove>();
+        SetMovementScript();
     }
 }

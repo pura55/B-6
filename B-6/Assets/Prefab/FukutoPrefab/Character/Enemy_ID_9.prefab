@@ -10,17 +10,18 @@ GameObject:
   m_Component:
   - component: {fileID: 2570283839233665180}
   - component: {fileID: 8179636804621964485}
-  - component: {fileID: -3358957461815985599}
-  - component: {fileID: -8680997276839637429}
+  - component: {fileID: 9137235300150477161}
+  - component: {fileID: 6750995072437438155}
   - component: {fileID: 3824464598173647377}
-  - component: {fileID: -5190668841225290742}
-  - component: {fileID: -1039996338913881964}
-  - component: {fileID: 6547313668685307093}
-  - component: {fileID: 8382550772505638371}
-  - component: {fileID: 3775506764996155951}
-  - component: {fileID: 6496487315031941128}
+  - component: {fileID: -6663721148947682915}
+  - component: {fileID: -6451222296773004462}
+  - component: {fileID: -6701728755527679890}
+  - component: {fileID: -1707822465183806001}
+  - component: {fileID: 4414791695640219721}
+  - component: {fileID: -5910053777904288716}
+  - component: {fileID: -8737387044889284480}
   m_Layer: 10
-  m_Name: Enemy_ID_1
+  m_Name: Enemy_ID_9
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39,7 +40,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6703683389774842499}
+  - {fileID: 8180981368680399224}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8179636804621964485
@@ -91,9 +92,9 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -3652676412848291748, guid: 1f559783e85ee6d4cab01f93fd6c614a, type: 3}
+  m_Sprite: {fileID: 2784793231766541145, guid: 6ffd23110e20fea448226b8ac9a21ea1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -101,7 +102,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!58 &-3358957461815985599
+--- !u!58 &9137235300150477161
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,7 +138,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.2
---- !u!58 &-8680997276839637429
+--- !u!58 &6750995072437438155
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -172,7 +173,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.4
+  m_Radius: 0.0001
 --- !u!50 &3824464598173647377
 Rigidbody2D:
   serializedVersion: 5
@@ -200,7 +201,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &-5190668841225290742
+--- !u!114 &-6663721148947682915
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -209,14 +210,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 6449213048604919684}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73bf7af226cbde14caeadf7d06066a8f, type: 3}
+  m_Script: {fileID: 11500000, guid: 09f9362133cfdd54ea6caefc1fcf0f3b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NomalEnemyManager
-  onNomalMove: 1
-  onAggressiveMove: 0
-  onNomalAnimation: 1
+  m_EditorClassIdentifier: Assembly-CSharp::MidBossManager
+  onNomalMove: 0
+  onAggressiveMove: 1
+  onNomalAnimation: 0
   onIncludeMovementAnimation: 0
---- !u!114 &-1039996338913881964
+  onMidBossAnimation: 1
+--- !u!114 &-6451222296773004462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6449213048604919684}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 570040b1a23e70f4781d4d5181a0e57c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IncludeMovementAnimation
+  enemyId: 9
+  reverseFlip: 1
+  onNomalMove: 0
+  onAggressiveMove: 1
+  enemySpriteData: {fileID: 11400000, guid: 0ae569640c76edb4ab60e7dd549c57a5, type: 2}
+--- !u!114 &-6701728755527679890
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -225,12 +244,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 6449213048604919684}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 073edbe8d4c3a8b4ba155112155c80a6, type: 3}
+  m_Script: {fileID: 11500000, guid: fd191dc2348352a43a1de0d3d3e25837, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NomalMove
-  enemyID: 1
+  m_EditorClassIdentifier: Assembly-CSharp::MidBossAnimation
+  enemyId: 9
+  reverseFlip: 1
+  onNomalMove: 0
+  onAggressiveMove: 1
+  enemySpriteData: {fileID: 11400000, guid: 0ae569640c76edb4ab60e7dd549c57a5, type: 2}
+--- !u!114 &-1707822465183806001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6449213048604919684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8290e8768a5ec3241b55a9a3d6c4c2a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AggressiveMove
+  enemyID: 9
   enemyProgressData: {fileID: 11400000, guid: f1c5fd27d3e475c429457ece67e5af9d, type: 2}
---- !u!114 &6547313668685307093
+  searchDistance: 10
+--- !u!114 &4414791695640219721
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -242,12 +279,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 927994e84194f8146a088bf6a3efc16f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShortDistanceAttack
-  enemyID: 1
-  hitAnimationNumber: 6
+  enemyID: 9
+  hitAnimationNumber: 4
   enemyProgressData: {fileID: 11400000, guid: f1c5fd27d3e475c429457ece67e5af9d, type: 2}
-  onNomalAnimation: 1
+  onNomalAnimation: 0
   onIncludeMovementAnimation: 0
---- !u!114 &8382550772505638371
+  onMidBossAnimation: 1
+--- !u!114 &-5910053777904288716
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -259,9 +297,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f27a6dfc2de98a4ab0da05e270de09a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDamaged
-  enemyID: 1
+  enemyID: 9
   enemyProgressData: {fileID: 11400000, guid: f1c5fd27d3e475c429457ece67e5af9d, type: 2}
---- !u!114 &3775506764996155951
+--- !u!114 &-8737387044889284480
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -274,23 +312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DropExp
   expFromDrop: {fileID: 2135534983200611327, guid: df0a85e49373332449ac75a63cbecaf6, type: 3}
---- !u!114 &6496487315031941128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6449213048604919684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bb73cd3e75c19341aa577348aa05881, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NomalAnimation
-  enemyId: 1
-  onNomalMove: 1
-  onAggressiveMove: 0
-  enemySpriteData: {fileID: 11400000, guid: 0ae569640c76edb4ab60e7dd549c57a5, type: 2}
---- !u!1001 &8912553558857769182
+--- !u!1001 &6282287894109612837
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -299,16 +321,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 2570283839233665180}
     m_Modifications:
     - target: {fileID: -1828822045962500008, guid: e0f49487d57f23b48bef945c11e290d3, type: 3}
-      propertyPath: onNomalMove
+      propertyPath: onAggressiveMove
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2785340836658489949, guid: e0f49487d57f23b48bef945c11e290d3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2785340836658489949, guid: e0f49487d57f23b48bef945c11e290d3, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2785340836658489949, guid: e0f49487d57f23b48bef945c11e290d3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.3880571
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 2785340836658489949, guid: e0f49487d57f23b48bef945c11e290d3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.024043728
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 2785340836658489949, guid: e0f49487d57f23b48bef945c11e290d3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -355,8 +385,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0f49487d57f23b48bef945c11e290d3, type: 3}
---- !u!4 &6703683389774842499 stripped
+--- !u!4 &8180981368680399224 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2785340836658489949, guid: e0f49487d57f23b48bef945c11e290d3, type: 3}
-  m_PrefabInstance: {fileID: 8912553558857769182}
+  m_PrefabInstance: {fileID: 6282287894109612837}
   m_PrefabAsset: {fileID: 0}

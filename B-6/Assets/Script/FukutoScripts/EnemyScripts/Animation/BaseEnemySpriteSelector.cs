@@ -18,7 +18,10 @@ public abstract class BaseEnemySpriteSelector : MonoBehaviour
         skill   // スキル
     }
     #region Config
-    [SerializeField]protected int enemyId = 0; // 敵のID
+    [SerializeField] protected int enemyId = 0; // 敵のID
+    [SerializeField] protected bool reverseFlip = false; // スプライトのフリップを反転するフラグ
+    [SerializeField] protected bool onNomalMove = false; // 基本移動が付いているかどうかのフラグ
+    [SerializeField] protected bool onAggressiveMove = false; // プレイヤー追跡の移動がついているかどうかのフラグ
     protected float timePerSprite = 0.1f; // 毎スプライトごとの時間
     #endregion
 
@@ -47,6 +50,8 @@ public abstract class BaseEnemySpriteSelector : MonoBehaviour
     protected Sprite[] deathSprites;    // 死亡スプライト
     protected Sprite[] moveSprites;     // 移動スプライト
     protected SpriteRenderer spriteRenderer; // スプライトレンダラー
+    protected NomalMove nomalMove; // 通常の移動スクリプト
+    protected AggressiveMove aggressiveMove; // プレイヤーを追尾するスクリプト
     [SerializeField] protected EnemySpriteData enemySpriteData; // スプライトデータ
     #endregion
 
@@ -174,13 +179,27 @@ public abstract class BaseEnemySpriteSelector : MonoBehaviour
     /// @briefスプライトのフリップ処理を行う関数
     protected void FlipSprite(Vector3 amount)
     {
-        if(amount.x < 0)
+        if(!reverseFlip)
         {
-            spriteRenderer.flipX = true;
+            if (amount.x < 0)
+            {
+                spriteRenderer.flipX = true;
+            }
+            else
+            {
+                spriteRenderer.flipX = false;
+            }
         }
         else
         {
-            spriteRenderer.flipX = false;
+            if (amount.x < 0)
+            {
+                spriteRenderer.flipX = false;
+            }
+            else
+            {
+                spriteRenderer.flipX = true;
+            }
         }
     }
 
@@ -201,6 +220,26 @@ public abstract class BaseEnemySpriteSelector : MonoBehaviour
         attackSpriteElements = attackSprites.Length;
         hitSpriteElements = hitSprites.Length;
         deathSpriteElements = deathSprites.Length;
+    }
+
+    /// @brief 移動スクリプトを設定する関数
+    protected void SetMovementScript()
+    {
+        // NomalMoveのコンポーネントの取得
+        if (onNomalMove) nomalMove = GetComponent<NomalMove>();
+
+        // AggressiveMoveのコンポーネントの取得
+        else if (onAggressiveMove) aggressiveMove = GetComponent<AggressiveMove>();
+    }
+
+    /// @brief スプライトのフリップ処理を選択する関数
+    protected void SelectFripSprite()
+    {
+        // NomalMoveのコンポーネントの取得
+        if (onNomalMove) FlipSprite(nomalMove.GetMovementPerFrame());
+
+        // AggressiveMoveのコンポーネントの取得
+        else if (onAggressiveMove) FlipSprite(aggressiveMove.GetMovementPerFrame());
     }
 
     /// @brief フレームとスプライト指数をリセットする関数

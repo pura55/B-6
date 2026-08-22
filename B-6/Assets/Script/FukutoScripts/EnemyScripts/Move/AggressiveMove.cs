@@ -13,7 +13,7 @@ public class AggressiveMove : BaseEnemyMove
     #endregion
 
     #region State
-    [SerializeField] private Transform targetPlayer; // ターゲットのプレイヤー
+    private Transform targetPlayer; // ターゲットのプレイヤー
     #endregion
 
     void Start()
@@ -29,14 +29,14 @@ public class AggressiveMove : BaseEnemyMove
     /// @brief 移動を管理する関数
     protected override void ManageMoving()
     {
+        // ターゲットの切り替え
+        ConvertTarget();
+
         // 接近判定
         CheckAttaced();
 
         // 移動停止フラグがtrueの場合止める
         if (stopMovement) return;
-
-        // ターゲットの切り替え
-        ConvertTarget();
 
         // 壁の確認
         CheckIsWall();
@@ -54,6 +54,7 @@ public class AggressiveMove : BaseEnemyMove
         // 設定速度にデータから取得したスピードを格納
         settingSpeed = enemyProgressData.GetFloatStat(enemyID, speedStatName);
         followSpeed = settingSpeed;
+        currentTarget = targetTower;
     }
 
     /// @brief ターゲットを切り替える処理を行う関数
@@ -66,8 +67,8 @@ public class AggressiveMove : BaseEnemyMove
         {
             currentTarget = targetPlayer;
             // プレイヤーのサイズ取得
-            PlayerSize towerSize = targetTower.GetComponent<PlayerSize>();
-            targetSize = towerSize.GetPlayerSize();
+            PlayerSize playerSize = targetPlayer.GetComponent<PlayerSize>();
+            targetSize = playerSize.GetPlayerSize();
         }
         else
         {
@@ -75,6 +76,11 @@ public class AggressiveMove : BaseEnemyMove
             // タワーのサイズを取得
             TowerSize towerSize = targetTower.GetComponent<TowerSize>();
             targetSize = towerSize.GetTowerSize();
+        }
+
+        if(currentTarget == null)
+        {
+            return;
         }
     }
 
@@ -86,7 +92,7 @@ public class AggressiveMove : BaseEnemyMove
         Transform p_transform = null;
 
         // プレイヤーが見つからない場合はnullを返す
-        if (player == null) return p_transform;
+        if (player == null) return null;
 
         // 敵とプレイヤーの距離を算出
         float dist = Vector2.Distance(transform.position, player.transform.position);

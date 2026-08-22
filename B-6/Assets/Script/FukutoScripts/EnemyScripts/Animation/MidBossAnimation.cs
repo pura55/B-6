@@ -1,13 +1,17 @@
-using UnityEditor.Animations;
 using UnityEngine;
 
 /// <summary>
-/// インクルードムーブメントアニメーション
+/// ミッドボスアニメーション
 /// 
-/// 移動アニメーションが含まれているクラス
+/// 中ボスのアニメーションクラス
 /// </summary>
-public class IncludeMovementAnimation: BaseEnemySpriteSelector
+public class MidBossAnimation : IncludeMovementAnimation
 {
+    #region State
+    protected Sprite[] skillSprites;     // スキルスプライト
+    protected int skillSpriteElements = 0; // スキルスプライトの要素数
+    protected string skillSpriteName = "SKILL";   // スキルスプライト名
+    #endregion
 
     void Start()
     {
@@ -18,7 +22,6 @@ public class IncludeMovementAnimation: BaseEnemySpriteSelector
         ManageDrawing();
     }
 
-    /// @brief 描画を管理する関数
     protected override void ManageDrawing()
     {
         switch (animationState)
@@ -32,6 +35,9 @@ public class IncludeMovementAnimation: BaseEnemySpriteSelector
             case AnimationState.attack:
                 AttackAnimation();
                 break;
+            case AnimationState.skill:
+                SkillAnimation();
+                break;
             case AnimationState.hit:
                 HitAnimation();
                 break;
@@ -40,37 +46,48 @@ public class IncludeMovementAnimation: BaseEnemySpriteSelector
                 break;
         }
         SelectFripSprite();
-
     }
 
     /// @brief 初期化関数
     protected override void InitValue()
     {
+        // スプライト
         SetBaseSprites();
         SetMoveSprite();
+        SetSkillSprite();
+
+        // 要素数
         SetSpriteElements();
         SetMoveElements();
+        SetSkillElements();
+
         spriteRenderer = GetComponent<SpriteRenderer>();
         SetMovementScript();
     }
 
     /// @brief 移動アニメーション
-    protected void MoveAnimation()
+    protected void SkillAnimation()
     {
-        ManageFrame(moveSpriteElements);
-        spriteRenderer.sprite = moveSprites[spriteIndex];
+        ManageEventFrame(skillSpriteElements);
+        spriteRenderer.sprite = skillSprites[spriteIndex];
     }
 
     /// @brief 移動スプライトを設定する関数
-    protected void SetMoveSprite()
+    protected void SetSkillSprite()
     {
         // 移動スプライトを設定
-        moveSprites = enemySpriteData.GetSprite(enemyId, moveSpriteName);
+        skillSprites = enemySpriteData.GetSprite(enemyId, skillSpriteName);
     }
 
     /// @brief 移動スプライトの要素を設定する関数
-    protected void SetMoveElements()
+    protected void SetSkillElements()
     {
-        moveSpriteElements = moveSprites.Length;
+        skillSpriteElements = skillSprites.Length;
+    }
+
+    /// @brief 描画状態をスキルに設定する関数 
+    public void SetSkill()
+    {
+        animationState = AnimationState.skill;
     }
 }

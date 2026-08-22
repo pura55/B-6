@@ -3,11 +3,10 @@ using UnityEngine;
 /// <summary>
 /// ノーマルエネミーマネージャー
 /// 
-/// 普通の敵の管理を行うクラス
+/// 中ボスの管理を行うクラス
 /// </summary>
-public class NomalEnemyManager : BaseEnemyManager
+public class MidBossManager : NomalEnemyManager
 {
-    
     private void Start()
     {
         InitValue();
@@ -31,6 +30,9 @@ public class NomalEnemyManager : BaseEnemyManager
                 break;
             case EnemyState.Attack:
                 Attack();
+                break;
+            case EnemyState.Skill:
+                Skill();
                 break;
             case EnemyState.Hit:
                 Hit();
@@ -136,6 +138,28 @@ public class NomalEnemyManager : BaseEnemyManager
         }
     }
 
+    /// @brief スキル状態関数
+    protected void Skill()
+    {
+        // 移動不可
+        SetStopMovement(true);
+
+        // 落石ヒット時の遷移処理
+        HitRock();
+
+        // 被ダメージへの遷移処理
+        TransitionHit();
+
+        // 敵から離れている & イベントアニメーションが終了していたら
+        if (!GetIsAttached() && FinishedEventAnimation())
+        {
+            // 一度待機に戻る
+            enemyState = EnemyState.Idle;
+            ResetAnimation();
+            return;
+        }
+    }
+
     /// @brief 被ダメージ状態関数
     protected override void Hit()
     {
@@ -149,7 +173,13 @@ public class NomalEnemyManager : BaseEnemyManager
         // 遷移処理を挟む
         TransitionHit();
 
-        if(FinishedEventAnimation())
+        if (GetHitRock() && FinishedEventAnimation())
+        {
+            enemyState = EnemyState.Dead;
+            ResetAnimation();
+            return;
+        }
+        else if (FinishedEventAnimation())
         {
             // 待機への遷移処理
             TransitionIdle();
@@ -162,52 +192,29 @@ public class NomalEnemyManager : BaseEnemyManager
         // 移動不可
         SetStopMovement(true);
 
-        if(FinishedDeathAnimation())
+        if (FinishedDeathAnimation())
         {
             // 死亡アニメーションが終了したら削除
             DeathProcess();
         }
     }
 
-    /// @brief 待機への遷移処理を行う関数
-    protected void TransitionIdle()
+    /// @brief 落石に衝突した場合の処理を行う関数
+    private void HitRock()
     {
-        enemyState = EnemyState.Idle;
-        ResetAnimation();
-        return;
-    }
-
-    /// @brief 被ダメージへの遷移処理を行う関数
-    protected void TransitionHit()
-    {
-        // ダメージ受けたら
-        if (isTakeHit)
+        // 落石に衝突していたら被ダメージへ
+        if (GetHitRock())
         {
             Debug.Log("Hitに遷移します");
             enemyState = EnemyState.Hit;
-            isTakeHit = false;
             ResetAnimation();
             SetHitAnimation();
             return;
         }
     }
 
-    /// @brief 落石に衝突した場合の処理を行う関数
-    private void HitRock()
+    protected void SetSkillAnimation()
     {
-        // 落石に衝突していたら死亡へ
-        if (GetHitRock())
-        {
-            Debug.Log("Deadに遷移します");
-            enemyState = EnemyState.Dead;
-            ResetAnimation();
-            SetDeathAnimation();
-            return;
-        }
-    }
-
-    protected bool GetHitRock()
-    {
-        return enemyHealth.GetHitRock();
+        if (onMidBossAnimation) midBossAnimation.SetSkill();
     }
 }
