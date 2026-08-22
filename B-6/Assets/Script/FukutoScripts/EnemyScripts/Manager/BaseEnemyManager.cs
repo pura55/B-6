@@ -203,6 +203,12 @@ public abstract class BaseEnemyManager : MonoBehaviour
         isDead = true;
     }
 
+    /// @brief €–Sƒtƒ‰ƒO‚ğæ“¾‚·‚éŠÖ”
+    public bool GetIsDead()
+    {
+        return isDead;
+    }
+
     /// @brief €–Sˆ—‚ğs‚¤ŠÖ”
     protected void DeathProcess()
     {

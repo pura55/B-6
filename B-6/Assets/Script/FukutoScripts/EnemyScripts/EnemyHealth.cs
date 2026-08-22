@@ -42,22 +42,40 @@ public class EnemyHealth : MonoBehaviour
     /// @brief 被ダメージ処理を行う関数
     public void ReceiveDamage(int dmg)
     {
-        enemyHp -= dmg;
+        // マネージャーの死亡フラグがtrueの時これ以降の処理を行わない
+        if (nomalEnemyManager.GetIsDead()) return;
 
-        if (!IsAlive())
-            nomalEnemyManager.SetIsDead();
-        else
+        // ダメージ分体力を減少指せる
+        enemyHp -= dmg;
+        Debug.Log("敵のHP : " + enemyHp);
+
+        // 0未満の場合0に設定
+        if (enemyHp < 0)
+        {
+            enemyHp = 0;
+        }
+
+        // 生きている場合
+        if (IsAlive())
+        {
             nomalEnemyManager.SetTakeHit();
+        } 
+        else // 死んでいる場合
+        {
+            // 死亡フラグをtrue
+            nomalEnemyManager.SetIsDead();
+            nomalEnemyManager.SetTakeHit();
+        }
+            
     }
 
     /// @brief 生死を判定するフラグ
     protected bool IsAlive()
     {
-        // hpが0だったらfalse
-        if (enemyHp <= 0)
-            return false;
-        else
-            return true;
+        // hpが0より大きい場合
+        if (enemyHp > 0) return true;
+        else return false;
+            
     }
 
     /// @brief isHitRockを返す関数

@@ -80,7 +80,7 @@ public abstract class BaseEnemySpriteSelector : MonoBehaviour
     protected void HitAnimation() 
     {
         isFinishedEvent = false;
-        ManageFrame(hitSpriteElements);
+        ManageEventFrame(hitSpriteElements);
         spriteRenderer.sprite = hitSprites[spriteIndex];
     }
 

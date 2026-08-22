@@ -100,6 +100,7 @@ public class EnemyProgressData : ScriptableObject
             // À‘Ì‚ğì‚é
             Entity progressEntity = new Entity();
             progressEntity.id = entity.id;
+            progressEntity.hp = entity.hp;
             progressEntity.atkDmg = entity.atkDmg;
             progressEntity.atkCT = entity.atkCT;
             progressEntity.skillDmg = entity.skillDmg;

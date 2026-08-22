@@ -68,7 +68,7 @@ public class NomalEnemyManager : BaseEnemyManager
         // ‘ÎÛ‚É‹ß‚Ã‚¢‚Ä‚¢‚È‚¢ê‡
         if (!GetIsAttached())
         {
-            Debug.Log("Move‚É‘JˆÚ‚µ‚Ü‚·");
+            //Debug.Log("Move‚É‘JˆÚ‚µ‚Ü‚·");
             enemyState = EnemyState.Move;
             ResetAnimation();
             return;
@@ -98,7 +98,7 @@ public class NomalEnemyManager : BaseEnemyManager
         // ‘ÎÛ‚É‹ß‚Ã‚¢‚Ä‚¢‚éê‡
         if (GetIsAttached())
         {
-            Debug.Log("Idle‚É‘JˆÚ‚µ‚Ü‚·");
+            //Debug.Log("Idle‚É‘JˆÚ‚µ‚Ü‚·");
             // ‘Ò‹@‚Ö‚Ì‘JˆÚˆ—
             TransitionIdle();
         }
@@ -151,6 +151,11 @@ public class NomalEnemyManager : BaseEnemyManager
 
         if(FinishedEventAnimation())
         {
+            if(isDead)
+            {
+                TransitionDead();
+                return;
+            }
             // ‘Ò‹@‚Ö‚Ì‘JˆÚˆ—
             TransitionIdle();
         }
@@ -198,12 +203,18 @@ public class NomalEnemyManager : BaseEnemyManager
         // —Î‚ÉÕ“Ë‚µ‚Ä‚¢‚½‚ç€–S‚Ö
         if (GetHitRock())
         {
-            Debug.Log("Dead‚É‘JˆÚ‚µ‚Ü‚·");
-            enemyState = EnemyState.Dead;
-            ResetAnimation();
-            SetDeathAnimation();
-            return;
+            TransitionDead();
         }
+    }
+
+    /// @brief €–S‚Ö‚Ì‘JˆÚˆ—‚ğs‚¤ŠÖ”
+    protected void TransitionDead()
+    {
+        Debug.Log("Dead‚É‘JˆÚ‚µ‚Ü‚·");
+        enemyState = EnemyState.Dead;
+        ResetAnimation();
+        SetDeathAnimation();
+        return;
     }
 
     protected bool GetHitRock()

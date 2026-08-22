@@ -1201,6 +1201,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3033991418942743652}
     m_Modifications:
+    - target: {fileID: 4482819769376491494, guid: 16a38b205e84977499530a76f2732a95, type: 3}
+      propertyPath: Attack
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4482819769376491494, guid: 16a38b205e84977499530a76f2732a95, type: 3}
+      propertyPath: enemyLayer.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
     - target: {fileID: 4807990481238714564, guid: 16a38b205e84977499530a76f2732a95, type: 3}
       propertyPath: m_Name
       value: player

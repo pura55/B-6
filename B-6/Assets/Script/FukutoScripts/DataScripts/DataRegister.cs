@@ -27,6 +27,7 @@ public class DataRegister : MonoBehaviour
             // À‘Ì‚ğì‚é
             PlayerMasterData.Entity masterEntity = new PlayerMasterData.Entity();
             masterEntity.id = entity.id;
+            masterEntity.hp = entity.hp;
             masterEntity.atkDmg = entity.atkDmg;
             masterEntity.atkCT = entity.atkCT;
             masterEntity.skillDmg = entity.skillDmg;
