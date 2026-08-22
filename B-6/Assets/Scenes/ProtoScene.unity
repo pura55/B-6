@@ -135,38 +135,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2511336410903218393, guid: 14883e23418c85e4394056e178880ef4, type: 3}
-      propertyPath: m_TileAssetArray.Array.data[0].m_RefCount
-      value: 644
-      objectReference: {fileID: 0}
-    - target: {fileID: 2511336410903218393, guid: 14883e23418c85e4394056e178880ef4, type: 3}
-      propertyPath: m_TileAssetArray.Array.data[29].m_RefCount
-      value: 34
-      objectReference: {fileID: 0}
-    - target: {fileID: 2511336410903218393, guid: 14883e23418c85e4394056e178880ef4, type: 3}
-      propertyPath: m_TileSpriteArray.Array.data[0].m_RefCount
-      value: 644
-      objectReference: {fileID: 0}
-    - target: {fileID: 2511336410903218393, guid: 14883e23418c85e4394056e178880ef4, type: 3}
-      propertyPath: m_Tiles.Array.data[551].second.m_TileIndex
-      value: 29
-      objectReference: {fileID: 0}
-    - target: {fileID: 2511336410903218393, guid: 14883e23418c85e4394056e178880ef4, type: 3}
-      propertyPath: m_Tiles.Array.data[559].second.m_TileIndex
-      value: 29
-      objectReference: {fileID: 0}
-    - target: {fileID: 2511336410903218393, guid: 14883e23418c85e4394056e178880ef4, type: 3}
-      propertyPath: m_TileSpriteArray.Array.data[29].m_RefCount
-      value: 34
-      objectReference: {fileID: 0}
-    - target: {fileID: 2511336410903218393, guid: 14883e23418c85e4394056e178880ef4, type: 3}
-      propertyPath: m_Tiles.Array.data[551].second.m_TileSpriteIndex
-      value: 29
-      objectReference: {fileID: 0}
-    - target: {fileID: 2511336410903218393, guid: 14883e23418c85e4394056e178880ef4, type: 3}
-      propertyPath: m_Tiles.Array.data[559].second.m_TileSpriteIndex
-      value: 29
-      objectReference: {fileID: 0}
     - target: {fileID: 3033991418942743652, guid: 14883e23418c85e4394056e178880ef4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -211,10 +179,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5039503691529693262, guid: 14883e23418c85e4394056e178880ef4, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5647495315321589112, guid: 14883e23418c85e4394056e178880ef4, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -228,11 +192,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 7186257092293932251, guid: 14883e23418c85e4394056e178880ef4, type: 3}
-    - {fileID: 2734523599773695173, guid: 14883e23418c85e4394056e178880ef4, type: 3}
-    - {fileID: 5379093272288309902, guid: 14883e23418c85e4394056e178880ef4, type: 3}
-    - {fileID: 1957379206238239231, guid: 14883e23418c85e4394056e178880ef4, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14883e23418c85e4394056e178880ef4, type: 3}

@@ -8,6 +8,7 @@ using UnityEngine;
 public class RockSpawner : MonoBehaviour
 {
     #region Config
+    [SerializeField] private int spawnerID = 0;
     private int currentSpawnIndex = 1;   // 現在のスポーンする回数
     private int spawnCounter = 0;        // スポーンを数える変数
     private const float spawnZ = 0f;     // z軸のスポーン座標
@@ -16,24 +17,25 @@ public class RockSpawner : MonoBehaviour
     #region State
     [SerializeField] private GameObject rockToSpawn;     // スポーンさせる対象オブジェクト
     [SerializeField] private Transform tower;            // タワーのオブジェクト
-    [SerializeField] private GameObject rockManager;     // 落石を管理するオブジェクト
+    [SerializeField] private RockManager rockManager;     // 落石を管理するオブジェクト
     public Vector3 spawnRange = new Vector3(3f, 3f, 0f); // スポーン範囲
     private bool isSpawn = false;                        // スポーンしたかどうかのフラグ（true: スポーンした、false:スポーンしてない）
     #endregion
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        RockManager managementScript = rockManager.GetComponent<RockManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!isSpawn)
+        // 許可が出ていてIDが一致しているとき
+        if (rockManager.GetPermissionSpawn() && rockManager.GetSpawnID() == spawnerID)
         {
             // 敵生成
             RockSpawn();
-            isSpawn = true;
+            rockManager.SetPermissionSpawn(false);
             return;
         }
     }

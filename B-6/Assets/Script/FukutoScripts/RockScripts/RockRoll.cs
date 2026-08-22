@@ -8,7 +8,7 @@ using UnityEngine;
 public class RockRoll : MonoBehaviour
 {
     #region Config
-    private float rollSpeed = 1f; // í«è]ë¨ìx
+    private float rollSpeed = 2f; // í«è]ë¨ìx
     #endregion
 
     #region State

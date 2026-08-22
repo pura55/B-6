@@ -87,26 +87,19 @@ public class TowerHealth : MonoBehaviour
 
                 yield return null;
             }
-        }
+        }  
+    }
 
-        // 衝突した瞬間に呼ばれる
-        void OnCollisionEnter2D(Collision2D collision)
+    // 衝突した瞬間に呼ばれる
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        // 岩に触れた
+        if (collision.gameObject.CompareTag("Rock"))
         {
-            //// 敵に触れた
-            //if (collision.gameObject.CompareTag("Enemy"))
-            //{
-            //    TakeDamage(1);
-            //    Debug.Log("Enemyから1ダメージ");
-            //}
+            TakeDamage(5);
+            Debug.Log("Rockから5ダメージ");
 
-            // 岩に触れた
-            if (collision.gameObject.CompareTag("Rock"))
-            {
-                TakeDamage(5);
-                Debug.Log("Rockから5ダメージ");
-
-                Destroy(collision.gameObject); // 岩を消す
-            }
+            Destroy(collision.gameObject); // 岩を消す
         }
     }
 }
