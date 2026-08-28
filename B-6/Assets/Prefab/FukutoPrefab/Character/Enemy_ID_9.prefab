@@ -13,10 +13,9 @@ GameObject:
   - component: {fileID: 9137235300150477161}
   - component: {fileID: 6750995072437438155}
   - component: {fileID: 3824464598173647377}
+  - component: {fileID: 7540948384770007492}
   - component: {fileID: -6663721148947682915}
-  - component: {fileID: -6451222296773004462}
   - component: {fileID: -6701728755527679890}
-  - component: {fileID: -1707822465183806001}
   - component: {fileID: 4414791695640219721}
   - component: {fileID: -5910053777904288716}
   - component: {fileID: -8737387044889284480}
@@ -201,6 +200,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &7540948384770007492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6449213048604919684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39207ac0e30738a4f979e86153b1f25c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossMove
+  enemyID: 9
+  enemyProgressData: {fileID: 11400000, guid: f1c5fd27d3e475c429457ece67e5af9d, type: 2}
+  searchDistance: 10
 --- !u!114 &-6663721148947682915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,27 +228,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MidBossManager
   onNomalMove: 0
-  onAggressiveMove: 1
+  onAggressiveMove: 0
+  onBossMove: 1
   onNomalAnimation: 0
   onIncludeMovementAnimation: 0
   onMidBossAnimation: 1
---- !u!114 &-6451222296773004462
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6449213048604919684}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 570040b1a23e70f4781d4d5181a0e57c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::IncludeMovementAnimation
-  enemyId: 9
-  reverseFlip: 1
-  onNomalMove: 0
-  onAggressiveMove: 1
-  enemySpriteData: {fileID: 11400000, guid: 0ae569640c76edb4ab60e7dd549c57a5, type: 2}
 --- !u!114 &-6701728755527679890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,23 +248,9 @@ MonoBehaviour:
   enemyId: 9
   reverseFlip: 1
   onNomalMove: 0
-  onAggressiveMove: 1
+  onAggressiveMove: 0
+  onBossMove: 1
   enemySpriteData: {fileID: 11400000, guid: 0ae569640c76edb4ab60e7dd549c57a5, type: 2}
---- !u!114 &-1707822465183806001
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6449213048604919684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8290e8768a5ec3241b55a9a3d6c4c2a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AggressiveMove
-  enemyID: 9
-  enemyProgressData: {fileID: 11400000, guid: f1c5fd27d3e475c429457ece67e5af9d, type: 2}
-  searchDistance: 10
 --- !u!114 &4414791695640219721
 MonoBehaviour:
   m_ObjectHideFlags: 0

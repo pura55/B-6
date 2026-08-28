@@ -52,16 +52,7 @@ public abstract class BaseEnemyMove : MonoBehaviour
     /// @brief ˆê’è‹——£‚É‹ß‚Ã‚¢‚½‚©Šm”F‚·‚éŠÖ”
     protected void CheckAttaced()
     {
-        //if (Vector2.Distance(transform.position, currentTarget.position) < targetSize.x + 0.95f && Vector2.Distance(transform.position, currentTarget.position) < targetSize.x + 0.95f)
-        //{
-        //    isAttached = true;
-        //}
-        //else
-        //{
-        //    isAttached = false;
-        //}
-
-        if(Mathf.Abs(transform.position.x - currentTarget.position.x) < targetSize.x / 2 + 0.35f&& Mathf.Abs(transform.position.y - currentTarget.position.y) < targetSize.y / 2 + 0.35f)
+        if(Mathf.Abs(transform.position.x - currentTarget.position.x) < targetSize.x / 2 + 0.4f&& Mathf.Abs(transform.position.y - currentTarget.position.y) < targetSize.y / 2 + 0.4f)
         {
             isAttached = true;
         }

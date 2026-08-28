@@ -20,8 +20,10 @@ public abstract class BaseEnemySpriteSelector : MonoBehaviour
     #region Config
     [SerializeField] protected int enemyId = 0; // 敵のID
     [SerializeField] protected bool reverseFlip = false; // スプライトのフリップを反転するフラグ
+    [Header("MOVE")]
     [SerializeField] protected bool onNomalMove = false; // 基本移動が付いているかどうかのフラグ
     [SerializeField] protected bool onAggressiveMove = false; // プレイヤー追跡の移動がついているかどうかのフラグ
+    [SerializeField] protected bool onBossMove = false; // プレイヤー追跡の移動がついているかどうかのフラグ
     protected float timePerSprite = 0.1f; // 毎スプライトごとの時間
     #endregion
 
@@ -52,6 +54,7 @@ public abstract class BaseEnemySpriteSelector : MonoBehaviour
     protected SpriteRenderer spriteRenderer; // スプライトレンダラー
     protected NomalMove nomalMove; // 通常の移動スクリプト
     protected AggressiveMove aggressiveMove; // プレイヤーを追尾するスクリプト
+    protected BossMove bossMove; // ボスの移動
     [SerializeField] protected EnemySpriteData enemySpriteData; // スプライトデータ
     #endregion
 
@@ -230,6 +233,8 @@ public abstract class BaseEnemySpriteSelector : MonoBehaviour
 
         // AggressiveMoveのコンポーネントの取得
         else if (onAggressiveMove) aggressiveMove = GetComponent<AggressiveMove>();
+
+        else if (onBossMove) bossMove = GetComponent<BossMove>();
     }
 
     /// @brief スプライトのフリップ処理を選択する関数
@@ -240,6 +245,8 @@ public abstract class BaseEnemySpriteSelector : MonoBehaviour
 
         // AggressiveMoveのコンポーネントの取得
         else if (onAggressiveMove) FlipSprite(aggressiveMove.GetMovementPerFrame());
+
+        else if (onBossMove) FlipSprite(bossMove.GetMovementPerFrame());
     }
 
     /// @brief フレームとスプライト指数をリセットする関数
