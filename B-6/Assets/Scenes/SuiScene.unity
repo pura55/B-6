@@ -2275,6 +2275,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tower
       objectReference: {fileID: 0}
+    - target: {fileID: 4694222091609164772, guid: a01fc3ecc7aa5d64d85f69e317ba35dd, type: 3}
+      propertyPath: dropCount
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4694222091609164772, guid: a01fc3ecc7aa5d64d85f69e317ba35dd, type: 3}
+      propertyPath: destroyTime
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4954049985407402137, guid: a01fc3ecc7aa5d64d85f69e317ba35dd, type: 3}
       propertyPath: hpSlider
       value: 
@@ -2480,12 +2488,12 @@ SceneRoots:
   - {fileID: 1630099492}
   - {fileID: 1530820407}
   - {fileID: 1412576805}
-  - {fileID: 131501759}
   - {fileID: 1311297922}
   - {fileID: 1599601904325728352}
   - {fileID: 1978661534}
   - {fileID: 1791675749}
   - {fileID: 71070884}
+  - {fileID: 131501759}
   - {fileID: 413405407}
   - {fileID: 1203437618}
   - {fileID: 1389861351}

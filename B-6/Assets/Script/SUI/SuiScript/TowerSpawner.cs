@@ -13,11 +13,11 @@ public class TowerSpawner : MonoBehaviour
     // 10秒ごとにドロップ
     [SerializeField] private float spawnInterval = 10f;
 
-    // 20秒後に消滅
-    [SerializeField] private float destroyTime = 20f;
+    // 10秒後に消滅
+    [SerializeField] private float destroyTime = 10f;
 
     // 一度にドロップする数
-    [SerializeField] private int dropCount = 3;
+    [SerializeField] private int dropCount = 15;
 
     void Start()
     {

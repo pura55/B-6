@@ -40,7 +40,7 @@ public class PlayerAttack : MonoBehaviour
         // プレイヤーからマウスへの方向
         Vector2 attackDirection = (mouseWorld - transform.position).normalized;
 
-        transform.right = attackDirection;
+        attackDirection = Vector2.right;
 
         // プレイヤーの周りの円形範囲にいるオブジェクトをすべて検知
         Collider2D[] targetsInMinimalRange = Physics2D.OverlapCircleAll(transform.position, attackRange, enemyLayer);

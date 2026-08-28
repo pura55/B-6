@@ -64,6 +64,7 @@ public class SkillManager : MonoBehaviour
 
         switch (data.type)
         {
+            //Playerstatus
             case SkillType.AttackPower:
 
                 if (playerAttack != null)
@@ -77,6 +78,52 @@ public class SkillManager : MonoBehaviour
                 }
 
                 break;
+
+            /*case SkillType.AttackCooldown:
+
+            break;*/
+
+            /*case SkillType.CritRateUp:
+
+            break;*/
+
+            /*case SkillType.MaxHPUp:
+
+            break;*/
+
+            /*case SkillType.MoveSpeedUp:
+
+            break;*/
+
+            //PlayerSkillattack
+            /*case SkillType.ProjectileCount:
+
+            break;*/
+
+            /*case SkillType.SkillCooldown:
+
+            break;*/
+
+            /*case SkillType.SkillPower:
+
+            break;*/
+
+            //Playersupport
+            /*case SkillType.KillHeal:
+
+            break;*/
+
+            /*case SkillType.PickupRange:
+
+            break;*/
+
+            /*case SkillType.RespawnCooldown:
+
+            break;*/
+
+            /*case SkillType.WallCooldown:
+
+            break;*/
 
             default:
 
