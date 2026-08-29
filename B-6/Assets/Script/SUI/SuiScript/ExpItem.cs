@@ -3,11 +3,10 @@ using UnityEngine;
 public class ExpItem : MonoBehaviour
 {
     public int expAmount = 10;
-
-    public float pickupRange = 3f;
     public float moveSpeed = 5f;
 
     private Transform player;
+    private PlayerExp playerExp;
 
     void Start()
     {
@@ -17,27 +16,30 @@ public class ExpItem : MonoBehaviour
         if (obj != null)
         {
             player = obj.transform;
+            playerExp = obj.GetComponent<PlayerExp>();
         }
     }
 
     void Update()
     {
-        if (player == null)
+        if (player == null || playerExp == null)
             return;
 
         float distance =
             Vector2.Distance(
                 transform.position,
-                player.position);
+                player.position
+            );
 
-        // 吸い寄せ
-        if (distance <= pickupRange)
+        // プレイヤーの取得範囲を使用
+        if (distance <= playerExp.pickupRange)
         {
             transform.position =
                 Vector2.MoveTowards(
                     transform.position,
                     player.position,
-                    moveSpeed * Time.deltaTime);
+                    moveSpeed * Time.deltaTime
+                );
         }
     }
 

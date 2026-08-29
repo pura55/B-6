@@ -11,10 +11,14 @@ public class PlayerExp : MonoBehaviour
     public int maxExp = 100;
     private int currentExp = 0;
 
+    // 経験値取得範囲
+    public float pickupRange = 3f;
+
     private bool isLevelUp = false;
 
     // レベルアップUI
     public LevelUpUI levelUpUI;
+
 
     void Start()
     {
@@ -22,6 +26,7 @@ public class PlayerExp : MonoBehaviour
         expSlider.maxValue = maxExp;
         expSlider.value = currentExp;
     }
+
 
     public void AddExp(int amount)
     {
@@ -38,6 +43,7 @@ public class PlayerExp : MonoBehaviour
             StartCoroutine(LevelUpAnimation());
         }
     }
+
 
     IEnumerator LevelUpAnimation()
     {
@@ -68,6 +74,7 @@ public class PlayerExp : MonoBehaviour
         // レベルアップ画面を開く
         levelUpUI.Open(this);
     }
+
 
     // レベルアップ終了通知
     public void FinishLevelUp()

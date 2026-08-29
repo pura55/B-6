@@ -187,6 +187,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5897684408298460439, guid: 14883e23418c85e4394056e178880ef4, type: 3}
+      propertyPath: move
+      value: 
+      objectReference: {fileID: 5423946494943790429}
+    - target: {fileID: 5897684408298460439, guid: 14883e23418c85e4394056e178880ef4, type: 3}
+      propertyPath: expItem
+      value: 
+      objectReference: {fileID: 5423946494943790430}
     - target: {fileID: 8625270275550186405, guid: 14883e23418c85e4394056e178880ef4, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -196,6 +204,28 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14883e23418c85e4394056e178880ef4, type: 3}
+--- !u!114 &5423946494943790429 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6606654531559448406, guid: 14883e23418c85e4394056e178880ef4, type: 3}
+  m_PrefabInstance: {fileID: 5423946494943790428}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f75fed85f31caf94ba24609c90db1784, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MoveScript
+--- !u!114 &5423946494943790430 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4793227285573369624, guid: 14883e23418c85e4394056e178880ef4, type: 3}
+  m_PrefabInstance: {fileID: 5423946494943790428}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8534c50fe58a6414ca779b46d7dc035b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerExp
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

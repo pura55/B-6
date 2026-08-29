@@ -9,6 +9,13 @@ public class SkillManager : MonoBehaviour
 
     [Header("参照")]
     [SerializeField] private PlayerAttack playerAttack;
+    //[SerializeField] private PlayerAttack attackTime;
+    //[SerializeField] private PlayerAttack criticalRate;
+    [SerializeField] private MoveScript move;
+    [SerializeField] private PlayerExp expItem;
+
+
+
 
     // スキルレベル管理
     private Dictionary<SkillType, int> skillLevels =
@@ -62,6 +69,7 @@ public class SkillManager : MonoBehaviour
     {
         float value = data.GetValue(level);
 
+
         switch (data.type)
         {
             //Playerstatus
@@ -79,21 +87,50 @@ public class SkillManager : MonoBehaviour
 
                 break;
 
-            /*case SkillType.AttackCooldown:
+            case SkillType.AttackCooldown:
 
-            break;*/
+                if (playerAttack != null)
+                {
+                    playerAttack.attackTime -= value;
+                    Debug.Log("攻撃間隔 -" + value);
+                }
+                else
+                {
+                    Debug.LogError("AttackCoolDown が設定されていません！");
+                }
+                
+                break;
 
-            /*case SkillType.CritRateUp:
+            case SkillType.CritRate:
 
-            break;*/
+                if (playerAttack != null)
+                {
+                    playerAttack.criticalRate += value;
+                    Debug.Log("クリティカル率 +" + value);
+                }
+                else
+                {
+                    Debug.LogError("CritRateUp が設定されていません！");
+                }
+
+                break;
 
             /*case SkillType.MaxHPUp:
 
             break;*/
 
-            /*case SkillType.MoveSpeedUp:
+            case SkillType.MoveSpeed:
 
-            break;*/
+                if (move != null)
+                {
+                    move .speed += value;
+                    Debug.Log("移動速度 +" + value);
+                }
+                else
+                {
+                    Debug.LogError("move script が設定されていません！");
+                }
+                break;
 
             //PlayerSkillattack
             /*case SkillType.ProjectileCount:
@@ -113,9 +150,19 @@ public class SkillManager : MonoBehaviour
 
             break;*/
 
-            /*case SkillType.PickupRange:
+            case SkillType.PickupRange:
 
-            break;*/
+                if (expItem != null)
+                {
+                    expItem.pickupRange += value;
+                    Debug.Log("取得範囲 +" + value);
+                }
+                else
+                {
+                    Debug.LogError("ExpItem が設定されていません！");
+                }
+
+                break;
 
             /*case SkillType.RespawnCooldown:
 
