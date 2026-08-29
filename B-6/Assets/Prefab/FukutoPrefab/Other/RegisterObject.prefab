@@ -62,3 +62,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpriteRegister
   enemySpriteData: {fileID: 11400000, guid: 0ae569640c76edb4ab60e7dd549c57a5, type: 2}
+  playerSpriteData: {fileID: 11400000, guid: 3a173e0871bc2e24db22f91baf26d5cc, type: 2}
