@@ -44,7 +44,7 @@ public abstract class BaseEnemySpriteSelector : MonoBehaviour
     protected string attackSpriteName = "ATTACK"; // 攻撃スプライト名
     protected string hitSpriteName = "HIT";    // 被ダメージスプライト名
     protected string deathSpriteName = "DEATH";  // 死亡スプライト名
-    protected string moveSpriteName = "MOVE";  // 死亡スプライト名
+    protected string moveSpriteName = "MOVE";  // 移動スプライト名
 
     protected Sprite[] idleSprites;     // 待機スプライト
     protected Sprite[] attackSprites;   // 攻撃スプライト
@@ -97,7 +97,7 @@ public abstract class BaseEnemySpriteSelector : MonoBehaviour
     /// @brief フレーム管理を行う関数
     protected void ManageFrame(int elements)
     {
-        // 時間がよりも小さい場合
+        // 現在の時間がスプライトごとの時間よりも小さい場合
         if (currentTime < timePerSprite)
         {
             currentTime += Time.deltaTime; // 時間を進める
@@ -124,7 +124,7 @@ public abstract class BaseEnemySpriteSelector : MonoBehaviour
     /// @brief 攻撃、被ダメージ、スキルのフレーム管理を行う関数
     protected void ManageEventFrame(int elements)
     {
-        // フレームがFPSよりも小さい場合
+        // 現在の時間がスプライトごとの時間よりも小さい場合
         if (currentTime < timePerSprite)
         {
             currentTime += Time.deltaTime; // 時間を進める

@@ -49,6 +49,8 @@ public class EnemySpriteData : ScriptableObject
                 return enemiesSprites[element].moveSprite;
             case "SKILL": // スキル
                 return enemiesSprites[element].skillSprite;
+            case "WEAPON": // 武器
+                return enemiesSprites[element].weaponSprite;
             default:
                 Debug.LogError("存在しない名前で検索をかけているか、誤字の可能性があります！");
                 return enemiesSprites[element].skillSprite ; // ステータス名が存在しない場合idleスプライトを返す
@@ -73,6 +75,7 @@ public class EnemySpriteData : ScriptableObject
             spritesEntity.deathSprite = entity.deathSprite;
             spritesEntity.moveSprite = entity.moveSprite;
             spritesEntity.skillSprite = entity.skillSprite;
+            spritesEntity.weaponSprite = entity.weaponSprite;
 
             // 実体を入れる
             enemiesSprites.Add(spritesEntity);

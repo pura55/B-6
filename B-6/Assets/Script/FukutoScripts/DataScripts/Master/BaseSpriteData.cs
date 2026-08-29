@@ -13,4 +13,5 @@ public class BaseSpriteData
     public Sprite[] deathSprite;
     public Sprite[] moveSprite;
     public Sprite[] skillSprite;
+    public Sprite[] weaponSprite;
 }
