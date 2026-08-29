@@ -213,6 +213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossMove
   enemyID: 9
+  stopPosition: {x: 1.3, y: 1.3}
   enemyProgressData: {fileID: 11400000, guid: f1c5fd27d3e475c429457ece67e5af9d, type: 2}
   searchDistance: 10
 --- !u!114 &-6663721148947682915
@@ -305,8 +306,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 2570283839233665180}
     m_Modifications:
     - target: {fileID: -1828822045962500008, guid: e0f49487d57f23b48bef945c11e290d3, type: 3}
-      propertyPath: onAggressiveMove
+      propertyPath: onBossMove
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1828822045962500008, guid: e0f49487d57f23b48bef945c11e290d3, type: 3}
+      propertyPath: onAggressiveMove
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2785340836658489949, guid: e0f49487d57f23b48bef945c11e290d3, type: 3}
       propertyPath: m_LocalScale.x

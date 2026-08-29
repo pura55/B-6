@@ -124,11 +124,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 705468042484161248, guid: 4521623d95bd54a4995b126a0c711e79, type: 3}
   m_PrefabInstance: {fileID: 4826302991812740019}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &175468003 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8549939543547087018, guid: 03a7336a28f06b747a5bf0a74be11894, type: 3}
+--- !u!114 &175468004 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 816565118757550526, guid: 03a7336a28f06b747a5bf0a74be11894, type: 3}
   m_PrefabInstance: {fileID: 7520921125581178983}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 550826f0181985a46987c381cdbe6938, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RockManager
 --- !u!1 &327599940 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4254279175429688344, guid: 69e901d42055f41448c776f7ddd53a13, type: 3}
@@ -172,7 +178,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 996915522118236360, guid: 81574ab8083e71248b9bed00ae99b599, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3309320931265384604, guid: 81574ab8083e71248b9bed00ae99b599, type: 3}
       propertyPath: m_LocalPosition.x
@@ -258,7 +264,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 996915522118236360, guid: 81574ab8083e71248b9bed00ae99b599, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3309320931265384604, guid: 81574ab8083e71248b9bed00ae99b599, type: 3}
       propertyPath: m_LocalPosition.x
@@ -408,6 +414,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Aggressive Moving Spawner (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 996915522118236360, guid: 2a3826d9781c25d4c82dadfa0dce646a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3309320931265384604, guid: 2a3826d9781c25d4c82dadfa0dce646a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.44
@@ -487,7 +497,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 996915522118236360, guid: 81574ab8083e71248b9bed00ae99b599, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3309320931265384604, guid: 81574ab8083e71248b9bed00ae99b599, type: 3}
       propertyPath: m_LocalPosition.x
@@ -621,7 +631,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 996915522118236360, guid: 81574ab8083e71248b9bed00ae99b599, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3309320931265384604, guid: 81574ab8083e71248b9bed00ae99b599, type: 3}
       propertyPath: m_LocalPosition.x
@@ -679,6 +689,10 @@ PrefabInstance:
     - target: {fileID: 996915522118236360, guid: 2a3826d9781c25d4c82dadfa0dce646a, type: 3}
       propertyPath: m_Name
       value: Aggressive Moving Spawner (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 996915522118236360, guid: 2a3826d9781c25d4c82dadfa0dce646a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3309320931265384604, guid: 2a3826d9781c25d4c82dadfa0dce646a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -870,71 +884,6 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
---- !u!1001 &1635986329
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 996915522118236360, guid: 2a3826d9781c25d4c82dadfa0dce646a, type: 3}
-      propertyPath: m_Name
-      value: Aggressive Moving Spawner (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3309320931265384604, guid: 2a3826d9781c25d4c82dadfa0dce646a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 5.44
-      objectReference: {fileID: 0}
-    - target: {fileID: 3309320931265384604, guid: 2a3826d9781c25d4c82dadfa0dce646a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.71
-      objectReference: {fileID: 0}
-    - target: {fileID: 3309320931265384604, guid: 2a3826d9781c25d4c82dadfa0dce646a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3309320931265384604, guid: 2a3826d9781c25d4c82dadfa0dce646a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3309320931265384604, guid: 2a3826d9781c25d4c82dadfa0dce646a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3309320931265384604, guid: 2a3826d9781c25d4c82dadfa0dce646a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3309320931265384604, guid: 2a3826d9781c25d4c82dadfa0dce646a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3309320931265384604, guid: 2a3826d9781c25d4c82dadfa0dce646a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3309320931265384604, guid: 2a3826d9781c25d4c82dadfa0dce646a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3309320931265384604, guid: 2a3826d9781c25d4c82dadfa0dce646a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7771789830072195245, guid: 2a3826d9781c25d4c82dadfa0dce646a, type: 3}
-      propertyPath: tower
-      value: 
-      objectReference: {fileID: 444732591}
-    - target: {fileID: 7771789830072195245, guid: 2a3826d9781c25d4c82dadfa0dce646a, type: 3}
-      propertyPath: enemyToSpawn
-      value: 
-      objectReference: {fileID: 6449213048604919684, guid: b56cec8fc328d7949a3a78c632d9ac56, type: 3}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2a3826d9781c25d4c82dadfa0dce646a, type: 3}
 --- !u!1001 &1761319792
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -946,6 +895,10 @@ PrefabInstance:
     - target: {fileID: 996915522118236360, guid: 2a3826d9781c25d4c82dadfa0dce646a, type: 3}
       propertyPath: m_Name
       value: Aggressive Moving Spawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 996915522118236360, guid: 2a3826d9781c25d4c82dadfa0dce646a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3309320931265384604, guid: 2a3826d9781c25d4c82dadfa0dce646a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1011,6 +964,10 @@ PrefabInstance:
     - target: {fileID: 996915522118236360, guid: 2a3826d9781c25d4c82dadfa0dce646a, type: 3}
       propertyPath: m_Name
       value: Aggressive Moving Spawner (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 996915522118236360, guid: 2a3826d9781c25d4c82dadfa0dce646a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3309320931265384604, guid: 2a3826d9781c25d4c82dadfa0dce646a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1215,7 +1172,7 @@ PrefabInstance:
     - target: {fileID: 8966784424294923106, guid: f9b2c4e68d2b53444beac185cca93fcd, type: 3}
       propertyPath: rockManager
       value: 
-      objectReference: {fileID: 175468003}
+      objectReference: {fileID: 175468004}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1548,6 +1505,5 @@ SceneRoots:
   - {fileID: 639193576}
   - {fileID: 1131240585}
   - {fileID: 1954675863}
-  - {fileID: 1635986329}
   - {fileID: 3495507769812354510}
   - {fileID: 947043189}

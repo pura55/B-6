@@ -91,6 +91,23 @@ public class ShortAttack : BaseEnemyAttack
                 attackState = EnemyAttackState.recast;
             }
         }
+        else if(onMidBossAnimation)
+        {
+            // スプライトの指数が攻撃ヒット時の番号と一致している場合
+            if (midBossAnimation.GetSpriteIndex() == hitAnimationNumber)
+            {
+                // ヒットボックスオン
+                ActiveHitBox();
+                isAlreadyHit = true;
+            }
+            else if (isAlreadyHit)
+            {
+                // ヒットボックスオフ
+                InactiveHitBox();
+                // 状態をリキャストへ遷移
+                attackState = EnemyAttackState.recast;
+            }
+        }
     }
 
     /// @brief リキャスト処理を行う関数
