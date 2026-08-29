@@ -1,27 +1,24 @@
 using UnityEngine;
 
-/// <summary>
-/// アグレッシブムービングスポナー
-/// 
-/// 攻撃的な敵を生成するクラス
-/// </summary>
-public class AggressiveMovingSpawner : BaseEnemySpawner
+public class BossSpawner : BaseEnemySpawner
 {
+    #region Config
+    private int SpawnTime = 3;
+    #endregion
+
+    #region State
+    private GameTimer gameTimer;
+    #endregion
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        isSpawn = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // ゲームスタートの待機時間が過ぎたらそれ以降の処理を開始
-        if (!FirstWaitTimer())
-        {
-            return;
-        }
-
+        
         // スポーンフラグで敵生成を管理
         if (!isSpawn)
         {
@@ -30,15 +27,9 @@ public class AggressiveMovingSpawner : BaseEnemySpawner
             isSpawn = true;
             return;
         }
-        else
-        {
-            // スポーンインターバルを加算
-            CompleteSpawnInterval();
-            return;
-        }
     }
 
-/// @brief 敵を生成する関数
+    /// @brief 敵を生成する関数
     protected override void SpawnEnemy()
     {
         //現在の敵のスポーン数を超えたら処理を抜ける
@@ -64,12 +55,12 @@ public class AggressiveMovingSpawner : BaseEnemySpawner
     protected override void PassTargetReference(GameObject spawnedEnemy)
     {
         // 敵のスクリプトの参照を取得
-        AggressiveMove enemyScript = spawnedEnemy.GetComponent<AggressiveMove>();
+        BossMove enemyScript = spawnedEnemy.GetComponent<BossMove>();
 
         //敵にタワーのオブジェクトの参照を渡す
         if (enemyScript != null)
         {
             enemyScript.SetTargetTower(tower);
         }
-    }    
+    }
 }

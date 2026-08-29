@@ -5,12 +5,13 @@ using UnityEngine;
 /// 
 /// 攻撃判定の移動回転処理の基底クラス
 /// </summary>
-public class BaseHitBoxRotation: MonoBehaviour
+public class BaseHitBoxRotation : MonoBehaviour
 {
     #region Config
     protected static float distanceRadius = 0.3f; // 距離半径
-    [SerializeField] private bool onNomalMove = false; // 基本移動が付いているかどうかのフラグ
-    [SerializeField] private bool onAggressiveMove = false; // プレイヤー追跡の移動がついているかどうかのフラグ
+    [SerializeField] protected bool onNomalMove = false; // 基本移動が付いているかどうかのフラグ
+    [SerializeField] protected bool onAggressiveMove = false; // プレイヤー追跡の移動がついているかどうかのフラグ
+    [SerializeField] protected bool onBossMove = false; // ボスの移動フラグ
     #endregion
 
     #region State
@@ -21,6 +22,7 @@ public class BaseHitBoxRotation: MonoBehaviour
     protected Transform parentTransform; // 親のトランスフォーム
     protected NomalMove nomalMove;       // 基本的な移動を行うスクリプト
     protected AggressiveMove aggressiveMove; // プレイヤーの追跡を行う移動スクリプト
+    protected BossMove bossMove; // ボスの移動
     #endregion
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -91,6 +93,10 @@ public class BaseHitBoxRotation: MonoBehaviour
         {
             aggressiveMove = parentTransform.GetComponent<AggressiveMove>();
         }
+        else if(onBossMove)
+        {
+            bossMove = parentTransform.GetComponent<BossMove>();
+        }
     }
 
     /// @brief 親が向かっている方角を取得する関数
@@ -103,6 +109,10 @@ public class BaseHitBoxRotation: MonoBehaviour
         else if(onAggressiveMove)
         {
             parentHeaded = aggressiveMove.GetMovementPerFrame();
+        }
+        else if (onBossMove)
+        {
+            parentHeaded = bossMove.GetMovementPerFrame();
         }
     }
 

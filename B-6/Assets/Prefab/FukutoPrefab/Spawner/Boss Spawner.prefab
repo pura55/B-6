@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3309320931265384604}
-  - component: {fileID: 6389359191225326576}
+  - component: {fileID: 3690333319579963098}
   m_Layer: 0
-  m_Name: EnemySpawner
+  m_Name: Boss Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6389359191225326576
+--- !u!114 &3690333319579963098
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,9 +41,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 996915522118236360}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3392fa377a9dcb24d8de7e6dd87b9365, type: 3}
+  m_Script: {fileID: 11500000, guid: 873f9372d562a9243a44d3f64462d3ee, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
-  enemyToSpawn: {fileID: 6449213048604919684, guid: d008274af5220f84288b5c92924ca971, type: 3}
+  m_EditorClassIdentifier: Assembly-CSharp::BossSpawner
+  spawnRange: {x: 3, y: 3, z: 0}
+  enemyToSpawn: {fileID: 6449213048604919684, guid: b56cec8fc328d7949a3a78c632d9ac56, type: 3}
   tower: {fileID: 0}
-  spawnRange: {x: 5, y: 5, z: 0}

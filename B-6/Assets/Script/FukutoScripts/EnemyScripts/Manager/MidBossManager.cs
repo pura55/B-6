@@ -61,9 +61,6 @@ public class MidBossManager : NomalEnemyManager
 
         SetIdleAnimation();
 
-        // 落石ヒット時の遷移処理
-        HitRock();
-
         // 被ダメージへの遷移処理
         TransitionHit();
 
@@ -81,6 +78,7 @@ public class MidBossManager : NomalEnemyManager
             ResetAnimation();
             return;
         }
+        
     }
 
     /// @brief 移動状態関数
@@ -90,9 +88,6 @@ public class MidBossManager : NomalEnemyManager
         SetStopMovement(false);
 
         SetMoveAnimation();
-
-        // 落石ヒット時の遷移処理
-        HitRock();
 
         // 被ダメージへの遷移処理
         TransitionHit();
@@ -111,9 +106,6 @@ public class MidBossManager : NomalEnemyManager
     {
         // 移動不可
         SetStopMovement(true);
-
-        // 落石ヒット時の遷移処理
-        HitRock();
 
         // 被ダメージへの遷移処理
         TransitionHit();
@@ -144,9 +136,6 @@ public class MidBossManager : NomalEnemyManager
         // 移動不可
         SetStopMovement(true);
 
-        // 落石ヒット時の遷移処理
-        HitRock();
-
         // 被ダメージへの遷移処理
         TransitionHit();
 
@@ -166,20 +155,11 @@ public class MidBossManager : NomalEnemyManager
         // 移動不可
         SetStopMovement(true);
 
-        // 落石ヒット時の遷移処理
-        HitRock();
-
         //ダメージを受けている最中でもアニメーションを繰り返すため
         // 遷移処理を挟む
         TransitionHit();
 
-        if (GetHitRock() && FinishedEventAnimation())
-        {
-            enemyState = EnemyState.Dead;
-            ResetAnimation();
-            return;
-        }
-        else if (FinishedEventAnimation())
+        if (FinishedEventAnimation())
         {
             // 待機への遷移処理
             TransitionIdle();
@@ -199,18 +179,9 @@ public class MidBossManager : NomalEnemyManager
         }
     }
 
-    /// @brief 落石に衝突した場合の処理を行う関数
-    private void HitRock()
+    protected override void BossHit()
     {
-        // 落石に衝突していたら被ダメージへ
-        if (GetHitRock())
-        {
-            Debug.Log("Hitに遷移します");
-            enemyState = EnemyState.Hit;
-            ResetAnimation();
-            SetHitAnimation();
-            return;
-        }
+        bossMove.SetIsHit(true);
     }
 
     protected void SetSkillAnimation()

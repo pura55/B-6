@@ -193,8 +193,13 @@ public class NomalEnemyManager : BaseEnemyManager
             isTakeHit = false;
             ResetAnimation();
             SetHitAnimation();
+            BossHit();
             return;
         }
+    }
+
+    protected virtual void BossHit()
+    {
     }
 
     /// @brief —Î‚ÉÕ“Ë‚µ‚½ê‡‚Ìˆ—‚ğs‚¤ŠÖ”

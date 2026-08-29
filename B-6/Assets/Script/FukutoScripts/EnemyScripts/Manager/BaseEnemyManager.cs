@@ -18,8 +18,11 @@ public abstract class BaseEnemyManager : MonoBehaviour
     }
 
     #region Config
+    [Header("MOVE")]
     [SerializeField] protected bool onNomalMove = false; // コンポーネントにNomalMoveがあるかどうか
     [SerializeField] protected bool onAggressiveMove = false; // コンポーネントにAggressiveMoveがあるかどうか
+    [SerializeField] protected bool onBossMove = false; // コンポーネントにAggressiveMoveがあるかどうか
+    [Header("ANIMATION")]
     [SerializeField] protected bool onNomalAnimation = false; // コンポーネントにNomalAnimationがあるかどうか
     [SerializeField] protected bool onIncludeMovementAnimation = false; // コンポーネントにIncludeMovementAnimationがあるかどうか
     [SerializeField] protected bool onMidBossAnimation = false; // コンポーネントにMidBossAnimationがあるかどうか
@@ -31,6 +34,7 @@ public abstract class BaseEnemyManager : MonoBehaviour
     protected bool isDead = false; // 死んでいるかどうかのフラグ
     protected NomalMove nomalMove; // 普通の移動
     protected AggressiveMove aggressiveMove; // 攻撃的な移動
+    protected BossMove bossMove; // ボスの移動
     protected NomalAnimation nomalAnimation; // 普通のアニメーション
     protected IncludeMovementAnimation movementAnimation; // 移動付きアニメーション
     protected MidBossAnimation midBossAnimation; // 中ボスアニメーション
@@ -68,6 +72,9 @@ public abstract class BaseEnemyManager : MonoBehaviour
 
         // AggressiveMoveのコンポーネントの取得
         else if (onAggressiveMove) aggressiveMove = GetComponent<AggressiveMove>();
+
+        // BossMoveのコンポーネントの取得
+        else if (onBossMove) bossMove = GetComponent<BossMove>();
     }
 
     /// @brief アニメーションスクリプトを設定する関数
@@ -88,8 +95,9 @@ public abstract class BaseEnemyManager : MonoBehaviour
     {
         if (onNomalMove) nomalMove.SetStopMovement(flag);
 
-        else if(onAggressiveMove)aggressiveMove.SetStopMovement(flag);
+        else if (onAggressiveMove) aggressiveMove.SetStopMovement(flag);
 
+        else if (onBossMove) bossMove.SetStopMovement(flag);
     }
 
     /// @brief 接近フラグの取得関数
@@ -98,6 +106,8 @@ public abstract class BaseEnemyManager : MonoBehaviour
         if (onNomalMove) return nomalMove.GetIsAttached();
 
         else if (onAggressiveMove) return aggressiveMove.GetIsAttached();
+
+        else if(onBossMove) return bossMove.GetIsAttached();
 
         else return true;
     }

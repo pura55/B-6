@@ -13,6 +13,7 @@ public abstract class BaseEnemyMove : MonoBehaviour
     protected float followSpeed = 1f; // 追従速度
     protected float settingSpeed = 1f; // 設定速度
     [SerializeField] protected int enemyID; // 敵のID
+    [SerializeField] protected Vector2 stopPosition = new Vector2(0.45f, 0.45f);
     #endregion
 
     #region State
@@ -52,16 +53,8 @@ public abstract class BaseEnemyMove : MonoBehaviour
     /// @brief 一定距離に近づいたか確認する関数
     protected void CheckAttaced()
     {
-        //if (Vector2.Distance(transform.position, currentTarget.position) < targetSize.x + 0.95f && Vector2.Distance(transform.position, currentTarget.position) < targetSize.x + 0.95f)
-        //{
-        //    isAttached = true;
-        //}
-        //else
-        //{
-        //    isAttached = false;
-        //}
-
-        if(Mathf.Abs(transform.position.x - currentTarget.position.x) < targetSize.x / 2 + 0.35f&& Mathf.Abs(transform.position.y - currentTarget.position.y) < targetSize.y / 2 + 0.35f)
+        if(Mathf.Abs(transform.position.x - currentTarget.position.x) < targetSize.x / 2 + stopPosition.x && 
+            Mathf.Abs(transform.position.y - currentTarget.position.y) < targetSize.y / 2 + stopPosition.y)
         {
             isAttached = true;
         }

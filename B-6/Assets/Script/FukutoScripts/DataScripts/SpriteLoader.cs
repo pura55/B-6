@@ -15,6 +15,7 @@ public class SpriteLoader : MonoBehaviour
     private string spriteDeathPass = "/Death"; // 死亡パス
     private string spriteMovePass = "/Move"; // 移動パス
     private string spriteSkillPass = "/Skill"; // スキルパス
+    private string spriteWeaponPass = "/Weapon"; // 武器パス
     [SerializeField] private SpriteRegister spriteRegister;
     [SerializeField] private EnemyMasterSprite enemyMasterSprite;
 
@@ -59,30 +60,31 @@ public class SpriteLoader : MonoBehaviour
             switch (id)
             {
                 case 2:
-                    LoadMoveSprites(entity, i, id);
+                    LoadMoveSprites(entity, id);
                     break;
                 case 3:
-                    LoadMoveSprites(entity, i, id);
+                    LoadMoveSprites(entity, id);
                     break;
                 case 4:
-                    LoadMoveSprites(entity, i, id);
+                    LoadMoveSprites(entity, id);
                     break;
                 case 6:
-                    LoadMoveSprites(entity, i, id);
+                    LoadMoveSprites(entity, id);
                     break;
                 case 7:
-                    LoadMoveSprites(entity, i, id);
+                    LoadMoveSprites(entity, id);
                     break;
                 case 8:
-                    LoadMoveSprites(entity, i, id);
+                    LoadMoveSprites(entity, id);
                     break;
                 case 9:
-                    LoadMoveSprites(entity, i, id);
-                    LoadSkillSprites(entity, i, id);
+                    LoadMoveSprites(entity, id);
+                    LoadSkillSprites(entity, id);
+                    LoadWeaponSprite(entity, id);
                     break;
                 case 10:
-                    LoadMoveSprites(entity, i, id);
-                    LoadSkillSprites(entity, i, id);
+                    LoadMoveSprites(entity, id);
+                    LoadSkillSprites(entity, id);
                     break;
             }
 
@@ -96,14 +98,20 @@ public class SpriteLoader : MonoBehaviour
     }
 
     /// @brief 移動のテクスチャーが存在する場合に読み込みを行う関数
-    private void LoadMoveSprites(EnemyMasterSprite.Entity entity, int element, int id)
+    private void LoadMoveSprites(EnemyMasterSprite.Entity entity, int id)
     {
         entity.moveSprite = Resources.LoadAll<Sprite>(spriteBasePass + id + spriteMovePass);
     }
 
-    /// @brief 移動のテクスチャーが存在する場合に読み込みを行う関数
-    private void LoadSkillSprites(EnemyMasterSprite.Entity entity, int element, int id)
+    /// @brief スキルのテクスチャーが存在する場合に読み込みを行う関数
+    private void LoadSkillSprites(EnemyMasterSprite.Entity entity, int id)
     {
         entity.skillSprite = Resources.LoadAll<Sprite>(spriteBasePass + id + spriteSkillPass);
+    }
+
+    /// @brief 武器のテクスチャ―が存在する場合に読み込みを行う関数
+    private void LoadWeaponSprite(EnemyMasterSprite.Entity entity, int id)
+    {
+        entity.weaponSprite = Resources.LoadAll<Sprite>(spriteBasePass + id + spriteWeaponPass);
     }
 }
