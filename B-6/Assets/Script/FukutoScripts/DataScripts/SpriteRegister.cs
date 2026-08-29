@@ -8,6 +8,7 @@ using UnityEngine;
 public class SpriteRegister : MonoBehaviour
 {
     [SerializeField] private EnemySpriteData enemySpriteData; // エネミーのスプライトデータ（SO)
+    [SerializeField] private PlayetSpriteData playerSpriteData; // プレイヤーのスプライトデータ（SO）
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,6 +27,20 @@ public class SpriteRegister : MonoBehaviour
         else
         {
             Debug.LogError($"敵のスプライトがありません");
+        }
+    }
+
+    public void RegistPlayerSprite(PlayerMasterSprite data)
+    {
+        Debug.Log("プレイヤースプライトデータの登録");
+        if (data != null)
+        {
+            // データの実体をコピーする
+            playerSpriteData.CopyMasterData(data);
+        }
+        else
+        {
+            Debug.LogError($"プレイヤーのスプライトがありません");
         }
     }
 }
