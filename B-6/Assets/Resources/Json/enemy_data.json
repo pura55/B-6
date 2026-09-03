@@ -1,0 +1,132 @@
+{
+    "enemies":
+    [
+        {
+            "id": 1,
+            "hp": 20,
+            "atkDmg": 5,
+            "atkCT": 1.2,
+            "skillDmg": 0,
+            "skillCT": 0,
+            "speed": 0.5
+        },
+        {
+            "id": 2,
+            "hp": 20,
+            "atkDmg": 5,
+            "atkCT": 1.2,
+            "skillDmg": 0,
+            "skillCT": 0,
+            "speed": 0.5
+        },
+        {
+            "id": 3,
+            "hp": 20,
+            "atkDmg": 5,
+            "atkCT": 1.2,
+            "skillDmg": 0,
+            "skillCT": 0,
+            "speed": 0.5
+        },
+        {
+            "id": 4,
+            "hp": 20,
+            "atkDmg": 5,
+            "atkCT": 1.2,
+            "skillDmg": 0,
+            "skillCT": 0,
+            "speed": 0.5
+        },
+        {
+            "id": 5,
+            "hp": 20,
+            "atkDmg": 5,
+            "atkCT": 1.2,
+            "skillDmg": 0,
+            "skillCT": 0,
+            "speed": 0.5
+        },
+        {
+            "id": 6,
+            "hp": 20,
+            "atkDmg": 5,
+            "atkCT": 1.2,
+            "skillDmg": 0,
+            "skillCT": 0,
+            "speed": 0.5
+        },
+        {
+            "id": 7,
+            "hp": 20,
+            "atkDmg": 5,
+            "atkCT": 1.2,
+            "skillDmg": 0,
+            "skillCT": 0,
+            "speed": 0.5
+        },
+        {
+            "id": 8,
+            "hp": 20,
+            "atkDmg": 5,
+            "atkCT": 1.2,
+            "skillDmg": 0,
+            "skillCT": 0,
+            "speed": 0.5
+        },
+        {
+            "id": 9,
+            "hp": 200,
+            "atkDmg": 15,
+            "atkCT": 1.2,
+            "skillDmg": 10,
+            "skillCT": 10.0,
+            "speed": 0.5
+        },
+        {
+            "id": 10,
+            "hp": 250,
+            "atkDmg": 10,
+            "atkCT": 1.2,
+            "skillDmg": 15,
+            "skillCT": 10.0,
+            "speed": 0.5
+        },
+        {
+            "id": 11,
+            "hp": 300,
+            "atkDmg": 10,
+            "atkCT": 1.2,
+            "skillDmg": 20,
+            "skillCT": 10.0,
+            "speed": 0.5
+        },
+        {
+            "id": 12,
+            "hp": 500,
+            "atkDmg": 20,
+            "atkCT": 1.0,
+            "skillDmg": 30,
+            "skillCT": 8.0,
+            "speed": 1
+        },
+        {
+            "id": 13,
+            "hp": 550,
+            "atkDmg": 20,
+            "atkCT": 1.0,
+            "skillDmg": 30,
+            "skillCT": 8.0,
+            "speed": 1
+        },
+        {
+            "id": 14,
+            "hp": 600,
+            "atkDmg": 25,
+            "atkCT": 1.0,
+            "skillDmg": 50,
+            "skillCT": 8.0,
+            "speed": 1
+        }
+
+    ]
+}

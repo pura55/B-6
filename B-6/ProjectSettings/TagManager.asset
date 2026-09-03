@@ -2,8 +2,14 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
-  tags: []
+  serializedVersion: 3
+  tags:
+  - Enemy
+  - Rock
+  - ExpItem
+  - PlayerAttack
+  - Wall
+  - Tower
   layers:
   - Default
   - TransparentFX
@@ -14,8 +20,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - Tower
+  - Enemy
   - 
   - 
   - 
@@ -41,3 +47,5 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  m_RenderingLayers:
+  - Default
