@@ -15,7 +15,7 @@ public class WeaponAnimation : MonoBehaviour
 
     #region Config
     [SerializeField] protected int enemyId = 0; // 敵のID
-    protected float timePerSprite = 0.1f; // 毎スプライトごとの時間
+    protected float timePerSprite = 0.05f; // 毎スプライトごとの時間
     #endregion
 
     #region State
@@ -48,7 +48,7 @@ public class WeaponAnimation : MonoBehaviour
         switch (animationState)
         {
             case AnimationState.idle:
-                if(isPermissionAct)
+                if (isPermissionAct)
                 {
                     animationState = AnimationState.act;
                 }
