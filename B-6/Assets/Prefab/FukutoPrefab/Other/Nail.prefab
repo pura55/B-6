@@ -11,10 +11,12 @@ GameObject:
   - component: {fileID: 3737280048099577708}
   - component: {fileID: 3554430262268175112}
   - component: {fileID: 2558417720738764104}
-  - component: {fileID: 9014699668408315236}
+  - component: {fileID: -5710485405823524100}
+  - component: {fileID: 6991570618343750832}
+  - component: {fileID: -6973927076239871062}
   m_Layer: 0
   m_Name: Nail
-  m_TagString: Untagged
+  m_TagString: Nail
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,8 +108,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponAnimation
   enemyId: 9
+  hitAnimationNumber: 7
   enemySpriteData: {fileID: 11400000, guid: 0ae569640c76edb4ab60e7dd549c57a5, type: 2}
---- !u!114 &9014699668408315236
+--- !u!114 &-5710485405823524100
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,7 +119,70 @@ MonoBehaviour:
   m_GameObject: {fileID: 2355820177991726458}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96fec8213e1fd7a4ab3b969e97bfd594, type: 3}
+  m_Script: {fileID: 11500000, guid: fd4fb00cd884eb24d8f2687d5f39e9e5, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HitTriggerManager
-  OnShortAttack: 0
+  m_EditorClassIdentifier: Assembly-CSharp::SkillTriggerManager
+--- !u!61 &6991570618343750832
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2355820177991726458}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: -0.16}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.4, y: 0.93}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.35, y: 0.6}
+  m_EdgeRadius: 0
+--- !u!114 &-6973927076239871062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2355820177991726458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3da7db9c2b507a441810be0a2f334d1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BaseHitBoxRotation
+  distanceRadius: 0.3
+  onNomalMove: 0
+  onAggressiveMove: 0
+  onBossMove: 1
+  notRotate: 1
+  parentHeaded: {x: 0, y: 0, z: 0}

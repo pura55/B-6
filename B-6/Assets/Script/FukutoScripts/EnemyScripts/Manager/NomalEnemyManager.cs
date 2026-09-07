@@ -125,12 +125,12 @@ public class NomalEnemyManager : BaseEnemyManager
             return;
         }
 
-        // 攻撃済みフラグがfalse & イベントアニメーションが終了していたら
-        if (!shortAttack.GetIsAttacked() && FinishedEventAnimation())
+        // idle状態だったら
+        if (shortAttack.GetIsIdle())
         {
             ResetAnimation();
             SetAttackAnimation();
-            shortAttack.SetAttackState();
+            shortAttack.SetStateAttack();
             shortAttack.SetIsAttacked(true);
             return;
         }
@@ -191,6 +191,7 @@ public class NomalEnemyManager : BaseEnemyManager
             Debug.Log("Hitに遷移します");
             enemyState = EnemyState.Hit;
             isTakeHit = false;
+            shortAttack.SetStateRecast();
             ResetAnimation();
             SetHitAnimation();
             BossHit();

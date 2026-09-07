@@ -15,6 +15,7 @@ public class WeaponAnimation : MonoBehaviour
 
     #region Config
     [SerializeField] protected int enemyId = 0; // 敵のID
+    [SerializeField] private int hitAnimationNumber = 6;
     protected float timePerSprite = 0.1f; // 毎スプライトごとの時間
     #endregion
 
@@ -29,6 +30,7 @@ public class WeaponAnimation : MonoBehaviour
     protected Sprite[] weaponSprites;     // 武器スプライト
     protected SpriteRenderer spriteRenderer; // スプライトレンダラー
     [SerializeField] protected EnemySpriteData enemySpriteData; // スプライトデータ
+    protected WeaponTriggerManager weaponTriggerManager;
     #endregion
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -48,9 +50,11 @@ public class WeaponAnimation : MonoBehaviour
         switch (animationState)
         {
             case AnimationState.idle:
-                if(isPermissionAct)
+                spriteRenderer.sprite = null;
+                if (isPermissionAct)
                 {
                     animationState = AnimationState.act;
+                    spriteRenderer.sprite = weaponSprites[spriteIndex];
                 }
                 break;
             case AnimationState.act:
@@ -63,6 +67,7 @@ public class WeaponAnimation : MonoBehaviour
     private void InitValue()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        weaponTriggerManager = GetComponent<WeaponTriggerManager>();
         SetWeaponSprite();
         SetSpriteElements();
     }
@@ -98,6 +103,16 @@ public class WeaponAnimation : MonoBehaviour
             {
                 // スプライト指数を進める
                 spriteIndex++;
+
+                // スプライトがヒット時のアニメーションの場合
+                if(hitAnimationNumber == spriteIndex)
+                {
+                    weaponTriggerManager.SetHitTrigger(true);
+                }
+                else
+                {
+                    weaponTriggerManager.SetHitTrigger(false);
+                }
             }
 
             // フレームをリセット
