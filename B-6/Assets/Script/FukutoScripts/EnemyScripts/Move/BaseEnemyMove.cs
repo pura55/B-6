@@ -13,7 +13,7 @@ public abstract class BaseEnemyMove : MonoBehaviour
     protected float followSpeed = 1f; // 追従速度
     protected float settingSpeed = 1f; // 設定速度
     [SerializeField] protected int enemyID; // 敵のID
-    [SerializeField] protected Vector2 stopPosition = new Vector2(0.45f, 0.45f);
+    [SerializeField] protected Vector2 stopFrontTower = new Vector2(0.45f, 0.45f);// タワーの前に止まる距離
     #endregion
 
     #region State
@@ -26,6 +26,7 @@ public abstract class BaseEnemyMove : MonoBehaviour
     protected const string speedStatName = "SPEED";                 // ステータスの名前
     protected Vector2 targetSize = Vector2.zero;                    // ターゲットのサイズ
     protected Transform targetTower;                                // ターゲットのタワー
+    protected Vector2 stopPosition = new Vector2(0.45f, 0.45f);
     [SerializeField] protected EnemyProgressData enemyProgressData; // 敵のデータ
     #endregion
 

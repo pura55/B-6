@@ -73,6 +73,11 @@ public class ShortAttack : BaseEnemyAttack
                 // 状態をリキャストへ遷移
                 attackState = EnemyAttackState.recast;
             }
+            else
+            {
+                // ヒットボックスオフ
+                InactiveHitBox();
+            }
         }
         else if (onIncludeMovementAnimation)
         {
@@ -90,6 +95,11 @@ public class ShortAttack : BaseEnemyAttack
                 // 状態をリキャストへ遷移
                 attackState = EnemyAttackState.recast;
             }
+            else
+            {
+                // ヒットボックスオフ
+                InactiveHitBox();
+            }
         }
         else if(onMidBossAnimation)
         {
@@ -106,6 +116,11 @@ public class ShortAttack : BaseEnemyAttack
                 InactiveHitBox();
                 // 状態をリキャストへ遷移
                 attackState = EnemyAttackState.recast;
+            }
+            else
+            {
+                // ヒットボックスオフ
+                InactiveHitBox();
             }
         }
     }

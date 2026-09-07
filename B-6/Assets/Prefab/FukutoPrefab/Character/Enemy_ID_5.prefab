@@ -214,8 +214,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NomalEnemyManager
   onNomalMove: 0
   onAggressiveMove: 1
+  onBossMove: 0
   onNomalAnimation: 1
   onIncludeMovementAnimation: 0
+  onMidBossAnimation: 0
 --- !u!114 &-2970611619493780680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,8 +231,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NomalAnimation
   enemyId: 5
+  reverseFlip: 0
   onNomalMove: 0
   onAggressiveMove: 1
+  onBossMove: 0
   enemySpriteData: {fileID: 11400000, guid: 0ae569640c76edb4ab60e7dd549c57a5, type: 2}
 --- !u!114 &-2968833444237072146
 MonoBehaviour:
@@ -245,7 +249,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AggressiveMove
   enemyID: 5
+  stopFrontTower: {x: 0.45, y: 0.45}
   enemyProgressData: {fileID: 11400000, guid: f1c5fd27d3e475c429457ece67e5af9d, type: 2}
+  stopFrontPlayer: {x: 0.3, y: 0.3}
   searchDistance: 10
 --- !u!114 &4414791695640219721
 MonoBehaviour:
@@ -264,6 +270,7 @@ MonoBehaviour:
   enemyProgressData: {fileID: 11400000, guid: f1c5fd27d3e475c429457ece67e5af9d, type: 2}
   onNomalAnimation: 1
   onIncludeMovementAnimation: 0
+  onMidBossAnimation: 0
 --- !u!114 &-5910053777904288716
 MonoBehaviour:
   m_ObjectHideFlags: 0

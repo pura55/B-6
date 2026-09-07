@@ -9,6 +9,7 @@ using UnityEngine;
 public class AggressiveMove : BaseEnemyMove
 {
     #region Config
+    [SerializeField] protected Vector2 stopFrontPlayer = new Vector2(0.45f, 0.45f); // プレイヤーの前に止まる距離
     [SerializeField] private float searchDistance = 10f; // 探索距離
     #endregion
 
@@ -57,6 +58,8 @@ public class AggressiveMove : BaseEnemyMove
         settingSpeed = enemyProgressData.GetFloatStat(enemyID, speedStatName);
         followSpeed = settingSpeed;
         currentTarget = targetTower;
+
+        stopPosition = stopFrontTower;
     }
 
     /// @brief ターゲットを切り替える処理を行う関数
@@ -71,6 +74,7 @@ public class AggressiveMove : BaseEnemyMove
             // プレイヤーのサイズ取得
             PlayerSize playerSize = targetPlayer.GetComponent<PlayerSize>();
             targetSize = playerSize.GetPlayerSize();
+            stopPosition = stopFrontPlayer;
         }
         else
         {
@@ -79,6 +83,7 @@ public class AggressiveMove : BaseEnemyMove
             // タワーのサイズを取得
             TowerSize towerSize = targetTower.GetComponent<TowerSize>();
             targetSize = towerSize.GetTowerSize();
+            stopPosition = stopFrontTower;
         }
 
         if(currentTarget == null)
@@ -86,33 +91,6 @@ public class AggressiveMove : BaseEnemyMove
             return;
         }
     }
-
-
-    ///// @brief プレイヤーと敵の間のタワーを確認する関数
-    //protected void CheckIsTower()
-    //{
-    //    //Wallのレイヤーを取得
-    //    int wallLayerMask = LayerMask.GetMask("Tower");
-
-    //    // 敵とタワーの直線上の間にWallのレイヤーオブジェクトがあるかをチェック
-    //    RaycastHit2D hit = Physics2D.Linecast(transform.position, currentTarget.position, wallLayerMask);
-
-    //    // もし壁に遮られていたら、横に移動
-    //    if (hit.collider != null)
-    //    {
-    //        if (!obstructedWall)
-    //        {
-    //            DecideAvoidVelocity(hit.point);
-    //        }
-    //        transform.position = transform.position + (avoidVelocity * Time.deltaTime);
-    //        followSpeed = 0f;
-    //    }
-    //    else
-    //    {
-    //        obstructedWall = false;
-    //        followSpeed = settingSpeed;
-    //    }
-    //}
 
     /// @brief ヒットフラグをリセットする関数
     protected virtual void ResetHitFlag(){ }

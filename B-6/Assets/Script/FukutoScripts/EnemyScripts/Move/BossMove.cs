@@ -48,6 +48,7 @@ public class BossMove : AggressiveMove
         settingSpeed = enemyProgressData.GetFloatStat(enemyID, speedStatName);
         followSpeed = settingSpeed;
         currentTarget = targetTower;
+        stopPosition = stopFrontTower;
     }
 
     // 親のクラスから継承して親の処理の間にこの関数を加える

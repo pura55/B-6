@@ -51,5 +51,7 @@ public class NomalMove : BaseEnemyMove
         // タワーのサイズを取得
         TowerSize towerSize = targetTower.GetComponent<TowerSize>();
         targetSize = towerSize.GetTowerSize();
+
+        stopPosition = stopFrontTower;
     }
 }

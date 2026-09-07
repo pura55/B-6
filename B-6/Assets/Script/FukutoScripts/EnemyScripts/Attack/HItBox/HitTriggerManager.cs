@@ -14,7 +14,6 @@ public class HitTriggerManager : MonoBehaviour
     #region State
     protected bool isActiveTrigger = false; // 当たり判定のアクティブフラグ（true: アクティブ, false: 非アクティブ)
     protected Collider2D hitTrigger; // 当たり判定のトリガー
-    protected bool isJustOnce = false; // トリガーを一度だけtrueにするフラグ
     #endregion
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -60,16 +59,11 @@ public class HitTriggerManager : MonoBehaviour
     {
         if (isActiveTrigger)
         {
-            if(isJustOnce)
-            {
-                hitTrigger.enabled = true;
-                isJustOnce = false;
-            }
+            hitTrigger.enabled = true;
         }
         else
         {
             hitTrigger.enabled = false;
-            isJustOnce = true;
         }
     }
 
