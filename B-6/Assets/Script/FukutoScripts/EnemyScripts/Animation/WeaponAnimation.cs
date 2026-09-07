@@ -15,7 +15,10 @@ public class WeaponAnimation : MonoBehaviour
 
     #region Config
     [SerializeField] protected int enemyId = 0; // 敵のID
+<<<<<<< HEAD
     [SerializeField] private int hitAnimationNumber = 6;
+=======
+>>>>>>> parent of 89141aa (荳ｭ繝懊せ縺ｮ繧｢繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ譖ｴ譁ｰ縺ｮ騾溷ｺｦ螟画峩)
     protected float timePerSprite = 0.1f; // 毎スプライトごとの時間
     #endregion
 
@@ -50,8 +53,12 @@ public class WeaponAnimation : MonoBehaviour
         switch (animationState)
         {
             case AnimationState.idle:
+<<<<<<< HEAD
                 spriteRenderer.sprite = null;
                 if (isPermissionAct)
+=======
+                if(isPermissionAct)
+>>>>>>> parent of 89141aa (荳ｭ繝懊せ縺ｮ繧｢繝九Γ繝ｼ繧ｷ繝ｧ繝ｳ譖ｴ譁ｰ縺ｮ騾溷ｺｦ螟画峩)
                 {
                     animationState = AnimationState.act;
                     spriteRenderer.sprite = weaponSprites[spriteIndex];
