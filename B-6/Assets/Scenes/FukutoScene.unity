@@ -512,7 +512,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 996915522118236360, guid: 81574ab8083e71248b9bed00ae99b599, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3309320931265384604, guid: 81574ab8083e71248b9bed00ae99b599, type: 3}
       propertyPath: m_LocalPosition.x
@@ -570,6 +570,10 @@ PrefabInstance:
     - target: {fileID: 996915522118236360, guid: e326941de1bc17d4a9fe7010a89d48a1, type: 3}
       propertyPath: m_Name
       value: Boss Spawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 996915522118236360, guid: e326941de1bc17d4a9fe7010a89d48a1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3309320931265384604, guid: e326941de1bc17d4a9fe7010a89d48a1, type: 3}
       propertyPath: m_LocalPosition.x

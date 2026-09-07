@@ -131,7 +131,6 @@ public class NomalEnemyManager : BaseEnemyManager
             ResetAnimation();
             SetAttackAnimation();
             shortAttack.SetStateAttack();
-            shortAttack.SetIsAttacked(true);
             return;
         }
     }
