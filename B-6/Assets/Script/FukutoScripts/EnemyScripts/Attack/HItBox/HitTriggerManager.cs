@@ -8,14 +8,13 @@ using UnityEngine;
 public class HitTriggerManager : MonoBehaviour
 {
     #region Config
-    private int statAtk;
-    [SerializeField] private bool OnShortAttack = false;
+    protected int statAtk;
     #endregion
 
     #region State
-    private bool isActiveTrigger; // 当たり判定のアクティブフラグ（true: アクティブ, false: 非アクティブ)
-    private Collider2D hitTrigger; // 当たり判定のトリガー
-    private bool isJustOnce = false; // トリガーを一度だけtrueにするフラグ
+    protected bool isActiveTrigger = false; // 当たり判定のアクティブフラグ（true: アクティブ, false: 非アクティブ)
+    protected Collider2D hitTrigger; // 当たり判定のトリガー
+    protected bool isJustOnce = false; // トリガーを一度だけtrueにするフラグ
     #endregion
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -57,7 +56,7 @@ public class HitTriggerManager : MonoBehaviour
     }
 
     /// @brief 当たり判定のON・OFFをスイッチする関数
-    private void SwitchTrigger()
+     private void SwitchTrigger()
     {
         if (isActiveTrigger)
         {
@@ -83,11 +82,8 @@ public class HitTriggerManager : MonoBehaviour
     /// @biref 攻撃力を設定する関数
     private void SetStatAttack()
     {
-        if(OnShortAttack)
-        {
-            // 親のコンポーネントから取得
-            ShortAttack shortAttack = GetComponentInParent<ShortAttack>();
-            statAtk = shortAttack.GetStatAttack();
-        }
+        // 親のコンポーネントから取得
+        ShortAttack shortAttack = GetComponentInParent<ShortAttack>();
+        statAtk = shortAttack.GetStatAttack();
     }
 }

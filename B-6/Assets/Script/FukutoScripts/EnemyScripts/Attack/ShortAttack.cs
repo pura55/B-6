@@ -12,9 +12,9 @@ public class ShortAttack : BaseEnemyAttack
     [SerializeField] protected bool onNomalAnimation = false; // インスペクターにNomalAnimationがあるかどうか
     [SerializeField] protected bool onIncludeMovementAnimation = false; // インスペクターにIncludeMovementAnimationがあるかどうか
     [SerializeField] protected bool onMidBossAnimation = false;
-    NomalAnimation nomalAnimation;
-    IncludeMovementAnimation movementAnimation;
-    MidBossAnimation midBossAnimation;
+    private NomalAnimation nomalAnimation;
+    private IncludeMovementAnimation movementAnimation;
+    private MidBossAnimation midBossAnimation;
     #endregion
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -35,7 +35,7 @@ public class ShortAttack : BaseEnemyAttack
         {
             case EnemyAttackState.idle:
                 break;
-            case EnemyAttackState.attacking:
+            case EnemyAttackState.attack:
                 Attacking();
                 break;
             case EnemyAttackState.recast:
@@ -64,9 +64,9 @@ public class ShortAttack : BaseEnemyAttack
             {
                 // ヒットボックスオン
                 ActiveHitBox();
-                isAlreadyHit = true;
+                isAttacked = true;
             }
-            else if(isAlreadyHit)
+            else if(isAttacked)
             {
                 // ヒットボックスオフ
                 InactiveHitBox();
@@ -81,9 +81,9 @@ public class ShortAttack : BaseEnemyAttack
             {
                 // ヒットボックスオン
                 ActiveHitBox();
-                isAlreadyHit = true;
+                isAttacked = true;
             }
-            else if (isAlreadyHit)
+            else if (isAttacked)
             {
                 // ヒットボックスオフ
                 InactiveHitBox();
@@ -98,9 +98,9 @@ public class ShortAttack : BaseEnemyAttack
             {
                 // ヒットボックスオン
                 ActiveHitBox();
-                isAlreadyHit = true;
+                isAttacked = true;
             }
-            else if (isAlreadyHit)
+            else if (isAttacked)
             {
                 // ヒットボックスオフ
                 InactiveHitBox();

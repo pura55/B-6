@@ -7,6 +7,11 @@ using UnityEngine;
 /// </summary>
 public class MidBossManager : NomalEnemyManager
 {
+
+    #region State
+    WeaponSkill weaponSkill;
+    #endregion
+
     private void Start()
     {
         InitValue();
@@ -50,6 +55,7 @@ public class MidBossManager : NomalEnemyManager
         SetAnimationScript();
         enemyHealth = GetComponent<EnemyHealth>();
         shortAttack = GetComponent<ShortAttack>();
+        weaponSkill = GetComponent<WeaponSkill>();
         enemyState = EnemyState.Idle;
     }
 
@@ -72,9 +78,15 @@ public class MidBossManager : NomalEnemyManager
             ResetAnimation();
             return;
         }
-        else
-        {
+        else if(shortAttack.GetIsIdle()) // 待機時の時だけ攻撃へ遷移
+　      {
             enemyState = EnemyState.Attack;
+            ResetAnimation();
+            return;
+        }
+        else if(weaponSkill.GetIsIdle())
+        {
+            enemyState = EnemyState.Skill;
             ResetAnimation();
             return;
         }
@@ -119,13 +131,22 @@ public class MidBossManager : NomalEnemyManager
             return;
         }
 
-        // 攻撃済みフラグがfalse & イベントアニメーションが終了していたら
-        if (!shortAttack.GetIsAttacked() && FinishedEventAnimation())
+        // Idle状態だったら
+        if (shortAttack.GetIsIdle())
         {
             ResetAnimation();
             SetAttackAnimation();
-            shortAttack.SetAttackState();
-            shortAttack.SetIsAttacked(true);
+            shortAttack.SetStateAttack();
+            return;
+        }
+        else if(shortAttack.GetIsRecast()) // リキャスト状態の場合
+        {
+            // 前のイベントアニメーション（攻撃やスキル）が終了していたら
+            if (!FinishedEventAnimation()) return;
+
+            // 一度待機に戻る
+            enemyState = EnemyState.Idle;
+            ResetAnimation();
             return;
         }
     }
@@ -142,6 +163,25 @@ public class MidBossManager : NomalEnemyManager
         // 敵から離れている & イベントアニメーションが終了していたら
         if (!GetIsAttached() && FinishedEventAnimation())
         {
+            // 一度待機に戻る
+            enemyState = EnemyState.Idle;
+            ResetAnimation();
+            return;
+        }
+
+        // Idle状態だったら
+        if (weaponSkill.GetIsIdle())
+        {
+            ResetAnimation();
+            SetSkillAnimation();
+            weaponSkill.SetStateSkill();
+            return;
+        }
+        else if (weaponSkill.GetIsRecast())
+        {
+            // 前のイベントアニメーション（攻撃やスキル）が終了していたら
+            if (!FinishedEventAnimation()) return;
+
             // 一度待機に戻る
             enemyState = EnemyState.Idle;
             ResetAnimation();

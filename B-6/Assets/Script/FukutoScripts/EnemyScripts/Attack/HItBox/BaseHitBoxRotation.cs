@@ -8,10 +8,11 @@ using UnityEngine;
 public class BaseHitBoxRotation : MonoBehaviour
 {
     #region Config
-    protected static float distanceRadius = 0.3f; // 距離半径
+    [SerializeField] protected float distanceRadius = 0.3f; // 距離半径
     [SerializeField] protected bool onNomalMove = false; // 基本移動が付いているかどうかのフラグ
     [SerializeField] protected bool onAggressiveMove = false; // プレイヤー追跡の移動がついているかどうかのフラグ
     [SerializeField] protected bool onBossMove = false; // ボスの移動フラグ
+    [SerializeField] protected bool notRotate = false; // 回転をさせないフラグ
     #endregion
 
     #region State
@@ -38,7 +39,10 @@ public class BaseHitBoxRotation : MonoBehaviour
     {
         DecideRotationalMovement();
         MoveHitBox();
-        RotateHitBox();
+        if(!notRotate)
+        {
+            RotateHitBox();
+        }
     }
 
     ///@brief hitBoxの回転・移動を決定する関数
