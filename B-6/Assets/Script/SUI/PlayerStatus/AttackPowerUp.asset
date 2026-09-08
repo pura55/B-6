@@ -15,7 +15,7 @@ MonoBehaviour:
   type: 8
   skillName: "\u653B\u6483\u529BUP"
   description: "\u653B\u6483\u529B\u304C\u4E0A\u6607\u3059\u308B"
-  icon: {fileID: 0}
+  icon: {fileID: -3245751535273966644, guid: 1068db33f2f51b9499543bcaabe32fa4, type: 3}
   level1: 2
   level2: 4
   level3: 6

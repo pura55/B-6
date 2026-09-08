@@ -1,12 +1,10 @@
 using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
 
 public class SkillCard : MonoBehaviour
 {
     [Header("UI")]
-    public TextMeshProUGUI nameText;
-    public TextMeshProUGUI lvText;
-    public TextMeshProUGUI descText;
+    public Image iconImage;
 
     private SkillData skillData;
     private LevelUpUI ui;
@@ -14,23 +12,13 @@ public class SkillCard : MonoBehaviour
     // カード表示設定
     public void Setup(
         SkillData data,
-        int currentLevel,
         LevelUpUI levelUI)
     {
         skillData = data;
         ui = levelUI;
 
-        nameText.text = data.skillName;
-        descText.text = data.description;
-
-        if (currentLevel == 0)
-        {
-            lvText.text = "NEW";
-        }
-        else
-        {
-            lvText.text = "Lv." + (currentLevel + 1);
-        }
+        // アイコンを表示
+        iconImage.sprite = data.icon;
     }
 
     // ボタンクリック時

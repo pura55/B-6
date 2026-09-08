@@ -60,11 +60,10 @@ public class LevelUpUI : MonoBehaviour
 
         SkillData data = list[index];
 
-        int currentLevel = skillManager.GetLevel(data.type);
-
         card.gameObject.SetActive(true);
 
-        card.Setup(data, currentLevel, this);
+        // スキルデータをカードに渡す
+        card.Setup(data, this);
     }
 
     // ランダム抽選
