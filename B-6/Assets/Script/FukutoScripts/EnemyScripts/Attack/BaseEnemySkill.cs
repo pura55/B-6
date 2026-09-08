@@ -5,7 +5,7 @@ using UnityEngine;
 /// 
 /// スキルのベースクラス
 /// </summary>
-public abstract class BaserEnemySkill : MonoBehaviour
+public abstract class BaseEnemySkill : MonoBehaviour
 {
     protected enum EnemySkillState
     {
