@@ -1,76 +1,121 @@
 fileFormatVersion: 2
-guid: d3ca6a48b846cb1458c56e1973d06d10
+guid: c40ae32c7bbb46541bdd6b4d05011a8b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7441861488978599509
-    second: Attack2_0
+      213: 6934013284892070054
+    second: Attack1_0
   - first:
-      213: 8288915215451595207
-    second: Attack2_1
+      213: -7957278214813060823
+    second: Attack1_1
   - first:
-      213: 4668938655123782945
-    second: Attack2_2
+      213: 1409549213185883415
+    second: Attack1_2
   - first:
-      213: 5683539909772271658
-    second: Attack2_3
+      213: 4976274401295337057
+    second: Attack1_3
   - first:
-      213: 5764228812365489207
-    second: Attack2_4
+      213: -5639509438907974925
+    second: Attack1_4
   - first:
-      213: -1191510351576865934
-    second: Attack2_5
+      213: 452926297546027425
+    second: Attack1_5
   - first:
-      213: -8937499057154260928
-    second: Attack2_6
+      213: 6238536850125145498
+    second: Attack1_6
   - first:
-      213: 5293088307283036655
-    second: Attack2_7
+      213: -7543445572115272496
+    second: Attack1_7
   - first:
-      213: 1817195990524489003
-    second: Attack2_8
+      213: 3650157944247549718
+    second: Attack1_8
   - first:
-      213: 9220252021294270350
-    second: Attack2_9
+      213: -7367232305435581187
+    second: Attack1_9
   - first:
-      213: 3493322121590164450
-    second: Attack2_10
+      213: -2140677535924406074
+    second: Attack1_10
   - first:
-      213: 1270503724755275024
-    second: Attack2_11
+      213: 8783954347948720124
+    second: Attack1_11
   - first:
-      213: -6630625727208620370
-    second: Attack2_12
+      213: -6287830092200510888
+    second: Attack1_12
   - first:
-      213: 6597481699637694506
-    second: Attack2_13
+      213: -2359986511456683444
+    second: Attack1_13
   - first:
-      213: -2963747826654121326
-    second: Attack2_14
+      213: -5056835073426596899
+    second: Attack1_14
   - first:
-      213: 1001699015705876451
-    second: Attack2_15
+      213: 9049670758512633567
+    second: Attack1_15
   - first:
-      213: -380923670986178931
-    second: Attack2_16
+      213: -2319477856403320534
+    second: Attack1_16
   - first:
-      213: -5305258693565426061
-    second: Attack2_17
+      213: -6797068946398743189
+    second: Attack1_17
   - first:
-      213: 5515139265301771484
-    second: Attack2_18
+      213: 558825394321690419
+    second: Attack1_18
   - first:
-      213: -1533618607347848689
-    second: Attack2_19
+      213: 2056674976728752401
+    second: Attack1_19
   - first:
-      213: 736642909900040537
-    second: Attack2_20
+      213: -1387995719642276863
+    second: Attack1_20
   - first:
-      213: -1464732610065572743
-    second: Attack2_21
+      213: -8401009008518655037
+    second: Attack1_21
   - first:
-      213: 17666572562957988
-    second: Attack2_22
+      213: -2101103270303191628
+    second: Attack1_22
+  - first:
+      213: -6384924177716200718
+    second: Attack1_23
+  - first:
+      213: 7728945663791646396
+    second: Attack1_24
+  - first:
+      213: -1662273724955309606
+    second: Attack1_25
+  - first:
+      213: 6076638629741920391
+    second: Attack1_26
+  - first:
+      213: 6242589066752259946
+    second: Attack1_27
+  - first:
+      213: -8118909442114183852
+    second: Attack1_28
+  - first:
+      213: -6248466401528118510
+    second: Attack1_29
+  - first:
+      213: -7356969958810384157
+    second: Attack1_30
+  - first:
+      213: 2898762040633083068
+    second: Attack1_31
+  - first:
+      213: -8504497910848496465
+    second: Attack1_32
+  - first:
+      213: 1718452308844075375
+    second: Attack1_33
+  - first:
+      213: -5842345464472401110
+    second: Attack1_34
+  - first:
+      213: -909396091857916777
+    second: Attack1_35
+  - first:
+      213: -3175191630753082920
+    second: Attack1_36
+  - first:
+      213: 3971915257331586104
+    second: Attack1_37
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -181,8 +226,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe80896d650426644b17a2ed3b49b7f8
-      internalID: -321789006
+      spriteID: 6dd706fc64cb9c640ad19a68e2c05315
+      internalID: 559204118
       vertices: []
       indices: 
       edges: []
@@ -203,8 +248,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59733f16df20a764d94a88cbaf5d2a54
-      internalID: 1136717463
+      spriteID: acf19177515f2e54fb20a8ea27ee8380
+      internalID: 545306934
       vertices: []
       indices: 
       edges: []
@@ -225,8 +270,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be6ea21b04466ba48b16bf0f377d1439
-      internalID: 1500137324
+      spriteID: 33cc477ba4c900f439e673e18ce213d8
+      internalID: -1027434902
       vertices: []
       indices: 
       edges: []
@@ -247,8 +292,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d948e6274acd9024c863adb9ba694008
-      internalID: -271970406
+      spriteID: bd19d2ae85bd9ed4bb34de2396e19c6c
+      internalID: -223047735
       vertices: []
       indices: 
       edges: []
@@ -269,8 +314,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aae8cb62ce3165c41bdcee3c9e9e6ac0
-      internalID: -1078985486
+      spriteID: d22cd218ab55af84f80ea2f1cb0cc20a
+      internalID: 1667961412
       vertices: []
       indices: 
       edges: []
@@ -291,8 +336,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01ba498dd872c04478c9a089c1c2be23
-      internalID: 756813498
+      spriteID: 2da5b2c8aa4fe5746959bdc21fc9702e
+      internalID: 1239748207
       vertices: []
       indices: 
       edges: []
@@ -313,8 +358,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a05b029dde8604b4b85104f52ce856f3
-      internalID: 2139668298
+      spriteID: d493365ec999f8649a1a4afc375b74ef
+      internalID: 1426650123
       vertices: []
       indices: 
       edges: []
@@ -335,8 +380,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 27b1c98d6ef727648bba3957d6e08f13
-      internalID: -977169959
+      spriteID: dabdef1f52d5e9d48b546b817410f0d5
+      internalID: -828043597
       vertices: []
       indices: 
       edges: []
@@ -345,7 +390,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: f491bc12aa10ede47b4674e9ca93d0f4
+    spriteID: 402be4f94517ca34286d6fc0cfe07869
     internalID: 0
     vertices: []
     indices: 
@@ -357,14 +402,14 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":250.0,"y":250.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Skill_0: -321789006
-      Skill_1: 1136717463
-      Skill_2: 1500137324
-      Skill_3: -271970406
-      Skill_4: -1078985486
-      Skill_5: 756813498
-      Skill_6: 2139668298
-      Skill_7: -977169959
+      Skill_0: 559204118
+      Skill_1: 545306934
+      Skill_2: -1027434902
+      Skill_3: -223047735
+      Skill_4: 1667961412
+      Skill_5: 1239748207
+      Skill_6: 1426650123
+      Skill_7: -828043597
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

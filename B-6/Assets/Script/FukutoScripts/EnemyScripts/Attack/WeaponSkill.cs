@@ -5,7 +5,7 @@ using UnityEngine;
 /// 
 /// 武器スキルのクラス
 /// </summary>
-public class WeaponSkill : BaserEnemySkill
+public class WeaponSkill : BaseEnemySkill
 {
     #region Config
     protected float activationInterval = 0.2f; // 武器を発動する時間間隔

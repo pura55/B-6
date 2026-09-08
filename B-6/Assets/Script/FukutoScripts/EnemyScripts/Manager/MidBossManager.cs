@@ -9,7 +9,10 @@ public class MidBossManager : NomalEnemyManager
 {
 
     #region State
-    WeaponSkill weaponSkill;
+    [Header("SKILL")]
+    [SerializeField] private bool isSkillShort = false;
+    private WeaponSkill weaponSkill;
+    private ShortSkill shortSkill;
     #endregion
 
     private void Start()
@@ -55,7 +58,8 @@ public class MidBossManager : NomalEnemyManager
         SetAnimationScript();
         enemyHealth = GetComponent<EnemyHealth>();
         shortAttack = GetComponent<ShortAttack>();
-        weaponSkill = GetComponent<WeaponSkill>();
+        if (isSkillShort) shortSkill = GetComponent<ShortSkill>();
+        else weaponSkill = GetComponent<WeaponSkill>();
         enemyState = EnemyState.Idle;
     }
 
@@ -84,7 +88,7 @@ public class MidBossManager : NomalEnemyManager
             ResetAnimation();
             return;
         }
-        else if(weaponSkill.GetIsIdle())
+        else if((isSkillShort? shortSkill.GetIsIdle() : weaponSkill.GetIsIdle()))
         {
             enemyState = EnemyState.Skill;
             ResetAnimation();
@@ -168,16 +172,17 @@ public class MidBossManager : NomalEnemyManager
             ResetAnimation();
             return;
         }
-
         // Idle状態だったら
-        if (weaponSkill.GetIsIdle())
+        if ((isSkillShort ? shortSkill.GetIsIdle() : weaponSkill.GetIsIdle()))
         {
             ResetAnimation();
             SetSkillAnimation();
-            weaponSkill.SetStateSkill();
+            if (isSkillShort) shortSkill.SetStateSkill();
+            else weaponSkill.SetStateSkill();
+
             return;
         }
-        else if (weaponSkill.GetIsRecast())
+        else if ((isSkillShort ? shortSkill.GetIsRecast() : weaponSkill.GetIsRecast()))
         {
             // 前のイベントアニメーション（攻撃やスキル）が終了していたら
             if (!FinishedEventAnimation()) return;
