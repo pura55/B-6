@@ -11,10 +11,12 @@ public class bulletscript : MonoBehaviour
     private float nextCoolLogTime = 0f;
     private float nextShotTime = 0f;
 
+    private ID1Sprite playerAnimation;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        playerAnimation = GetComponent<ID1Sprite>();
     }
 
     // Update is called once per frame
@@ -32,6 +34,8 @@ public class bulletscript : MonoBehaviour
         }
         if (Keyboard.current.qKey.wasPressedThisFrame)
         {
+            playerAnimation.ChangeState(ID1Sprite.PlayerAnimState.Skill);
+
             Debug.Log($"<color=red>ÅyÉXÉLÉãçUåÇÅz</color>ÇÇµÇΩ");
 
             Vector3 mousePos = Mouse.current.position.ReadValue();

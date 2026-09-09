@@ -40,9 +40,15 @@ public class PlayerAttack : MonoBehaviour
     private float startAngle;
     private float currentAngle;
 
+    private ID1Sprite playerAnimation;
 
     // UŒ‚Ï‚İŠÇ—
     private HashSet<EnemyDamaged> hitEnemies = new HashSet<EnemyDamaged>();
+
+    void Start()
+    {
+        playerAnimation = GetComponent<ID1Sprite>();
+    }
 
     void Update()
     {
@@ -63,6 +69,7 @@ public class PlayerAttack : MonoBehaviour
     {
         Debug.Log("y’ÊíUŒ‚ŠJnz");
 
+        playerAnimation.ChangeState(ID1Sprite.PlayerAnimState.Attack);
 
         Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
 
@@ -158,7 +165,7 @@ public class PlayerAttack : MonoBehaviour
             }
 
 
-            enemy.ReceiveDamage(Attack);
+            enemy.ReceiveDamage(damage);
         }
 
 

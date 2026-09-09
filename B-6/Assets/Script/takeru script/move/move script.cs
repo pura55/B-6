@@ -6,9 +6,18 @@ public class MoveScript : MonoBehaviour
     [SerializeField] public float speed;
 
     private Vector2 move;
+    private ID1Sprite playerAnimation;
+    private SpriteRenderer spriteRenderer;
+
+    public bool IsMoving()
+    {
+        return move != Vector2.zero;
+    }
 
     void Start()
     {
+        playerAnimation = GetComponent<ID1Sprite>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -26,10 +35,32 @@ public class MoveScript : MonoBehaviour
         if (Keyboard.current.aKey.isPressed)
         {
             move.x = -1;
+
+            // ç∂Çå¸Ç≠
+            spriteRenderer.flipX = true;
         }
+
         if (Keyboard.current.dKey.isPressed)
         {
             move.x = 1;
+
+            // âEÇå¸Ç≠
+            spriteRenderer.flipX = false;
+        }
+
+        if (playerAnimation.GetCurrentState() != ID1Sprite.PlayerAnimState.Attack &&
+      playerAnimation.GetCurrentState() != ID1Sprite.PlayerAnimState.TakeHit &&
+      playerAnimation.GetCurrentState() != ID1Sprite.PlayerAnimState.Skill &&
+      playerAnimation.GetCurrentState() != ID1Sprite.PlayerAnimState.Death)
+        {
+            if (move != Vector2.zero)
+            {
+                playerAnimation.ChangeState(ID1Sprite.PlayerAnimState.Move);
+            }
+            else
+            {
+                playerAnimation.ChangeState(ID1Sprite.PlayerAnimState.Idle);
+            }
         }
 
         Vector3 pos = transform.position;
