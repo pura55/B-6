@@ -13,7 +13,7 @@ public class WallSkill : MonoBehaviour
     [SerializeField] private int requiredMaterial = 10;
 
     [Header("クールタイム")]
-    [SerializeField] private float coolTime = 8f;
+    [SerializeField] public float coolTime = 8f;
     private float nextWallTime = 0f;
 
 

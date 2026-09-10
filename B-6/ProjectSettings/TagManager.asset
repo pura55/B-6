@@ -11,6 +11,7 @@ TagManager:
   - Wall
   - Tower
   - Nail
+  - WallMaterial
   layers:
   - Default
   - TransparentFX
@@ -23,11 +24,11 @@ TagManager:
   - 
   - Tower
   - Enemy
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Wall
+  - Skill
+  - Fire
+  - Wave
+  - Leaf
   - 
   - 
   - 

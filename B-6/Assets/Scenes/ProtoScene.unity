@@ -192,6 +192,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5423946494943790429}
     - target: {fileID: 5897684408298460439, guid: 14883e23418c85e4394056e178880ef4, type: 3}
+      propertyPath: wall
+      value: 
+      objectReference: {fileID: 5423946494943790431}
+    - target: {fileID: 5897684408298460439, guid: 14883e23418c85e4394056e178880ef4, type: 3}
       propertyPath: expItem
       value: 
       objectReference: {fileID: 5423946494943790430}
@@ -226,6 +230,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8534c50fe58a6414ca779b46d7dc035b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerExp
+--- !u!114 &5423946494943790431 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 546335759350091186, guid: 14883e23418c85e4394056e178880ef4, type: 3}
+  m_PrefabInstance: {fileID: 5423946494943790428}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36ac75cd108bdca4b99547988042124b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WallSkill
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

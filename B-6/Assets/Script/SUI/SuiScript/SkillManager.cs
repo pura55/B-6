@@ -13,6 +13,7 @@ public class SkillManager : MonoBehaviour
     //[SerializeField] private PlayerAttack criticalRate;
     [SerializeField] private MoveScript move;
     [SerializeField] private PlayerExp expItem;
+    [SerializeField] private WallSkill wall;
 
 
 
@@ -168,9 +169,18 @@ public class SkillManager : MonoBehaviour
 
             break;*/
 
-            /*case SkillType.WallCooldown:
-
-            break;*/
+            case SkillType.WallCooldown:
+                
+                if (wall != null)
+                {
+                    wall.coolTime -= value;
+                    Debug.Log("壁立てクールタイム -" + value);
+                }
+                else
+                {
+                    Debug.LogError("Wall が設定されていません！");
+                }
+                break;
 
             default:
 
