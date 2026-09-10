@@ -9,6 +9,7 @@ public class RockRoll : MonoBehaviour
 {
     #region Config
     private float rollSpeed = 2f; // 追従速度
+    private float degree = 0f;
     #endregion
 
     #region State
@@ -24,6 +25,7 @@ public class RockRoll : MonoBehaviour
     void Update()
     {
         AttachTower();
+        RotationSprite();
     }
 
     /// @biref タワーへの接近処理を行う関数
@@ -35,6 +37,12 @@ public class RockRoll : MonoBehaviour
             targetTower.position,
             rollSpeed * Time.deltaTime
         );
+    }
+
+    private void RotationSprite()
+    {
+        degree += 40 * Time.deltaTime;
+        transform.rotation = Quaternion.Euler(0, 0, degree);
     }
 
     /// @brief ターゲットのタワーを設定する関数
