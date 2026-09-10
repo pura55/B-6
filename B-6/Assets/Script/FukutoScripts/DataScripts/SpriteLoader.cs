@@ -48,7 +48,7 @@ public class SpriteLoader : MonoBehaviour
             enemyMasterSprite.enemiesSprites = new System.Collections.Generic.List<EnemyMasterSprite.Entity>();
         }
 
-        for (int i = 0; i < 12; i++)
+        for (int i = 0; i < 11; i++)
         {
             EnemyMasterSprite.Entity entity = new EnemyMasterSprite.Entity();
 
