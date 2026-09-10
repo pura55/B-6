@@ -426,10 +426,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 754d4a2d237cfae4c82278377d2d1b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SkillManage
-  skillID1: {fileID: 0}
-  skillID2: {fileID: 0}
-  skillID3: {fileID: 0}
-  skillID4: {fileID: 0}
+  skillID1: {fileID: 168058201}
+  skillID2: {fileID: 168058200}
+  skillID3: {fileID: 168058199}
+  skillID4: {fileID: 168058203}
 --- !u!114 &168058203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -809,9 +809,9 @@ GameObject:
   - component: {fileID: 1515385655}
   - component: {fileID: 1515385654}
   - component: {fileID: 1515385656}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1088,8 +1088,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -81.5, y: -77}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -119.7, y: -76.211395}
+  m_SizeDelta: {x: 115.6192, y: 51.5772}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1606574734
 GameObject:
@@ -1465,6 +1465,10 @@ PrefabInstance:
       propertyPath: wallMaterial
       value: 
       objectReference: {fileID: 11400000, guid: 7f8860388454d5641845fb7c1e71530b, type: 2}
+    - target: {fileID: 4482819769376491494, guid: 16a38b205e84977499530a76f2732a95, type: 3}
+      propertyPath: enemyLayer.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
     - target: {fileID: 4807990481238714564, guid: 16a38b205e84977499530a76f2732a95, type: 3}
       propertyPath: m_Name
       value: player
