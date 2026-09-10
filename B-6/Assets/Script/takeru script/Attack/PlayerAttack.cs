@@ -6,7 +6,6 @@ public class PlayerAttack : MonoBehaviour
 {
     [Header("攻撃")]
     [SerializeField] public int Attack = 1;
-
     [SerializeField] private float attackRange = 2.5f;
 
     [Range(0, 360)]
@@ -15,23 +14,14 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] public float attackTime = 0.3f;
 
     [Header("クリティカル")]
-    /*
-     0.05 → 5%
-    0.10 → 10%
-    0.25 → 25%
-    0.50 → 50%
-    1.00 → 100%
-     */
     [Range(0f, 1f)]
-    [SerializeField] public float criticalRate = 0.05f;//クリティカル率
+    [SerializeField] public float criticalRate = 0.05f;
 
-    [SerializeField] private float criticalDamageMultiplier = 2f;//クリティカル倍率
-
+    [SerializeField] private float criticalDamageMultiplier = 2f;
 
     [Header("レイヤー")]
     public LayerMask enemyLayer;
     public LayerMask wallLayer;
-
 
     private bool isAttacking;
     private float attackTimer;
@@ -40,17 +30,25 @@ public class PlayerAttack : MonoBehaviour
     private float startAngle;
     private float currentAngle;
 
+    private ID1Sprite playerAnimation;
+    private SpriteRenderer spriteRenderer;
 
-    // 攻撃済み管理
     private HashSet<EnemyDamaged> hitEnemies = new HashSet<EnemyDamaged>();
+
+    void Start()
+    {
+        playerAnimation = GetComponent<ID1Sprite>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
 
     void Update()
     {
-        if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame && !isAttacking)
+        if (Mouse.current != null &&
+            Mouse.current.leftButton.wasPressedThisFrame &&
+            !isAttacking)
         {
             StartAttack();
         }
-
 
         if (isAttacking)
         {
@@ -58,25 +56,40 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
-
     void StartAttack()
     {
         Debug.Log("【通常攻撃開始】");
 
+        playerAnimation.ChangeState(ID1Sprite.PlayerAnimState.Attack);
 
-        Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        Vector3 mouseWorld =
+            Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
 
         mouseWorld.z = 0;
 
+        // =========================
+        // 攻撃した方向を向く
+        // =========================
+        if (mouseWorld.x < transform.position.x)
+        {
+            // 左向き
+            spriteRenderer.flipX = true;
+        }
+        else
+        {
+            // 右向き
+            spriteRenderer.flipX = false;
+        }
 
-        attackDirection = (mouseWorld - transform.position).normalized;
+        attackDirection =
+            (mouseWorld - transform.position).normalized;
 
-
-        // 攻撃開始角度
-        startAngle = Mathf.Atan2(attackDirection.y, attackDirection.x) * Mathf.Rad2Deg - attackAngle / 2;
+        startAngle =
+            Mathf.Atan2(attackDirection.y, attackDirection.x)
+            * Mathf.Rad2Deg
+            - attackAngle / 2;
 
         currentAngle = startAngle;
-
 
         attackTimer = 0;
 
@@ -85,82 +98,90 @@ public class PlayerAttack : MonoBehaviour
         isAttacking = true;
     }
 
-
     void AttackMove()
     {
         attackTimer += Time.deltaTime;
 
         float progress = attackTimer / attackTime;
 
-        currentAngle = Mathf.Lerp(startAngle, startAngle + attackAngle, progress);
+        currentAngle =
+            Mathf.Lerp(
+                startAngle,
+                startAngle + attackAngle,
+                progress
+            );
 
-
-        Vector2 swordDirection = new Vector2(Mathf.Cos(currentAngle * Mathf.Deg2Rad),
-                Mathf.Sin(currentAngle * Mathf.Deg2Rad));
-
+        Vector2 swordDirection = new Vector2(
+            Mathf.Cos(currentAngle * Mathf.Deg2Rad),
+            Mathf.Sin(currentAngle * Mathf.Deg2Rad)
+        );
 
         // 壁チェック
-        RaycastHit2D wall = Physics2D.Raycast(transform.position, swordDirection, attackRange, wallLayer);
-
+        RaycastHit2D wall =
+            Physics2D.Raycast(
+                transform.position,
+                swordDirection,
+                attackRange,
+                wallLayer
+            );
 
         if (wall.collider != null)
         {
             Debug.Log("壁に当たって攻撃中断");
+
             EndAttack();
             return;
         }
 
+        Vector2 attackPos =
+            (Vector2)transform.position
+            + swordDirection * attackRange;
 
-        // 剣の位置で判定
-        Vector2 attackPos = (Vector2)transform.position + swordDirection * attackRange;
-
-
-        Collider2D[] targets = Physics2D.OverlapCircleAll(attackPos, 0.5f, enemyLayer);
-
+        Collider2D[] targets =
+            Physics2D.OverlapCircleAll(
+                attackPos,
+                0.5f,
+                enemyLayer
+            );
 
         foreach (Collider2D target in targets)
         {
             EnemyDamaged enemy =
                 target.GetComponent<EnemyDamaged>();
 
-
             if (enemy == null)
                 continue;
-
 
             if (hitEnemies.Contains(enemy))
                 continue;
 
-
             hitEnemies.Add(enemy);
 
-            // クリティカル判定
             bool isCritical =
                 Random.value <= criticalRate;
 
-
             int damage = Attack;
-
 
             if (isCritical)
             {
                 damage =
                     Mathf.RoundToInt(
-                        Attack * criticalDamageMultiplier);
+                        Attack * criticalDamageMultiplier
+                    );
 
                 Debug.Log(
-                    $"【クリティカル！】{target.name} に {damage} ダメージ");
+                    $"【クリティカル！】{target.name} に {damage} ダメージ"
+                );
             }
             else
             {
                 Debug.Log(
-                    $"【ヒット】{target.name} に {damage} ダメージ");
+                    $"【ヒット】{target.name} に {damage} ダメージ"
+                );
             }
 
-
-            enemy.ReceiveDamage(Attack);
+            enemy.ReceiveDamage(damage);
         }
-
 
         if (progress >= 1)
         {
@@ -168,10 +189,16 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
-
     void EndAttack()
     {
         isAttacking = false;
+
         Debug.Log("【通常攻撃終了】");
+    }
+
+    // MoveScriptから攻撃中か確認する
+    public bool IsAttacking()
+    {
+        return isAttacking;
     }
 }

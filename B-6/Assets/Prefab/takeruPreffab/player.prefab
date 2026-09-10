@@ -199,7 +199,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::bulletscript
   bulletPrefab: {fileID: 271225598799932304, guid: f2933559a4379c943b2670d9a62305dc, type: 3}
   speed: 10
-  time: 5
+  lifeTime: 5
   CT: 3
 --- !u!114 &4482819769376491494
 MonoBehaviour:
@@ -240,7 +240,7 @@ MonoBehaviour:
   wallPrefab: {fileID: 6315056735580244739, guid: 9e1fd9b3f8b69ef4aaff1664cff6404f, type: 3}
   distance: 1.5
   lifeTime: 20
-  wallMaterial: {fileID: 0}
+  wallMaterial: {fileID: 11400000, guid: 7f8860388454d5641845fb7c1e71530b, type: 2}
   requiredMaterial: 10
   coolTime: 8
 --- !u!114 &8074730280242163488

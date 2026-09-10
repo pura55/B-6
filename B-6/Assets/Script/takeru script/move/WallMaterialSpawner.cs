@@ -48,9 +48,14 @@ public class WallMaterialSpawner : MonoBehaviour
         }
     }
 
-
     void SpawnMaterial()
     {
+        if (materialPrefab == null)
+        {
+            Debug.LogWarning("materialPrefab ‚ªİ’è‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ");
+            return;
+        }
+
         Vector2 spawnPos;
 
         int retry = 0;
