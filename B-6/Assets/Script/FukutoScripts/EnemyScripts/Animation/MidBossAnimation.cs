@@ -24,28 +24,50 @@ public class MidBossAnimation : IncludeMovementAnimation
 
     protected override void ManageDrawing()
     {
-        switch (animationState)
+        if(enemyId != 12)
         {
-            case AnimationState.idle:
-                IdleAnimation();
-                break;
-            case AnimationState.move:
-                MoveAnimation();
-                break;
-            case AnimationState.attack:
-                AttackAnimation();
-                break;
-            case AnimationState.skill:
-                SkillAnimation();
-                break;
-            case AnimationState.hit:
-                HitAnimation();
-                break;
-            case AnimationState.death:
-                DeathAnimation();
-                break;
+            switch (animationState)
+            {
+                case AnimationState.idle:
+                    IdleAnimation();
+                    break;
+                case AnimationState.move:
+                    MoveAnimation();
+                    break;
+                case AnimationState.attack:
+                    AttackAnimation();
+                    break;
+                case AnimationState.skill:
+                    SkillAnimation();
+                    break;
+                case AnimationState.hit:
+                    HitAnimation();
+                    break;
+                case AnimationState.death:
+                    DeathAnimation();
+                    break;
+            }
         }
-        SelectFripSprite();
+        else
+        {
+            switch (animationState)
+            {
+                case AnimationState.idle:
+                    IdleAnimation();
+                    break;
+                case AnimationState.move:
+                    IdleAnimation();
+                    break;
+                case AnimationState.attack:
+                    AttackAnimation();
+                    break;
+                case AnimationState.skill:
+                    SkillAnimation();
+                    break;
+            }
+        }
+
+            SelectFripSprite();
     }
 
     /// @brief 初期化関数
@@ -63,6 +85,11 @@ public class MidBossAnimation : IncludeMovementAnimation
 
         spriteRenderer = GetComponent<SpriteRenderer>();
         SetMovementScript();
+
+        if(attackSprites == null && enemyId == 12)
+        {
+            Debug.Log("大ボスのデータが格納されていません");
+        }
     }
 
     /// @brief 移動アニメーション

@@ -63,6 +63,8 @@ public class EnemySpriteData : ScriptableObject
         // リストを初期化
         enemiesSprites = new List<Entity>();
 
+        int count = 0;
+
         foreach (var entity in data.enemiesSprites)
         {
             Debug.Log($"敵スプライトデータコピー中");
@@ -76,6 +78,8 @@ public class EnemySpriteData : ScriptableObject
             spritesEntity.moveSprite = entity.moveSprite;
             spritesEntity.skillSprite = entity.skillSprite;
             spritesEntity.weaponSprite = entity.weaponSprite;
+
+            count++;
 
             // 実体を入れる
             enemiesSprites.Add(spritesEntity);
