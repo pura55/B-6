@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
+
 
 /// <summary>
 /// プレイヤーヘルス
@@ -9,7 +11,9 @@ using UnityEngine.InputSystem;
 public class PlayerHealth : MonoBehaviour
 {
     #region Config
-    private int myHp = 5; // HP
+    public float maxHP = 5; //最大HP
+    private float myHp; // HP
+    public float respawnTime = 5.0f;//リスポーン時間
     #endregion
 
     #region State
@@ -49,7 +53,7 @@ public class PlayerHealth : MonoBehaviour
     }
 
     /// @brief 被ダメージ処理を行う関数
-    public void ReceiveDamage(int dmg)
+    public void ReceiveDamage(float dmg)
     {
         myHp -= dmg;
 
@@ -57,6 +61,9 @@ public class PlayerHealth : MonoBehaviour
         if (myHp <= 0)
         {
             playerAnimation.ChangeState(ID1Sprite.PlayerAnimState.Death);
+
+            // リスポーン開始
+            StartCoroutine(RespawnCoroutine());
         }
         // まだ生きているならダメージ
         else
@@ -75,13 +82,26 @@ public class PlayerHealth : MonoBehaviour
             return true;
     }
 
+    // リスポーン処理
+    private IEnumerator RespawnCoroutine()
+    {
+        yield return new WaitForSeconds(respawnTime);
+
+        Respawn();
+    }
+
+    //プレイヤーをリスポーンさせる
     public void Respawn()
     {
         // 初期位置に戻す
         transform.position = startPosition;
 
+        // 現在の最大HPまで回復
+        myHp = maxHP;
+
         // HPを初期値に戻す
-        myHp = playerProgressData.hp;
+        //myHp = playerProgressData.hp;
+        //↑これがあると、初期値に戻したときに最大HPが反映されなくなる
     }
 }
 

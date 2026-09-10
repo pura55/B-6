@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5878186023733742964}
   - component: {fileID: 2809727680621425162}
   - component: {fileID: -8130344035058569992}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: Bullet
   m_TagString: PlayerAttack
   m_Icon: {fileID: 0}
@@ -182,7 +182,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3420685820676261286}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}

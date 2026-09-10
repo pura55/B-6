@@ -14,6 +14,7 @@ public class SkillManager : MonoBehaviour
     [SerializeField] private MoveScript move;
     [SerializeField] private PlayerExp expItem;
     [SerializeField] private WallSkill wall;
+    [SerializeField] private PlayerHealth maxhpup;
 
 
 
@@ -116,9 +117,19 @@ public class SkillManager : MonoBehaviour
 
                 break;
 
-            /*case SkillType.MaxHPUp:
+            case SkillType.MaxHP:
 
-            break;*/
+                if (maxhpup != null)
+                {
+                    maxhpup.maxHP += value;
+                    Debug.Log("最大HP +" + value);
+                }
+                else
+                {
+                    Debug.LogError("PlayerHealth が設定されていません！");
+                }
+
+                break;
 
             case SkillType.MoveSpeed:
 
@@ -131,6 +142,7 @@ public class SkillManager : MonoBehaviour
                 {
                     Debug.LogError("move script が設定されていません！");
                 }
+
                 break;
 
             //PlayerSkillattack
@@ -165,9 +177,19 @@ public class SkillManager : MonoBehaviour
 
                 break;
 
-            /*case SkillType.RespawnCooldown:
+            case SkillType.RespawnCooldown:
 
-            break;*/
+                if (maxhpup != null)
+                {
+                    maxhpup.respawnTime -= value;
+                    Debug.Log("リスポーン時間 -" + value);
+                }
+                else
+                {
+                    Debug.LogError("respawnTime が設定されていません！");
+                }
+
+                break;
 
             case SkillType.WallCooldown:
                 
