@@ -9,10 +9,11 @@ public class RockRoll : MonoBehaviour
 {
     #region Config
     private float rollSpeed = 2f; // 追従速度
-    private float degree = 0f;
+    private float spinAmount = 120f; // 回転量
     #endregion
 
     #region State
+    private float degree = 0f; // 角度
     [SerializeField] private Transform targetTower; // ターゲットのタワー
     //private bool hitWall = false;
     #endregion
@@ -39,10 +40,19 @@ public class RockRoll : MonoBehaviour
         );
     }
 
+    /// @biref スプライトを回転させる関数
     private void RotationSprite()
     {
-        degree += 40 * Time.deltaTime;
-        transform.rotation = Quaternion.Euler(0, 0, degree);
+        if(transform.position.x < targetTower.position.x)
+        {
+            degree -= spinAmount * Time.deltaTime;
+            transform.rotation = Quaternion.Euler(0, 0, degree);
+        }
+        else
+        {
+            degree += spinAmount * Time.deltaTime;
+            transform.rotation = Quaternion.Euler(0, 0, degree);
+        }
     }
 
     /// @brief ターゲットのタワーを設定する関数
