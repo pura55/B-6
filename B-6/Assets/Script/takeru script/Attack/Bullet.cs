@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private int damage = 1;
+    [SerializeField] public int damage = 1;
 
     [Header("ƒqƒbƒgŽž")]
     [SerializeField] private float hitScale = 3f;

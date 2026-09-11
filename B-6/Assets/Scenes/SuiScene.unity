@@ -473,10 +473,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d24e12a7c2ab9524bb18f2ac7ef26a2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SkillManager
-  testSkill: {fileID: 11400000, guid: 44fa4230d9f8718408bb18df3acc197f, type: 2}
+  testSkill: {fileID: 11400000, guid: 0e860d58056033349aa38017957907f0, type: 2}
   playerAttack: {fileID: 1418610720}
   move: {fileID: 1418610714}
   expItem: {fileID: 1418610718}
+  wall: {fileID: 0}
+  maxhpup: {fileID: 0}
+  skillpower: {fileID: 0}
+  skillct: {fileID: 0}
 --- !u!1 &520259507
 GameObject:
   m_ObjectHideFlags: 0
@@ -916,7 +920,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::bulletscript
   bulletPrefab: {fileID: 8167515708369312105, guid: 4cb1d8b5cf654f848a4e2a7621e8a35c, type: 3}
   speed: 10
-  time: 5
+  lifeTime: 5
   CT: 3
 --- !u!114 &1418610714
 MonoBehaviour:

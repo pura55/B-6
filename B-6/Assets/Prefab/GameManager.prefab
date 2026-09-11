@@ -1402,6 +1402,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 7217153186504692503}
   m_SourcePrefab: {fileID: 100100000, guid: 16a38b205e84977499530a76f2732a95, type: 3}
+--- !u!114 &546335759350091186 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3159941602157363061, guid: 16a38b205e84977499530a76f2732a95, type: 3}
+  m_PrefabInstance: {fileID: 3192673215062651591}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7996086720322329091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36ac75cd108bdca4b99547988042124b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WallSkill
 --- !u!114 &1330967122938852641 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4482819769376491494, guid: 16a38b205e84977499530a76f2732a95, type: 3}
@@ -1413,6 +1424,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e48caae3ebae2804a9bb70ed274dd02a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
+--- !u!114 &5518632957510109477 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6978530139807284194, guid: 16a38b205e84977499530a76f2732a95, type: 3}
+  m_PrefabInstance: {fileID: 3192673215062651591}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7996086720322329091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b58524238bb42b429e084a54ec5a4c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+--- !u!114 &5746196498854425995 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7201308695621863244, guid: 16a38b205e84977499530a76f2732a95, type: 3}
+  m_PrefabInstance: {fileID: 3192673215062651591}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7996086720322329091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 207a64b790c093949973d6dc186a00e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::bulletscript
+--- !u!114 &6606654531559448406 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8638231831447465361, guid: 16a38b205e84977499530a76f2732a95, type: 3}
+  m_PrefabInstance: {fileID: 3192673215062651591}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7996086720322329091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f75fed85f31caf94ba24609c90db1784, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MoveScript
 --- !u!114 &6647756393054608871 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8074730280242163488, guid: 16a38b205e84977499530a76f2732a95, type: 3}
@@ -1849,6 +1893,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3033991418942743652}
     m_Modifications:
+    - target: {fileID: 898566322672370687, guid: 46abdc885a5caae41a89b3beddec2540, type: 3}
+      propertyPath: move
+      value: 
+      objectReference: {fileID: 6606654531559448406}
+    - target: {fileID: 898566322672370687, guid: 46abdc885a5caae41a89b3beddec2540, type: 3}
+      propertyPath: wall
+      value: 
+      objectReference: {fileID: 546335759350091186}
+    - target: {fileID: 898566322672370687, guid: 46abdc885a5caae41a89b3beddec2540, type: 3}
+      propertyPath: expItem
+      value: 
+      objectReference: {fileID: 4793227285573369624}
+    - target: {fileID: 898566322672370687, guid: 46abdc885a5caae41a89b3beddec2540, type: 3}
+      propertyPath: maxhpup
+      value: 
+      objectReference: {fileID: 5518632957510109477}
+    - target: {fileID: 898566322672370687, guid: 46abdc885a5caae41a89b3beddec2540, type: 3}
+      propertyPath: skillct
+      value: 
+      objectReference: {fileID: 5746196498854425995}
     - target: {fileID: 898566322672370687, guid: 46abdc885a5caae41a89b3beddec2540, type: 3}
       propertyPath: testSkill
       value: 

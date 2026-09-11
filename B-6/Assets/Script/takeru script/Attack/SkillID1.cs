@@ -8,7 +8,7 @@ public class SkillID1 : MonoBehaviour
 
     [SerializeField] private float speed = 10f;
     [SerializeField] private float lifeTime = 5f;
-    [SerializeField] private float CT = 3f;
+    [SerializeField] public float CT = 3f;
 
     private float nextShotTime = 0f;
 

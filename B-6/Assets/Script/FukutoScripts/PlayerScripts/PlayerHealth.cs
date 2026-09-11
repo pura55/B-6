@@ -14,6 +14,7 @@ public class PlayerHealth : MonoBehaviour
     public float maxHP = 5; //最大HP
     private float myHp; // HP
     public float respawnTime = 5.0f;//リスポーン時間
+    public int killHeal = 0;// キルヒール
     #endregion
 
     #region State
@@ -103,5 +104,23 @@ public class PlayerHealth : MonoBehaviour
         //myHp = playerProgressData.hp;
         //↑これがあると、初期値に戻したときに最大HPが反映されなくなる
     }
+
+    // 敵を倒したときの回復
+    public void KillHeal()
+    {
+        if (killHeal <= 0)
+            return;
+
+        myHp += killHeal;
+
+        // 最大HPを超えないようにする
+        if (myHp > maxHP)
+        {
+            myHp = maxHP;
+        }
+
+        Debug.Log("キルヒール！ HP +" + killHeal);
+    }
+
 }
 

@@ -15,6 +15,8 @@ public class SkillManager : MonoBehaviour
     [SerializeField] private PlayerExp expItem;
     [SerializeField] private WallSkill wall;
     [SerializeField] private PlayerHealth maxhpup;
+    [SerializeField] private Bullet skillpower;
+    [SerializeField] private SkillID1 skillct;
 
 
 
@@ -150,18 +152,48 @@ public class SkillManager : MonoBehaviour
 
             break;*/
 
-            /*case SkillType.SkillCooldown:
+            case SkillType.SkillCooldown:
 
-            break;*/
+                if (skillct != null)
+                {
+                    skillct.CT -= value;
+                    Debug.Log("スキルクールタイム -" + value);
+                }
+                else
+                {
+                    Debug.LogError("skillct が設定されていません！");
+                }
 
-            /*case SkillType.SkillPower:
+                break;
 
-            break;*/
+            case SkillType.SkillPower:
+
+                if (skillpower != null)
+                {
+                    skillpower.damage += (int)value;
+                    Debug.Log("スキル威力 +" + value);
+                }
+                else
+                {
+                    Debug.LogError("skillpower が設定されていません！");
+                }
+
+                break;
 
             //Playersupport
-            /*case SkillType.KillHeal:
+            case SkillType.KillHeal:
 
-            break;*/
+                if (maxhpup != null)
+                {
+                    maxhpup.killHeal += (int)value;
+                    Debug.Log("敵を倒したときHP回復 +" + value);
+                }
+                else
+                {
+                    Debug.LogError("killHeal が設定されていません！");
+                }
+
+                break;
 
             case SkillType.PickupRange:
 
