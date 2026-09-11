@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 873f9372d562a9243a44d3f64462d3ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossSpawner
+  enemies:
+  - {fileID: 6449213048604919684, guid: b56cec8fc328d7949a3a78c632d9ac56, type: 3}
+  - {fileID: 6449213048604919684, guid: 660e6a4b306eac0408d2a61b20a7ae3a, type: 3}
   spawnRange: {x: 3, y: 3, z: 0}
-  enemyToSpawn: {fileID: 6449213048604919684, guid: b56cec8fc328d7949a3a78c632d9ac56, type: 3}
-  tower: {fileID: 0}

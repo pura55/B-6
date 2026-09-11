@@ -23,4 +23,7 @@ public class GameTimer : MonoBehaviour
         // 00:00形式で表示
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
+
+    /// biref@ ゲーム時間（分）を取得する関数
+    public int GetGameTimeM() { return Mathf.FloorToInt(elapsedTime / 60); }
 }
