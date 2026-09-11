@@ -3,7 +3,7 @@ using UnityEngine;
 /// <summary>
 /// ロックロール
 /// 
-/// 落石が転がる処理を行う関数
+/// 落石が転がる処理を行うクラス
 /// </summary>
 public class RockRoll : MonoBehaviour
 {

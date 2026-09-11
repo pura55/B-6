@@ -13,6 +13,7 @@ public abstract class BaseEnemySpawner : MonoBehaviour
     protected const float spawnZ = 0f;     // z軸のスポーン座標
     protected float firstWaitTime = 3f;    // ゲームスタートの待機時間
     protected float spawnInterval = 10f;    // スポーンのインターバル
+    [SerializeField] protected GameObject[] enemies;
     #endregion
 
     #region State
@@ -20,15 +21,14 @@ public abstract class BaseEnemySpawner : MonoBehaviour
     protected float currentWaitTime = 0f;                  // 現在の待ち時間 
     protected float currentSpawnInterval = 0f;             // 現在のスポーンインターバル
     protected bool isSpawn = false;                        // スポーンしたかどうかのフラグ（true: スポーンした、false:スポーンしてない）
-    [SerializeField] protected GameObject enemyToSpawn;    // スポーンさせる対象オブジェクト
-    [SerializeField] protected Transform tower;            // タワーのオブジェクト
+    protected Transform tower;            // タワーのオブジェクト
+    protected EnemySpawnerManager enemySpawnerManager; // エネミースポナーマネージャー
     #endregion
 
     /// @brief 敵を生成する関数
     protected abstract void SpawnEnemy();
 
-    /// @brief 座標を決めて生成する実体を返す関数
-    protected GameObject GenerateInstance()
+    protected GameObject GenerateInstance(int id)
     {
         // ランダムな位置を計算
         float randomX = Random.Range(-spawnRange.x / 2, spawnRange.x / 2);
@@ -37,7 +37,7 @@ public abstract class BaseEnemySpawner : MonoBehaviour
         // このスクリプトが付いているオブジェクトの位置を基準にする
         Vector3 spawnPosition = transform.position + new Vector3(randomX, randomY, spawnZ);
 
-        return Instantiate(enemyToSpawn, spawnPosition, Quaternion.identity);
+        return Instantiate(enemies[id - 1], spawnPosition, Quaternion.identity);
     }
 
     /// @brief ゲームスタートの待機時間を計算してフラグを返す関数
@@ -68,7 +68,9 @@ public abstract class BaseEnemySpawner : MonoBehaviour
     }
 
     /// @brief ターゲットの参照を渡す関数
-    protected abstract void PassTargetReference(GameObject spawnedEnemy);
+    /// @param ld 敵のid
+    protected abstract void PassTargetReference(GameObject spawnedEnemy, int id);
+    //protected abstract void PassTargetReference(GameObject spawnedEnemy);
 
     protected void OnDrawGizmosSelected()
     {
