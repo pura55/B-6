@@ -1,3 +1,4 @@
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -47,17 +48,18 @@ public class SpriteLoader : MonoBehaviour
             enemyMasterSprite.enemiesSprites = new System.Collections.Generic.List<EnemyMasterSprite.Entity>();
         }
 
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 11; i++)
         {
             EnemyMasterSprite.Entity entity = new EnemyMasterSprite.Entity();
 
             int id = i + 1;
+
             // 全敵に共通するスプライトをロード
             entity.idleSprite = Resources.LoadAll<Sprite>(spriteEnemyBasePass + id + spriteIdlePass);
             entity.attackSprite = Resources.LoadAll<Sprite>(spriteEnemyBasePass + id + spriteAttackPass);
             entity.hitSprite = Resources.LoadAll<Sprite>(spriteEnemyBasePass + id + spriteTakeHitPass);
             entity.deathSprite = Resources.LoadAll<Sprite>(spriteEnemyBasePass + id + spriteDeathPass);
-            
+
 
             // 特定の敵に関連するスプライトをロード
             switch (id)
@@ -87,6 +89,9 @@ public class SpriteLoader : MonoBehaviour
                     break;
                 case 10:
                     LoadMoveSprites(entity, id);
+                    LoadSkillSprites(entity, id);
+                    break;
+                case 12:
                     LoadSkillSprites(entity, id);
                     break;
             }
