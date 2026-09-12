@@ -4,6 +4,7 @@ public class SkillStock : MonoBehaviour
 {
     [Header("スキルストック")]
     [SerializeField] private int maxStock = 1;
+    [SerializeField] public int amount = 1;
 
     [Header("1ストック回復する時間")]
     [SerializeField] private float coolTime = 3f;
@@ -66,7 +67,7 @@ public class SkillStock : MonoBehaviour
     }
 
     // 補助スキル取得時
-    public void AddMaxStock(int amount = 1)
+    public void AddMaxStock()
     {
         maxStock += amount;
 

@@ -481,6 +481,7 @@ MonoBehaviour:
   maxhpup: {fileID: 0}
   skillpower: {fileID: 0}
   skillct: {fileID: 0}
+  procount: {fileID: 0}
 --- !u!1 &520259507
 GameObject:
   m_ObjectHideFlags: 0
@@ -922,6 +923,7 @@ MonoBehaviour:
   speed: 10
   lifeTime: 5
   CT: 3
+  skillStock: {fileID: 0}
 --- !u!114 &1418610714
 MonoBehaviour:
   m_ObjectHideFlags: 0

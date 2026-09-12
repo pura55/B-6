@@ -17,6 +17,7 @@ public class SkillManager : MonoBehaviour
     [SerializeField] private PlayerHealth maxhpup;
     [SerializeField] private Bullet skillpower;
     [SerializeField] private SkillID1 skillct;
+    [SerializeField] private SkillStock procount;
 
 
 
@@ -102,7 +103,7 @@ public class SkillManager : MonoBehaviour
                 {
                     Debug.LogError("AttackCoolDown が設定されていません！");
                 }
-                
+
                 break;
 
             case SkillType.CritRate:
@@ -137,7 +138,7 @@ public class SkillManager : MonoBehaviour
 
                 if (move != null)
                 {
-                    move .speed += value;
+                    move.speed += value;
                     Debug.Log("移動速度 +" + value);
                 }
                 else
@@ -148,9 +149,19 @@ public class SkillManager : MonoBehaviour
                 break;
 
             //PlayerSkillattack
-            /*case SkillType.ProjectileCount:
+            case SkillType.ProjectileCount:
 
-            break;*/
+                if (procount != null)
+                {
+                    procount.amount -= (int)value;
+                    Debug.Log("スキルの弾の数 + " + value);
+                }
+                else
+                {
+                    Debug.LogError("procount が設定されていません！");
+                }
+
+                break;
 
             case SkillType.SkillCooldown:
 
@@ -224,7 +235,7 @@ public class SkillManager : MonoBehaviour
                 break;
 
             case SkillType.WallCooldown:
-                
+
                 if (wall != null)
                 {
                     wall.coolTime -= value;
