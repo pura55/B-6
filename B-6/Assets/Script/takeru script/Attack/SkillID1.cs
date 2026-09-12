@@ -8,10 +8,7 @@ public class SkillID1 : MonoBehaviour
 
     [SerializeField] private float speed = 10f;
     [SerializeField] private float lifeTime = 5f;
-<<<<<<< HEAD
     [SerializeField] public float CT = 3f;
-=======
->>>>>>> take
 
     [Header("スキルストック")]
     [SerializeField] private SkillStock skillStock;

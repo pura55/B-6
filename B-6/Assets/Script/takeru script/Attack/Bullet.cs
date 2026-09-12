@@ -2,12 +2,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-<<<<<<< HEAD
-    [SerializeField] public int damage = 1;
-=======
     [Header("通常ダメージ")]
-    [SerializeField] private int damage = 1;
->>>>>>> take
+    [SerializeField] public int damage = 1;
 
     [Header("ヒット時")]
     [SerializeField] private float hitScale = 3f;
@@ -104,8 +100,7 @@ public class Bullet : MonoBehaviour
 
             if (rb != null)
             {
-                rb.linearVelocity =
-                    Vector2.zero;
+                rb.linearVelocity = Vector2.zero;
             }
 
             // 大きくする
