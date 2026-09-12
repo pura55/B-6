@@ -17,7 +17,6 @@ public class WallMaterialUI : MonoBehaviour
         int count = PartyManager.Instance.GetItemCount(wallMaterial);
 
         materialText.text =
-            $"ï«ëfçﬁ : {count}\n" +
-            $"çÏÇÍÇÈï« : {count / 10}";
+            $"ï«ëfçﬁ : {count}\n" ;
     }
 }

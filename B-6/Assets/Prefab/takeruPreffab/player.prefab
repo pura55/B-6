@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 688043643868226058}
   - component: {fileID: 8334193612424726953}
   - component: {fileID: 8638231831447465361}
-  - component: {fileID: 7201308695621863244}
   - component: {fileID: 4482819769376491494}
   - component: {fileID: 3159941602157363061}
   - component: {fileID: 8074730280242163488}
@@ -41,7 +40,7 @@ Transform:
   m_GameObject: {fileID: 4807990481238714564}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.1252, z: -1}
+  m_LocalPosition: {x: -0.67, y: -0, z: -1}
   m_LocalScale: {x: 2, y: 2, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -177,7 +176,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
 --- !u!114 &8638231831447465361
 MonoBehaviour:
@@ -192,22 +191,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoveScript
   speed: 5
---- !u!114 &7201308695621863244
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4807990481238714564}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 207a64b790c093949973d6dc186a00e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::bulletscript
-  bulletPrefab: {fileID: 271225598799932304, guid: f2933559a4379c943b2670d9a62305dc, type: 3}
-  speed: 10
-  lifeTime: 5
-  skillStock: {fileID: 0}
 --- !u!114 &4482819769376491494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,6 +259,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b58524238bb42b429e084a54ec5a4c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+  maxHP: 5
+  respawnTime: 5
+  killHeal: 0
   playerProgressData: {fileID: 11400000, guid: 21bc494655974a942b8c7c1b843e8755, type: 2}
 --- !u!114 &-8584053596873133102
 MonoBehaviour:
@@ -494,7 +480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 754d4a2d237cfae4c82278377d2d1b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharaSkillManager
-  skillID1: {fileID: 7201308695621863244}
+  skillID1: {fileID: 3228176838451706247}
   skillID2: {fileID: -1431775227467078488}
   skillID3: {fileID: -5400885494440440176}
   skillID4: {fileID: -3068470455277690157}
@@ -513,6 +499,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 271225598799932304, guid: f2933559a4379c943b2670d9a62305dc, type: 3}
   speed: 10
   lifeTime: 5
+  CT: 3
   skillStock: {fileID: 6031820614481176559}
 --- !u!114 &-1431775227467078488
 MonoBehaviour:
