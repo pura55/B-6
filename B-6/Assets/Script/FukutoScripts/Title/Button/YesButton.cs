@@ -1,21 +1,16 @@
 using UnityEngine;
 
 /// <summary>
-/// エンドボタン
+/// Yesボタン
 /// 
-/// ゲーム終了ボタン
+/// ゲーム終了に承諾するボタン
 /// </summary>
-public class EndButton : ButtonBase
+public class YesButton : ButtonBase
 {
-    #region State
-    [SerializeField] private EndScreen endScreen; // 終了スクリーン
-    #endregion
-
     public override void OnClick()
     {
-        endScreen.SetEndPressed();
+        EndGame();
     }
-
 
     /// @brief ゲームを終了させる関数
     private void EndGame()
