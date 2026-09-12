@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 8074730280242163488}
   - component: {fileID: 6978530139807284194}
   - component: {fileID: -8584053596873133102}
+  - component: {fileID: 6031820614481176559}
   - component: {fileID: 5488096044006687456}
   - component: {fileID: 3228176838451706247}
   - component: {fileID: -1431775227467078488}
@@ -206,7 +207,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 271225598799932304, guid: f2933559a4379c943b2670d9a62305dc, type: 3}
   speed: 10
   lifeTime: 5
-  CT: 3
+  skillStock: {fileID: 0}
 --- !u!114 &4482819769376491494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -467,6 +468,20 @@ MonoBehaviour:
   - {fileID: 1637365682, guid: 0a158a38e9626504682afbf6e17fbec0, type: 3}
   - {fileID: 573493615, guid: 0a158a38e9626504682afbf6e17fbec0, type: 3}
   animationSpeed: 0.1
+--- !u!114 &6031820614481176559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4807990481238714564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0863cae12ec5f9f4f91200bf2ae90bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkillStock
+  maxStock: 1
+  coolTime: 3
 --- !u!114 &5488096044006687456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -498,7 +513,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 271225598799932304, guid: f2933559a4379c943b2670d9a62305dc, type: 3}
   speed: 10
   lifeTime: 5
-  CT: 3
+  skillStock: {fileID: 6031820614481176559}
 --- !u!114 &-1431775227467078488
 MonoBehaviour:
   m_ObjectHideFlags: 0

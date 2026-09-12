@@ -34,6 +34,7 @@ public class CharaSkillManager : MonoBehaviour
         {
             case 1:
                 skillID1.UseSkill();
+
                 break;
 
             case 2:
