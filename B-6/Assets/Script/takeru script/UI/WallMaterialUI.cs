@@ -64,17 +64,16 @@ public class WallMaterialUI : MonoBehaviour
 
         if (coolTimeImage != null)
         {
-            bool cooling =
-                wallSkill.IsCoolTime();
-
-            coolTimeImage.gameObject.SetActive(
-                cooling
-            );
-
-            if (cooling)
+            if (wallSkill.IsCoolTime())
             {
+                // CT中は壁アイコンが円形に回復していく
                 coolTimeImage.fillAmount =
-                    wallSkill.GetCoolTimeRate();
+                    1f - wallSkill.GetCoolTimeRate();
+            }
+            else
+            {
+                // CT終了なら壁アイコンを全部表示
+                coolTimeImage.fillAmount = 1f;
             }
         }
 

@@ -263,6 +263,7 @@ MonoBehaviour:
   respawnTime: 5
   killHeal: 0
   playerProgressData: {fileID: 11400000, guid: 21bc494655974a942b8c7c1b843e8755, type: 2}
+  hpSlider: {fileID: 0}
 --- !u!114 &-8584053596873133102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -467,6 +468,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SkillStock
   maxStock: 1
+  amount: 1
   coolTime: 3
 --- !u!114 &5488096044006687456
 MonoBehaviour:
@@ -484,6 +486,11 @@ MonoBehaviour:
   skillID2: {fileID: -1431775227467078488}
   skillID3: {fileID: -5400885494440440176}
   skillID4: {fileID: -3068470455277690157}
+  skillEffect1: {fileID: 8514955212300276644, guid: 857deba92708a7c4fa19b2aa1d54c857, type: 3}
+  skillEffect2: {fileID: 3593507206658706515, guid: 976b473db4d40354cb3487e0eb21c75f, type: 3}
+  skillEffect3: {fileID: 704252975334428810, guid: 41d74284bc390f041bc4b102d869279e, type: 3}
+  skillEffect4: {fileID: 8463691585733118406, guid: c148ab261551b6c499d3d85a56a05e92, type: 3}
+  effectLifeTime: 1
 --- !u!114 &3228176838451706247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -513,6 +520,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 448f07b4548f2d044b51f6bb24243992, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SkillID2
+  wavePrefab: {fileID: 5577727810276540188, guid: 4ed4bf5cb7b1af7438a53e15ede672ad, type: 3}
+  speed: 3
+  lifeTime: 10
+  waterRange: 8
+  skillStock: {fileID: 6031820614481176559}
 --- !u!114 &-5400885494440440176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -525,6 +537,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8712e561c20a2b34ab6c53cbe8378814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SkillID3
+  windPrefab: {fileID: 8562588248960099529, guid: aff20a492a1e8e24fa3579f74ba2f3f3, type: 3}
+  speed: 5
+  lifeTime: 3
+  skillStock: {fileID: 6031820614481176559}
 --- !u!114 &-3068470455277690157
 MonoBehaviour:
   m_ObjectHideFlags: 0
