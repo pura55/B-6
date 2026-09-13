@@ -1,43 +1,82 @@
 fileFormatVersion: 2
-guid: 0cc53e444ad7c0c449a3b5673880720f
+guid: a96b31bf77c910246a9e881bc812853e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8320824912735345967
-    second: boss_attack_0
+      213: -2112487740573502474
+    second: Skill_0
   - first:
-      213: -3975016362501032488
-    second: boss_attack_1
+      213: -6224311357096736501
+    second: Skill_1
   - first:
-      213: -649678722289502472
-    second: boss_attack_2
+      213: -7235282874783887361
+    second: Skill_2
   - first:
-      213: -514692836225630516
-    second: boss_attack_3
+      213: -1034532204254637556
+    second: Skill_3
   - first:
-      213: 8958798872038287775
-    second: boss_attack_4
+      213: -3639233938062050540
+    second: Skill_4
   - first:
-      213: -6231923874741604251
-    second: boss_attack_5
+      213: 8821516196380029320
+    second: Skill_5
   - first:
-      213: -8865549860339745163
-    second: boss_attack_6
+      213: 4902915860296303171
+    second: Skill_6
   - first:
-      213: -8914420688689861540
-    second: boss_attack_7
+      213: 1345502858509099640
+    second: Skill_7
   - first:
-      213: -5432251087210907021
-    second: boss_attack_8
+      213: 3286130074403929391
+    second: Skill_8
   - first:
-      213: 8720169460745952810
-    second: boss_attack_9
+      213: 3918515020495221531
+    second: Skill_9
   - first:
-      213: 6033369636811189
-    second: boss_attack_10
+      213: -43941036667334741
+    second: Skill_10
   - first:
-      213: -7945627896331572250
-    second: boss_attack_11
+      213: -6824386330983233687
+    second: Skill_11
+  - first:
+      213: 2837153199609401105
+    second: Skill_12
+  - first:
+      213: 7194443867629970463
+    second: Skill_13
+  - first:
+      213: -4593641078150153417
+    second: Skill_14
+  - first:
+      213: -7970348748988042880
+    second: Skill_15
+  - first:
+      213: 218763880861798858
+    second: Skill_16
+  - first:
+      213: 2065357549783432770
+    second: Skill_17
+  - first:
+      213: -9161364732827312947
+    second: Skill_18
+  - first:
+      213: 2914698805767249092
+    second: Skill_19
+  - first:
+      213: 7552763993243714940
+    second: Skill_20
+  - first:
+      213: 5992636893488012638
+    second: Skill_21
+  - first:
+      213: -107713056969581419
+    second: Skill_22
+  - first:
+      213: 350146053581936534
+    second: Skill_23
+  - first:
+      213: -5883184782385706066
+    second: Skill_24
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -57,7 +96,7 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
     flipGreenChannel: 0
-  isReadable: 0
+  isReadable: 1
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -133,13 +172,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Attack_1_0
+      name: LoboSombriuAttack0000
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 256
-        height: 256
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -148,20 +187,42 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 486ba39b4739cd14aadd71f4d9018771
-      internalID: -1292227585
+      spriteID: 3d08a02bd5efa074f957bdb813f01d5f
+      internalID: -420357272
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack_1_1
+      name: LoboSombriuAttack0002
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8f5126917bb7fa4d9d03fe9d3952db1
+      internalID: 1402457983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LoboSombriuAttack0004
       rect:
         serializedVersion: 2
         x: 256
         y: 0
-        width: 256
-        height: 256
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -170,20 +231,42 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3778173bb7b6f62468178d8e7cf81175
-      internalID: -261994315
+      spriteID: 3a45476c3b94081448f93ccd267c635f
+      internalID: -2040457086
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack_1_2
+      name: LoboSombriuAttack0006
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32b5e45836383ba4eaf4da7a6c8e3e56
+      internalID: 587900916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LoboSombriuAttack0007
       rect:
         serializedVersion: 2
         x: 512
         y: 0
-        width: 256
-        height: 256
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,20 +275,42 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6784556c6cfae5d45be4084d205bfd3c
-      internalID: 1566201611
+      spriteID: fb6360709b8de444bb682c5917f4827b
+      internalID: 1676418964
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack_1_3
+      name: LoboSombriuAttack0008
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9d5709c0fad8e048bc0ec0d91a32f46
+      internalID: -196864598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LoboSombriuAttack0009
       rect:
         serializedVersion: 2
         x: 768
         y: 0
-        width: 256
-        height: 256
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -214,20 +319,42 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 921055d45d4bcbd4a883ed763cbfc69d
-      internalID: 1458822017
+      spriteID: e6056a7a0de3d9241becde07dc3db986
+      internalID: -1782995842
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack_1_4
+      name: LoboSombriuAttack0010
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a12de80ede830e4db64885a6823c796
+      internalID: -1667761104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LoboSombriuAttack0011
       rect:
         serializedVersion: 2
         x: 1024
         y: 0
-        width: 256
-        height: 256
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,20 +363,42 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 461b982778a0bcf40aceba1ad55e9855
-      internalID: 1546802870
+      spriteID: de620d20097cc874ca913e184bea796c
+      internalID: -539942559
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack_1_5
+      name: LoboSombriuAttack0012
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 094e55a8fb945c24ab2a03e9a1b71483
+      internalID: 1925795807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LoboSombriuAttack0013
       rect:
         serializedVersion: 2
         x: 1280
         y: 0
-        width: 256
-        height: 256
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -258,20 +407,42 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b27aa33bfd6887340bf1d18ac65a297a
-      internalID: 308359788
+      spriteID: 855c539c8cae14b45a091f0d6f5f7440
+      internalID: 1358179111
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack_1_6
+      name: LoboSombriuAttack0014
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79465085cd876304f9d7f2d0c5b8eb0d
+      internalID: -1559634216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LoboSombriuAttack0015
       rect:
         serializedVersion: 2
         x: 1536
         y: 0
-        width: 256
-        height: 256
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -280,20 +451,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 438ac1062c9d49f4a883ca740f0382c4
-      internalID: -784841308
+      spriteID: b8c9753d9c6df46478612b47cb109b47
+      internalID: 2063433033
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack_1_7
+      name: LoboSombriuAttack0016
       rect:
         serializedVersion: 2
-        x: 1792
+        x: 1664
         y: 0
-        width: 256
-        height: 256
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -302,96 +473,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99f54033cbd8d604a9a84b7b0a5f61df
-      internalID: 1928650899
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack_1_8
-      rect:
-        serializedVersion: 2
-        x: 2048
-        y: 0
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 88bfa0ca8e1857b4d82ef57c7b928919
-      internalID: -1009267426
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack_1_9
-      rect:
-        serializedVersion: 2
-        x: 2304
-        y: 0
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fbed38c214f62054c8926681c27ff864
-      internalID: -480344158
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack_1_10
-      rect:
-        serializedVersion: 2
-        x: 2560
-        y: 0
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 43c04bb5855831d48977f7ae9af02b52
-      internalID: 298103277
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack_1_11
-      rect:
-        serializedVersion: 2
-        x: 2816
-        y: 0
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d2a44c7a57475d84dbe9d9bfb440bc91
-      internalID: 181066678
+      spriteID: 832d4e5dd9325174ab80f7d8faec1aa6
+      internalID: 521035088
       vertices: []
       indices: 
       edges: []
@@ -400,7 +483,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: e47ad3ad1564a8742b2179c0a3707dc4
+    spriteID: a63670500beb78241a1c9d2917065ab3
     internalID: 0
     vertices: []
     indices: 
@@ -408,22 +491,47 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":256.0,"y":256.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      Attack_1_0: -1292227585
-      Attack_1_1: -261994315
-      Attack_1_10: 298103277
-      Attack_1_11: 181066678
-      Attack_1_2: 1566201611
-      Attack_1_3: 1458822017
-      Attack_1_4: 1546802870
-      Attack_1_5: 308359788
-      Attack_1_6: -784841308
-      Attack_1_7: 1928650899
-      Attack_1_8: -1009267426
-      Attack_1_9: -480344158
+      LoboSombriuAttack0000: -420357272
+      LoboSombriuAttack0002: 1402457983
+      LoboSombriuAttack0004: -2040457086
+      LoboSombriuAttack0006: 587900916
+      LoboSombriuAttack0007: 1676418964
+      LoboSombriuAttack0008: -196864598
+      LoboSombriuAttack0009: -1782995842
+      LoboSombriuAttack0010: -1667761104
+      LoboSombriuAttack0011: -539942559
+      LoboSombriuAttack0012: 1925795807
+      LoboSombriuAttack0013: 1358179111
+      LoboSombriuAttack0014: -1559634216
+      LoboSombriuAttack0015: 2063433033
+      LoboSombriuAttack0016: 521035088
+      Skill_0: -2112487740573502474
+      Skill_1: -6224311357096736501
+      Skill_10: -43941036667334741
+      Skill_11: -6824386330983233687
+      Skill_12: 2837153199609401105
+      Skill_13: 7194443867629970463
+      Skill_14: -4593641078150153417
+      Skill_15: -7970348748988042880
+      Skill_16: 218763880861798858
+      Skill_17: 2065357549783432770
+      Skill_18: -9161364732827312947
+      Skill_19: 2914698805767249092
+      Skill_2: -7235282874783887361
+      Skill_20: 7552763993243714940
+      Skill_21: 5992636893488012638
+      Skill_22: -107713056969581419
+      Skill_23: 350146053581936534
+      Skill_24: -5883184782385706066
+      Skill_3: -1034532204254637556
+      Skill_4: -3639233938062050540
+      Skill_5: 8821516196380029320
+      Skill_6: 4902915860296303171
+      Skill_7: 1345502858509099640
+      Skill_8: 3286130074403929391
+      Skill_9: 3918515020495221531
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

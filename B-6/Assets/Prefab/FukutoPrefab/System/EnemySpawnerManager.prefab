@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawnerManager
   gameTimer: {fileID: 0}
-  waveInterval: 3
+  waveInterval: 1
   Tower: {fileID: 0}
 --- !u!1001 &3034217246243447440
 PrefabInstance:
@@ -67,7 +67,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4650283824159118898, guid: af064a4308b8a9842a7b0b8677fdc97c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4650283824159118898, guid: af064a4308b8a9842a7b0b8677fdc97c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -144,8 +144,8 @@ MonoBehaviour:
   - {fileID: 6449213048604919684, guid: cabce730aa61be34cbafd8edf9b97e35, type: 3}
   - {fileID: 6449213048604919684, guid: 23d12aeaa65b14146854d5c7ba29b8d5, type: 3}
   - {fileID: 6449213048604919684, guid: 9ad1de42f3895214693e9c4cbba3aae0, type: 3}
-  spawnRange: {x: 3, y: 3, z: 0}
-  activeSpawnPosition: {x: 0, y: 0, z: 0}
+  spawnRange: {x: 20, y: 3, z: 0}
+  activeSpawnPosition: {x: 0, y: 10, z: 0}
   nomalSpawnPosition: {x: 0, y: 0, z: 0}
 --- !u!1001 &5036916994413814705
 PrefabInstance:
@@ -161,11 +161,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3309320931265384604, guid: e326941de1bc17d4a9fe7010a89d48a1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.93697
+      value: 19.66
       objectReference: {fileID: 0}
     - target: {fileID: 3309320931265384604, guid: e326941de1bc17d4a9fe7010a89d48a1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.1544
+      value: -4.79
       objectReference: {fileID: 0}
     - target: {fileID: 3309320931265384604, guid: e326941de1bc17d4a9fe7010a89d48a1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -219,7 +219,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4650283824159118898, guid: af064a4308b8a9842a7b0b8677fdc97c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -18
       objectReference: {fileID: 0}
     - target: {fileID: 4650283824159118898, guid: af064a4308b8a9842a7b0b8677fdc97c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -295,8 +295,8 @@ MonoBehaviour:
   - {fileID: 6449213048604919684, guid: cabce730aa61be34cbafd8edf9b97e35, type: 3}
   - {fileID: 6449213048604919684, guid: 23d12aeaa65b14146854d5c7ba29b8d5, type: 3}
   - {fileID: 6449213048604919684, guid: 9ad1de42f3895214693e9c4cbba3aae0, type: 3}
-  spawnRange: {x: 3, y: 3, z: 0}
-  activeSpawnPosition: {x: 0, y: 0, z: 0}
+  spawnRange: {x: 3, y: 20, z: 0}
+  activeSpawnPosition: {x: -10, y: 0, z: 0}
   nomalSpawnPosition: {x: 0, y: 0, z: 0}
 --- !u!4 &1241051034559495512 stripped
 Transform:
@@ -313,7 +313,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4650283824159118898, guid: af064a4308b8a9842a7b0b8677fdc97c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 4650283824159118898, guid: af064a4308b8a9842a7b0b8677fdc97c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -394,8 +394,8 @@ MonoBehaviour:
   - {fileID: 6449213048604919684, guid: cabce730aa61be34cbafd8edf9b97e35, type: 3}
   - {fileID: 6449213048604919684, guid: 23d12aeaa65b14146854d5c7ba29b8d5, type: 3}
   - {fileID: 6449213048604919684, guid: 9ad1de42f3895214693e9c4cbba3aae0, type: 3}
-  spawnRange: {x: 3, y: 3, z: 0}
-  activeSpawnPosition: {x: 0, y: 0, z: 0}
+  spawnRange: {x: 3, y: 20, z: 0}
+  activeSpawnPosition: {x: 10, y: 0, z: 0}
   nomalSpawnPosition: {x: 0, y: 0, z: 0}
 --- !u!1001 &8272811491608041007
 PrefabInstance:
@@ -411,11 +411,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3309320931265384604, guid: e326941de1bc17d4a9fe7010a89d48a1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.93697
+      value: -18.7
       objectReference: {fileID: 0}
     - target: {fileID: 3309320931265384604, guid: e326941de1bc17d4a9fe7010a89d48a1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.1544
+      value: -6.1
       objectReference: {fileID: 0}
     - target: {fileID: 3309320931265384604, guid: e326941de1bc17d4a9fe7010a89d48a1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -477,7 +477,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4650283824159118898, guid: af064a4308b8a9842a7b0b8677fdc97c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -15
       objectReference: {fileID: 0}
     - target: {fileID: 4650283824159118898, guid: af064a4308b8a9842a7b0b8677fdc97c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -549,8 +549,8 @@ MonoBehaviour:
   - {fileID: 6449213048604919684, guid: cabce730aa61be34cbafd8edf9b97e35, type: 3}
   - {fileID: 6449213048604919684, guid: 23d12aeaa65b14146854d5c7ba29b8d5, type: 3}
   - {fileID: 6449213048604919684, guid: 9ad1de42f3895214693e9c4cbba3aae0, type: 3}
-  spawnRange: {x: 3, y: 3, z: 0}
-  activeSpawnPosition: {x: 0, y: 0, z: 0}
+  spawnRange: {x: 20, y: 3, z: 0}
+  activeSpawnPosition: {x: 0, y: -10, z: 0}
   nomalSpawnPosition: {x: 0, y: 0, z: 0}
 --- !u!4 &4117061121011750476 stripped
 Transform:

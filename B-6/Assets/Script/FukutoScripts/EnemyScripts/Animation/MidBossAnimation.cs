@@ -1,4 +1,6 @@
+using System.Linq;
 using UnityEngine;
+using UnityEngine.U2D;
 
 /// <summary>
 /// ミッドボスアニメーション
@@ -24,50 +26,29 @@ public class MidBossAnimation : IncludeMovementAnimation
 
     protected override void ManageDrawing()
     {
-        if(enemyId != 12)
+        switch (animationState)
         {
-            switch (animationState)
-            {
-                case AnimationState.idle:
-                    IdleAnimation();
-                    break;
-                case AnimationState.move:
-                    MoveAnimation();
-                    break;
-                case AnimationState.attack:
-                    AttackAnimation();
-                    break;
-                case AnimationState.skill:
-                    SkillAnimation();
-                    break;
-                case AnimationState.hit:
-                    HitAnimation();
-                    break;
-                case AnimationState.death:
-                    DeathAnimation();
-                    break;
-            }
-        }
-        else
-        {
-            switch (animationState)
-            {
-                case AnimationState.idle:
-                    IdleAnimation();
-                    break;
-                case AnimationState.move:
-                    IdleAnimation();
-                    break;
-                case AnimationState.attack:
-                    AttackAnimation();
-                    break;
-                case AnimationState.skill:
-                    SkillAnimation();
-                    break;
-            }
+            case AnimationState.idle:
+                IdleAnimation();
+                break;
+            case AnimationState.move:
+                MoveAnimation();
+                break;
+            case AnimationState.attack:
+                AttackAnimation();
+                break;
+            case AnimationState.skill:
+                SkillAnimation();
+                break;
+            case AnimationState.hit:
+                HitAnimation();
+                break;
+            case AnimationState.death:
+                DeathAnimation();
+                break;
         }
 
-            SelectFripSprite();
+        SelectFripSprite();
     }
 
     /// @brief 初期化関数
@@ -78,7 +59,7 @@ public class MidBossAnimation : IncludeMovementAnimation
         SetMoveSprite();
         SetSkillSprite();
 
-        // 要素数
+            // 要素数
         SetSpriteElements();
         SetMoveElements();
         SetSkillElements();
@@ -86,7 +67,7 @@ public class MidBossAnimation : IncludeMovementAnimation
         spriteRenderer = GetComponent<SpriteRenderer>();
         SetMovementScript();
 
-        if(attackSprites == null && enemyId == 12)
+        if(attackSprites == null && enemyId == 11)
         {
             Debug.Log("大ボスのデータが格納されていません");
         }

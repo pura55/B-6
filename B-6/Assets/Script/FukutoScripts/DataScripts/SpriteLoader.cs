@@ -91,7 +91,8 @@ public class SpriteLoader : MonoBehaviour
                     LoadMoveSprites(entity, id);
                     LoadSkillSprites(entity, id);
                     break;
-                case 12:
+                case 11:
+                    LoadMoveSprites(entity, id);
                     LoadSkillSprites(entity, id);
                     break;
             }
@@ -133,7 +134,7 @@ public class SpriteLoader : MonoBehaviour
             playerMasterSprite.playerSprites = new System.Collections.Generic.List<PlayerMasterSprite.Entity>();
         }
 
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 4; i++)
         {
             PlayerMasterSprite.Entity entity = new PlayerMasterSprite.Entity();
 

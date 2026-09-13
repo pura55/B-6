@@ -21,7 +21,7 @@ public class GameTimer : MonoBehaviour
         int seconds = Mathf.FloorToInt(elapsedTime % 60);
 
         // 00:00形式で表示
-        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        if(timerText != null)timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
     /// biref@ ゲーム時間（分）を取得する関数
