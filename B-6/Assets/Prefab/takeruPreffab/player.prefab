@@ -553,3 +553,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae9bebfb86a0aa240a592f354dfc1ea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SkillID4
+  blinkAttackPrefab: {fileID: 6483575094827627885, guid: 98d074f35dd014d4c9f8929137df4087, type: 3}
+  blinkDistance: 3
+  skillStock: {fileID: 6031820614481176559}

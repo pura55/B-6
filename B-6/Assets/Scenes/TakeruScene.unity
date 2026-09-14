@@ -1143,6 +1143,14 @@ PrefabInstance:
       propertyPath: skillStock
       value: 
       objectReference: {fileID: 2079960701}
+    - target: {fileID: -3068470455277690157, guid: 16a38b205e84977499530a76f2732a95, type: 3}
+      propertyPath: skillStock
+      value: 
+      objectReference: {fileID: 2079960701}
+    - target: {fileID: -3068470455277690157, guid: 16a38b205e84977499530a76f2732a95, type: 3}
+      propertyPath: blinkAttack
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: -1431775227467078488, guid: 16a38b205e84977499530a76f2732a95, type: 3}
       propertyPath: skillStock
       value: 
