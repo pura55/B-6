@@ -59,11 +59,13 @@ public class StartScreen : ScreenBase
     public void SetPlayPressed()
     {
         isPlayPressed = true;
+        isBackPressed = false;
     }
 
     /// @brief 戻るボタンフラグを設定する関数
     public void SetBackPressed()
     {
         isBackPressed = true;
+        isPlayPressed = false;
     }
 }
