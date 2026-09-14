@@ -37,7 +37,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.64, y: 2.3, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8180981368680399224}
@@ -92,12 +92,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 561806406, guid: a9cc286e421ae394f97fb15b85458cfc, type: 3}
+  m_Sprite: {fileID: -1751467716, guid: b529553bd3cc98d43aaecab01eedefd8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.5, y: 1.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -250,7 +250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MidBossAnimation
   enemyId: 11
-  reverseFlip: 0
+  reverseFlip: 1
   onNomalMove: 0
   onAggressiveMove: 0
   onBossMove: 1
@@ -268,7 +268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShortDistanceAttack
   enemyID: 11
-  hitAnimationNumber: 4
+  hitAnimationNumber: 7
   enemyProgressData: {fileID: 11400000, guid: f1c5fd27d3e475c429457ece67e5af9d, type: 2}
   onNomalAnimation: 0
   onIncludeMovementAnimation: 0
@@ -286,7 +286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShortSkill
   enemyID: 11
-  hitAnimationNumber: 4
+  hitAnimationNumber: 7
   enemyProgressData: {fileID: 11400000, guid: f1c5fd27d3e475c429457ece67e5af9d, type: 2}
 --- !u!114 &-5910053777904288716
 MonoBehaviour:

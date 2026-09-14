@@ -70,7 +70,7 @@ public class EnemySpawnerManager : MonoBehaviour
                         spawnEnemiesID[i] = i + 4;
                     }
 
-                    spawnBossID = 9;
+                    spawnBossID = 11;
 
                     previousWave = waveCount; // ウェーブを設定
                     break;
@@ -80,7 +80,7 @@ public class EnemySpawnerManager : MonoBehaviour
                     {
                         spawnEnemiesID[i] = i + 1;
                     }
-                    spawnBossID = 10;
+                    spawnBossID = 9;
 
                     previousWave = waveCount; // ウェーブを設定
                     break;

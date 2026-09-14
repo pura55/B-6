@@ -24,7 +24,7 @@ public class AtlasDivider : EditorWindow
     // ★大元のスプライトシートの1コマの正確なサイズを指定してください
     private static readonly Vector2Int cellSize = new Vector2Int(140, 93); // 例: 140x93 など
 
-    [MenuItem("Assets/スプライトを役割ごとのアトラス(.png)に再構築して書き出し", false, 11)]
+    [MenuItem("Tools/スプライトを役割ごとのアトラス(.png)に再構築して書き出し", false, 11)]
     private static void DivideAndPackAtlas()
     {
         Texture2D sourceTexture = Selection.activeObject as Texture2D;

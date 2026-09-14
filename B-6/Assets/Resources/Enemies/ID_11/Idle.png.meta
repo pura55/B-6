@@ -1,25 +1,22 @@
 fileFormatVersion: 2
-guid: a9cc286e421ae394f97fb15b85458cfc
+guid: b529553bd3cc98d43aaecab01eedefd8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5742144190005862570
-    second: boss_idle_0
+      213: -5297039431801266475
+    second: Idlle_0
   - first:
-      213: -3085074806657409077
-    second: boss_idle_1
+      213: 5724991035504741319
+    second: Idlle_1
   - first:
-      213: 3406571612866355325
-    second: boss_idle_2
+      213: -5587500895318116252
+    second: Idlle_2
   - first:
-      213: -7339561905887146232
-    second: boss_idle_3
+      213: -4932049916555399292
+    second: Idlle_3
   - first:
-      213: -6372691395590605432
-    second: boss_idle_4
-  - first:
-      213: -1890665946331242197
-    second: boss_idle_5
+      213: 3289806441700840709
+    second: Idlle_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -39,7 +36,7 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
     flipGreenChannel: 0
-  isReadable: 0
+  isReadable: 1
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -115,13 +112,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Idle_0
+      name: LoboSombriuIdlle0000
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 256
-        height: 256
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,20 +127,42 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a4265ee509c496f42a8673a3ea126df1
-      internalID: 561806406
+      spriteID: 8093a4bb8eb45904bbae981d494f4679
+      internalID: 1550283243
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_1
+      name: LoboSombriuIdlle0002
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 547c8b3716357a74f9fd014d0788d4ae
+      internalID: -1005404541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LoboSombriuIdlle0004
       rect:
         serializedVersion: 2
         x: 256
         y: 0
-        width: 256
-        height: 256
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +171,42 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 95b30b7a2ffef084b808190e616a6645
-      internalID: -1151358570
+      spriteID: 4b044cb94aab3a24bbe67d2c34131d49
+      internalID: -1751467716
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_2
+      name: LoboSombriuIdlle0006
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75b2af570b3a2ad43bcd2faf795e473d
+      internalID: 152760363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LoboSombriuIdlle0008
       rect:
         serializedVersion: 2
         x: 512
         y: 0
-        width: 256
-        height: 256
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,74 +215,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3470cb6cd49214479712d45c57eeabf
-      internalID: -564831865
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle_3
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 0
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 744dc11467d1fe545900e0d4d7686fd2
-      internalID: -253916271
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle_4
-      rect:
-        serializedVersion: 2
-        x: 1024
-        y: 0
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 25f049333df4c2140a92e832f0dff315
-      internalID: 212276558
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle_5
-      rect:
-        serializedVersion: 2
-        x: 1280
-        y: 0
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 409c73ddc140dcd4b800b2039679db50
-      internalID: -309485746
+      spriteID: 5669f521a4e065648a5c73460b386191
+      internalID: 493094443
       vertices: []
       indices: 
       edges: []
@@ -250,7 +225,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 603c30fa856a4f34d8b379d85572a610
+    spriteID: b69d06cf1efcd9a408bcbc600aef7e95
     internalID: 0
     vertices: []
     indices: 
@@ -258,16 +233,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":256.0,"y":256.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      Idle_0: 561806406
-      Idle_1: -1151358570
-      Idle_2: -564831865
-      Idle_3: -253916271
-      Idle_4: 212276558
-      Idle_5: -309485746
+      Idlle_0: -5297039431801266475
+      Idlle_1: 5724991035504741319
+      Idlle_2: -5587500895318116252
+      Idlle_3: -4932049916555399292
+      Idlle_4: 3289806441700840709
+      LoboSombriuIdlle0000: 1550283243
+      LoboSombriuIdlle0002: -1005404541
+      LoboSombriuIdlle0004: -1751467716
+      LoboSombriuIdlle0006: 152760363
+      LoboSombriuIdlle0008: 493094443
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
