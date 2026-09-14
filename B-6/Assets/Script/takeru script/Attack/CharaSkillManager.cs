@@ -8,6 +8,14 @@ public class CharaSkillManager : MonoBehaviour
     [SerializeField] private SkillID3 skillID3;
     [SerializeField] private SkillID4 skillID4;
 
+    [Header("スキル発動エフェクト")]
+    [SerializeField] private GameObject skillEffect1;
+    [SerializeField] private GameObject skillEffect2;
+    [SerializeField] private GameObject skillEffect3;
+    [SerializeField] private GameObject skillEffect4;
+
+    [SerializeField] private float effectLifeTime = 1f;
+
     private ID1Sprite playerAnimation;
 
     void Start()
@@ -33,19 +41,22 @@ public class CharaSkillManager : MonoBehaviour
         switch (DebugCharacterSelect.selectedPlayerID)
         {
             case 1:
+                PlaySkillEffect(skillEffect1);
                 skillID1.UseSkill();
-
                 break;
 
             case 2:
+                PlaySkillEffect(skillEffect2);
                 skillID2.UseSkill();
                 break;
 
             case 3:
+                PlaySkillEffect(skillEffect3);
                 skillID3.UseSkill();
                 break;
 
             case 4:
+                PlaySkillEffect(skillEffect4);
                 skillID4.UseSkill();
                 break;
 
@@ -53,5 +64,20 @@ public class CharaSkillManager : MonoBehaviour
                 Debug.LogWarning("キャラが選択されていません");
                 break;
         }
+    }
+
+    void PlaySkillEffect(GameObject effectPrefab)
+    {
+        if (effectPrefab == null)
+            return;
+
+        GameObject effect = Instantiate(
+            effectPrefab,
+            transform.position,
+            Quaternion.identity,
+            transform
+        );
+
+        Destroy(effect, effectLifeTime);
     }
 }

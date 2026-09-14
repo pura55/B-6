@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
-
+using UnityEngine.UI;
 
 /// <summary>
 /// プレイヤーヘルス
@@ -19,6 +19,7 @@ public class PlayerHealth : MonoBehaviour
 
     #region State
     [SerializeField] private PlayerProgressData playerProgressData; // プレイヤーのデータ
+    [SerializeField] private Slider hpSlider;
     #endregion
 
     private ID1Sprite playerAnimation;
@@ -30,6 +31,10 @@ public class PlayerHealth : MonoBehaviour
         // データからHPを取得
         myHp = playerProgressData.hp;
 
+        // HPバーの初期設定
+        hpSlider.maxValue = maxHP;
+        hpSlider.value = myHp;
+
         playerAnimation = GetComponent<ID1Sprite>();
 
         startPosition = transform.position;
@@ -38,11 +43,11 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // デバッグ用：OキーでTakeHitアニメだけ確認
         if (Keyboard.current != null &&
-            Keyboard.current.oKey.wasPressedThisFrame)
+       Keyboard.current.lKey.wasPressedThisFrame)
         {
-            playerAnimation.ChangeState(ID1Sprite.PlayerAnimState.TakeHit);
+            Debug.Log("Lキー押した");
+            ReceiveDamage(1);
         }
 
         // デバッグ用：Pキーで即死
@@ -58,15 +63,14 @@ public class PlayerHealth : MonoBehaviour
     {
         myHp -= dmg;
 
-        // HPが0以下なら死亡
+        // HPバー更新
+        hpSlider.value = myHp;
+
         if (myHp <= 0)
         {
             playerAnimation.ChangeState(ID1Sprite.PlayerAnimState.Death);
-
-            // リスポーン開始
             StartCoroutine(RespawnCoroutine());
         }
-        // まだ生きているならダメージ
         else
         {
             playerAnimation.ChangeState(ID1Sprite.PlayerAnimState.TakeHit);
@@ -100,6 +104,8 @@ public class PlayerHealth : MonoBehaviour
         // 現在の最大HPまで回復
         myHp = maxHP;
 
+        hpSlider.value = myHp;
+
         // HPを初期値に戻す
         //myHp = playerProgressData.hp;
         //↑これがあると、初期値に戻したときに最大HPが反映されなくなる
@@ -118,6 +124,8 @@ public class PlayerHealth : MonoBehaviour
         {
             myHp = maxHP;
         }
+
+        hpSlider.value = myHp;
 
         Debug.Log("キルヒール！ HP +" + killHeal);
     }
