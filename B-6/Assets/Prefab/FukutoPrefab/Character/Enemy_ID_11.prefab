@@ -255,6 +255,9 @@ MonoBehaviour:
   onAggressiveMove: 0
   onBossMove: 1
   enemySpriteData: {fileID: 11400000, guid: 0ae569640c76edb4ab60e7dd549c57a5, type: 2}
+  isStop: 1
+  stopIndex: 1
+  chargeTime: 1
 --- !u!114 &4414791695640219721
 MonoBehaviour:
   m_ObjectHideFlags: 0
