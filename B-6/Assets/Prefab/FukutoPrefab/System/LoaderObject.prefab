@@ -50,6 +50,7 @@ MonoBehaviour:
     players: []
   enemyMasterData:
     enemies: []
+  selectCharacterID: {fileID: 11400000, guid: 35c8f64e5d1110e4fb7e84256b81fbd4, type: 2}
 --- !u!114 &-6428198787714953461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,3 +64,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpriteLoader
   spriteRegister: {fileID: 0}
+  enemyMasterSprite:
+    enemiesSprites: []
+  playerMasterSprite:
+    playerSprites: []

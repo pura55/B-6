@@ -10,6 +10,7 @@ public class JsonLoader : MonoBehaviour
     [SerializeField] private DataRegister dataRegister; // データレジスター
     [SerializeField] private PlayerMasterData playerMasterData; // プレイヤーのマスター
     [SerializeField] private EnemyMasterData enemyMasterData; // エネミーマスターデータ
+    [SerializeField] private SelectCharacterID selectCharacterID; // 選択したキャラクターのID
 
     void Start()
     {
@@ -36,7 +37,7 @@ public class JsonLoader : MonoBehaviour
             PlayerMasterData data = JsonUtility.FromJson<PlayerMasterData>(jsonString);
 
             // データの登録を行う
-            dataRegister.RegistPlayerData(1, data);
+            dataRegister.RegistPlayerData(selectCharacterID.GetSelectID(), data);
         }
         else
         {

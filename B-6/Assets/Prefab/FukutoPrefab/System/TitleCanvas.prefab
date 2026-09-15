@@ -1743,7 +1743,7 @@ GameObject:
   - component: {fileID: 7112412217859451660}
   - component: {fileID: 1584815635762586427}
   m_Layer: 5
-  m_Name: SelectNextButton
+  m_Name: SelectionNextButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2356,7 +2356,7 @@ GameObject:
   - component: {fileID: 801891881818434581}
   - component: {fileID: 6010122834309301686}
   m_Layer: 5
-  m_Name: SelectBackButton
+  m_Name: SelectionBackButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3015,6 +3015,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4d70ffeefa891949b759071f1be6675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StartButton
+  selectAnimation: {fileID: 6212390096112523991}
+  selectCharacterID: {fileID: 11400000, guid: 35c8f64e5d1110e4fb7e84256b81fbd4, type: 2}
 --- !u!1 &8511848623700680096
 GameObject:
   m_ObjectHideFlags: 0
@@ -3116,7 +3118,7 @@ GameObject:
   - component: {fileID: 4078321392555476222}
   - component: {fileID: 4904041371149533027}
   m_Layer: 5
-  m_Name: SelectFrame
+  m_Name: SelectionFrame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

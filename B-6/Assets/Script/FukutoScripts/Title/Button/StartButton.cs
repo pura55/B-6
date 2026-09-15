@@ -8,8 +8,17 @@ using UnityEngine.SceneManagement; // ’Ç‰Á
 /// </summary>
 public class StartButton : ButtonBase
 {
+    #region Config
+    [SerializeField] private SelectAnimation selectAnimation;
+    [SerializeField] private SelectCharacterID selectCharacterID;
+    #endregion
+
     public override void OnClick()
     {
+        // id‚ğİ’è
+        selectCharacterID.SetSelectID(selectAnimation.GetCharacterID());
+
+        // ƒV[ƒ“‘JˆÚ
         SceneManager.LoadScene("MainGame");
     }
 }
