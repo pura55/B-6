@@ -16,11 +16,18 @@ public class CharaSkillManager : MonoBehaviour
 
     [SerializeField] private float effectLifeTime = 1f;
 
+    [Header("DATA")]
+    [SerializeField] private PlayerProgressData playerProgressData; // プレイヤーのデータ
+
     private ID1Sprite playerAnimation;
+
+    private int characterID = 1;// キャラクターのID
 
     void Start()
     {
         playerAnimation = GetComponent<ID1Sprite>();
+
+        characterID = playerProgressData.id; // ID取得
     }
 
     void Update()
@@ -38,7 +45,7 @@ public class CharaSkillManager : MonoBehaviour
     {
         playerAnimation.ChangeState(ID1Sprite.PlayerAnimState.Skill);
 
-        switch (DebugCharacterSelect.selectedPlayerID)
+        switch (characterID)
         {
             case 1:
                 PlaySkillEffect(skillEffect1);

@@ -9,6 +9,9 @@ public class WindWave : MonoBehaviour
     [SerializeField] private float startScale = 0.5f;
     [SerializeField] private float endScale = 2f;
 
+    [Header("DATA")]
+    [SerializeField] private PlayerProgressData playerProgressData; // プレイヤーのデータ
+
     private Vector2 direction;
 
     private float speed;
@@ -37,6 +40,8 @@ public class WindWave : MonoBehaviour
         // 最初は小さい状態
         transform.localScale =
             Vector3.one * startScale;
+
+        damage = playerProgressData.skillDmg; // スキルの攻撃力取得
     }
 
     private void Update()
@@ -90,8 +95,8 @@ public class WindWave : MonoBehaviour
         if (!other.CompareTag("Enemy"))
             return;
 
-        EnemyDamaged enemy =
-            other.GetComponent<EnemyDamaged>();
+        EnemyHealth enemy =
+            other.GetComponent<EnemyHealth>();
 
         if (enemy != null)
         {

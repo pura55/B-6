@@ -47,6 +47,9 @@ public class ID1Sprite : MonoBehaviour
     [Header("再生速度")]
     [SerializeField] private float animationSpeed = 0.1f;
 
+    [Header("DATA")]
+    [SerializeField] private PlayerProgressData playerProgressData; // プレイヤーのデータ
+
     private SpriteRenderer spriteRenderer;
     private PlayerHealth playerHealth;
 
@@ -64,7 +67,7 @@ public class ID1Sprite : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerHealth = GetComponent<PlayerHealth>();
 
-        currentPlayerID = DebugCharacterSelect.selectedPlayerID;
+        currentPlayerID = playerProgressData.id; // id取得
 
         if (currentPlayerID == 0)
         {

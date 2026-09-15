@@ -19,7 +19,6 @@ public class RockSpawner : MonoBehaviour
     [SerializeField] private Transform tower;            // タワーのオブジェクト
     [SerializeField] private RockManager rockManager;     // 落石を管理するオブジェクト
     public Vector3 spawnRange = new Vector3(3f, 3f, 0f); // スポーン範囲
-    private bool isSpawn = false;                        // スポーンしたかどうかのフラグ（true: スポーンした、false:スポーンしてない）
     #endregion
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

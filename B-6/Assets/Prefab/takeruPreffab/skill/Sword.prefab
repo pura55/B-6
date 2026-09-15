@@ -111,6 +111,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   lifeTime: 1
+  playerProgressData: {fileID: 11400000, guid: 21bc494655974a942b8c7c1b843e8755, type: 2}
 --- !u!1001 &8972464031449035560
 PrefabInstance:
   m_ObjectHideFlags: 0

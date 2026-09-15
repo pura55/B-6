@@ -23,6 +23,14 @@ public class Bullet : MonoBehaviour
     private bool hasHit = false;
     private bool isDamageArea = false;
 
+    [Header("DATA")]
+    [SerializeField] private PlayerProgressData playerProgressData; // プレイヤーのデータ
+
+    private void Start()
+    {
+        damage = playerProgressData.skillDmg; // スキルの攻撃力取得
+    }
+
     private void Update()
     {
         if (!isDamageArea)
@@ -86,8 +94,8 @@ public class Bullet : MonoBehaviour
             }
 
             // 最初の着弾ダメージ
-            EnemyDamaged health =
-                other.GetComponent<EnemyDamaged>();
+            EnemyHealth health =
+                other.GetComponent<EnemyHealth>();
 
             if (health != null)
             {

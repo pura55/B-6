@@ -29,7 +29,8 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         // データからHPを取得
-        myHp = playerProgressData.hp;
+        maxHP = playerProgressData.hp; // 最大値取得
+        myHp = maxHP;
 
         // HPバーの初期設定
         hpSlider.maxValue = maxHP;

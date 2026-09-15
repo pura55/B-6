@@ -12,10 +12,12 @@ public class BlinkAttack : MonoBehaviour
     [Header("Prefabの生存時間")]
     [SerializeField] private float lifeTime = 1f;
 
+    [Header("DATA")]
+    [SerializeField] private PlayerProgressData playerProgressData; // プレイヤーのデータ
+
     private Transform player;
     private Vector2 direction;
     private float blinkDistance;
-
 
     public void Setup(
         Transform playerTransform,
@@ -26,6 +28,8 @@ public class BlinkAttack : MonoBehaviour
         player = playerTransform;
         direction = moveDirection.normalized;
         blinkDistance = distance;
+
+        damage = playerProgressData.skillDmg; // スキルの攻撃力取得
 
         // ブリンク実行
         Blink();
@@ -67,8 +71,8 @@ public class BlinkAttack : MonoBehaviour
 
         foreach (Collider2D hit in enemies)
         {
-            EnemyDamaged enemy =
-                hit.GetComponent<EnemyDamaged>();
+            EnemyHealth enemy =
+                hit.GetComponent<EnemyHealth>();
 
             if (enemy != null)
             {

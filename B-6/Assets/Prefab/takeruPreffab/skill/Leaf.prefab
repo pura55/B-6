@@ -187,6 +187,7 @@ MonoBehaviour:
   damage: 1
   startScale: 0.5
   endScale: 4
+  playerProgressData: {fileID: 11400000, guid: 21bc494655974a942b8c7c1b843e8755, type: 2}
 --- !u!1001 &4475682652226384683
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -14876,6 +14876,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WaterWave
   damage: 1
   knockBackPower: 3
+  playerProgressData: {fileID: 11400000, guid: 21bc494655974a942b8c7c1b843e8755, type: 2}
 --- !u!1 &5617208917762771658
 GameObject:
   m_ObjectHideFlags: 0

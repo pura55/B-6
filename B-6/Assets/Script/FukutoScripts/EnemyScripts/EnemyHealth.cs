@@ -45,7 +45,7 @@ public class EnemyHealth : MonoBehaviour
         // マネージャーの死亡フラグがtrueの時これ以降の処理を行わない
         if (nomalEnemyManager.GetIsDead()) return;
 
-        // ダメージ分体力を減少指せる
+        // ダメージ分体力を減少させる
         enemyHp -= dmg;
         Debug.Log("敵のHP : " + enemyHp);
 

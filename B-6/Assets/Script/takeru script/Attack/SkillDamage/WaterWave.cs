@@ -8,6 +8,9 @@ public class WaterWave : MonoBehaviour
     [Header("ノックバック")]
     [SerializeField] private float knockBackPower = 3f;
 
+    [Header("DATA")]
+    [SerializeField] private PlayerProgressData playerProgressData; // プレイヤーのデータ
+
     private Transform player;
 
     private Vector2 direction;
@@ -35,6 +38,8 @@ public class WaterWave : MonoBehaviour
         waterRange = range;
 
         spawnTime = Time.time;
+
+        damage = playerProgressData.skillDmg; // スキルの攻撃力取得
     }
 
     private void Update()
@@ -81,8 +86,8 @@ public class WaterWave : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             // ダメージ
-            EnemyDamaged health =
-                other.GetComponent<EnemyDamaged>();
+            EnemyHealth health =
+                other.GetComponent<EnemyHealth>();
 
             if (health != null)
             {

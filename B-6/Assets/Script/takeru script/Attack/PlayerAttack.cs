@@ -33,12 +33,15 @@ public class PlayerAttack : MonoBehaviour
     private ID1Sprite playerAnimation;
     private SpriteRenderer spriteRenderer;
 
-    private HashSet<EnemyDamaged> hitEnemies = new HashSet<EnemyDamaged>();
+    private HashSet<EnemyHealth> hitEnemies = new HashSet<EnemyHealth>();
+
+    [SerializeField] private PlayerProgressData playerProgressData; // プレイヤーのデータ
 
     void Start()
     {
         playerAnimation = GetComponent<ID1Sprite>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        Attack = playerProgressData.atkDmg; // 攻撃力取得
     }
 
     void Update()
@@ -146,8 +149,8 @@ public class PlayerAttack : MonoBehaviour
 
         foreach (Collider2D target in targets)
         {
-            EnemyDamaged enemy =
-                target.GetComponent<EnemyDamaged>();
+            EnemyHealth enemy =
+                target.GetComponent<EnemyHealth>();
 
             if (enemy == null)
                 continue;
