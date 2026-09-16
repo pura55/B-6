@@ -151,6 +151,7 @@ MonoBehaviour:
   iconImage: {fileID: 6021240483284437520}
   levelText: {fileID: 620618693774261524}
   newText: {fileID: 5991957524633310740}
+  selectCharacterID: {fileID: 11400000, guid: 35c8f64e5d1110e4fb7e84256b81fbd4, type: 2}
 --- !u!1 &805383706308115932
 GameObject:
   m_ObjectHideFlags: 0
@@ -651,6 +652,7 @@ MonoBehaviour:
   iconImage: {fileID: 179527028456940701}
   levelText: {fileID: 2966434620008475223}
   newText: {fileID: 4672271345612322782}
+  selectCharacterID: {fileID: 11400000, guid: 35c8f64e5d1110e4fb7e84256b81fbd4, type: 2}
 --- !u!1 &2330690685688527065
 GameObject:
   m_ObjectHideFlags: 0
@@ -877,6 +879,7 @@ MonoBehaviour:
   iconImage: {fileID: 6777221934532621276}
   levelText: {fileID: 8295242034740356520}
   newText: {fileID: 1170032637656610436}
+  selectCharacterID: {fileID: 11400000, guid: 35c8f64e5d1110e4fb7e84256b81fbd4, type: 2}
 --- !u!1 &3449571084020833822
 GameObject:
   m_ObjectHideFlags: 0

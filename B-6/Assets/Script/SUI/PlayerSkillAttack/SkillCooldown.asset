@@ -15,7 +15,11 @@ MonoBehaviour:
   type: 0
   skillName: "\u30B9\u30AD\u30EBCT\u77ED\u7E2E"
   description: "\u30B9\u30AD\u30EB\u306E\u30AF\u30FC\u30EB\u30BF\u30A4\u30E0\u304C\u77ED\u7E2E"
-  icon: {fileID: -8501244660689541876, guid: b68152081eddf3b42b7eb0cea5099f82, type: 3}
+  icon: {fileID: 0}
+  character1Icon: {fileID: -8501244660689541876, guid: b68152081eddf3b42b7eb0cea5099f82, type: 3}
+  character2Icon: {fileID: 7497647586719572481, guid: fe7eef7a33df31641888d1e1f2497994, type: 3}
+  character3Icon: {fileID: 5782740038757681189, guid: 41c79c188e4f4ee4a94b1c28d392f553, type: 3}
+  character4Icon: {fileID: 0}
   level1: 2
   level2: 3
   level3: 5

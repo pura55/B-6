@@ -11,6 +11,12 @@ public class SkillData : ScriptableObject
 
     public Sprite icon;
 
+    // キャラクターごとのアイコン
+    public Sprite character1Icon;
+    public Sprite character2Icon;
+    public Sprite character3Icon;
+    public Sprite character4Icon;
+
     // Lv1, Lv2, Lv3 の値
     public float level1;
     public float level2;
