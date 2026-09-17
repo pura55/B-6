@@ -19,7 +19,7 @@ MonoBehaviour:
   character1Icon: {fileID: -7330434965188265971, guid: eb73c8eafc02a124abc347260ae47bd3, type: 3}
   character2Icon: {fileID: -3373629425359835486, guid: 571935b9b921cd944b1218c358b191c8, type: 3}
   character3Icon: {fileID: -1326908871480253505, guid: 9c57687267258b94bbf8743ae13f6040, type: 3}
-  character4Icon: {fileID: 0}
+  character4Icon: {fileID: -5294677425871963363, guid: ef2ed305facbc3b4883cf54a1784ade1, type: 3}
   level1: 2
   level2: 5
   level3: 10
