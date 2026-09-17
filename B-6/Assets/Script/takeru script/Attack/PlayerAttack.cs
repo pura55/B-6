@@ -136,14 +136,22 @@ public class PlayerAttack : MonoBehaviour
             return;
         }
 
-        Vector2 attackPos =
-            (Vector2)transform.position
-            + swordDirection * attackRange;
+        // プレイヤーの位置から攻撃範囲の先端まで判定
+        Vector2 attackStart = transform.position;
 
+        Vector2 attackEnd =
+            attackStart + swordDirection * attackRange;
+
+        // 中間地点
+        Vector2 attackPos =
+            (attackStart + attackEnd) / 2f;
+
+        // 0距離～attackRangeまで長い四角形で判定
         Collider2D[] targets =
-            Physics2D.OverlapCircleAll(
+            Physics2D.OverlapBoxAll(
                 attackPos,
-                0.5f,
+                new Vector2(attackRange, 1.0f),
+                currentAngle,
                 enemyLayer
             );
 
