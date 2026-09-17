@@ -1,0 +1,90 @@
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class CharaSkillManager : MonoBehaviour
+{
+    [SerializeField] private SkillID1 skillID1;
+    [SerializeField] private SkillID2 skillID2;
+    [SerializeField] private SkillID3 skillID3;
+    [SerializeField] private SkillID4 skillID4;
+
+    [Header("スキル発動エフェクト")]
+    [SerializeField] private GameObject skillEffect1;
+    [SerializeField] private GameObject skillEffect2;
+    [SerializeField] private GameObject skillEffect3;
+    [SerializeField] private GameObject skillEffect4;
+
+    [SerializeField] private float effectLifeTime = 1f;
+
+    [Header("DATA")]
+    [SerializeField] private PlayerProgressData playerProgressData; // プレイヤーのデータ
+
+    private ID1Sprite playerAnimation;
+
+    private int characterID = 1;// キャラクターのID
+
+    void Start()
+    {
+        playerAnimation = GetComponent<ID1Sprite>();
+
+        characterID = playerProgressData.id; // ID取得
+    }
+
+    void Update()
+    {
+        if (Keyboard.current == null)
+            return;
+
+        if (Keyboard.current.qKey.wasPressedThisFrame)
+        {
+            UseSkill();
+        }
+    }
+
+    void UseSkill()
+    {
+        playerAnimation.ChangeState(ID1Sprite.PlayerAnimState.Skill);
+
+        switch (characterID)
+        {
+            case 1:
+                PlaySkillEffect(skillEffect1);
+                skillID1.UseSkill();
+                break;
+
+            case 2:
+                PlaySkillEffect(skillEffect2);
+                skillID2.UseSkill();
+                break;
+
+            case 3:
+                PlaySkillEffect(skillEffect3);
+                skillID3.UseSkill();
+                break;
+
+            case 4:
+                PlaySkillEffect(skillEffect4);
+                skillID4.UseSkill();
+                break;
+
+            default:
+                Debug.LogWarning("キャラが選択されていません");
+                break;
+        }
+    }
+
+    void PlaySkillEffect(GameObject effectPrefab)
+    {
+        if (effectPrefab == null)
+            return;
+
+        GameObject effect = Instantiate(
+            effectPrefab,
+            transform.position,
+            Quaternion.identity,
+            transform
+        );
+
+        Destroy(effect, effectLifeTime);
+    }
+}
