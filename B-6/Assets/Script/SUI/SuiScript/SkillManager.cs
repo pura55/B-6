@@ -153,7 +153,7 @@ public class SkillManager : MonoBehaviour
 
                 if (procount != null)
                 {
-                    procount.amount -= (int)value;
+                    procount.amount += (int)value;
                     Debug.Log("ƒXƒLƒ‹‚Ì’e‚Ì” + " + value);
                 }
                 else
