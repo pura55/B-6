@@ -1,6 +1,5 @@
 {
-    "enemies":
-    [
+    "enemies": [
         {
             "id": 1,
             "hp": 20,
@@ -79,7 +78,7 @@
             "atkDmg": 15,
             "atkCT": 1.2,
             "skillDmg": 10,
-            "skillCT": 10.0,
+            "skillCT": 10,
             "speed": 0.5
         },
         {
@@ -88,18 +87,17 @@
             "atkDmg": 10,
             "atkCT": 1.2,
             "skillDmg": 15,
-            "skillCT": 10.0,
+            "skillCT": 10,
             "speed": 0.5
         },
         {
             "id": 11,
             "hp": 500,
             "atkDmg": 20,
-            "atkCT": 1.0,
+            "atkCT": 1,
             "skillDmg": 30,
-            "skillCT": 8.0,
-            "speed": 1
+            "skillCT": 8,
+            "speed": 0.5
         }
-
     ]
 }

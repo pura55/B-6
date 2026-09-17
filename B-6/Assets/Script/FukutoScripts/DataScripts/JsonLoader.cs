@@ -25,7 +25,7 @@ public class JsonLoader : MonoBehaviour
     private void LoadPlayerData()
     {
         // テキストアセットとして読み込み
-        TextAsset textAsset = Resources.Load<TextAsset>("Json/player_data");
+        TextAsset textAsset = Resources.Load<TextAsset>("Json/player/player_data");
 
         // アセットがnullではない場合に実行
         if(textAsset != null)
@@ -49,7 +49,7 @@ public class JsonLoader : MonoBehaviour
     /// @brief エネミーのデータをロードする関数
     private void LoadEnemyData()
     {
-        TextAsset textAsset = Resources.Load<TextAsset>("Json/enemy_data");
+        TextAsset textAsset = Resources.Load<TextAsset>("Json/enemy/enemy_data");
 
         // アセットがnullではない場合に実行
         if (textAsset != null)
