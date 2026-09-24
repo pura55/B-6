@@ -20,6 +20,7 @@ public class CharaSkillManager : MonoBehaviour
     [SerializeField] private PlayerProgressData playerProgressData;
 
     private ID1Sprite playerAnimation;
+    private PlayerHealth playerHealth;
 
     private int characterID = 1;
 
@@ -27,6 +28,9 @@ public class CharaSkillManager : MonoBehaviour
     void Start()
     {
         playerAnimation = GetComponent<ID1Sprite>();
+
+        // PlayerHealth取得
+        playerHealth = GetComponent<PlayerHealth>();
 
         if (playerProgressData != null)
         {
@@ -43,8 +47,19 @@ public class CharaSkillManager : MonoBehaviour
 
     void Update()
     {
+        // =========================
+        // 死亡中はスキル使用不可
+        // =========================
+        if (playerHealth != null &&
+            playerHealth.IsDead)
+        {
+            return;
+        }
+
+
         if (Keyboard.current == null)
             return;
+
 
         if (Keyboard.current.qKey.wasPressedThisFrame)
         {
@@ -61,45 +76,69 @@ public class CharaSkillManager : MonoBehaviour
 
         switch (characterID)
         {
+            // =========================
+            // キャラ1
+            // =========================
             case 1:
 
                 if (skillID1 != null)
                 {
-                    skillUsed = skillID1.UseSkill();
-                    effectPrefab = skillEffect1;
+                    skillUsed =
+                        skillID1.UseSkill();
+
+                    effectPrefab =
+                        skillEffect1;
                 }
 
                 break;
 
 
+            // =========================
+            // キャラ2
+            // =========================
             case 2:
 
                 if (skillID2 != null)
                 {
-                    skillUsed = skillID2.UseSkill();
-                    effectPrefab = skillEffect2;
+                    skillUsed =
+                        skillID2.UseSkill();
+
+                    effectPrefab =
+                        skillEffect2;
                 }
 
                 break;
 
 
+            // =========================
+            // キャラ3
+            // =========================
             case 3:
 
                 if (skillID3 != null)
                 {
-                    skillUsed = skillID3.UseSkill();
-                    effectPrefab = skillEffect3;
+                    skillUsed =
+                        skillID3.UseSkill();
+
+                    effectPrefab =
+                        skillEffect3;
                 }
 
                 break;
 
 
+            // =========================
+            // キャラ4
+            // =========================
             case 4:
 
                 if (skillID4 != null)
                 {
-                    skillUsed = skillID4.UseSkill();
-                    effectPrefab = skillEffect4;
+                    skillUsed =
+                        skillID4.UseSkill();
+
+                    effectPrefab =
+                        skillEffect4;
                 }
 
                 break;
@@ -115,12 +154,18 @@ public class CharaSkillManager : MonoBehaviour
         }
 
 
-        // スキルが実際に発動できなかった
+        // =========================
+        // 発動失敗
+        // =========================
+
         if (!skillUsed)
             return;
 
 
+        // =========================
         // スキルアニメーション
+        // =========================
+
         if (playerAnimation != null)
         {
             playerAnimation.ChangeState(
@@ -129,22 +174,32 @@ public class CharaSkillManager : MonoBehaviour
         }
 
 
+        // =========================
         // 発動エフェクト
-        PlaySkillEffect(effectPrefab);
+        // =========================
+
+        PlaySkillEffect(
+            effectPrefab
+        );
     }
 
 
-    void PlaySkillEffect(GameObject effectPrefab)
+    void PlaySkillEffect(
+        GameObject effectPrefab
+    )
     {
         if (effectPrefab == null)
             return;
 
-        GameObject effect = Instantiate(
-            effectPrefab,
-            transform.position,
-            Quaternion.identity,
-            transform
-        );
+
+        GameObject effect =
+            Instantiate(
+                effectPrefab,
+                transform.position,
+                Quaternion.identity,
+                transform
+            );
+
 
         Destroy(
             effect,

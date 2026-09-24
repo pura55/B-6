@@ -5,53 +5,75 @@ using UnityEngine.UI;
 
 /// <summary>
 /// プレイヤーヘルス
-/// 
-/// プレイヤーの体力クラス
 /// </summary>
 public class PlayerHealth : MonoBehaviour
 {
     #region Config
-    public float maxHP = 5; //最大HP
-    private float myHp; // HP
-    public float respawnTime = 5.0f;//リスポーン時間
-    public int killHeal = 0;// キルヒール
+
+    public float maxHP = 5;
+    private float myHp;
+
+    public float respawnTime = 5.0f;
+    public int killHeal = 0;
+
     #endregion
 
+
     #region State
-    [SerializeField] private PlayerProgressData playerProgressData; // プレイヤーのデータ
+
+    [SerializeField] private PlayerProgressData playerProgressData;
     [SerializeField] private Slider hpSlider;
+
     #endregion
+
 
     private ID1Sprite playerAnimation;
     private Vector3 startPosition;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    // 死亡中かどうか
+    public bool IsDead { get; private set; } = false;
+
+
     void Start()
     {
-        // データからHPを取得
-        maxHP = playerProgressData.hp; // 最大値取得
+        // データから最大HP取得
+        maxHP = playerProgressData.hp;
+
+        // 最大HPで開始
         myHp = maxHP;
 
-        // HPバーの初期設定
+        // HPバー
         hpSlider.maxValue = maxHP;
         hpSlider.value = myHp;
 
+        // アニメーション
         playerAnimation = GetComponent<ID1Sprite>();
 
+        // 初期位置保存
         startPosition = transform.position;
+
+        IsDead = false;
     }
 
-    // Update is called once per frame
+
     void Update()
     {
+        // 死亡中はデバッグ入力も受け付けない
+        if (IsDead)
+            return;
+
+
+        // デバッグ：Lキーで1ダメージ
         if (Keyboard.current != null &&
-       Keyboard.current.lKey.wasPressedThisFrame)
+            Keyboard.current.lKey.wasPressedThisFrame)
         {
             Debug.Log("Lキー押した");
+
             ReceiveDamage(1);
         }
 
-        // デバッグ用：Pキーで即死
+
+        // デバッグ：Pキーで即死
         if (Keyboard.current != null &&
             Keyboard.current.pKey.wasPressedThisFrame)
         {
@@ -59,77 +81,155 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    /// @brief 被ダメージ処理を行う関数
+
+    /// <summary>
+    /// ダメージ処理
+    /// </summary>
     public void ReceiveDamage(float dmg)
     {
+        // 死亡中はダメージを受けない
+        if (IsDead)
+            return;
+
+
         myHp -= dmg;
+
+
+        // HPがマイナスにならないようにする
+        if (myHp < 0)
+        {
+            myHp = 0;
+        }
+
 
         // HPバー更新
         hpSlider.value = myHp;
 
+
+        // 死亡
         if (myHp <= 0)
         {
-            playerAnimation.ChangeState(ID1Sprite.PlayerAnimState.Death);
-            StartCoroutine(RespawnCoroutine());
+            Die();
         }
         else
         {
-            playerAnimation.ChangeState(ID1Sprite.PlayerAnimState.TakeHit);
+            // 被ダメージアニメーション
+            playerAnimation.ChangeState(
+                ID1Sprite.PlayerAnimState.TakeHit
+            );
         }
     }
 
-    /// @brief 生死を判定するフラグ
+
+    /// <summary>
+    /// 死亡処理
+    /// </summary>
+    private void Die()
+    {
+        // すでに死亡していたら何もしない
+        if (IsDead)
+            return;
+
+
+        IsDead = true;
+
+
+        // 死亡アニメーション
+        playerAnimation.ChangeState(
+            ID1Sprite.PlayerAnimState.Death
+        );
+
+
+        Debug.Log(
+            "<color=red>プレイヤー死亡</color>"
+        );
+
+
+        // リスポーン開始
+        StartCoroutine(
+            RespawnCoroutine()
+        );
+    }
+
+
+    /// <summary>
+    /// 生きているか
+    /// </summary>
     public bool IsAlive()
     {
-        // hpが0だったらfalse
-        if (myHp <= 0)
-            return false;
-        else
-            return true;
+        return !IsDead;
     }
 
-    // リスポーン処理
+
+    /// <summary>
+    /// リスポーン待機
+    /// </summary>
     private IEnumerator RespawnCoroutine()
     {
-        yield return new WaitForSeconds(respawnTime);
+        yield return new WaitForSeconds(
+            respawnTime
+        );
 
         Respawn();
     }
 
-    //プレイヤーをリスポーンさせる
+
+    /// <summary>
+    /// リスポーン
+    /// </summary>
     public void Respawn()
     {
-        // 初期位置に戻す
+        // 初期位置へ戻す
         transform.position = startPosition;
 
-        // 現在の最大HPまで回復
+
+        // HP全回復
         myHp = maxHP;
 
+
+        // HPバー更新
         hpSlider.value = myHp;
 
-        // HPを初期値に戻す
-        //myHp = playerProgressData.hp;
-        //↑これがあると、初期値に戻したときに最大HPが反映されなくなる
+
+        // 生存状態に戻す
+        IsDead = false;
+
+
+        Debug.Log(
+            "<color=green>プレイヤーリスポーン</color>"
+        );
     }
 
-    // 敵を倒したときの回復
+
+    /// <summary>
+    /// 敵を倒したときの回復
+    /// </summary>
     public void KillHeal()
     {
+        // 死亡中は回復しない
+        if (IsDead)
+            return;
+
+
         if (killHeal <= 0)
             return;
 
+
         myHp += killHeal;
 
-        // 最大HPを超えないようにする
+
+        // 最大HPを超えない
         if (myHp > maxHP)
         {
             myHp = maxHP;
         }
 
+
         hpSlider.value = myHp;
 
-        Debug.Log("キルヒール！ HP +" + killHeal);
+
+        Debug.Log(
+            "キルヒール！ HP +" + killHeal
+        );
     }
-
 }
-

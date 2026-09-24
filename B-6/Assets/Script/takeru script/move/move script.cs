@@ -10,6 +10,7 @@ public class MoveScript : MonoBehaviour
     private ID1Sprite playerAnimation;
     private SpriteRenderer spriteRenderer;
     private PlayerAttack playerAttack;
+    private PlayerHealth playerHealth;
 
     public bool IsMoving()
     {
@@ -21,11 +22,20 @@ public class MoveScript : MonoBehaviour
         playerAnimation = GetComponent<ID1Sprite>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerAttack = GetComponent<PlayerAttack>();
+        playerHealth = GetComponent<PlayerHealth>();
     }
 
     void Update()
     {
         move = Vector2.zero;
+
+        // =========================
+        // €–S’†‚ÍˆÚ“®ˆ—‚ğ‚µ‚È‚¢
+        // =========================
+        if (playerHealth != null && playerHealth.IsDead)
+        {
+            return;
+        }
 
         if (Keyboard.current == null)
             return;
