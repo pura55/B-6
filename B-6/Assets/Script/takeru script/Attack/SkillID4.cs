@@ -12,27 +12,26 @@ public class SkillID4 : MonoBehaviour
     [Header("スキルストック")]
     [SerializeField] private SkillStock skillStock;
 
-    public void UseSkill()
+    public bool UseSkill()
     {
         if (skillStock == null)
         {
             Debug.LogWarning("SkillStockが設定されていません");
-            return;
+            return false;
         }
 
         if (blinkAttackPrefab == null)
         {
             Debug.LogWarning("BlinkAttack Prefabが設定されていません");
-            return;
+            return false;
         }
 
         if (Mouse.current == null || Camera.main == null)
-            return;
+            return false;
 
         if (!skillStock.UseStock())
-            return;
+            return false;
 
-        // マウス位置を取得
         Vector3 mousePos =
             Mouse.current.position.ReadValue();
 
@@ -44,32 +43,38 @@ public class SkillID4 : MonoBehaviour
 
         worldPos.z = 0f;
 
-        // プレイヤーからマウス方向
         Vector2 direction =
             (worldPos - transform.position).normalized;
 
-        // BlinkAttack Prefab生成
         GameObject blinkAttack = Instantiate(
             blinkAttackPrefab,
             transform.position,
             Quaternion.identity
         );
 
-        // Prefab側のBlinkAttack取得
         BlinkAttack blink =
             blinkAttack.GetComponent<BlinkAttack>();
 
-        if (blink != null)
+        if (blink == null)
         {
-            blink.Setup(
-                transform,
-                direction,
-                blinkDistance
+            Debug.LogWarning(
+                "BlinkAttack PrefabにBlinkAttack.csがありません"
             );
+
+            Destroy(blinkAttack);
+            return false;
         }
+
+        blink.Setup(
+            transform,
+            direction,
+            blinkDistance
+        );
 
         Debug.Log(
             "<color=purple>【ID4 ブリンクスキル発動】</color>"
         );
+
+        return true;
     }
 }
