@@ -33,15 +33,21 @@ public class SelectAnimation : MonoBehaviour
     private const float timePerSprite = 0.1f; // 1スプライト当たりの時間
     private int spriteIndex = 0; // スプライトの指数
 
-    private Image image; // 画像
+    private bool isCharacterUnlocked = false; // キャラクターのアンロックフラグ
+
+    private Image charaImage; // キャラの画像
+    private Image locked; // ロックの画像
     private RectTransform rectTransform; // レクトトランスフォーム
     public CharacterSprites[] charactersSprites; // キャラクタースプライトの配列
+    [SerializeField] private SelectCharacterID selectCharacterID; // キャラ選択の情報を持つSO
     #endregion
 
     void Start()
     {
+        isCharacterUnlocked = selectCharacterID.canSelected;
         rectTransform = GetComponent<RectTransform>();
-        image = GetComponent<Image>();
+        charaImage = GetComponent<Image>();
+        locked = transform.GetChild(0).GetComponent<Image>();
         LoadSprite();
     }
 
@@ -75,7 +81,7 @@ public class SelectAnimation : MonoBehaviour
     private  void IdleAnimation()
     {
         ManageFrame(charactersSprites[characterID].size);
-        image.sprite = charactersSprites[characterID].idleSprites[spriteIndex];
+        charaImage.sprite = charactersSprites[characterID].idleSprites[spriteIndex];
     }
 
     /// @brief アニメーションのフレーム管理を行う関数
@@ -115,6 +121,17 @@ public class SelectAnimation : MonoBehaviour
         // 上限を設定
         if (maxID < characterID) characterID = maxID;
 
+        if(characterID == maxID)
+        {
+            // キャラがアンロックされていない場合
+            if(!isCharacterUnlocked && locked != null)
+            {
+                locked.enabled = true;
+                charaImage.color = new Color32(128, 128, 128, 255);
+                ;
+            }
+        }
+
         // トランスフォームを変更
         ChangeTransform();
     }
@@ -128,6 +145,13 @@ public class SelectAnimation : MonoBehaviour
 
         // 下限を設定
         if (characterID < 0) characterID = 0;
+
+        // ロック画像が表示されている場合
+        if (locked.enabled)
+        {
+            locked.enabled = false;
+            charaImage.color = new Color32(255, 255, 255, 255);
+        }
 
         // トランスフォームを変更
         ChangeTransform();

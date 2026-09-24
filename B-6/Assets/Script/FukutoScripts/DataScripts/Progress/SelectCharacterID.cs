@@ -9,6 +9,7 @@ using UnityEngine;
 public class SelectCharacterID : ScriptableObject
 {
     public int id = 1;         // ID番号
+    public bool canSelected = false; // 隠しキャラクターを選択可能かどうか
 
     /// @brief IDを取得する関数
     public int GetSelectID() { return id; }
