@@ -96,7 +96,7 @@ public class TowerHealth : MonoBehaviour
         // Šâ‚ÉG‚ê‚½
         if (collision.gameObject.CompareTag("Rock"))
         {
-            TakeDamage(5);
+            TakeDamage(50);
             Debug.Log("Rock‚©‚ç5ƒ_ƒ[ƒW");
 
             Destroy(collision.gameObject); // Šâ‚ğÁ‚·
