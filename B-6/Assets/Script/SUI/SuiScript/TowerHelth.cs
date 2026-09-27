@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TowerHealth : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class TowerHealth : MonoBehaviour
 
     // 赤のダメージバー
     public Slider damageSlider;
+
+    // GameOverの文字
+    public GameObject gameOverText;
 
     // 赤バーのアニメーション用
     private Coroutine damageCoroutine;
@@ -31,6 +35,12 @@ public class TowerHealth : MonoBehaviour
         // 初期値を最大HPにする
         hpSlider.value = maxHp;
         damageSlider.value = maxHp;
+
+        // GameOverを最初は非表示
+        gameOverText.SetActive(false);
+
+        // ゲームの時間を通常に戻す
+        Time.timeScale = 1f;
     }
 
     // ダメージ処理
@@ -38,6 +48,7 @@ public class TowerHealth : MonoBehaviour
     {
         // HPを減らす
         currentHp -= damage;
+
         Debug.Log(damage + "ダメージ");
 
         // 0未満にならないようにする
@@ -67,6 +78,15 @@ public class TowerHealth : MonoBehaviour
                 damageCoroutine = null;
             }
 
+            // GameOverを表示
+            gameOverText.SetActive(true);
+
+            // ゲームを停止
+            Time.timeScale = 0f;
+
+            // 3秒後にタイトルへ
+            StartCoroutine(GoToTitle());
+
             Debug.Log("ゲームオーバー！");
         }
 
@@ -87,7 +107,20 @@ public class TowerHealth : MonoBehaviour
 
                 yield return null;
             }
-        }  
+        }
+    }
+
+    // 3秒後にタイトルへ移動
+    IEnumerator GoToTitle()
+    {
+        // Time.timeScale = 0でも進む時間
+        yield return new WaitForSecondsRealtime(3f);
+
+        // 時間を元に戻す
+        Time.timeScale = 1f;
+
+        // タイトルシーンへ移動
+        SceneManager.LoadScene("TitleScene");
     }
 
     // 衝突した瞬間に呼ばれる
@@ -97,9 +130,11 @@ public class TowerHealth : MonoBehaviour
         if (collision.gameObject.CompareTag("Rock"))
         {
             TakeDamage(50);
-            Debug.Log("Rockから5ダメージ");
 
-            Destroy(collision.gameObject); // 岩を消す
+            Debug.Log("Rockから50ダメージ");
+
+            // 岩を消す
+            Destroy(collision.gameObject);
         }
     }
 }
