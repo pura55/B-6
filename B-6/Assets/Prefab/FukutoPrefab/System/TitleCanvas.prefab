@@ -3161,7 +3161,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -200}
+  m_AnchoredPosition: {x: 0, y: -300}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8870376084455580847
@@ -3438,7 +3438,7 @@ RectTransform:
   m_GameObject: {fileID: 8511848623700680096}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6369420327049117980}
@@ -3446,7 +3446,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -390, y: 250}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6973412443810264718
@@ -3501,6 +3501,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SelectAnimation
   charactersSprites: []
   selectCharacterID: {fileID: 11400000, guid: 35c8f64e5d1110e4fb7e84256b81fbd4, type: 2}
+  changeExplanation: {fileID: 8325497976670456711}
 --- !u!1 &8978106028581312456
 GameObject:
   m_ObjectHideFlags: 0
@@ -3512,6 +3513,7 @@ GameObject:
   - component: {fileID: 419781384755140112}
   - component: {fileID: 4078321392555476222}
   - component: {fileID: 4904041371149533027}
+  - component: {fileID: 8325497976670456711}
   m_Layer: 5
   m_Name: SelectionFrame
   m_TagString: Untagged
@@ -3528,15 +3530,15 @@ RectTransform:
   m_GameObject: {fileID: 8978106028581312456}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3658822680184907118}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 721, y: 509}
+  m_AnchoredPosition: {x: 0, y: 100}
+  m_SizeDelta: {x: 1950, y: 975}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4078321392555476222
 CanvasRenderer:
@@ -3566,7 +3568,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1a5d8785d80a4ee42a2a4c8632436dc0, type: 3}
+  m_Sprite: {fileID: -1994308387801738110, guid: dfa001d3e4a314c48b658bdc9b3363b9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3576,6 +3578,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8325497976670456711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8978106028581312456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c8e24e659f3df64084a1dbb9023fda4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChangeExplanation
 --- !u!1 &9163138046676969815
 GameObject:
   m_ObjectHideFlags: 0

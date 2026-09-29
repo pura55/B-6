@@ -18,16 +18,20 @@ public class SelectAnimation : MonoBehaviour
         public int size;
     }
 
-    #region State
-    private string spritePlayerBasePass = "Player/ID_"; // プレイヤーの基本スプライトパス
-    private string spriteIdlePass = "/Idle"; // 待機パス
-
+    #region Config
     private const int maxID = 3; // IDの最大値
     private int characterID = 0; // CharacterSpriteの配列を管理するために使用する為、最小値は0
 
-    private Vector3 secondCharacterPosition = new Vector3(0f, 50f, 0f); // 2キャラ目の座標
-    private Vector3 secondCharacterScale = new Vector3(2.5f, 2.5f, 1f); // 2キャラ目のスケール
-    private Vector3 otherCharacterScale = new Vector3(4f, 4f, 1f); // それ以外のキャラクタースケール
+    private Vector3 characterPosition = new Vector3(-390f, 250f, 0f); // キャラクターの座標
+    private Vector3 secondCharacterOffset = new Vector3(0, 60f, 0f); // 2キャラ目の座標のずれ
+    private Vector3 thirdCharacterOffset = new Vector3(-20f, 0f, 0f); // 3キャラ目の座標のずれ
+    private Vector3 secondCharacterScale = new Vector3(3.5f, 3.5f, 1f); // 2キャラ目のスケール
+    private Vector3 otherCharacterScale = new Vector3(5f, 5f, 1f); // それ以外のキャラクタースケール
+    #endregion
+
+    #region State
+    private string spritePlayerBasePass = "Player/ID_"; // プレイヤーの基本スプライトパス
+    private string spriteIdlePass = "/Idle"; // 待機パス
 
     private float currentTime = 0f; // 現在のフレーム(スプライト)の時間
     private const float timePerSprite = 0.1f; // 1スプライト当たりの時間
@@ -40,6 +44,7 @@ public class SelectAnimation : MonoBehaviour
     private RectTransform rectTransform; // レクトトランスフォーム
     public CharacterSprites[] charactersSprites; // キャラクタースプライトの配列
     [SerializeField] private SelectCharacterID selectCharacterID; // キャラ選択の情報を持つSO
+    [SerializeField] private ChangeExplanation changeExplanation; // 説明を変更するクラス
     #endregion
 
     void Start()
@@ -160,17 +165,29 @@ public class SelectAnimation : MonoBehaviour
     /// @brief トランスフォームを変更する関数
     private void ChangeTransform()
     {
-        // 2キャラ目が大きいためスケール変更
-        if (characterID != 1)
+        // キャラごとに変更
+        switch(characterID)
         {
-            rectTransform.localScale = otherCharacterScale;
-            rectTransform.localPosition = Vector3.zero;
+            case 0:
+                rectTransform.localScale = otherCharacterScale;
+                rectTransform.localPosition = characterPosition;
+                break;
+            case 1:
+                rectTransform.localScale = secondCharacterScale;
+                rectTransform.localPosition = characterPosition + secondCharacterOffset;
+                break;
+            case 2:
+                rectTransform.localScale = otherCharacterScale;
+                rectTransform.localPosition = characterPosition + thirdCharacterOffset;
+                break;
+            case 3:
+                rectTransform.localScale = otherCharacterScale;
+                rectTransform.localPosition = characterPosition;
+                break;
         }
-        else
-        {
-            rectTransform.localScale = secondCharacterScale;
-            rectTransform.localPosition = secondCharacterPosition;
-        }
+
+        // 説明のスプライトを変更
+        changeExplanation.ChangeSprite(characterID);
     }
 
     /// @brief キャラクターのIDを取得する関数
