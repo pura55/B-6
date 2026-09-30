@@ -7,7 +7,7 @@ public class SkillManager : MonoBehaviour
     [Header("テスト用")]
     public SkillData testSkill;
 
-    [Header("参照")]
+[Header("参照")]
     [SerializeField] private PlayerAttack playerAttack;
     //[SerializeField] private PlayerAttack attackTime;
     //[SerializeField] private PlayerAttack criticalRate;
@@ -15,7 +15,7 @@ public class SkillManager : MonoBehaviour
     [SerializeField] private PlayerExp expItem;
     [SerializeField] private WallSkill wall;
     [SerializeField] private PlayerHealth maxhpup;
-    [SerializeField] private Bullet skillpower;
+    [SerializeField] private PlayerProgressData playerProgressData;
     [SerializeField] private SkillID1 skillct;
     [SerializeField] private SkillStock procount;
 
@@ -32,7 +32,10 @@ public class SkillManager : MonoBehaviour
         if (Keyboard.current != null &&
             Keyboard.current.lKey.wasPressedThisFrame)
         {
-            LevelUp(testSkill);
+            if (testSkill != null)
+            {
+                LevelUp(testSkill);
+            }
         }
     }
 
@@ -53,6 +56,12 @@ public class SkillManager : MonoBehaviour
     // レベルアップ処理
     public void LevelUp(SkillData data)
     {
+        if (data == null)
+        {
+            Debug.LogError("SkillData が設定されていません！");
+            return;
+        }
+
         int currentLevel = GetLevel(data.type);
 
         if (currentLevel >= 3)
@@ -179,14 +188,14 @@ public class SkillManager : MonoBehaviour
 
             case SkillType.SkillPower:
 
-                if (skillpower != null)
+                if (playerProgressData != null)
                 {
-                    skillpower.damage += (int)value;
+                    playerProgressData.skillDmg += (int)value;
                     Debug.Log("スキル威力 +" + value);
                 }
                 else
                 {
-                    Debug.LogError("skillpower が設定されていません！");
+                    Debug.LogError("PlayerProgressData が設定されていません！");
                 }
 
                 break;
@@ -253,4 +262,5 @@ public class SkillManager : MonoBehaviour
                 break;
         }
     }
+
 }
