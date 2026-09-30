@@ -8,15 +8,20 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     #region Config
-    protected int enemyHp =5; // 敵のHP
-    [SerializeField] protected int enemyID = 0;
+    private int enemyHp =5; // 敵のHP
+    [SerializeField] private int enemyID = 0;
     #endregion
 
     #region State
-    protected bool isHitRock = false;
-    protected string hpStatName = "HP"; // ステータスの名前
-    [SerializeField] protected EnemyProgressData enemyProgressData; // 敵のデータ
-    protected NomalEnemyManager nomalEnemyManager; // エネミーマネージャー
+    private bool isHitRock = false;
+    private string hpStatName = "HP"; // ステータスの名前
+    [SerializeField] private EnemyProgressData enemyProgressData; // 敵のデータ
+
+    [Header("ENEMY TYPE")]
+    [SerializeField] private bool onNomalEnemy = true; // 通常の敵かどうかのフラグ
+    [SerializeField] private bool onBoss = false; // ボスかどうかのフラグ
+    private NomalEnemyManager nomalEnemyManager; // エネミーマネージャー
+    private MidBossManager midBossManager; // 中ボス（ボス）のマネージャー
     #endregion
 
     void Start()
@@ -33,14 +38,35 @@ public class EnemyHealth : MonoBehaviour
     }
 
     /// @brief 変数の初期化を行う関数
-    protected void InitValue()
+    private void InitValue()
     {
         enemyHp = enemyProgressData.GetIntStat(enemyID, hpStatName);
-        nomalEnemyManager = gameObject.GetComponent<NomalEnemyManager>();
+
+        if(onNomalEnemy)
+        {
+            nomalEnemyManager = gameObject.GetComponent<NomalEnemyManager>();
+        }
+        else if(onBoss)
+        {
+            midBossManager = gameObject.GetComponent<MidBossManager>();
+        }
     }
 
     /// @brief 被ダメージ処理を行う関数
     public void ReceiveDamage(int dmg)
+    {
+        if (onNomalEnemy)
+        {
+            NomalEnemyReceive(dmg);
+        }
+        else if (onBoss)
+        {
+            BossReceive(dmg);
+        }
+    }
+
+    /// @brief 普通の敵の被ダメージ処理を行う関数
+    private void NomalEnemyReceive(int dmg)
     {
         // マネージャーの死亡フラグがtrueの時これ以降の処理を行わない
         if (nomalEnemyManager.GetIsDead()) return;
@@ -65,32 +91,40 @@ public class EnemyHealth : MonoBehaviour
             // 死亡フラグをtrue
             nomalEnemyManager.SetIsDead();
             nomalEnemyManager.SetTakeHit();
+        }
+    }
 
-            // =========================
-            // Boss撃破でゲームクリア
-            // =========================
-            if (enemyID == 11)
-            {
-                GameClearManager gameClearManager =
-                    FindFirstObjectByType<GameClearManager>();
+    /// @brief ボスの被ダメージ処理を行う関数
+    private void BossReceive(int dmg)
+    {
+        // マネージャーの死亡フラグがtrueの時これ以降の処理を行わない
+        if (midBossManager.GetIsDead()) return;
 
-                if (gameClearManager != null)
-                {
-                    gameClearManager.GameClear();
-                }
-                else
-                {
-                    Debug.LogWarning(
-                        "GameClearManagerがシーンにありません"
-                    );
-                }
-            }
+        // ダメージ分体力を減少させる
+        enemyHp -= dmg;
+        Debug.Log("敵のHP : " + enemyHp);
+
+        // 0未満の場合0に設定
+        if (enemyHp < 0)
+        {
+            enemyHp = 0;
         }
 
+        // 生きている場合
+        if (IsAlive())
+        {
+            midBossManager.SetTakeHit();
+        }
+        else // 死んでいる場合
+        {
+            // 死亡フラグをtrue
+            midBossManager.SetIsDead();
+            midBossManager.SetTakeHit();
+        }
     }
 
     /// @brief 生死を判定するフラグ
-    protected bool IsAlive()
+    private bool IsAlive()
     {
         // hpが0より大きい場合
         if (enemyHp > 0) return true;
@@ -98,7 +132,7 @@ public class EnemyHealth : MonoBehaviour
             
     }
 
-    /// @brief isHitRockを返す関数
+    /// @brief 岩に当たったかどうかのフラグを返す関数
     public bool GetHitRock()
     {
         return isHitRock;

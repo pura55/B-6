@@ -7,6 +7,9 @@ using UnityEngine;
 /// </summary>
 public class MidBossManager : NomalEnemyManager
 {
+    #region Config
+    [SerializeField] private int bossID; // ボスのID番号
+    #endregion
 
     #region State
     [Header("SKILL")]
@@ -219,16 +222,45 @@ public class MidBossManager : NomalEnemyManager
 
         if (FinishedDeathAnimation())
         {
+            // クリア判定
+            ProcessClearCondition();
             // 死亡アニメーションが終了したら削除
             DeathProcess();
+            return;
         }
     }
 
+    /// @brief クリア判定を処理する関数
+    private void ProcessClearCondition()
+    {
+        //// =========================
+        //// Boss撃破でゲームクリア
+        //// =========================
+        if (bossID == 11)
+        {
+            GameClearManager gameClearManager =
+                FindFirstObjectByType<GameClearManager>();
+
+            if (gameClearManager != null)
+            {
+                gameClearManager.GameClear();
+            }
+            else
+            {
+                Debug.LogWarning(
+                    "GameClearManagerがシーンにありません"
+                );
+            }
+        }
+    }
+
+    /// @brief プレイヤーから攻撃を受けた際をヒットフラグ設定する関数
     protected override void BossHit()
     {
         bossMove.SetIsHit(true);
     }
 
+    /// @brief スキルのアニメーションを設定する関数
     protected void SetSkillAnimation()
     {
         if (onMidBossAnimation) midBossAnimation.SetSkill();
