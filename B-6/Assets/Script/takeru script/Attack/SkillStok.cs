@@ -93,4 +93,22 @@ public class SkillStock : MonoBehaviour
     {
         return maxStock;
     }
+
+    public float GetCoolTimeRate()
+    {
+        if (currentStock >= maxStock)
+            return 0f;
+
+        if (coolTime <= 0f)
+            return 0f;
+
+        return Mathf.Clamp01(
+            1f - (coolTimer / coolTime)
+        );
+    }
+
+    public bool IsCoolTime()
+    {
+        return currentStock < maxStock;
+    }
 }

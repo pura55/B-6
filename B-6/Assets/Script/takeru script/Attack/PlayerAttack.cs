@@ -32,20 +32,45 @@ public class PlayerAttack : MonoBehaviour
 
     private ID1Sprite playerAnimation;
     private SpriteRenderer spriteRenderer;
+    private PlayerHealth playerHealth;
 
-    private HashSet<EnemyHealth> hitEnemies = new HashSet<EnemyHealth>();
+    private HashSet<EnemyHealth> hitEnemies =
+        new HashSet<EnemyHealth>();
 
-    [SerializeField] private PlayerProgressData playerProgressData; // ƒvƒŒƒCƒ„[‚Ìƒf[ƒ^
+    [SerializeField]
+    private PlayerProgressData playerProgressData;
+
 
     void Start()
     {
         playerAnimation = GetComponent<ID1Sprite>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        Attack = playerProgressData.atkDmg; // UŒ‚—Íæ“¾
+        playerHealth = GetComponent<PlayerHealth>();
+
+        Attack = playerProgressData.atkDmg;
     }
+
 
     void Update()
     {
+        // =========================
+        // €–S’†
+        // =========================
+        if (playerHealth != null && playerHealth.IsDead)
+        {
+            // UŒ‚“r’†‚Å€‚ñ‚¾ê‡‚àI—¹
+            if (isAttacking)
+            {
+                EndAttack();
+            }
+
+            return;
+        }
+
+
+        // =========================
+        // ’ÊíUŒ‚“ü—Í
+        // =========================
         if (Mouse.current != null &&
             Mouse.current.leftButton.wasPressedThisFrame &&
             !isAttacking)
@@ -53,44 +78,59 @@ public class PlayerAttack : MonoBehaviour
             StartAttack();
         }
 
+
+        // =========================
+        // UŒ‚ˆ—
+        // =========================
         if (isAttacking)
         {
             AttackMove();
         }
     }
 
+
     void StartAttack()
     {
         Debug.Log("y’ÊíUŒ‚ŠJnz");
 
-        playerAnimation.ChangeState(ID1Sprite.PlayerAnimState.Attack);
+        playerAnimation.ChangeState(
+            ID1Sprite.PlayerAnimState.Attack
+        );
 
         Vector3 mouseWorld =
-            Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+            Camera.main.ScreenToWorldPoint(
+                Mouse.current.position.ReadValue()
+            );
 
         mouseWorld.z = 0;
+
 
         // =========================
         // UŒ‚‚µ‚½•ûŒü‚ğŒü‚­
         // =========================
+
         if (mouseWorld.x < transform.position.x)
         {
-            // ¶Œü‚«
             spriteRenderer.flipX = true;
         }
         else
         {
-            // ‰EŒü‚«
             spriteRenderer.flipX = false;
         }
+
 
         attackDirection =
             (mouseWorld - transform.position).normalized;
 
+
         startAngle =
-            Mathf.Atan2(attackDirection.y, attackDirection.x)
+            Mathf.Atan2(
+                attackDirection.y,
+                attackDirection.x
+            )
             * Mathf.Rad2Deg
             - attackAngle / 2;
+
 
         currentAngle = startAngle;
 
@@ -101,11 +141,14 @@ public class PlayerAttack : MonoBehaviour
         isAttacking = true;
     }
 
+
     void AttackMove()
     {
         attackTimer += Time.deltaTime;
 
-        float progress = attackTimer / attackTime;
+        float progress =
+            attackTimer / attackTime;
+
 
         currentAngle =
             Mathf.Lerp(
@@ -114,12 +157,22 @@ public class PlayerAttack : MonoBehaviour
                 progress
             );
 
-        Vector2 swordDirection = new Vector2(
-            Mathf.Cos(currentAngle * Mathf.Deg2Rad),
-            Mathf.Sin(currentAngle * Mathf.Deg2Rad)
-        );
 
+        Vector2 swordDirection =
+            new Vector2(
+                Mathf.Cos(
+                    currentAngle * Mathf.Deg2Rad
+                ),
+                Mathf.Sin(
+                    currentAngle * Mathf.Deg2Rad
+                )
+            );
+
+
+        // =========================
         // •Çƒ`ƒFƒbƒN
+        // =========================
+
         RaycastHit2D wall =
             Physics2D.Raycast(
                 transform.position,
@@ -128,32 +181,51 @@ public class PlayerAttack : MonoBehaviour
                 wallLayer
             );
 
+
         if (wall.collider != null)
         {
-            Debug.Log("•Ç‚É“–‚½‚Á‚ÄUŒ‚’†’f");
+            Debug.Log(
+                "•Ç‚É“–‚½‚Á‚ÄUŒ‚’†’f"
+            );
 
             EndAttack();
+
             return;
         }
 
-        // ƒvƒŒƒCƒ„[‚ÌˆÊ’u‚©‚çUŒ‚”ÍˆÍ‚Ìæ’[‚Ü‚Å”»’è
-        Vector2 attackStart = transform.position;
+
+        // =========================
+        // UŒ‚”ÍˆÍ
+        // =========================
+
+        Vector2 attackStart =
+            transform.position;
+
 
         Vector2 attackEnd =
-            attackStart + swordDirection * attackRange;
+            attackStart
+            + swordDirection * attackRange;
 
-        // ’†ŠÔ’n“_
+
         Vector2 attackPos =
             (attackStart + attackEnd) / 2f;
 
-        // 0‹——£`attackRange‚Ü‚Å’·‚¢lŠpŒ`‚Å”»’è
+
         Collider2D[] targets =
             Physics2D.OverlapBoxAll(
                 attackPos,
-                new Vector2(attackRange, 1.0f),
+                new Vector2(
+                    attackRange,
+                    1.0f
+                ),
                 currentAngle,
                 enemyLayer
             );
+
+
+        // =========================
+        // ƒ_ƒ[ƒW
+        // =========================
 
         foreach (Collider2D target in targets)
         {
@@ -163,21 +235,27 @@ public class PlayerAttack : MonoBehaviour
             if (enemy == null)
                 continue;
 
+
             if (hitEnemies.Contains(enemy))
                 continue;
 
+
             hitEnemies.Add(enemy);
+
 
             bool isCritical =
                 Random.value <= criticalRate;
 
+
             int damage = Attack;
+
 
             if (isCritical)
             {
                 damage =
                     Mathf.RoundToInt(
-                        Attack * criticalDamageMultiplier
+                        Attack
+                        * criticalDamageMultiplier
                     );
 
                 Debug.Log(
@@ -191,8 +269,10 @@ public class PlayerAttack : MonoBehaviour
                 );
             }
 
+
             enemy.ReceiveDamage(damage);
         }
+
 
         if (progress >= 1)
         {
@@ -200,14 +280,18 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
+
     void EndAttack()
     {
         isAttacking = false;
 
+        hitEnemies.Clear();
+
         Debug.Log("y’ÊíUŒ‚I—¹z");
     }
 
-    // MoveScript‚©‚çUŒ‚’†‚©Šm”F‚·‚é
+
+    // MoveScript‚©‚çUŒ‚’†‚©Šm”F
     public bool IsAttacking()
     {
         return isAttacking;

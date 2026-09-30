@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db237bc38c9a1f5488d07e9b7097ed16, type: 3}
   m_Name: PlayerDataSO
   m_EditorClassIdentifier: Assembly-CSharp::PlayerProgressData
-  hp: 0
-  atkDmg: 0
-  atkCT: 0
+  id: 2
+  hp: 5
+  atkDmg: 5
+  atkCT: 1.2
   skillDmg: 0
   skillCT: 0
-  speed: 0
+  speed: 0.5

@@ -13,30 +13,29 @@ public class SkillID1 : MonoBehaviour
     [Header("スキルストック")]
     [SerializeField] private SkillStock skillStock;
 
-    public void UseSkill()
+    public bool UseSkill()
     {
-        // ストックが無ければ発動しない
         if (skillStock == null)
         {
             Debug.LogWarning("SkillStockが設定されていません");
-            return;
-        }
-
-        if (!skillStock.UseStock())
-        {
-            return;
+            return false;
         }
 
         if (bulletPrefab == null)
         {
             Debug.LogWarning("ID1のBullet Prefabが設定されていません");
-            return;
+            return false;
         }
 
         if (Mouse.current == null || Camera.main == null)
-            return;
+            return false;
 
-        Vector3 mousePos = Mouse.current.position.ReadValue();
+        // 実際に発動できるときだけストック消費
+        if (!skillStock.UseStock())
+            return false;
+
+        Vector3 mousePos =
+            Mouse.current.position.ReadValue();
 
         mousePos.z =
             -Camera.main.transform.position.z;
@@ -73,5 +72,7 @@ public class SkillID1 : MonoBehaviour
         Debug.Log(
             "<color=red>【ID1 スキル発動】</color>"
         );
+
+        return true;
     }
 }

@@ -13,31 +13,26 @@ public class SkillID2 : MonoBehaviour
     [Header("スキルストック")]
     [SerializeField] private SkillStock skillStock;
 
-    public void UseSkill()
+    public bool UseSkill()
     {
-        // ストック確認
         if (skillStock == null)
         {
             Debug.LogWarning("SkillStockが設定されていません");
-            return;
+            return false;
         }
 
-        if (!skillStock.UseStock())
-        {
-            return;
-        }
-
-        // Prefab確認
         if (wavePrefab == null)
         {
             Debug.LogWarning("ID2のWave Prefabが設定されていません");
-            return;
+            return false;
         }
 
         if (Mouse.current == null || Camera.main == null)
-            return;
+            return false;
 
-        // マウス位置
+        if (!skillStock.UseStock())
+            return false;
+
         Vector3 mousePos =
             Mouse.current.position.ReadValue();
 
@@ -49,23 +44,19 @@ public class SkillID2 : MonoBehaviour
 
         worldPos.z = 0f;
 
-        // 発射方向
         Vector2 direction =
             (worldPos - transform.position).normalized;
 
-        // 回転
         float angle =
             Mathf.Atan2(direction.y, direction.x)
             * Mathf.Rad2Deg;
 
-        // 波生成
         GameObject wave = Instantiate(
             wavePrefab,
             transform.position,
             Quaternion.Euler(0f, 0f, angle + 90f)
         );
 
-        // 波のスクリプトに設定を渡す
         WaterWave waterWave =
             wave.GetComponent<WaterWave>();
 
@@ -83,5 +74,7 @@ public class SkillID2 : MonoBehaviour
         Debug.Log(
             "<color=blue>【ID2 スキル発動】</color>"
         );
+
+        return true;
     }
 }

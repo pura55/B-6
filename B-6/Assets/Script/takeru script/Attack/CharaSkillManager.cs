@@ -17,23 +17,49 @@ public class CharaSkillManager : MonoBehaviour
     [SerializeField] private float effectLifeTime = 1f;
 
     [Header("DATA")]
-    [SerializeField] private PlayerProgressData playerProgressData; // プレイヤーのデータ
+    [SerializeField] private PlayerProgressData playerProgressData;
 
     private ID1Sprite playerAnimation;
+    private PlayerHealth playerHealth;
 
-    private int characterID = 1;// キャラクターのID
+    private int characterID = 1;
+
 
     void Start()
     {
         playerAnimation = GetComponent<ID1Sprite>();
 
-        characterID = playerProgressData.id; // ID取得
+        // PlayerHealth取得
+        playerHealth = GetComponent<PlayerHealth>();
+
+        if (playerProgressData != null)
+        {
+            characterID = playerProgressData.id;
+        }
+        else
+        {
+            Debug.LogWarning(
+                "PlayerProgressDataが設定されていません"
+            );
+        }
     }
+
 
     void Update()
     {
+        // =========================
+        // 死亡中はスキル使用不可
+        // =========================
+        if (playerHealth != null &&
+            playerHealth.IsDead)
+        {
+            return;
+        }
+
+
         if (Keyboard.current == null)
             return;
+
 
         if (Keyboard.current.qKey.wasPressedThisFrame)
         {
@@ -41,50 +67,143 @@ public class CharaSkillManager : MonoBehaviour
         }
     }
 
+
     void UseSkill()
     {
-        playerAnimation.ChangeState(ID1Sprite.PlayerAnimState.Skill);
+        bool skillUsed = false;
+        GameObject effectPrefab = null;
+
 
         switch (characterID)
         {
+            // =========================
+            // キャラ1
+            // =========================
             case 1:
-                PlaySkillEffect(skillEffect1);
-                skillID1.UseSkill();
+
+                if (skillID1 != null)
+                {
+                    skillUsed =
+                        skillID1.UseSkill();
+
+                    effectPrefab =
+                        skillEffect1;
+                }
+
                 break;
 
+
+            // =========================
+            // キャラ2
+            // =========================
             case 2:
-                PlaySkillEffect(skillEffect2);
-                skillID2.UseSkill();
+
+                if (skillID2 != null)
+                {
+                    skillUsed =
+                        skillID2.UseSkill();
+
+                    effectPrefab =
+                        skillEffect2;
+                }
+
                 break;
 
+
+            // =========================
+            // キャラ3
+            // =========================
             case 3:
-                PlaySkillEffect(skillEffect3);
-                skillID3.UseSkill();
+
+                if (skillID3 != null)
+                {
+                    skillUsed =
+                        skillID3.UseSkill();
+
+                    effectPrefab =
+                        skillEffect3;
+                }
+
                 break;
 
+
+            // =========================
+            // キャラ4
+            // =========================
             case 4:
-                PlaySkillEffect(skillEffect4);
-                skillID4.UseSkill();
+
+                if (skillID4 != null)
+                {
+                    skillUsed =
+                        skillID4.UseSkill();
+
+                    effectPrefab =
+                        skillEffect4;
+                }
+
                 break;
+
 
             default:
-                Debug.LogWarning("キャラが選択されていません");
-                break;
+
+                Debug.LogWarning(
+                    $"キャラID {characterID} が正しくありません"
+                );
+
+                return;
         }
+
+
+        // =========================
+        // 発動失敗
+        // =========================
+
+        if (!skillUsed)
+            return;
+
+
+        // =========================
+        // スキルアニメーション
+        // =========================
+
+        if (playerAnimation != null)
+        {
+            playerAnimation.ChangeState(
+                ID1Sprite.PlayerAnimState.Skill
+            );
+        }
+
+
+        // =========================
+        // 発動エフェクト
+        // =========================
+
+        PlaySkillEffect(
+            effectPrefab
+        );
     }
 
-    void PlaySkillEffect(GameObject effectPrefab)
+
+    void PlaySkillEffect(
+        GameObject effectPrefab
+    )
     {
         if (effectPrefab == null)
             return;
 
-        GameObject effect = Instantiate(
-            effectPrefab,
-            transform.position,
-            Quaternion.identity,
-            transform
-        );
 
-        Destroy(effect, effectLifeTime);
+        GameObject effect =
+            Instantiate(
+                effectPrefab,
+                transform.position,
+                Quaternion.identity,
+                transform
+            );
+
+
+        Destroy(
+            effect,
+            effectLifeTime
+        );
     }
 }
