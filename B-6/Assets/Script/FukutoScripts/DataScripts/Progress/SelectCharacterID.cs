@@ -11,6 +11,9 @@ public class SelectCharacterID : ScriptableObject
     public int id = 1;         // ID番号
     public bool canSelected = false; // 隠しキャラクターを選択可能かどうか
 
+    /// @brief 選択可能かどうかのフラグを返す関数
+    public bool GetCanSelected() {  return canSelected; }
+
     /// @brief IDを取得する関数
     public int GetSelectID() { return id; }
 

@@ -133,7 +133,6 @@ public class SelectAnimation : MonoBehaviour
             {
                 locked.enabled = true;
                 charaImage.color = new Color32(128, 128, 128, 255);
-                ;
             }
         }
 

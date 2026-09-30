@@ -9,9 +9,12 @@ using UnityEngine.UI;
 public class ChangeExplanation : MonoBehaviour
 {
     #region State
-    private Image explanationImage; // キャラの画像
+    private Image explanationImage; // 説明の画像
+    private Image hideImage; // 説明隠しの画像
     private Sprite[] explanationSprites; // 説明スプライトの配列
-    private string explanationPass = "title/GUI/character_explanation_"; // 説明画像のパス
+    private string explanationPass = "Title/GUI/Explanation/character_explanation_"; // 説明画像のパス
+    private const int explanationNum = 4; // 説明枚数
+    [SerializeField] private SelectCharacterID selectCharacterID; // 選択キャラIDを管理するSO
     #endregion
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -20,16 +23,17 @@ public class ChangeExplanation : MonoBehaviour
         LoadExplanationSprites();
 
         explanationImage = GetComponent<Image>();
+        hideImage = transform.GetChild(0).GetComponent<Image>();
     }
 
     /// @brief 説明スプライトをロードする関数
     private void LoadExplanationSprites()
     {
         // 配列のサイズを取得
-        explanationSprites = new Sprite[4];
+        explanationSprites = new Sprite[explanationNum];
 
         // 順番に配列に代入
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < explanationNum; i++)
         {
             int id = i + 1;
 
@@ -46,5 +50,17 @@ public class ChangeExplanation : MonoBehaviour
     public void ChangeSprite(int element)
     {
         explanationImage.sprite = explanationSprites[element];
+
+        int characterId = element + 1; // キャラクターのＩＤ
+
+        // 説明枚数の最大値が隠すプレイヤーの最大値であるため使用する
+        if(characterId == explanationNum　&& !selectCharacterID.GetCanSelected())
+        {
+            hideImage.enabled = true;
+        }
+        else
+        {
+            hideImage.enabled = false;
+        }
     }
 }

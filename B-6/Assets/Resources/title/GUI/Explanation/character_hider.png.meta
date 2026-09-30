@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4cdef25f0e0ce6640aa1b5c6deebd79c
+guid: e8ff805d1f84f2f4a8f4077b3b808e6b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8588915517019245136
-    second: character_explanation_3_0
+      213: -2923075063012055062
+    second: character_hider_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,17 +96,43 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: character_explanation_3_0
+      name: character_hider_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1950
-        height: 975
+        width: 864
+        height: 553
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0b53a32e7da0ec880800000000000000
-      internalID: -8588915517019245136
+      spriteID: ae72d51a7b62f67d0800000000000000
+      internalID: -2923075063012055062
       vertices: []
       indices: 
       edges: []
@@ -135,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      character_explanation_3_0: -8588915517019245136
+      character_hider_0: -2923075063012055062
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
