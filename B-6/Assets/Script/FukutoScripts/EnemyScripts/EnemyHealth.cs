@@ -59,14 +59,34 @@ public class EnemyHealth : MonoBehaviour
         if (IsAlive())
         {
             nomalEnemyManager.SetTakeHit();
-        } 
+        }
         else // 死んでいる場合
         {
             // 死亡フラグをtrue
             nomalEnemyManager.SetIsDead();
             nomalEnemyManager.SetTakeHit();
+
+            // =========================
+            // Boss撃破でゲームクリア
+            // =========================
+            if (enemyID == 11)
+            {
+                GameClearManager gameClearManager =
+                    FindFirstObjectByType<GameClearManager>();
+
+                if (gameClearManager != null)
+                {
+                    gameClearManager.GameClear();
+                }
+                else
+                {
+                    Debug.LogWarning(
+                        "GameClearManagerがシーンにありません"
+                    );
+                }
+            }
         }
-            
+
     }
 
     /// @brief 生死を判定するフラグ
