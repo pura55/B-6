@@ -37,7 +37,7 @@ public abstract class BaseEnemySpawner : MonoBehaviour
         // このスクリプトが付いているオブジェクトの位置を基準にする
         Vector3 spawnPosition = transform.position + new Vector3(randomX, randomY, spawnZ);
 
-        return Instantiate(enemies[id - 1], spawnPosition, Quaternion.identity);
+        return Instantiate(enemies[id -1], spawnPosition, Quaternion.identity);
     }
 
     /// @brief ゲームスタートの待機時間を計算してフラグを返す関数

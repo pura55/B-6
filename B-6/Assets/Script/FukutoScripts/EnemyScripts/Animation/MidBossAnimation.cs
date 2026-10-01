@@ -81,6 +81,12 @@ public class MidBossAnimation : IncludeMovementAnimation
                 break;
         }
 
+        // 揺らす演出をするためコサインを使用
+        float loopTime = Time.time * loopSpeed;
+        effectWave = Mathf.Cos(loopTime) * waveSize;
+
+        transform.position = new Vector3(transform.position.x + effectWave, transform.position.y, transform.position.z);
+
         SelectFripSprite();
     }
 
