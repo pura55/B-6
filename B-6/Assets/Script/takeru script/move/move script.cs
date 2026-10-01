@@ -106,7 +106,7 @@ public class MoveScript : MonoBehaviour
         pos.y = Mathf.Clamp(
             pos.y,
             camPos.y - halfHeight + marginY,
-            camPos.y + halfHeight - marginY
+            camPos.y + halfHeight - marginY - 1.5f
         );
 
         transform.position = pos;
