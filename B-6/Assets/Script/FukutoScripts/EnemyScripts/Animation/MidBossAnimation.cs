@@ -10,10 +10,17 @@ using UnityEngine.U2D;
 public class MidBossAnimation : IncludeMovementAnimation
 {
     #region Config
+    /// @brief スキルのチャージの設定値
     [Header("CHARGE")]
     [SerializeField] private bool isCharge = false; // チャージフラグ（スキルでチャージをするかどうか）
     [SerializeField] private int stopSpriteIndex = 1; // 停止するスプライトの指数
     [SerializeField] private float chargeTime = 3f; // 溜めの時間（目標）
+    [SerializeField] private float deathEffectTime = 2f; // 死亡時の演出時間
+
+    /// @brief 波エフェクトの設定値
+    [Header("WAVE EFFECT")]
+    [SerializeField] private float loopSpeed = 75f; // ループ速度
+    [SerializeField] private float waveSize = 0.01f; // 波の大きさ
     #endregion
 
     #region State
@@ -22,6 +29,11 @@ public class MidBossAnimation : IncludeMovementAnimation
     protected string skillSpriteName = "SKILL";   // スキルスプライト名
 
     private float chargeCount = 0f; // 溜めのカウント
+
+    private bool dethEffectFinished = false; // 死亡時エフェクトの終了フラグ
+    private const int deathEffectSprite = 1; // 死亡時の演出を出すスプライト
+    private float deathEffectCount = 0f; // 死亡時演出のカウント
+    private float effectWave = 0f; // エフェクトの波
     #endregion
 
     void Start()
@@ -57,7 +69,15 @@ public class MidBossAnimation : IncludeMovementAnimation
                 HitAnimation();
                 break;
             case AnimationState.death:
-                DeathAnimation();
+                if(spriteIndex == deathEffectSprite && dethEffectFinished)
+                {
+                    // 死亡エフェクトを処理
+                    DeathEffect();
+                }
+                else
+                {
+                    DeathAnimation();
+                }
                 break;
         }
 
@@ -134,6 +154,29 @@ public class MidBossAnimation : IncludeMovementAnimation
                 // フレームをリセット
                 currentTime = 0f;
             }
+        }
+    }
+
+    /// @brief 死亡時の演出を行う関数
+    private void DeathEffect()
+    {
+        // 演出時間を超えたら
+        if(deathEffectTime <= deathEffectCount)
+        {
+            dethEffectFinished = true;
+            return;
+        }
+        else
+        {
+            // 揺らす演出をするためコサインを使用
+            float loopTime = Time.time * loopSpeed;
+            effectWave = Mathf.Cos(loopTime) * waveSize;
+
+            transform.position = new Vector3(transform.position.x + effectWave, transform.position.y, transform.position.z);
+
+            // 演出時間を進める
+            deathEffectCount += Time.deltaTime;
+            return;
         }
     }
 
