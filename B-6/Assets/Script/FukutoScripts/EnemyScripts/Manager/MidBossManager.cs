@@ -69,6 +69,11 @@ public class MidBossManager : NomalEnemyManager
     /// @brief 待機状態関数
     protected override void Idle()
     {
+        if (TransitionDead())
+        {
+            return;
+        }
+
         // 移動不可
         SetStopMovement(true);
 
@@ -103,6 +108,11 @@ public class MidBossManager : NomalEnemyManager
     /// @brief 移動状態関数
     protected override void Move()
     {
+        if (TransitionDead())
+        {
+            return;
+        }
+
         // 移動可能
         SetStopMovement(false);
 
@@ -123,6 +133,11 @@ public class MidBossManager : NomalEnemyManager
     /// @brief 攻撃状態関数
     protected override void Attack()
     {
+        if (TransitionDead())
+        {
+            return;
+        }
+
         // 移動不可
         SetStopMovement(true);
 
@@ -161,6 +176,11 @@ public class MidBossManager : NomalEnemyManager
     /// @brief スキル状態関数
     protected void Skill()
     {
+        if (TransitionDead())
+        {
+            return;
+        }
+
         // 移動不可
         SetStopMovement(true);
 
@@ -200,6 +220,11 @@ public class MidBossManager : NomalEnemyManager
     /// @brief 被ダメージ状態関数
     protected override void Hit()
     {
+        if (TransitionDead())
+        {
+            return;
+        }
+
         // 移動不可
         SetStopMovement(true);
 

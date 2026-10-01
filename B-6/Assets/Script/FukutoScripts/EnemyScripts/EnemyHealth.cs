@@ -90,7 +90,6 @@ public class EnemyHealth : MonoBehaviour
         {
             // 死亡フラグをtrue
             nomalEnemyManager.SetIsDead();
-            nomalEnemyManager.SetTakeHit();
         }
     }
 
@@ -119,7 +118,6 @@ public class EnemyHealth : MonoBehaviour
         {
             // 死亡フラグをtrue
             midBossManager.SetIsDead();
-            midBossManager.SetTakeHit();
         }
     }
 

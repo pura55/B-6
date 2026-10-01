@@ -54,6 +54,10 @@ public class NomalEnemyManager : BaseEnemyManager
     /// @brief ‘Ò‹@ó‘ÔŠÖ”
     protected override void Idle()
     {
+        if(TransitionDead())
+        {
+            return;
+        }
         // ˆÚ“®•s‰Â
         SetStopMovement(true);
 
@@ -84,6 +88,11 @@ public class NomalEnemyManager : BaseEnemyManager
     /// @brief ˆÚ“®ó‘ÔŠÖ”
     protected override void Move()
     {
+        if (TransitionDead())
+        {
+            return;
+        }
+
         // ˆÚ“®‰Â”\
         SetStopMovement(false);
 
@@ -107,6 +116,11 @@ public class NomalEnemyManager : BaseEnemyManager
     /// @brief UŒ‚ó‘ÔŠÖ”
     protected override void Attack()
     {
+        if (TransitionDead())
+        {
+            return;
+        }
+
         // ˆÚ“®•s‰Â
         SetStopMovement(true);
 
@@ -138,6 +152,11 @@ public class NomalEnemyManager : BaseEnemyManager
     /// @brief ”íƒ_ƒ[ƒWó‘ÔŠÖ”
     protected override void Hit()
     {
+        if (TransitionDead())
+        {
+            return;
+        }
+
         // ˆÚ“®•s‰Â
         SetStopMovement(true);
 
@@ -150,13 +169,13 @@ public class NomalEnemyManager : BaseEnemyManager
 
         if(FinishedEventAnimation())
         {
-            if(isDead)
+            if (TransitionDead())
             {
-                TransitionDead();
                 return;
             }
             // ‘Ò‹@‚Ö‚Ì‘JˆÚˆ—
             TransitionIdle();
+            return;
         }
     }
 
@@ -208,18 +227,26 @@ public class NomalEnemyManager : BaseEnemyManager
         // —Î‚ÉÕ“Ë‚µ‚Ä‚¢‚½‚ç€–S‚Ö
         if (GetHitRock())
         {
-            TransitionDead();
+            if (TransitionDead())
+            {
+                return;
+            }
         }
     }
 
     /// @brief €–S‚Ö‚Ì‘JˆÚˆ—‚ğs‚¤ŠÖ”
-    protected void TransitionDead()
+    protected bool TransitionDead()
     {
-        Debug.Log("Dead‚É‘JˆÚ‚µ‚Ü‚·");
+        if(!isDead)
+        {
+            return false;
+        }
+
+        //Debug.Log("Dead‚É‘JˆÚ‚µ‚Ü‚·");
         enemyState = EnemyState.Dead;
         ResetAnimation();
         SetDeathAnimation();
-        return;
+        return true;
     }
 
     protected bool GetHitRock()
