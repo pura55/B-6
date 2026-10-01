@@ -7,16 +7,42 @@ using UnityEngine;
 /// </summary>
 public class EnemySpawnerManager : MonoBehaviour
 {
+    /// <summary>
+    /// 敵のID
+    /// </summary>
+    private enum EnemyID
+    { 
+        MID_BOSS_FIRST = 9,
+        MID_BOSS_SECOND = 10,
+        BOSS = 11
+    }
+
+    /// <summary>
+    /// ウェーブ
+    /// </summary>
+    private enum GameWave
+    {
+        FIRST = 1,
+        SECOND,
+        THIRD
+    }
+
     #region Config
     [SerializeField] private GameTimer gameTimer; // ゲームタイマー
     [SerializeField] private int waveInterval = 3; // ウェーブ間隔（分）
     [SerializeField] private GameObject Tower; // タワー
+
+    [SerializeField] private int upWaveID = 3; // ウェーブ間で繰り上げるID
     #endregion
 
     #region State
     private int waveCount = 1; // ウェーブカウント
     private int previousWave = 0; // １フレーム処理前のウェーブ（敵を設定する為に使用する）
+    private const int lastWaveEnemies = 8; // 最後のウェーブ時の敵の数
+    private const int otherWaveEnemies = 3; // その他のウェーブの敵の数
+
     private int[] spawnEnemiesID = null; // 出現する敵
+    private int baseUpID = 1; // 基本的なIDの繰り上げ値
     private int spawnBossID = 0; // 出現するboss
     #endregion
 
@@ -35,17 +61,16 @@ public class EnemySpawnerManager : MonoBehaviour
     /// brief@ ウェーブを変更する関数
     private void ChangeWave()
     {
-        if (waveInterval * 2 <= gameTimer.GetGameTimeM())
+        if (waveInterval * (int)GameWave.SECOND <= gameTimer.GetGameTimeM())
         {
-            waveCount = 3;
+            waveCount = (int)GameWave.THIRD;
             SetSpawnID();
         }
         else if (waveInterval <= gameTimer.GetGameTimeM())
         {
-            waveCount = 2;
+            waveCount = (int)GameWave.SECOND;
             SetSpawnID();
-        }
-        
+        }      
     }
 
     /// brief@ スポーンする敵のIDをセットする関数
@@ -55,32 +80,41 @@ public class EnemySpawnerManager : MonoBehaviour
         {
             switch (waveCount)
             {
-                case 1:
-                    spawnEnemiesID = new int[3];
-                    for (int i = 0; i < 3; i++)
+                case (int)GameWave.FIRST:
+                    spawnEnemiesID = new int[otherWaveEnemies];
+                    for (int i = 0; i < otherWaveEnemies; i++)
                     {
-                        spawnEnemiesID[i] = i + 1;
+                        int enemyID = i + baseUpID;
+                        spawnEnemiesID[i] = enemyID; 
                     }
                     previousWave = waveCount; // ウェーブを設定
                     break;
-                case 2:
-                    spawnEnemiesID = new int[3];
-                    for (int i = 0; i < 3; i++)
+
+                case (int)GameWave.SECOND:
+                    spawnEnemiesID = new int[otherWaveEnemies];
+                    for (int i = 0; i < otherWaveEnemies; i++)
                     {
-                        spawnEnemiesID[i] = i + 4;
+                        int enemyID = i + baseUpID + upWaveID;
+                        spawnEnemiesID[i] = enemyID;
                     }
 
-                    spawnBossID = 11;
+                    // idに変換するためキャストする
+                    int randomBoss = Random.Range((int)EnemyID.MID_BOSS_FIRST, (int)EnemyID.MID_BOSS_SECOND);
+                    spawnBossID =  randomBoss;
 
                     previousWave = waveCount; // ウェーブを設定
                     break;
-                case 3:
-                    spawnEnemiesID = new int[8];
-                    for (int i = 0; i < 8; i++)
+
+                case (int)GameWave.THIRD:
+                    spawnEnemiesID = new int[lastWaveEnemies];
+                    for (int i = 0; i < lastWaveEnemies; i++)
                     {
-                        spawnEnemiesID[i] = i + 1;
+                        spawnEnemiesID[i] = i + baseUpID;
                     }
-                    spawnBossID = 9;
+
+                    // idに変換するためキャストする
+                    EnemyID boss = EnemyID.BOSS;
+                    spawnBossID = (int)boss;
 
                     previousWave = waveCount; // ウェーブを設定
                     break;
