@@ -7,7 +7,7 @@ public class SkillManager : MonoBehaviour
     [Header("テスト用")]
     public SkillData testSkill;
 
-[Header("参照")]
+    [Header("参照")]
     [SerializeField] private PlayerAttack playerAttack;
     //[SerializeField] private PlayerAttack attackTime;
     //[SerializeField] private PlayerAttack criticalRate;
@@ -16,9 +16,11 @@ public class SkillManager : MonoBehaviour
     [SerializeField] private WallSkill wall;
     [SerializeField] private PlayerHealth maxhpup;
     [SerializeField] private PlayerProgressData playerProgressData;
-    [SerializeField] private SkillID1 skillct;
     [SerializeField] private SkillStock procount;
-
+    [SerializeField] private SkillID1 skillID1;
+    [SerializeField] private SkillID2 skillID2;
+    [SerializeField] private SkillID3 skillID3;
+    [SerializeField] private SkillID3 skillID4;
 
 
 
@@ -160,23 +162,36 @@ public class SkillManager : MonoBehaviour
             //PlayerSkillattack
             case SkillType.ProjectileCount:
 
-                if (procount != null)
+                if (skillID1 != null)
                 {
-                    procount.amount += (int)value;
-                    Debug.Log("スキルの弾の数 + " + value);
+                    skillID1.AddBulletCount((int)value);
                 }
-                else
+
+                if (skillID2 != null)
                 {
-                    Debug.LogError("procount が設定されていません！");
+                    skillID2.AddBulletCount((int)value);
                 }
+
+                if (skillID3 != null)
+                {
+                    skillID3.AddBulletCount((int)value);
+                }
+
+                if (skillID4 != null)
+                {
+                    skillID4.AddBulletCount((int)value);
+                }
+
+                Debug.Log("スキルの弾の数 + " + value);
 
                 break;
 
+
             case SkillType.SkillCooldown:
 
-                if (skillct != null)
+                if (playerProgressData != null)
                 {
-                    skillct.CT -= value;
+                    playerProgressData.skillCT -= value;
                     Debug.Log("スキルクールタイム -" + value);
                 }
                 else

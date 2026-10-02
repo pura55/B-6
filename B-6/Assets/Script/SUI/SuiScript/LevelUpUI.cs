@@ -1,5 +1,7 @@
 using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
+
 
 public class LevelUpUI : MonoBehaviour
 {
@@ -13,6 +15,8 @@ public class LevelUpUI : MonoBehaviour
 
     private PlayerExp playerExp;
     private SkillManager skillManager;
+
+    private bool canSelect = false;
 
     // Startより先に呼ばれる
     private void Awake()
@@ -34,6 +38,9 @@ public class LevelUpUI : MonoBehaviour
 
         gameObject.SetActive(true);
 
+        //操作不可
+        canSelect = false;
+
         // ゲーム停止
         Time.timeScale = 0f;
 
@@ -44,7 +51,21 @@ public class LevelUpUI : MonoBehaviour
         SetupCard(card1, candidates, 0);
         SetupCard(card2, candidates, 1);
         SetupCard(card3, candidates, 2);
+
+        //1秒後に操作可能
+        StartCoroutine(EnableSelectAfterDelay());
     }
+
+    // 1秒たってから操作可能
+    private IEnumerator EnableSelectAfterDelay()
+    {
+        yield return new WaitForSecondsRealtime(3f);
+
+        canSelect = true;
+
+        Debug.Log("レベルアップ操作可能");
+    }
+
 
     // カード設定
     private void SetupCard(
@@ -112,6 +133,14 @@ public class LevelUpUI : MonoBehaviour
     // カード選択
     public void SelectSkill(SkillData data)
     {
+        //1秒経過前なら操作を受け付けないようにする
+        if (!canSelect)
+        {
+            Debug.Log("まだ選択できません");
+            return;
+        }
+
+
         // 実際にレベルアップ
         skillManager.LevelUp(data);
 

@@ -10,8 +10,21 @@ public class SkillID2 : MonoBehaviour
     [SerializeField] private float lifeTime = 10f;
     [SerializeField] private float waterRange = 8f;
 
+    //スキルの弾数
+    [SerializeField] private int bulletCount = 1;
+
     [Header("スキルストック")]
     [SerializeField] private SkillStock skillStock;
+
+    //弾数を増やす
+    public void AddBulletCount(int value)
+    {
+        bulletCount += value;
+
+        Debug.Log(
+            $"<color=cyan>キャラ2 スキル弾数アップ！</color> {bulletCount}発"
+        );
+    }
 
     public bool UseSkill()
     {
@@ -51,25 +64,57 @@ public class SkillID2 : MonoBehaviour
             Mathf.Atan2(direction.y, direction.x)
             * Mathf.Rad2Deg;
 
-        GameObject wave = Instantiate(
-            wavePrefab,
-            transform.position,
-            Quaternion.Euler(0f, 0f, angle + 90f)
-        );
 
-        WaterWave waterWave =
-            wave.GetComponent<WaterWave>();
-
-        if (waterWave != null)
+        //弾数分だけWaveを生成
+        for (int i = 0; i < bulletCount; i++)
         {
-            waterWave.Setup(
-                transform,
-                direction,
-                speed,
-                lifeTime,
-                waterRange
+            float offsetAngle = 0f;
+
+            //複数発なら扇状にする
+            if (bulletCount > 1)
+            {
+                float totalSpread = 30f;
+
+                offsetAngle =
+                    Mathf.Lerp(
+                        -totalSpread / 2f,
+                        totalSpread / 2f,
+                        (float)i / (bulletCount - 1)
+                    );
+            }
+
+            Vector2 waveDirection =
+                Quaternion.Euler(
+                    0f,
+                    0f,
+                    offsetAngle
+                ) * direction;
+
+            GameObject wave = Instantiate(
+                wavePrefab,
+                transform.position,
+                Quaternion.Euler(
+                    0f,
+                    0f,
+                    angle + offsetAngle + 90f
+                )
             );
+
+            WaterWave waterWave =
+                wave.GetComponent<WaterWave>();
+
+            if (waterWave != null)
+            {
+                waterWave.Setup(
+                    transform,
+                    waveDirection,
+                    speed,
+                    lifeTime,
+                    waterRange
+                );
+            }
         }
+
 
         Debug.Log(
             "<color=blue>【ID2 スキル発動】</color>"

@@ -187,6 +187,26 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5897684408298460439, guid: 14883e23418c85e4394056e178880ef4, type: 3}
+      propertyPath: skillID1
+      value: 
+      objectReference: {fileID: 287856125}
+    - target: {fileID: 5897684408298460439, guid: 14883e23418c85e4394056e178880ef4, type: 3}
+      propertyPath: skillID2
+      value: 
+      objectReference: {fileID: 287856126}
+    - target: {fileID: 5897684408298460439, guid: 14883e23418c85e4394056e178880ef4, type: 3}
+      propertyPath: skillID3
+      value: 
+      objectReference: {fileID: 287856127}
+    - target: {fileID: 5897684408298460439, guid: 14883e23418c85e4394056e178880ef4, type: 3}
+      propertyPath: skillID4
+      value: 
+      objectReference: {fileID: 287856127}
+    - target: {fileID: 5897684408298460439, guid: 14883e23418c85e4394056e178880ef4, type: 3}
+      propertyPath: testSkill
+      value: 
+      objectReference: {fileID: 11400000, guid: 95a9283cee8cbf64581f15c1a3d3276e, type: 2}
     - target: {fileID: 8625270275550186405, guid: 14883e23418c85e4394056e178880ef4, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -197,6 +217,39 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14883e23418c85e4394056e178880ef4, type: 3}
+--- !u!114 &287856125 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 36713674713860928, guid: 14883e23418c85e4394056e178880ef4, type: 3}
+  m_PrefabInstance: {fileID: 287856124}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 207a64b790c093949973d6dc186a00e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkillID1
+--- !u!114 &287856126 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4643201713659467375, guid: 14883e23418c85e4394056e178880ef4, type: 3}
+  m_PrefabInstance: {fileID: 287856124}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448f07b4548f2d044b51f6bb24243992, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkillID2
+--- !u!114 &287856127 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1820180054452730967, guid: 14883e23418c85e4394056e178880ef4, type: 3}
+  m_PrefabInstance: {fileID: 287856124}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8712e561c20a2b34ab6c53cbe8378814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkillID3
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

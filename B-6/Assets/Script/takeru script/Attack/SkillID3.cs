@@ -9,8 +9,21 @@ public class SkillID3 : MonoBehaviour
     [SerializeField] private float speed = 5f;
     [SerializeField] private float lifeTime = 3f;
 
+    //スキルの弾数
+    [SerializeField] private int bulletCount = 1;
+
     [Header("スキルストック")]
     [SerializeField] private SkillStock skillStock;
+
+    //弾数を増やす
+    public void AddBulletCount(int value)
+    {
+        bulletCount += value;
+
+        Debug.Log(
+            $"<color=cyan>キャラ3 スキル弾数アップ！</color> {bulletCount}発"
+        );
+    }
 
     public bool UseSkill()
     {
@@ -50,23 +63,56 @@ public class SkillID3 : MonoBehaviour
             Mathf.Atan2(direction.y, direction.x)
             * Mathf.Rad2Deg;
 
-        GameObject wind = Instantiate(
-            windPrefab,
-            transform.position,
-            Quaternion.Euler(0f, 0f, angle - 90f)
-        );
 
-        WindWave windWave =
-            wind.GetComponent<WindWave>();
-
-        if (windWave != null)
+        //弾数分だけ風を生成
+        for (int i = 0; i < bulletCount; i++)
         {
-            windWave.Setup(
-                direction,
-                speed,
-                lifeTime
+            float offsetAngle = 0f;
+
+            //複数発なら扇状にする
+            if (bulletCount > 1)
+            {
+                float totalSpread = 30f;
+
+                offsetAngle =
+                    Mathf.Lerp(
+                        -totalSpread / 2f,
+                        totalSpread / 2f,
+                        (float)i / (bulletCount - 1)
+                    );
+            }
+
+            Vector2 windDirection =
+                Quaternion.Euler(
+                    0f,
+                    0f,
+                    offsetAngle
+                ) * direction;
+
+
+            GameObject wind = Instantiate(
+                windPrefab,
+                transform.position,
+                Quaternion.Euler(
+                    0f,
+                    0f,
+                    angle + offsetAngle - 90f
+                )
             );
+
+            WindWave windWave =
+                wind.GetComponent<WindWave>();
+
+            if (windWave != null)
+            {
+                windWave.Setup(
+                    windDirection,
+                    speed,
+                    lifeTime
+                );
+            }
         }
+
 
         Debug.Log(
             "<color=green>【ID3 風スキル発動】</color>"

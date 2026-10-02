@@ -9,8 +9,21 @@ public class SkillID4 : MonoBehaviour
     [Header("ブリンク距離")]
     [SerializeField] private float blinkDistance = 3f;
 
+    //スキルの弾数
+    [SerializeField] private int bulletCount = 1;
+
     [Header("スキルストック")]
     [SerializeField] private SkillStock skillStock;
+
+    //弾数を増やす
+    public void AddBulletCount(int value)
+    {
+        bulletCount += value;
+
+        Debug.Log(
+            $"<color=cyan>キャラ4 スキル弾数アップ！</color> {bulletCount}発"
+        );
+    }
 
     public bool UseSkill()
     {
@@ -46,30 +59,36 @@ public class SkillID4 : MonoBehaviour
         Vector2 direction =
             (worldPos - transform.position).normalized;
 
-        GameObject blinkAttack = Instantiate(
-            blinkAttackPrefab,
-            transform.position,
-            Quaternion.identity
-        );
 
-        BlinkAttack blink =
-            blinkAttack.GetComponent<BlinkAttack>();
-
-        if (blink == null)
+        //弾数分だけブリンク攻撃を生成
+        for (int i = 0; i < bulletCount; i++)
         {
-            Debug.LogWarning(
-                "BlinkAttack PrefabにBlinkAttack.csがありません"
+            GameObject blinkAttack = Instantiate(
+                blinkAttackPrefab,
+                transform.position,
+                Quaternion.identity
             );
 
-            Destroy(blinkAttack);
-            return false;
+            BlinkAttack blink =
+                blinkAttack.GetComponent<BlinkAttack>();
+
+            if (blink == null)
+            {
+                Debug.LogWarning(
+                    "BlinkAttack PrefabにBlinkAttack.csがありません"
+                );
+
+                Destroy(blinkAttack);
+                continue;
+            }
+
+            blink.Setup(
+                transform,
+                direction,
+                blinkDistance
+            );
         }
 
-        blink.Setup(
-            transform,
-            direction,
-            blinkDistance
-        );
 
         Debug.Log(
             "<color=purple>【ID4 ブリンクスキル発動】</color>"
