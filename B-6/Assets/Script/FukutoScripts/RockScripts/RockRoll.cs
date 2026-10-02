@@ -10,6 +10,7 @@ public class RockRoll : MonoBehaviour
     #region Config
     private float rollSpeed = 2f; // 追従速度
     private float spinAmount = 120f; // 回転量
+    [SerializeField] private SoundPlayer soundPlayer; // サウンドプレイヤー
     #endregion
 
     #region State
@@ -20,6 +21,8 @@ public class RockRoll : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // 転がるループサウンドを再生
+        soundPlayer.PlayBGM();
     }
 
     // Update is called once per frame
