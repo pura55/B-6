@@ -1,0 +1,40 @@
+{
+    "players": [
+        {
+            "id": 1,
+            "hp": 20,
+            "atkDmg": 5,
+            "atkCT": 1.2,
+            "skillDmg": 5,
+            "skillCT": 5,
+            "speed": 1
+        },
+        {
+            "id": 2,
+            "hp": 20,
+            "atkDmg": 5,
+            "atkCT": 1.2,
+            "skillDmg": 5,
+            "skillCT": 5,
+            "speed": 1
+        },
+        {
+            "id": 3,
+            "hp": 20,
+            "atkDmg": 5,
+            "atkCT": 1.2,
+            "skillDmg": 5,
+            "skillCT": 5,
+            "speed": 1
+        },
+        {
+            "id": 4,
+            "hp": 20,
+            "atkDmg": 5,
+            "atkCT": 1.2,
+            "skillDmg": 5,
+            "skillCT": 5,
+            "speed": 1
+        }
+    ]
+}
