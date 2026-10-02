@@ -343,6 +343,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5015680933007686372, guid: 327358eb5b5978a499f85c54399e6266, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 3234.8516
+      objectReference: {fileID: 0}
+    - target: {fileID: 5015680933007686372, guid: 327358eb5b5978a499f85c54399e6266, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1261.7661
+      objectReference: {fileID: 0}
+    - target: {fileID: 5015680933007686372, guid: 327358eb5b5978a499f85c54399e6266, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -290.7424
+      objectReference: {fileID: 0}
+    - target: {fileID: 5015680933007686372, guid: 327358eb5b5978a499f85c54399e6266, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 188.57524
+      objectReference: {fileID: 0}
     - target: {fileID: 5445484095554658587, guid: 327358eb5b5978a499f85c54399e6266, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -427,6 +443,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TitleCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 8764640433334607747, guid: 327358eb5b5978a499f85c54399e6266, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -617090721515555434, guid: 760989c3872fab6499610736df7d1dae, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
