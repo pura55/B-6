@@ -9,6 +9,8 @@ public class YesButton : ButtonBase
 {
     public override void OnClick()
     {
+        base.OnClick();
+
         EndGame();
     }
 

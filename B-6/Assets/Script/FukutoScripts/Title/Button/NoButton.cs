@@ -13,6 +13,7 @@ public class NoButton : ButtonBase
 
     public override void OnClick()
     {
+        base.OnClick();
         endScreen.SetNoPressed();
     }
 }

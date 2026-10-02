@@ -13,6 +13,7 @@ public class BackButton : ButtonBase
     #endregion
     public override void OnClick()
     {
+        base.OnClick();
         selectScreen.SetBackPressed();
         startScreen.SetBackPressed();
     }

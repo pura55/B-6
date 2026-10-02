@@ -33,6 +33,8 @@ public class SelectButton : ButtonBase
             return;
         }
 
+        base.OnClick();
+
         if (!toNext)
         {
             BackButton();

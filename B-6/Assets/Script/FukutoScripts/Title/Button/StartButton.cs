@@ -16,6 +16,8 @@ public class StartButton : ButtonBase
 
     public override void OnClick()
     {
+        base.OnClick();
+
         if (selectAnimation.GetCharacterID() == 4 && !selectCharacterID.canSelected)
         {
             selectExclamation.SetAlpha();

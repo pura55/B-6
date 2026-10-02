@@ -9,6 +9,7 @@ public class PlayButton : ButtonBase
 
     public override void OnClick()
     {
+        base.OnClick();
         startScreen.SetPlayPressed();
         selectScreen.SetPlayPressed();
     }

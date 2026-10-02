@@ -13,6 +13,7 @@ public class EndButton : ButtonBase
 
     public override void OnClick()
     {
+        base.OnClick();
         endScreen.SetEndPressed();
     }
 
