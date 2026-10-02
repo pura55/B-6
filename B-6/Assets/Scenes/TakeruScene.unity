@@ -1367,6 +1367,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1027771625}
     m_Modifications:
+    - target: {fileID: 1462594933417722337, guid: f054138cc87247f4693537b243be91e1, type: 3}
+      propertyPath: selectCharacterID
+      value: 
+      objectReference: {fileID: 11400000, guid: 35c8f64e5d1110e4fb7e84256b81fbd4, type: 2}
+    - target: {fileID: 1462594933417722337, guid: f054138cc87247f4693537b243be91e1, type: 3}
+      propertyPath: playerProgressData
+      value: 
+      objectReference: {fileID: 11400000, guid: 21bc494655974a942b8c7c1b843e8755, type: 2}
     - target: {fileID: 4456877282478334972, guid: f054138cc87247f4693537b243be91e1, type: 3}
       propertyPath: m_Name
       value: PlayerSpawner

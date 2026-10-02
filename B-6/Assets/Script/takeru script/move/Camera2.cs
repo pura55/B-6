@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Camera2 : MonoBehaviour
@@ -6,48 +8,27 @@ public class Camera2 : MonoBehaviour
 
     private Transform playerTr;
 
-    [SerializeField]
-    Vector2 cameraMaxPos = new Vector2(5f, 5f);
-
-    [SerializeField]
-    Vector2 cameraMinPos = new Vector2(-5f, -5f);
-
-
-    private void Start()
-    {
-        // PlayerSpawner確認
-        if (playerSpawner == null)
-        {
-            Debug.LogWarning(
-                "PlayerSpawnerが設定されていません"
-            );
-
-            return;
-        }
-
-        // Spawnerが生成したPlayerを取得
-        GameObject player =
-            playerSpawner.GetPlayer();
-
-        if (player != null)
-        {
-            playerTr = player.transform;
-        }
-        else
-        {
-            Debug.LogWarning(
-                "生成されたPlayerが見つかりません"
-            );
-        }
-    }
-
+    [SerializeField] Vector2 cameraMaxPos = new Vector2(5f, 5f);
+    [SerializeField] Vector2 cameraMinPos = new Vector2(-5f, -5f);
 
     private void Update()
     {
-        // Playerがまだいない場合
+        // PlayerSpawnerが生成したPlayerを取得
         if (playerTr == null)
-            return;
+        {
+            if (playerSpawner == null)
+                return;
 
+            GameObject player = playerSpawner.GetPlayer();
+
+            // まだ生成されていなければ次のフレームまで待つ
+            if (player == null)
+                return;
+
+            playerTr = player.transform;
+
+            Debug.Log("カメラがPlayerを取得しました");
+        }
 
         float x = Mathf.Clamp(
             playerTr.position.x,
@@ -60,7 +41,6 @@ public class Camera2 : MonoBehaviour
             cameraMinPos.y,
             cameraMaxPos.y
         );
-
 
         transform.position = new Vector3(
             x,

@@ -33,28 +33,44 @@ public class PlayerHealth : MonoBehaviour
     // 死亡中かどうか
     public bool IsDead { get; private set; } = false;
 
-
     void Start()
     {
-        // データから最大HP取得
+        // データからHP取得
         maxHP = playerProgressData.hp;
-
-        // 最大HPで開始
         myHp = maxHP;
 
-        // HPバー
-        hpSlider.maxValue = maxHP;
-        hpSlider.value = myHp;
+        // Scene上のPlayerHPを取得
+        if (hpSlider == null)
+        {
+            GameObject hpObject =
+                GameObject.Find("PlayerHP");
 
-        // アニメーション
-        playerAnimation = GetComponent<ID1Sprite>();
+            if (hpObject != null)
+            {
+                hpSlider =
+                    hpObject.GetComponent<Slider>();
+            }
+        }
 
-        // 初期位置保存
-        startPosition = transform.position;
+        // HPバー初期設定
+        if (hpSlider != null)
+        {
+            hpSlider.maxValue = maxHP;
+            hpSlider.value = myHp;
+        }
+        else
+        {
+            Debug.LogWarning(
+                "PlayerHPのSliderが見つかりません"
+            );
+        }
 
-        IsDead = false;
+        playerAnimation =
+            GetComponent<ID1Sprite>();
+
+        startPosition =
+            transform.position;
     }
-
 
     void Update()
     {

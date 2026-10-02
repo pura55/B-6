@@ -8,18 +8,38 @@ public class PlayerSpawner : MonoBehaviour
     [Header("生成位置")]
     [SerializeField] private Transform spawnPoint;
 
+    [Header("キャラクターID")]
+    [SerializeField] private SelectCharacterID selectCharacterID;
+
+    [Header("プレイヤーデータ")]
+    [SerializeField] private PlayerProgressData playerProgressData;
+
     private GameObject spawnedPlayer;
 
 
     void Start()
     {
+        // =========================
+        // 選択したキャラIDを反映
+        // =========================
+
+        if (selectCharacterID != null &&
+            playerProgressData != null)
+        {
+            playerProgressData.id =
+                selectCharacterID.GetSelectID();
+
+            Debug.Log(
+                $"<color=cyan>選択キャラID：{playerProgressData.id}</color>"
+            );
+        }
+
         SpawnPlayer();
     }
 
 
     private void SpawnPlayer()
     {
-        // Prefab確認
         if (playerPrefab == null)
         {
             Debug.LogWarning(
@@ -30,10 +50,6 @@ public class PlayerSpawner : MonoBehaviour
         }
 
 
-        // =========================
-        // 生成位置
-        // =========================
-
         Vector3 spawnPosition;
 
         if (spawnPoint != null)
@@ -43,16 +59,10 @@ public class PlayerSpawner : MonoBehaviour
         }
         else
         {
-            // SpawnPoint未設定なら
-            // PlayerSpawner自身の位置
             spawnPosition =
                 transform.position;
         }
 
-
-        // =========================
-        // プレイヤー生成
-        // =========================
 
         spawnedPlayer = Instantiate(
             playerPrefab,
@@ -67,8 +77,6 @@ public class PlayerSpawner : MonoBehaviour
     }
 
 
-    // 他のスクリプトから
-    // 生成したPlayerを取得したい時用
     public GameObject GetPlayer()
     {
         return spawnedPlayer;

@@ -29,12 +29,13 @@ public class CharaSkillManager : MonoBehaviour
     {
         playerAnimation = GetComponent<ID1Sprite>();
 
-        // PlayerHealthæ“¾
-        playerHealth = GetComponent<PlayerHealth>();
-
         if (playerProgressData != null)
         {
             characterID = playerProgressData.id;
+
+            Debug.Log(
+                $"<color=yellow>¶¬‚³‚ê‚½ƒvƒŒƒCƒ„[‚ÌID = {characterID}</color>"
+            );
         }
         else
         {
