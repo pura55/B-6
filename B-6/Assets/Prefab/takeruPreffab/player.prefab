@@ -494,7 +494,7 @@ MonoBehaviour:
   skillEffect3: {fileID: 704252975334428810, guid: 41d74284bc390f041bc4b102d869279e, type: 3}
   skillEffect4: {fileID: 8463691585733118406, guid: c148ab261551b6c499d3d85a56a05e92, type: 3}
   effectLifeTime: 1
-  playerProgressData: {fileID: 0}
+  playerProgressData: {fileID: 11400000, guid: 21bc494655974a942b8c7c1b843e8755, type: 2}
 --- !u!114 &3228176838451706247
 MonoBehaviour:
   m_ObjectHideFlags: 0

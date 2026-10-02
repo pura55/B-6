@@ -4,12 +4,32 @@ using UnityEngine;
 
 public class Camera2 : MonoBehaviour
 {
-    [SerializeField] Transform playerTr; // プレイヤーのTransform
-    [SerializeField] Vector2 cameraMaxPos = new Vector2(5f, 5f); // カメラの右上限界点
-    [SerializeField] Vector2 cameraMinPos = new Vector2(-5f, -5f); // カメラの左下限界点
+    [SerializeField] private PlayerSpawner playerSpawner;
+
+    private Transform playerTr;
+
+    [SerializeField] Vector2 cameraMaxPos = new Vector2(5f, 5f);
+    [SerializeField] Vector2 cameraMinPos = new Vector2(-5f, -5f);
 
     private void Update()
     {
+        // PlayerSpawnerが生成したPlayerを取得
+        if (playerTr == null)
+        {
+            if (playerSpawner == null)
+                return;
+
+            GameObject player = playerSpawner.GetPlayer();
+
+            // まだ生成されていなければ次のフレームまで待つ
+            if (player == null)
+                return;
+
+            playerTr = player.transform;
+
+            Debug.Log("カメラがPlayerを取得しました");
+        }
+
         float x = Mathf.Clamp(
             playerTr.position.x,
             cameraMinPos.x,
@@ -28,5 +48,4 @@ public class Camera2 : MonoBehaviour
             -10f
         );
     }
-
 }
