@@ -70,4 +70,9 @@ public class SoundPlayer : MonoBehaviour
             return;
         }
     }
+
+    public void SetAudioPitch(float pitch)
+    {
+        audioSource.pitch = pitch;
+    }
 }

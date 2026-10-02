@@ -122,19 +122,4 @@ public class TowerHealth : MonoBehaviour
         // タイトルシーンへ移動
         SceneManager.LoadScene("TitleScene");
     }
-
-    // 衝突した瞬間に呼ばれる
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-        // 岩に触れた
-        if (collision.gameObject.CompareTag("Rock"))
-        {
-            TakeDamage(50);
-
-            Debug.Log("Rockから50ダメージ");
-
-            // 岩を消す
-            Destroy(collision.gameObject);
-        }
-    }
 }
