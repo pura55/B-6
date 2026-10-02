@@ -20,23 +20,108 @@ public class PlayerArrow : MonoBehaviour
 
     private float warningBlinkTimer = 0f;
 
+
     void Start()
     {
-        // ゲーム開始時は非表示
-        arrowImage.gameObject.SetActive(false);
-        dangerMark.SetActive(false);
-        warningLine.SetActive(false);
+        // =========================
+        // 非表示のオブジェクトも含めて探す
+        // =========================
+        GameObject[] allObjects =
+            Resources.FindObjectsOfTypeAll<GameObject>();
+
+        foreach (GameObject obj in allObjects)
+        {
+            // Scene上のオブジェクトだけ
+            if (!obj.scene.IsValid())
+                continue;
+
+            // 矢印
+            if (obj.name == "ArrowImage")
+            {
+                arrowImage =
+                    obj.GetComponent<Image>();
+            }
+
+            // 危険マーク
+            if (obj.name == "DANGERMARK")
+            {
+                dangerMark = obj;
+            }
+
+            // 警告ライン
+            if (obj.name == "RockWarningLine")
+            {
+                warningLine = obj;
+            }
+
+            // タワー
+            if (obj.name == "TOWER")
+            {
+                tower = obj.transform;
+            }
+        }
+
+
+        // =========================
+        // 最初は非表示
+        // =========================
+        if (arrowImage != null)
+            arrowImage.gameObject.SetActive(false);
+
+        if (dangerMark != null)
+            dangerMark.SetActive(false);
+
+        if (warningLine != null)
+            warningLine.SetActive(false);
+
+
+        // =========================
+        // 確認
+        // =========================
+        if (arrowImage == null)
+            Debug.LogWarning("ArrowImageが見つかりません");
+
+        if (dangerMark == null)
+            Debug.LogWarning("DangerMarkが見つかりません");
+
+        if (warningLine == null)
+            Debug.LogWarning("RockWarningLineが見つかりません");
+
+        if (tower == null)
+            Debug.LogWarning("TOWERが見つかりません");
     }
+
 
     void Update()
     {
-        GameObject[] rocks = GameObject.FindGameObjectsWithTag("Rock");
+        // =========================
+        // 必要なものがない場合
+        // =========================
+        if (arrowImage == null ||
+            dangerMark == null ||
+            warningLine == null ||
+            tower == null)
+        {
+            return;
+        }
 
+
+        // =========================
+        // 岩を取得
+        // =========================
+        GameObject[] rocks =
+            GameObject.FindGameObjectsWithTag("Rock");
+
+
+        // =========================
         // 岩がない
+        // =========================
         if (rocks.Length == 0)
         {
             arrowImage.gameObject.SetActive(false);
+
             dangerMark.SetActive(false);
+
             warningLine.SetActive(false);
 
             warningBlinkTimer = 0f;
@@ -44,124 +129,198 @@ public class PlayerArrow : MonoBehaviour
             return;
         }
 
-        // 岩があるので表示
+
+        // =========================
+        // 岩がある
+        // =========================
         arrowImage.gameObject.SetActive(true);
+
         dangerMark.SetActive(true);
 
-        // 警告ライン点滅
-        warningBlinkTimer += Time.deltaTime;
 
-        if (warningBlinkTimer >= warningBlinkSpeed)
+        // =========================
+        // 警告ライン点滅
+        // =========================
+        warningBlinkTimer +=
+            Time.deltaTime;
+
+        if (warningBlinkTimer >=
+            warningBlinkSpeed)
         {
             warningBlinkTimer = 0f;
 
-            warningLine.SetActive(!warningLine.activeSelf);
+            warningLine.SetActive(
+                !warningLine.activeSelf
+            );
         }
 
+
+        // =========================
         // タワーに一番近い岩を探す
+        // =========================
         GameObject nearestRock = null;
-        float nearestDistance = Mathf.Infinity;
+
+        float nearestDistance =
+            Mathf.Infinity;
+
 
         foreach (GameObject rock in rocks)
         {
-            float distance = Vector2.Distance(
-                tower.position,
-                rock.transform.position
-            );
+            float distance =
+                Vector2.Distance(
+                    tower.position,
+                    rock.transform.position
+                );
 
             if (distance < nearestDistance)
             {
-                nearestDistance = distance;
-                nearestRock = rock;
+                nearestDistance =
+                    distance;
+
+                nearestRock =
+                    rock;
             }
         }
 
-        // プレイヤー → 岩の方向
-        Vector2 direction =
-            nearestRock.transform.position - transform.position;
 
-        // 方向を正規化
+        // 念のため
+        if (nearestRock == null)
+        {
+            return;
+        }
+
+
+        // =========================
+        // プレイヤー → 岩の方向
+        // =========================
+        Vector2 direction =
+            nearestRock.transform.position
+            - transform.position;
+
         direction.Normalize();
 
-        // プレイヤーの位置を画面座標に変換
-        Vector3 screenPos =
-            Camera.main.WorldToScreenPoint(transform.position);
 
-        // プレイヤーから200ピクセル離した位置に矢印を表示
-        screenPos.x += direction.x * 200f;
-        screenPos.y += direction.y * 200f;
-
-        // 矢印の位置を設定
-        arrowImage.rectTransform.position = screenPos;
-
-        // 角度を計算
-        float angle =
-            Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-        // 矢印を岩の方向に回転
-        arrowImage.rectTransform.rotation =
-            Quaternion.Euler(0, 0, angle);
-
-        // 警告ラインの位置
-        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+        // =========================
+        // プレイヤー位置を画面座標へ
+        // =========================
+        if (Camera.main == null)
         {
-            // 横方向
+            return;
+        }
+
+        Vector3 screenPos =
+            Camera.main.WorldToScreenPoint(
+                transform.position
+            );
+
+
+        // =========================
+        // プレイヤーから200px離す
+        // =========================
+        screenPos.x +=
+            direction.x * 200f;
+
+        screenPos.y +=
+            direction.y * 200f;
+
+
+        // =========================
+        // 矢印の位置
+        // =========================
+        arrowImage.rectTransform.position =
+            screenPos;
+
+
+        // =========================
+        // 矢印の角度
+        // =========================
+        float angle =
+            Mathf.Atan2(
+                direction.y,
+                direction.x
+            )
+            * Mathf.Rad2Deg;
+
+
+        arrowImage.rectTransform.rotation =
+            Quaternion.Euler(
+                0f,
+                0f,
+                angle
+            );
+
+
+        // =========================
+        // 警告ラインの位置
+        // =========================
+
+        // 横方向の方が強い
+        if (Mathf.Abs(direction.x) >
+            Mathf.Abs(direction.y))
+        {
+            // 右
             if (direction.x > 0)
             {
-                // 右
                 warningLine.transform.position =
                     new Vector3(
                         Screen.width - 20f,
                         Screen.height / 2f,
-                        0
+                        0f
                     );
-
-                warningLine.transform.rotation =
-                    Quaternion.Euler(0, 0, 0);
             }
+
+            // 左
             else
             {
-                // 左
                 warningLine.transform.position =
                     new Vector3(
                         20f,
                         Screen.height / 2f,
-                        0
+                        0f
                     );
-
-                warningLine.transform.rotation =
-                    Quaternion.Euler(0, 0, 0);
             }
+
+
+            warningLine.transform.rotation =
+                Quaternion.Euler(
+                    0f,
+                    0f,
+                    0f
+                );
         }
+
+        // 縦方向の方が強い
         else
         {
-            // 縦方向
+            // 上
             if (direction.y > 0)
             {
-                // 上
                 warningLine.transform.position =
                     new Vector3(
                         Screen.width / 2f,
                         Screen.height - 20f,
-                        0
+                        0f
                     );
-
-                warningLine.transform.rotation =
-                    Quaternion.Euler(0, 0, 90f);
             }
+
+            // 下
             else
             {
-                // 下
                 warningLine.transform.position =
                     new Vector3(
                         Screen.width / 2f,
                         20f,
-                        0
+                        0f
                     );
-
-                warningLine.transform.rotation =
-                    Quaternion.Euler(0, 0, 90f);
             }
+
+
+            warningLine.transform.rotation =
+                Quaternion.Euler(
+                    0f,
+                    0f,
+                    90f
+                );
         }
     }
 }

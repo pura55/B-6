@@ -45,8 +45,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb190885c90cc9b459241f7facd35cab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerSpawner
-  playerPrefab: {fileID: 4807990481238714564, guid: 16a38b205e84977499530a76f2732a95, type: 3}
+  playerPrefab: {fileID: 2145843713260624185, guid: c779a4f81b0e1b14d99f6ec554ac7bc5, type: 3}
   spawnPoint: {fileID: 2113199752027333880}
+  selectCharacterID: {fileID: 11400000, guid: 35c8f64e5d1110e4fb7e84256b81fbd4, type: 2}
+  playerProgressData: {fileID: 11400000, guid: 21bc494655974a942b8c7c1b843e8755, type: 2}
 --- !u!1 &6890124792995263016
 GameObject:
   m_ObjectHideFlags: 0

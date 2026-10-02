@@ -22,25 +22,73 @@ public class PlayerExp : MonoBehaviour
 
     void Start()
     {
-        expSlider.minValue = 0;
-        expSlider.maxValue = maxExp;
-        expSlider.value = currentExp;
+        // =========================
+        // XP Sliderを探す
+        // =========================
+        if (expSlider == null)
+        {
+            GameObject expObject =
+                GameObject.Find("Expber");
+
+            if (expObject != null)
+            {
+                expSlider =
+                    expObject.GetComponent<Slider>();
+            }
+        }
+
+        // =========================
+        // LevelUpUIを探す
+        // =========================
+        if (levelUpUI == null)
+        {
+            levelUpUI =
+                FindFirstObjectByType<LevelUpUI>();
+        }
+
+
+        // =========================
+        // XPバー初期設定
+        // =========================
+        if (expSlider != null)
+        {
+            expSlider.minValue = 0;
+            expSlider.maxValue = maxExp;
+            expSlider.value = currentExp;
+        }
+        else
+        {
+            Debug.LogWarning(
+                "ExpSliderが見つかりません"
+            );
+        }
+
+        if (levelUpUI == null)
+        {
+            Debug.LogWarning(
+                "LevelUpUIが見つかりません"
+            );
+        }
     }
 
 
     public void AddExp(int amount)
     {
-        // レベルアップ中は取得しない
         if (isLevelUp)
             return;
 
         currentExp += amount;
 
-        expSlider.value = currentExp;
+        if (expSlider != null)
+        {
+            expSlider.value = currentExp;
+        }
 
         if (currentExp >= maxExp)
         {
-            StartCoroutine(LevelUpAnimation());
+            StartCoroutine(
+                LevelUpAnimation()
+            );
         }
     }
 
@@ -49,34 +97,41 @@ public class PlayerExp : MonoBehaviour
     {
         isLevelUp = true;
 
-        // バーMAX表示
-        expSlider.value = maxExp;
+        if (expSlider != null)
+        {
+            expSlider.value = maxExp;
+        }
 
         yield return new WaitForSeconds(1f);
 
-        // 余り経験値
-        int remainExp = currentExp - maxExp;
+        int remainExp =
+            currentExp - maxExp;
 
-        // レベルアップ
         level++;
 
-        Debug.Log("Level Up!! Lv." + level);
+        Debug.Log(
+            "Level Up!! Lv." + level
+        );
 
-        // 次レベル必要経験値
         maxExp += 50;
 
-        // バー更新
-        currentExp = remainExp;
+        currentExp =
+            remainExp;
 
-        expSlider.maxValue = maxExp;
-        expSlider.value = currentExp;
+        if (expSlider != null)
+        {
+            expSlider.maxValue = maxExp;
+            expSlider.value = currentExp;
+        }
 
-        // レベルアップ画面を開く
-        levelUpUI.Open(this);
+        // レベルアップ画面
+        if (levelUpUI != null)
+        {
+            levelUpUI.Open(this);
+        }
     }
 
 
-    // レベルアップ終了通知
     public void FinishLevelUp()
     {
         isLevelUp = false;
