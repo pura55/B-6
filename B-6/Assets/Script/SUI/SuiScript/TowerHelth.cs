@@ -49,7 +49,7 @@ public class TowerHealth : MonoBehaviour
         // HPを減らす
         currentHp -= damage;
 
-        Debug.Log(damage + "ダメージ");
+        //Debug.Log(damage + "ダメージ");
 
         // 0未満にならないようにする
         if (currentHp < 0)

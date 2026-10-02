@@ -79,16 +79,16 @@ public class ID1Sprite : MonoBehaviour
 
     void Update()
     {
-        // デバッグ用：1・2・3キーでキャラ変更
-        if (DebugCharacterSelect.selectedPlayerID != 0 &&
-            DebugCharacterSelect.selectedPlayerID != currentPlayerID)
-        {
-            currentPlayerID = DebugCharacterSelect.selectedPlayerID;
+        //// デバッグ用：1・2・3キーでキャラ変更
+        //if (DebugCharacterSelect.selectedPlayerID != 0 &&
+        //    DebugCharacterSelect.selectedPlayerID != currentPlayerID)
+        //{
+        //    currentPlayerID = DebugCharacterSelect.selectedPlayerID;
 
-            Debug.Log("キャラ変更 ID : " + currentPlayerID);
+        //    Debug.Log("キャラ変更 ID : " + currentPlayerID);
 
-            ChangeState(PlayerAnimState.Idle);
-        }
+        //    ChangeState(PlayerAnimState.Idle);
+        //}
 
         PlayAnimation();
     }

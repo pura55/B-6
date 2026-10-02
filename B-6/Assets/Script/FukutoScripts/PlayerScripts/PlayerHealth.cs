@@ -11,7 +11,7 @@ public class PlayerHealth : MonoBehaviour
     #region Config
 
     public float maxHP = 5;
-    private float myHp;
+    private float myHp = 0;
 
     public float respawnTime = 5.0f;
     public int killHeal = 0;
@@ -33,7 +33,6 @@ public class PlayerHealth : MonoBehaviour
     // 死亡中かどうか
     public bool IsDead { get; private set; } = false;
 
-
     void Start()
     {
         // データから最大HP取得
@@ -54,7 +53,6 @@ public class PlayerHealth : MonoBehaviour
 
         IsDead = false;
     }
-
 
     void Update()
     {
@@ -92,8 +90,11 @@ public class PlayerHealth : MonoBehaviour
             return;
 
 
+        Debug.Log("被ダメ前プレイヤーHP: " + myHp);
+
         myHp -= dmg;
 
+        Debug.Log("受けるダメージ: -" + dmg);
 
         // HPがマイナスにならないようにする
         if (myHp < 0)
@@ -109,6 +110,7 @@ public class PlayerHealth : MonoBehaviour
         // 死亡
         if (myHp <= 0)
         {
+            Debug.Log("プレイヤー死亡！");
             Die();
         }
         else
