@@ -153,9 +153,7 @@ public class WaterWave : MonoBehaviour
 
             if (health != null)
             {
-                health.ReceiveDamage(
-                    damage
-                );
+                health.ReceivePlayerDamage(damage);
             }
 
 

@@ -1,9 +1,28 @@
+
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class SkillManager : MonoBehaviour
 {
+    // シーンを切り替えてもSkillManagerを保持
+    private static SkillManager instance;
+
+    void Awake()
+    {
+        // すでに別のSkillManagerが存在する場合
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        instance = this;
+
+        // シーン切り替え後も破棄しない
+        DontDestroyOnLoad(gameObject);
+    }
+
     [Header("テスト用")]
     public SkillData testSkill;
 
@@ -24,11 +43,15 @@ public class SkillManager : MonoBehaviour
     private SkillID3 skillID3;
     private SkillID4 skillID4;
 
-
     // スキルレベル管理
     private Dictionary<SkillType, int> skillLevels =
         new Dictionary<SkillType, int>();
 
+    // 取得済みスキル一覧を取得
+    public List<SkillData> GetAcquiredSkills()
+    {
+        return AcquiredSkillData.acquiredSkills;
+    }
 
     void Update()
     {
@@ -42,7 +65,6 @@ public class SkillManager : MonoBehaviour
             }
         }
     }
-
 
     // 生成されたPlayerを設定
     public void SetPlayer(GameObject player)
@@ -106,7 +128,6 @@ public class SkillManager : MonoBehaviour
         );
     }
 
-
     // 現在レベル取得
     public int GetLevel(SkillType type)
     {
@@ -115,13 +136,11 @@ public class SkillManager : MonoBehaviour
             : 0;
     }
 
-
     // MAX判定
     public bool IsMax(SkillType type)
     {
         return GetLevel(type) >= 3;
     }
-
 
     // レベルアップ処理
     public void LevelUp(SkillData data)
@@ -140,6 +159,12 @@ public class SkillManager : MonoBehaviour
             return;
         }
 
+        // 初めて取得するスキルを保存
+        if (currentLevel == 0)
+        {
+            AcquiredSkillData.Add(data);
+        }
+
         currentLevel++;
         skillLevels[data.type] = currentLevel;
 
@@ -148,16 +173,14 @@ public class SkillManager : MonoBehaviour
         Debug.Log(data.skillName + " Lv" + currentLevel);
     }
 
-
     // 効果適用
     private void ApplySkill(SkillData data, int level)
     {
         float value = data.GetValue(level);
 
-
         switch (data.type)
         {
-            //Playerstatus
+            // Player status
             case SkillType.AttackPower:
 
                 if (playerAttack != null)
@@ -171,7 +194,6 @@ public class SkillManager : MonoBehaviour
                 }
 
                 break;
-
 
             case SkillType.AttackCooldown:
 
@@ -187,7 +209,6 @@ public class SkillManager : MonoBehaviour
 
                 break;
 
-
             case SkillType.CritRate:
 
                 if (playerAttack != null)
@@ -201,7 +222,6 @@ public class SkillManager : MonoBehaviour
                 }
 
                 break;
-
 
             case SkillType.MaxHP:
 
@@ -217,7 +237,6 @@ public class SkillManager : MonoBehaviour
 
                 break;
 
-
             case SkillType.MoveSpeed:
 
                 if (move != null)
@@ -232,8 +251,7 @@ public class SkillManager : MonoBehaviour
 
                 break;
 
-
-            //PlayerSkillattack
+            // Player Skill Attack
             case SkillType.ProjectileCount:
 
                 if (skillID1 != null)
@@ -276,7 +294,6 @@ public class SkillManager : MonoBehaviour
 
                 break;
 
-
             case SkillType.SkillCooldown:
 
                 if (playerProgressData != null)
@@ -290,7 +307,6 @@ public class SkillManager : MonoBehaviour
                 }
 
                 break;
-
 
             case SkillType.SkillPower:
 
@@ -306,8 +322,7 @@ public class SkillManager : MonoBehaviour
 
                 break;
 
-
-            //Playersupport
+            // Player support
             case SkillType.KillHeal:
 
                 if (maxhpup != null)
@@ -321,7 +336,6 @@ public class SkillManager : MonoBehaviour
                 }
 
                 break;
-
 
             case SkillType.PickupRange:
 
@@ -337,7 +351,6 @@ public class SkillManager : MonoBehaviour
 
                 break;
 
-
             case SkillType.RespawnCooldown:
 
                 if (maxhpup != null)
@@ -352,7 +365,6 @@ public class SkillManager : MonoBehaviour
 
                 break;
 
-
             case SkillType.WallCooldown:
 
                 if (wall != null)
@@ -366,7 +378,6 @@ public class SkillManager : MonoBehaviour
                 }
 
                 break;
-
 
             default:
 

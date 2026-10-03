@@ -100,7 +100,7 @@ public class WindWave : MonoBehaviour
 
         if (enemy != null)
         {
-            enemy.ReceiveDamage(damage);
+            enemy.ReceivePlayerDamage(damage);
         }
     }
 }

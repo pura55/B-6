@@ -270,7 +270,7 @@ public class PlayerAttack : MonoBehaviour
             }
 
 
-            enemy.ReceiveDamage(damage);
+            enemy.ReceivePlayerDamage(damage);
 
             if (enemy.IsDead())
             {

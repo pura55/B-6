@@ -8,8 +8,10 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     #region Config
-    private int enemyHp =5; // 敵のHP
+    private int enemyHp = 5; // 敵のHP
     [SerializeField] private int enemyID = 0;
+    private static int playerKillCount = 0; // プレイヤーが倒した敵の数
+    private bool playerKillCounted = false; // 討伐数を重複して数えないためのフラグ
     #endregion
 
     #region State
@@ -42,11 +44,11 @@ public class EnemyHealth : MonoBehaviour
     {
         enemyHp = enemyProgressData.GetIntStat(enemyID, hpStatName);
 
-        if(onNomalEnemy)
+        if (onNomalEnemy)
         {
             nomalEnemyManager = gameObject.GetComponent<NomalEnemyManager>();
         }
-        else if(onBoss)
+        else if (onBoss)
         {
             midBossManager = gameObject.GetComponent<MidBossManager>();
         }
@@ -57,16 +59,29 @@ public class EnemyHealth : MonoBehaviour
     {
         if (onNomalEnemy)
         {
-            NomalEnemyReceive(dmg);
+            NomalEnemyReceive(dmg, false);
         }
         else if (onBoss)
         {
-            BossReceive(dmg);
+            BossReceive(dmg, false);
+        }
+    }
+
+    /// @brief プレイヤーの攻撃による被ダメージ処理を行う関数
+    public void ReceivePlayerDamage(int dmg)
+    {
+        if (onNomalEnemy)
+        {
+            NomalEnemyReceive(dmg, true);
+        }
+        else if (onBoss)
+        {
+            BossReceive(dmg, true);
         }
     }
 
     /// @brief 普通の敵の被ダメージ処理を行う関数
-    private void NomalEnemyReceive(int dmg)
+    private void NomalEnemyReceive(int dmg, bool fromPlayer)
     {
         // マネージャーの死亡フラグがtrueの時これ以降の処理を行わない
         if (nomalEnemyManager.GetIsDead()) return;
@@ -90,11 +105,19 @@ public class EnemyHealth : MonoBehaviour
         {
             // 死亡フラグをtrue
             nomalEnemyManager.SetIsDead();
+
+            // プレイヤーが倒した場合のみ討伐数を加算
+            if (fromPlayer && !playerKillCounted)
+            {
+                playerKillCount++;
+                playerKillCounted = true;
+                Debug.Log("プレイヤー討伐数: " + playerKillCount);
+            }
         }
     }
 
     /// @brief ボスの被ダメージ処理を行う関数
-    private void BossReceive(int dmg)
+    private void BossReceive(int dmg, bool fromPlayer)
     {
         // マネージャーの死亡フラグがtrueの時これ以降の処理を行わない
         if (midBossManager.GetIsDead()) return;
@@ -118,6 +141,13 @@ public class EnemyHealth : MonoBehaviour
         {
             // 死亡フラグをtrue
             midBossManager.SetIsDead();
+
+            // プレイヤーが倒した場合のみ討伐数を加算
+            if (fromPlayer && !playerKillCounted)
+            {
+                playerKillCount++;
+                playerKillCounted = true;
+            }
         }
     }
 
@@ -127,7 +157,18 @@ public class EnemyHealth : MonoBehaviour
         // hpが0より大きい場合
         if (enemyHp > 0) return true;
         else return false;
-            
+    }
+
+    /// @brief プレイヤーが倒した敵の数を返す関数
+    public static int GetPlayerKillCount()
+    {
+        return playerKillCount;
+    }
+
+    /// @brief プレイヤーが倒した敵の数をリセットする関数
+    public static void ResetPlayerKillCount()
+    {
+        playerKillCount = 0;
     }
 
     /// @brief 岩に当たったかどうかのフラグを返す関数
