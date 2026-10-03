@@ -76,6 +76,7 @@ public class SkillID1 : MonoBehaviour
             //ï°êîî≠Ç»ÇÁêÓèÛÇ…Ç∑ÇÈ
             if (bulletCount > 1)
             {
+                //äpìxí≤êÆ
                 float totalSpread = 30f;
 
                 offsetAngle =

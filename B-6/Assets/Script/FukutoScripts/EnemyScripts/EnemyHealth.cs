@@ -135,4 +135,22 @@ public class EnemyHealth : MonoBehaviour
     {
         return isHitRock;
     }
+
+    /// “G‚ªŽ€–S‚µ‚Ä‚¢‚é‚©‚Ç‚¤‚©‚ð•Ô‚·
+    public bool IsDead()
+    {
+        if (onNomalEnemy)
+        {
+            return nomalEnemyManager != null &&
+                   nomalEnemyManager.GetIsDead();
+        }
+
+        if (onBoss)
+        {
+            return midBossManager != null &&
+                   midBossManager.GetIsDead();
+        }
+
+        return false;
+    }
 }

@@ -71,6 +71,67 @@ public class PlayerSpawner : MonoBehaviour
         );
 
 
+        // =========================
+        // 生成されたPlayerを確認
+        // =========================
+
+        SkillID1 skillID1 =
+            spawnedPlayer.GetComponentInChildren<SkillID1>(true);
+
+        SkillID2 skillID2 =
+            spawnedPlayer.GetComponentInChildren<SkillID2>(true);
+
+        SkillID3 skillID3 =
+            spawnedPlayer.GetComponentInChildren<SkillID3>(true);
+
+        SkillID4 skillID4 =
+            spawnedPlayer.GetComponentInChildren<SkillID4>(true);
+
+
+        Debug.Log(
+            "<color=yellow>生成Player SkillID1：" +
+            (skillID1 != null) +
+            "</color>"
+        );
+
+        Debug.Log(
+            "<color=yellow>生成Player SkillID2：" +
+            (skillID2 != null) +
+            "</color>"
+        );
+
+        Debug.Log(
+            "<color=yellow>生成Player SkillID3：" +
+            (skillID3 != null) +
+            "</color>"
+        );
+
+        Debug.Log(
+            "<color=yellow>生成Player SkillID4：" +
+            (skillID4 != null) +
+            "</color>"
+        );
+
+
+        // =========================
+        // SkillManagerにPlayerを渡す
+        // =========================
+
+        SkillManager skillManager =
+            FindFirstObjectByType<SkillManager>();
+
+        if (skillManager != null)
+        {
+            skillManager.SetPlayer(spawnedPlayer);
+        }
+        else
+        {
+            Debug.LogWarning(
+                "SkillManagerが見つかりません"
+            );
+        }
+
+
         Debug.Log(
             "<color=green>プレイヤーを生成しました</color>"
         );

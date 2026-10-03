@@ -271,6 +271,11 @@ public class PlayerAttack : MonoBehaviour
 
 
             enemy.ReceiveDamage(damage);
+
+            if (enemy.IsDead())
+            {
+                playerHealth.KillHeal();
+            }
         }
 
 

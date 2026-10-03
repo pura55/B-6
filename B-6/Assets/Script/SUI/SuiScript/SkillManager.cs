@@ -17,16 +17,18 @@ public class SkillManager : MonoBehaviour
     [SerializeField] private PlayerHealth maxhpup;
     [SerializeField] private PlayerProgressData playerProgressData;
     [SerializeField] private SkillStock procount;
-    [SerializeField] private SkillID1 skillID1;
-    [SerializeField] private SkillID2 skillID2;
-    [SerializeField] private SkillID3 skillID3;
-    [SerializeField] private SkillID3 skillID4;
 
+    // 生成されたPlayerから取得
+    private SkillID1 skillID1;
+    private SkillID2 skillID2;
+    private SkillID3 skillID3;
+    private SkillID4 skillID4;
 
 
     // スキルレベル管理
     private Dictionary<SkillType, int> skillLevels =
         new Dictionary<SkillType, int>();
+
 
     void Update()
     {
@@ -41,6 +43,70 @@ public class SkillManager : MonoBehaviour
         }
     }
 
+
+    // 生成されたPlayerを設定
+    public void SetPlayer(GameObject player)
+    {
+        if (player == null)
+        {
+            Debug.LogWarning(
+                "SkillManager：Playerが設定されていません"
+            );
+
+            return;
+        }
+
+        playerAttack =
+            player.GetComponentInChildren<PlayerAttack>();
+
+        move =
+            player.GetComponentInChildren<MoveScript>();
+
+        maxhpup =
+            player.GetComponentInChildren<PlayerHealth>();
+
+        skillID1 =
+            player.GetComponentInChildren<SkillID1>();
+
+        skillID2 =
+            player.GetComponentInChildren<SkillID2>();
+
+        skillID3 =
+            player.GetComponentInChildren<SkillID3>();
+
+        skillID4 =
+            player.GetComponentInChildren<SkillID4>();
+
+        Debug.Log(
+            "<color=cyan>生成されたPlayerをSkillManagerに設定しました</color>"
+        );
+
+        Debug.Log(
+            "<color=yellow>SkillID1 : " +
+            (skillID1 != null) +
+            "</color>"
+        );
+
+        Debug.Log(
+            "<color=yellow>SkillID2 : " +
+            (skillID2 != null) +
+            "</color>"
+        );
+
+        Debug.Log(
+            "<color=yellow>SkillID3 : " +
+            (skillID3 != null) +
+            "</color>"
+        );
+
+        Debug.Log(
+            "<color=yellow>SkillID4 : " +
+            (skillID4 != null) +
+            "</color>"
+        );
+    }
+
+
     // 現在レベル取得
     public int GetLevel(SkillType type)
     {
@@ -49,11 +115,13 @@ public class SkillManager : MonoBehaviour
             : 0;
     }
 
+
     // MAX判定
     public bool IsMax(SkillType type)
     {
         return GetLevel(type) >= 3;
     }
+
 
     // レベルアップ処理
     public void LevelUp(SkillData data)
@@ -80,6 +148,7 @@ public class SkillManager : MonoBehaviour
         Debug.Log(data.skillName + " Lv" + currentLevel);
     }
 
+
     // 効果適用
     private void ApplySkill(SkillData data, int level)
     {
@@ -103,6 +172,7 @@ public class SkillManager : MonoBehaviour
 
                 break;
 
+
             case SkillType.AttackCooldown:
 
                 if (playerAttack != null)
@@ -116,6 +186,7 @@ public class SkillManager : MonoBehaviour
                 }
 
                 break;
+
 
             case SkillType.CritRate:
 
@@ -131,6 +202,7 @@ public class SkillManager : MonoBehaviour
 
                 break;
 
+
             case SkillType.MaxHP:
 
                 if (maxhpup != null)
@@ -144,6 +216,7 @@ public class SkillManager : MonoBehaviour
                 }
 
                 break;
+
 
             case SkillType.MoveSpeed:
 
@@ -159,6 +232,7 @@ public class SkillManager : MonoBehaviour
 
                 break;
 
+
             //PlayerSkillattack
             case SkillType.ProjectileCount:
 
@@ -166,20 +240,36 @@ public class SkillManager : MonoBehaviour
                 {
                     skillID1.AddBulletCount((int)value);
                 }
+                else
+                {
+                    Debug.LogError("SkillID1 が設定されていません！");
+                }
 
                 if (skillID2 != null)
                 {
                     skillID2.AddBulletCount((int)value);
+                }
+                else
+                {
+                    Debug.LogError("SkillID2 が設定されていません！");
                 }
 
                 if (skillID3 != null)
                 {
                     skillID3.AddBulletCount((int)value);
                 }
+                else
+                {
+                    Debug.LogError("SkillID3 が設定されていません！");
+                }
 
                 if (skillID4 != null)
                 {
                     skillID4.AddBulletCount((int)value);
+                }
+                else
+                {
+                    Debug.LogError("SkillID4 が設定されていません！");
                 }
 
                 Debug.Log("スキルの弾の数 + " + value);
@@ -201,6 +291,7 @@ public class SkillManager : MonoBehaviour
 
                 break;
 
+
             case SkillType.SkillPower:
 
                 if (playerProgressData != null)
@@ -214,6 +305,7 @@ public class SkillManager : MonoBehaviour
                 }
 
                 break;
+
 
             //Playersupport
             case SkillType.KillHeal:
@@ -230,6 +322,7 @@ public class SkillManager : MonoBehaviour
 
                 break;
 
+
             case SkillType.PickupRange:
 
                 if (expItem != null)
@@ -243,6 +336,7 @@ public class SkillManager : MonoBehaviour
                 }
 
                 break;
+
 
             case SkillType.RespawnCooldown:
 
@@ -258,6 +352,7 @@ public class SkillManager : MonoBehaviour
 
                 break;
 
+
             case SkillType.WallCooldown:
 
                 if (wall != null)
@@ -269,13 +364,15 @@ public class SkillManager : MonoBehaviour
                 {
                     Debug.LogError("Wall が設定されていません！");
                 }
+
                 break;
+
 
             default:
 
                 Debug.Log("まだ未実装: " + data.type);
+
                 break;
         }
     }
-
 }

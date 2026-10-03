@@ -351,47 +351,47 @@ PrefabInstance:
     - target: {fileID: 5897684408298460439, guid: 14883e23418c85e4394056e178880ef4, type: 3}
       propertyPath: move
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2927289969543421036, guid: c779a4f81b0e1b14d99f6ec554ac7bc5, type: 3}
     - target: {fileID: 5897684408298460439, guid: 14883e23418c85e4394056e178880ef4, type: 3}
       propertyPath: wall
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8405025906523344520, guid: c779a4f81b0e1b14d99f6ec554ac7bc5, type: 3}
     - target: {fileID: 5897684408298460439, guid: 14883e23418c85e4394056e178880ef4, type: 3}
       propertyPath: expItem
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 3581673623702682658, guid: c779a4f81b0e1b14d99f6ec554ac7bc5, type: 3}
     - target: {fileID: 5897684408298460439, guid: 14883e23418c85e4394056e178880ef4, type: 3}
       propertyPath: maxhpup
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 4586424269156059679, guid: c779a4f81b0e1b14d99f6ec554ac7bc5, type: 3}
     - target: {fileID: 5897684408298460439, guid: 14883e23418c85e4394056e178880ef4, type: 3}
       propertyPath: procount
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 922019967771186706, guid: c779a4f81b0e1b14d99f6ec554ac7bc5, type: 3}
     - target: {fileID: 5897684408298460439, guid: 14883e23418c85e4394056e178880ef4, type: 3}
       propertyPath: skillID1
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8336779846845220986, guid: c779a4f81b0e1b14d99f6ec554ac7bc5, type: 3}
     - target: {fileID: 5897684408298460439, guid: 14883e23418c85e4394056e178880ef4, type: 3}
       propertyPath: skillID2
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 3701862852412839253, guid: c779a4f81b0e1b14d99f6ec554ac7bc5, type: 3}
     - target: {fileID: 5897684408298460439, guid: 14883e23418c85e4394056e178880ef4, type: 3}
       propertyPath: skillID3
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 7670417280891076461, guid: c779a4f81b0e1b14d99f6ec554ac7bc5, type: 3}
     - target: {fileID: 5897684408298460439, guid: 14883e23418c85e4394056e178880ef4, type: 3}
       propertyPath: skillID4
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 726314026362114862, guid: c779a4f81b0e1b14d99f6ec554ac7bc5, type: 3}
     - target: {fileID: 5897684408298460439, guid: 14883e23418c85e4394056e178880ef4, type: 3}
       propertyPath: testSkill
       value: 
-      objectReference: {fileID: 11400000, guid: 95a9283cee8cbf64581f15c1a3d3276e, type: 2}
+      objectReference: {fileID: 11400000, guid: 6360cca916d6c47439f2d39c65624480, type: 2}
     - target: {fileID: 5897684408298460439, guid: 14883e23418c85e4394056e178880ef4, type: 3}
       propertyPath: playerAttack
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 7010086426832156187, guid: c779a4f81b0e1b14d99f6ec554ac7bc5, type: 3}
     - target: {fileID: 7253573168543481660, guid: 14883e23418c85e4394056e178880ef4, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -589.7
