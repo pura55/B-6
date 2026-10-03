@@ -284,6 +284,10 @@ PrefabInstance:
       propertyPath: skillStock
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4047367364196834800, guid: 14883e23418c85e4394056e178880ef4, type: 3}
+      propertyPath: skillManager
+      value: 
+      objectReference: {fileID: 287856125}
     - target: {fileID: 4439233333145382674, guid: 14883e23418c85e4394056e178880ef4, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -392,6 +396,10 @@ PrefabInstance:
       propertyPath: playerAttack
       value: 
       objectReference: {fileID: 7010086426832156187, guid: c779a4f81b0e1b14d99f6ec554ac7bc5, type: 3}
+    - target: {fileID: 7174995979893172421, guid: 14883e23418c85e4394056e178880ef4, type: 3}
+      propertyPath: maxPos.y
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7253573168543481660, guid: 14883e23418c85e4394056e178880ef4, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -589.7
@@ -453,13 +461,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 204366881513504061, guid: 14883e23418c85e4394056e178880ef4, type: 3}
+    - {fileID: 0}
     - {fileID: 6646724438484212118, guid: 14883e23418c85e4394056e178880ef4, type: 3}
     m_RemovedGameObjects:
     - {fileID: 7996086720322329091, guid: 14883e23418c85e4394056e178880ef4, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3033991418942743652, guid: 14883e23418c85e4394056e178880ef4, type: 3}
-      insertIndex: 19
+      insertIndex: 4
+      addedObject: {fileID: 1935718255}
+    - targetCorrespondingSourceObject: {fileID: 3033991418942743652, guid: 14883e23418c85e4394056e178880ef4, type: 3}
+      insertIndex: 20
       addedObject: {fileID: 409170026}
     - targetCorrespondingSourceObject: {fileID: 8216341042596606833, guid: 14883e23418c85e4394056e178880ef4, type: 3}
       insertIndex: -1
@@ -469,6 +480,39 @@ PrefabInstance:
       addedObject: {fileID: 2938183810623128899}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14883e23418c85e4394056e178880ef4, type: 3}
+--- !u!114 &287856125 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5897684408298460439, guid: 14883e23418c85e4394056e178880ef4, type: 3}
+  m_PrefabInstance: {fileID: 287856124}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d24e12a7c2ab9524bb18f2ac7ef26a2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkillManager
+--- !u!114 &287856126 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2170287648466425699, guid: 14883e23418c85e4394056e178880ef4, type: 3}
+  m_PrefabInstance: {fileID: 287856124}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 608042ea8cab7a941a4e01126cdb6d58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkillCard
+--- !u!114 &287856127 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8880981556598476201, guid: 14883e23418c85e4394056e178880ef4, type: 3}
+  m_PrefabInstance: {fileID: 287856124}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 608042ea8cab7a941a4e01126cdb6d58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkillCard
 --- !u!224 &287856128 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4517869367245858910, guid: 14883e23418c85e4394056e178880ef4, type: 3}
@@ -479,6 +523,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8216341042596606833, guid: 14883e23418c85e4394056e178880ef4, type: 3}
   m_PrefabInstance: {fileID: 287856124}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &287856130 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7852517763583102117, guid: 14883e23418c85e4394056e178880ef4, type: 3}
+  m_PrefabInstance: {fileID: 287856124}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 608042ea8cab7a941a4e01126cdb6d58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkillCard
 --- !u!4 &409170026 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6073506342569102110, guid: f054138cc87247f4693537b243be91e1, type: 3}
@@ -570,11 +625,77 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 866290782}
   m_CullTransparentMesh: 1
+--- !u!1 &1372936538 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1053672005526716207, guid: 14883e23418c85e4394056e178880ef4, type: 3}
+  m_PrefabInstance: {fileID: 287856124}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1561799195 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3033991418942743652, guid: 14883e23418c85e4394056e178880ef4, type: 3}
   m_PrefabInstance: {fileID: 287856124}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1935718254
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1935718255}
+  - component: {fileID: 1935718256}
+  m_Layer: 0
+  m_Name: 'LevelUpUIController '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1935718255
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935718254}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.8289, y: 3.20987, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1561799195}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1935718256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935718254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f36d4800d77f5749b40d144920ac8b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelUpUI
+  levelUpPanel: {fileID: 1372936538}
+  card1: {fileID: 287856130}
+  card2: {fileID: 287856127}
+  card3: {fileID: 287856126}
+  allSkills:
+  - {fileID: 11400000, guid: 0e860d58056033349aa38017957907f0, type: 2}
+  - {fileID: 11400000, guid: 2ccf94df270e2684d8dd3fd1239eabc4, type: 2}
+  - {fileID: 11400000, guid: 322cd8a96776ad34a885075f08392eba, type: 2}
+  - {fileID: 11400000, guid: 6360cca916d6c47439f2d39c65624480, type: 2}
+  - {fileID: 11400000, guid: f7d34f2e04d74264a94cdaf60fcc1bc4, type: 2}
+  - {fileID: 11400000, guid: 7cbe6768de6fd0c4aa511b3f428ef01d, type: 2}
+  - {fileID: 11400000, guid: 44fa4230d9f8718408bb18df3acc197f, type: 2}
+  - {fileID: 11400000, guid: 95a9283cee8cbf64581f15c1a3d3276e, type: 2}
+  - {fileID: 11400000, guid: da84851f593a74d4ca222c5bb54a5498, type: 2}
+  - {fileID: 11400000, guid: ded495af94c543940a6928ad064efa93, type: 2}
+  - {fileID: 11400000, guid: 259cd4d9e2a94ff409bd256e028e91ae, type: 2}
+  - {fileID: 11400000, guid: 5fdc2de48a495664292dab495dbf2626, type: 2}
 --- !u!1001 &2938183810623128898
 PrefabInstance:
   m_ObjectHideFlags: 0
