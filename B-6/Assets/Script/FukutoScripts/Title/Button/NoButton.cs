@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public class NoButton : ButtonBase
 {
-    #region State
+    #region Config
     [SerializeField] private EndScreen endScreen; // 終了スクリーン
     #endregion
 

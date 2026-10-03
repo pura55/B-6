@@ -15,6 +15,9 @@ public class SoundPlayer : MonoBehaviour
 
     [Header("SOUCE")]
     [SerializeField] protected AudioSource audioSource; // ソースのコンポーネント
+
+    [Header("SETTING")]
+    [SerializeField] protected SettingValues settingValues; // 設定値
     #endregion
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -25,6 +28,7 @@ public class SoundPlayer : MonoBehaviour
     /// @brief 通常再生する関数
     public void PlaySound()
     {
+        audioSource.volume = settingValues.GetVolumeSE();
         AudioSetting(false, false);
         audioSource.Play();
     }
@@ -32,6 +36,7 @@ public class SoundPlayer : MonoBehaviour
     /// @brief BGMを再生する関数
     public void PlayBGM()
     {
+        audioSource.volume = settingValues.GetVolumeBGM();
         AudioSetting(true, false);
         audioSource.Play();
     }
@@ -45,6 +50,7 @@ public class SoundPlayer : MonoBehaviour
     /// @brief 一度だけ再生する関数
     public void PlayOneShot()
     {
+        audioSource.volume = settingValues.GetVolumeSE();
         AudioSetting(false, true);
         audioSource.PlayOneShot(audioOneShot);
     }
