@@ -76,7 +76,7 @@ public class BlinkAttack : MonoBehaviour
 
             if (enemy != null)
             {
-                enemy.ReceiveDamage(damage);
+                enemy.ReceivePlayerDamage(damage);
             }
         }
     }

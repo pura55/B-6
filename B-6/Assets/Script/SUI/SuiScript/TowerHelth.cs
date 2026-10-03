@@ -22,6 +22,8 @@ public class TowerHealth : MonoBehaviour
 
     // 赤バーのアニメーション用
     private Coroutine damageCoroutine;
+    
+    private GameTimer gameTimer;
 
     // 初期化
     void Start()
@@ -41,6 +43,9 @@ public class TowerHealth : MonoBehaviour
 
         // ゲームの時間を通常に戻す
         Time.timeScale = 1f;
+
+        //タイマーを取得
+        gameTimer = FindFirstObjectByType<GameTimer>();
     }
 
     // ダメージ処理
@@ -118,6 +123,9 @@ public class TowerHealth : MonoBehaviour
 
         // 時間を元に戻す
         Time.timeScale = 1f;
+
+        //時間を保存
+        if (gameTimer != null) gameTimer.SaveElapsedTime();
 
         // ゲームオーバーシーンへ移動
         SceneManager.LoadScene("GameoverScene");

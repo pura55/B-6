@@ -1,3 +1,4 @@
+
 using UnityEngine;
 using System.Collections;
 
@@ -12,16 +13,30 @@ public class RockHit : MonoBehaviour
 
     #region State
     private bool isHit = false; // ヒットフラグ
-    #endregion 
+    private static int blockedRockCount = 0; // 防いだ落石の数
+    #endregion
+
+    // 防いだ落石の数を取得
+    public static int GetBlockedRockCount()
+    {
+        return blockedRockCount;
+    }
+
+    // 防いだ落石の数をリセット
+    public static void ResetBlockedRockCount()
+    {
+        blockedRockCount = 0;
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if(isHit)
+        if (isHit)
         {
             return;
         }
@@ -79,6 +94,10 @@ public class RockHit : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Wall"))
         {
+            // 防いだ落石をカウント
+            blockedRockCount++;
+            Debug.Log("防いだ落石：" + blockedRockCount);
+
             PlayDestroySE();
             // 壁破壊
             Destroy(collision.gameObject);
@@ -93,7 +112,7 @@ public class RockHit : MonoBehaviour
     /// @brief サウンド停止待機を行う関数
     IEnumerator WaitFinisheSound()
     {
-         yield return new WaitForSeconds(waitTime);
+        yield return new WaitForSeconds(waitTime);
 
         Destroy(gameObject);
     }

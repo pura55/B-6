@@ -50,12 +50,12 @@ public class Bullet : MonoBehaviour
             if (!enemy.CompareTag("Enemy"))
                 continue;
 
-            EnemyDamaged health =
-                enemy.GetComponent<EnemyDamaged>();
+            EnemyHealth health = enemy.GetComponent<EnemyHealth>();
+
 
             if (health != null)
             {
-                health.ReceiveDamage(hitDamage);
+                health.ReceivePlayerDamage(hitDamage);
             }
         }
 
@@ -99,7 +99,7 @@ public class Bullet : MonoBehaviour
 
             if (health != null)
             {
-                health.ReceiveDamage(damage);
+                health.ReceivePlayerDamage(damage);
             }
 
             // ’e‚ð’âŽ~

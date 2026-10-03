@@ -1,13 +1,23 @@
 using UnityEngine;
 
-public class EnemyDamaged: MonoBehaviour
+public class EnemyDamaged : MonoBehaviour
 {
     [Header("敵のHP")]
     [SerializeField] private int enemyHp = 5;
 
-    /// <summary>
-    /// ダメージを受ける
-    /// </summary>
+    private static int playerKillCount = 0;
+    private bool playerKillCounted = false;
+
+    public static int GetPlayerKillCount()
+    {
+        return playerKillCount;
+    }
+
+    public static void ResetPlayerKillCount()
+    {
+        playerKillCount = 0;
+    }
+
     public void ReceiveDamage(int damage)
     {
         enemyHp -= damage;
@@ -16,6 +26,24 @@ public class EnemyDamaged: MonoBehaviour
 
         if (enemyHp <= 0)
         {
+            Die();
+        }
+    }
+
+    public void ReceivePlayerDamage(int damage)
+    {
+        enemyHp -= damage;
+
+        Debug.Log($"<color=blue>{gameObject.name} に {damage} ダメージ！ </color>残りHP：{enemyHp}");
+
+        if (enemyHp <= 0)
+        {
+            if (!playerKillCounted)
+            {
+                playerKillCount++;
+                playerKillCounted = true;
+            }
+
             Die();
         }
     }
@@ -34,4 +62,3 @@ public class EnemyDamaged: MonoBehaviour
         }
     }
 }
-

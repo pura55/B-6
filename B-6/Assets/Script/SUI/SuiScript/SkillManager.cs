@@ -24,11 +24,19 @@ public class SkillManager : MonoBehaviour
     private SkillID3 skillID3;
     private SkillID4 skillID4;
 
-
     // スキルレベル管理
     private Dictionary<SkillType, int> skillLevels =
         new Dictionary<SkillType, int>();
 
+    // 取得済みスキル管理
+    private List<SkillData> acquiredSkills =
+        new List<SkillData>();
+
+    // 取得済みスキル一覧を取得
+    public List<SkillData> GetAcquiredSkills()
+    {
+        return acquiredSkills;
+    }
 
     void Update()
     {
@@ -42,7 +50,6 @@ public class SkillManager : MonoBehaviour
             }
         }
     }
-
 
     // 生成されたPlayerを設定
     public void SetPlayer(GameObject player)
@@ -106,7 +113,6 @@ public class SkillManager : MonoBehaviour
         );
     }
 
-
     // 現在レベル取得
     public int GetLevel(SkillType type)
     {
@@ -115,13 +121,11 @@ public class SkillManager : MonoBehaviour
             : 0;
     }
 
-
     // MAX判定
     public bool IsMax(SkillType type)
     {
         return GetLevel(type) >= 3;
     }
-
 
     // レベルアップ処理
     public void LevelUp(SkillData data)
@@ -140,6 +144,12 @@ public class SkillManager : MonoBehaviour
             return;
         }
 
+        // 初めて取得するスキルを保存
+        if (currentLevel == 0)
+        {
+            acquiredSkills.Add(data);
+        }
+
         currentLevel++;
         skillLevels[data.type] = currentLevel;
 
@@ -148,12 +158,10 @@ public class SkillManager : MonoBehaviour
         Debug.Log(data.skillName + " Lv" + currentLevel);
     }
 
-
     // 効果適用
     private void ApplySkill(SkillData data, int level)
     {
         float value = data.GetValue(level);
-
 
         switch (data.type)
         {
@@ -172,7 +180,6 @@ public class SkillManager : MonoBehaviour
 
                 break;
 
-
             case SkillType.AttackCooldown:
 
                 if (playerAttack != null)
@@ -186,7 +193,6 @@ public class SkillManager : MonoBehaviour
                 }
 
                 break;
-
 
             case SkillType.CritRate:
 
@@ -202,7 +208,6 @@ public class SkillManager : MonoBehaviour
 
                 break;
 
-
             case SkillType.MaxHP:
 
                 if (maxhpup != null)
@@ -217,7 +222,6 @@ public class SkillManager : MonoBehaviour
 
                 break;
 
-
             case SkillType.MoveSpeed:
 
                 if (move != null)
@@ -231,7 +235,6 @@ public class SkillManager : MonoBehaviour
                 }
 
                 break;
-
 
             //PlayerSkillattack
             case SkillType.ProjectileCount:
@@ -276,7 +279,6 @@ public class SkillManager : MonoBehaviour
 
                 break;
 
-
             case SkillType.SkillCooldown:
 
                 if (playerProgressData != null)
@@ -291,7 +293,6 @@ public class SkillManager : MonoBehaviour
 
                 break;
 
-
             case SkillType.SkillPower:
 
                 if (playerProgressData != null)
@@ -305,7 +306,6 @@ public class SkillManager : MonoBehaviour
                 }
 
                 break;
-
 
             //Playersupport
             case SkillType.KillHeal:
@@ -322,7 +322,6 @@ public class SkillManager : MonoBehaviour
 
                 break;
 
-
             case SkillType.PickupRange:
 
                 if (expItem != null)
@@ -336,7 +335,6 @@ public class SkillManager : MonoBehaviour
                 }
 
                 break;
-
 
             case SkillType.RespawnCooldown:
 
@@ -352,7 +350,6 @@ public class SkillManager : MonoBehaviour
 
                 break;
 
-
             case SkillType.WallCooldown:
 
                 if (wall != null)
@@ -366,7 +363,6 @@ public class SkillManager : MonoBehaviour
                 }
 
                 break;
-
 
             default:
 
