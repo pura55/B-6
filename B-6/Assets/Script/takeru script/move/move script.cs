@@ -11,6 +11,7 @@ public class MoveScript : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private PlayerAttack playerAttack;
     private PlayerHealth playerHealth;
+    private PlayerInputLock inputLock;
 
     public bool IsMoving()
     {
@@ -23,11 +24,20 @@ public class MoveScript : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerAttack = GetComponent<PlayerAttack>();
         playerHealth = GetComponent<PlayerHealth>();
+        inputLock = GetComponent<PlayerInputLock>();
     }
 
     void Update()
     {
         move = Vector2.zero;
+
+        // =========================
+        // “ü—Í‹Ö~’†‚Í‰½‚à‚µ‚È‚¢
+        // =========================
+        if (inputLock != null && inputLock.IsLocked)
+        {
+            return;
+        }
 
         // =========================
         // €–S’†‚ÍˆÚ“®ˆ—‚ğ‚µ‚È‚¢
@@ -57,7 +67,6 @@ public class MoveScript : MonoBehaviour
         {
             move.x = -1;
 
-            // UŒ‚’†‚¶‚á‚È‚¢‚¾‚¯¶‚ğŒü‚­
             if (!playerAttack.IsAttacking())
             {
                 spriteRenderer.flipX = true;
@@ -69,7 +78,6 @@ public class MoveScript : MonoBehaviour
         {
             move.x = 1;
 
-            // UŒ‚’†‚¶‚á‚È‚¢‚¾‚¯‰E‚ğŒü‚­
             if (!playerAttack.IsAttacking())
             {
                 spriteRenderer.flipX = false;

@@ -30,14 +30,23 @@ public class PlayerHealth : MonoBehaviour
     private ID1Sprite playerAnimation;
     private Vector3 startPosition;
 
+    // 入力禁止を管理
+    private PlayerInputLock inputLock;
+
     // 死亡中かどうか
     public bool IsDead { get; private set; } = false;
 
+
     void Start()
     {
+        // PlayerInputLockを取得
+        inputLock = GetComponent<PlayerInputLock>();
+
+
         // データからHP取得
         maxHP = playerProgressData.hp;
         myHp = maxHP;
+
 
         // Scene上のPlayerHPを取得
         if (hpSlider == null)
@@ -52,6 +61,7 @@ public class PlayerHealth : MonoBehaviour
             }
         }
 
+
         // HPバー初期設定
         if (hpSlider != null)
         {
@@ -65,12 +75,15 @@ public class PlayerHealth : MonoBehaviour
             );
         }
 
+
         playerAnimation =
             GetComponent<ID1Sprite>();
+
 
         startPosition =
             transform.position;
     }
+
 
     void Update()
     {
@@ -108,11 +121,20 @@ public class PlayerHealth : MonoBehaviour
             return;
 
 
-        Debug.Log("被ダメ前プレイヤーHP: " + myHp);
+        Debug.Log(
+            "被ダメ前プレイヤーHP: " +
+            myHp
+        );
+
 
         myHp -= dmg;
 
-        Debug.Log("受けるダメージ: -" + dmg);
+
+        Debug.Log(
+            "受けるダメージ: -" +
+            dmg
+        );
+
 
         // HPがマイナスにならないようにする
         if (myHp < 0)
@@ -122,7 +144,10 @@ public class PlayerHealth : MonoBehaviour
 
 
         // HPバー更新
-        hpSlider.value = myHp;
+        if (hpSlider != null)
+        {
+            hpSlider.value = myHp;
+        }
 
 
         // 死亡
@@ -151,10 +176,24 @@ public class PlayerHealth : MonoBehaviour
             return;
 
 
+        // 死亡状態
         IsDead = true;
 
 
+        // =========================
+        // 入力を禁止
+        // =========================
+
+        if (inputLock != null)
+        {
+            inputLock.LockInput();
+        }
+
+
+        // =========================
         // 死亡アニメーション
+        // =========================
+
         playerAnimation.ChangeState(
             ID1Sprite.PlayerAnimState.Death
         );
@@ -165,7 +204,10 @@ public class PlayerHealth : MonoBehaviour
         );
 
 
+        // =========================
         // リスポーン開始
+        // =========================
+
         StartCoroutine(
             RespawnCoroutine()
         );
@@ -186,9 +228,17 @@ public class PlayerHealth : MonoBehaviour
     /// </summary>
     private IEnumerator RespawnCoroutine()
     {
+        Debug.Log(
+            "リスポーンまで " +
+            respawnTime +
+            " 秒"
+        );
+
+
         yield return new WaitForSeconds(
             respawnTime
         );
+
 
         Respawn();
     }
@@ -202,23 +252,34 @@ public class PlayerHealth : MonoBehaviour
         // 初期位置へ戻す
         transform.position = startPosition;
 
-
         // HP全回復
         myHp = maxHP;
 
-
         // HPバー更新
-        hpSlider.value = myHp;
-
+        if (hpSlider != null)
+        {
+            hpSlider.value = myHp;
+        }
 
         // 生存状態に戻す
         IsDead = false;
 
+        // 入力禁止解除
+        if (inputLock != null)
+        {
+            inputLock.UnlockInput();
+        }
+
+        // リスポーンしたのでIdleへ
+        playerAnimation.ChangeState(
+            ID1Sprite.PlayerAnimState.Idle
+        );
 
         Debug.Log(
             "<color=green>プレイヤーリスポーン</color>"
         );
     }
+
 
 
     /// <summary>
@@ -235,7 +296,8 @@ public class PlayerHealth : MonoBehaviour
             return;
 
 
-        myHp += killHeal;
+        myHp +=
+            killHeal;
 
 
         // 最大HPを超えない
@@ -245,11 +307,16 @@ public class PlayerHealth : MonoBehaviour
         }
 
 
-        hpSlider.value = myHp;
+        if (hpSlider != null)
+        {
+            hpSlider.value =
+                myHp;
+        }
 
 
         Debug.Log(
-            "キルヒール！ HP +" + killHeal
+            "キルヒール！ HP +" +
+            killHeal
         );
     }
 }
