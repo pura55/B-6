@@ -20,16 +20,27 @@ public class SkillCoolTimeUI : MonoBehaviour
     [SerializeField] private Sprite skillIcon4;
 
 
-    void Start()
+    private void Start()
     {
+        // スポナーで生成されたSkillStockを自動検索
+        FindSkillStock();
+
+        // キャラIDによってスキル画像設定
         SetSkillIcon();
     }
 
 
-    void Update()
+    private void Update()
     {
+        // SkillStockがまだ見つかっていない場合は再検索
         if (skillStock == null)
-            return;
+        {
+            FindSkillStock();
+
+            if (skillStock == null)
+                return;
+        }
+
 
         if (coolTimeImage == null)
             return;
@@ -47,6 +58,27 @@ public class SkillCoolTimeUI : MonoBehaviour
         else
         {
             coolTimeImage.fillAmount = 1f;
+        }
+    }
+
+
+    // =========================
+    // SkillStockを自動検索
+    // =========================
+
+    private void FindSkillStock()
+    {
+        skillStock =
+            FindObjectOfType<SkillStock>();
+
+
+        if (skillStock != null)
+        {
+            Debug.Log(
+                "<color=cyan>" +
+                "SkillStockを自動取得しました" +
+                "</color>"
+            );
         }
     }
 
@@ -96,7 +128,6 @@ public class SkillCoolTimeUI : MonoBehaviour
         }
 
 
-        // 背景画像
         if (backgroundImage != null)
         {
             backgroundImage.sprite =
@@ -104,7 +135,6 @@ public class SkillCoolTimeUI : MonoBehaviour
         }
 
 
-        // CT画像
         if (coolTimeImage != null)
         {
             coolTimeImage.sprite =

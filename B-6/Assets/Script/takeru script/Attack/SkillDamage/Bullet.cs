@@ -13,31 +13,81 @@ public class Bullet : MonoBehaviour
     [SerializeField] private GameObject hitEffect;
 
     [Header("着弾後の範囲ダメージ")]
-    [SerializeField] private int hitDamage = 1;
-    [SerializeField] private float damageInterval = 1f;
-    [SerializeField] private float hitDuration = 5f;
     [SerializeField] private float damageRadius = 1.5f;
 
-    private float nextDamageTime;
+    [Header("DATA")]
+    [SerializeField] private PlayerProgressData playerProgressData;
 
     private bool hasHit = false;
-    private bool isDamageArea = false;
 
-    [Header("DATA")]
-    [SerializeField] private PlayerProgressData playerProgressData; // プレイヤーのデータ
 
     private void Start()
     {
-        damage = playerProgressData.skillDmg; // スキルの攻撃力取得
+        // プレイヤーデータからスキルダメージ取得
+        if (playerProgressData != null)
+        {
+            damage = playerProgressData.skillDmg;
+        }
     }
 
-    private void Update()
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!isDamageArea)
+        // すでに着弾していたら何もしない
+        if (hasHit)
             return;
 
-        if (Time.time < nextDamageTime)
+
+        // =========================
+        // 壁に当たった
+        // =========================
+
+        if (other.CompareTag("Wall"))
+        {
+            Destroy(gameObject);
             return;
+        }
+
+
+        // =========================
+        // 敵に当たった
+        // =========================
+
+        if (!other.CompareTag("Enemy"))
+            return;
+
+
+        hasHit = true;
+
+
+        Debug.Log(
+            "<color=yellow>弾が敵に着弾！</color>"
+        );
+
+
+        // =========================
+        // 通常エフェクトOFF
+        // =========================
+
+        if (normalEffect != null)
+        {
+            normalEffect.SetActive(false);
+        }
+
+
+        // =========================
+        // ヒットエフェクトON
+        // =========================
+
+        if (hitEffect != null)
+        {
+            hitEffect.SetActive(true);
+        }
+
+
+        // =========================
+        // 着弾した場所を中心に範囲検索
+        // =========================
 
         Collider2D[] enemies =
             Physics2D.OverlapCircleAll(
@@ -45,89 +95,96 @@ public class Bullet : MonoBehaviour
                 damageRadius
             );
 
-        foreach (Collider2D enemy in enemies)
+
+        Debug.Log(
+            "範囲内に見つかったCollider数：" +
+            enemies.Length
+        );
+
+
+        // =========================
+        // 範囲内の敵全員にダメージ
+        // =========================
+
+        foreach (Collider2D enemyCollider in enemies)
         {
-            if (!enemy.CompareTag("Enemy"))
+            if (!enemyCollider.CompareTag("Enemy"))
                 continue;
 
-            EnemyDamaged health =
-                enemy.GetComponent<EnemyDamaged>();
 
-            if (health != null)
-            {
-                health.ReceiveDamage(hitDamage);
-            }
-        }
-
-        nextDamageTime =
-            Time.time + damageInterval;
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (hasHit)
-            return;
-
-        // 壁に当たった
-        if (other.CompareTag("Wall"))
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        // 敵に当たった
-        if (other.CompareTag("Enemy"))
-        {
-            hasHit = true;
-            isDamageArea = true;
-
-            // 通常エフェクトOFF
-            if (normalEffect != null)
-            {
-                normalEffect.SetActive(false);
-            }
-
-            // ヒットエフェクトON
-            if (hitEffect != null)
-            {
-                hitEffect.SetActive(true);
-            }
-
-            // 最初の着弾ダメージ
+            // Colliderが子オブジェクトにあっても
+            // 親からEnemyHealthを探す
             EnemyHealth health =
-                other.GetComponent<EnemyHealth>();
+                enemyCollider.GetComponentInParent<EnemyHealth>();
 
-            if (health != null)
+
+            if (health == null)
             {
-                health.ReceiveDamage(damage);
-            }
-
-            // 弾を停止
-            Rigidbody2D rb =
-                GetComponent<Rigidbody2D>();
-
-            if (rb != null)
-            {
-                rb.linearVelocity = Vector2.zero;
-            }
-
-            // 大きくする
-            transform.localScale =
-                new Vector3(
-                    hitScale,
-                    hitScale,
-                    transform.localScale.z
+                Debug.LogWarning(
+                    "EnemyHealthが見つかりません：" +
+                    enemyCollider.name
                 );
 
-            // 継続ダメージ開始時間
-            nextDamageTime =
-                Time.time + damageInterval;
+                continue;
+            }
 
-            // 一定時間後に削除
-            Destroy(
-                gameObject,
-                hitDuration
+
+            Debug.Log(
+                "<color=orange>" +
+                "スキル範囲ダメージ：" +
+                enemyCollider.transform.root.name +
+                " に " +
+                damage +
+                " ダメージ" +
+                "</color>"
             );
+
+
+            health.ReceiveDamage(damage);
         }
+
+
+        // =========================
+        // 弾を停止
+        // =========================
+
+        Rigidbody2D rb =
+            GetComponent<Rigidbody2D>();
+
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.zero;
+        }
+
+
+        // =========================
+        // ヒットエフェクトを大きくする
+        // =========================
+
+        transform.localScale =
+            new Vector3(
+                hitScale,
+                hitScale,
+                transform.localScale.z
+            );
+
+
+        // =========================
+        // 一定時間後に削除
+        // =========================
+
+        Destroy(gameObject, 0.5f);
+    }
+
+
+    // Sceneビューで範囲を確認する
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+
+        Gizmos.DrawWireSphere(
+            transform.position,
+            damageRadius
+        );
     }
 }
