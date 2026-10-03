@@ -48,7 +48,7 @@ public class ID1Sprite : MonoBehaviour
     [SerializeField] private float animationSpeed = 0.1f;
 
     [Header("DATA")]
-    [SerializeField] private PlayerProgressData playerProgressData; // プレイヤーのデータ
+    [SerializeField] private PlayerProgressData playerProgressData;
 
     private SpriteRenderer spriteRenderer;
     private PlayerHealth playerHealth;
@@ -62,12 +62,13 @@ public class ID1Sprite : MonoBehaviour
 
     private int currentPlayerID = 1;
 
+
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerHealth = GetComponent<PlayerHealth>();
 
-        currentPlayerID = playerProgressData.id; // id取得
+        currentPlayerID = playerProgressData.id;
 
         if (currentPlayerID == 0)
         {
@@ -77,26 +78,20 @@ public class ID1Sprite : MonoBehaviour
         ChangeState(PlayerAnimState.Idle);
     }
 
+
     void Update()
     {
-        //// デバッグ用：1・2・3キーでキャラ変更
-        //if (DebugCharacterSelect.selectedPlayerID != 0 &&
-        //    DebugCharacterSelect.selectedPlayerID != currentPlayerID)
-        //{
-        //    currentPlayerID = DebugCharacterSelect.selectedPlayerID;
-
-        //    Debug.Log("キャラ変更 ID : " + currentPlayerID);
-
-        //    ChangeState(PlayerAnimState.Idle);
-        //}
-
         PlayAnimation();
     }
 
+
     void PlayAnimation()
     {
-        if (currentSprites == null || currentSprites.Length == 0)
+        if (currentSprites == null ||
+            currentSprites.Length == 0)
+        {
             return;
+        }
 
         timer += Time.deltaTime;
 
@@ -105,47 +100,73 @@ public class ID1Sprite : MonoBehaviour
             timer = 0f;
             spriteIndex++;
 
+
             if (spriteIndex >= currentSprites.Length)
             {
+                // =========================
                 // Death終了
+                // =========================
+
                 if (currentState == PlayerAnimState.Death)
                 {
-                    spriteIndex = currentSprites.Length - 1;
-                    spriteRenderer.sprite = currentSprites[spriteIndex];
+                    // 最後の死亡スプライトを表示したまま
+                    spriteIndex =
+                        currentSprites.Length - 1;
 
-                    playerHealth.Respawn();
+                    spriteRenderer.sprite =
+                        currentSprites[spriteIndex];
 
-                    ChangeState(PlayerAnimState.Idle);
+                    // ★ここではRespawnしない
+                    // PlayerHealthが5秒後にRespawnする
+
                     return;
                 }
 
+
+                // =========================
                 // Attack / TakeHit / Skill
+                // =========================
+
                 if (isOneShotAnimation)
                 {
                     isOneShotAnimation = false;
 
-                    ChangeState(PlayerAnimState.Idle);
+                    ChangeState(
+                        PlayerAnimState.Idle
+                    );
+
                     return;
                 }
 
+
+                // =========================
                 // Idle / Move
+                // =========================
+
                 spriteIndex = 0;
             }
 
-            spriteRenderer.sprite = currentSprites[spriteIndex];
+
+            spriteRenderer.sprite =
+                currentSprites[spriteIndex];
         }
     }
+
 
     public void ChangeState(PlayerAnimState newState)
     {
         // 同じアニメなら切り替えない
-        if (currentState == newState && currentSprites != null)
+        if (currentState == newState &&
+            currentSprites != null)
+        {
             return;
+        }
 
         currentState = newState;
 
         spriteIndex = 0;
         timer = 0f;
+
 
         switch (currentPlayerID)
         {
@@ -160,16 +181,21 @@ public class ID1Sprite : MonoBehaviour
             case 3:
                 SetCharacter3Animation();
                 break;
+
             case 4:
                 SetCharacter4Animation();
                 break;
         }
 
-        if (currentSprites != null && currentSprites.Length > 0)
+
+        if (currentSprites != null &&
+            currentSprites.Length > 0)
         {
-            spriteRenderer.sprite = currentSprites[0];
+            spriteRenderer.sprite =
+                currentSprites[0];
         }
     }
+
 
     void SetCharacter1Animation()
     {
@@ -207,6 +233,7 @@ public class ID1Sprite : MonoBehaviour
         }
     }
 
+
     void SetCharacter2Animation()
     {
         switch (currentState)
@@ -242,6 +269,7 @@ public class ID1Sprite : MonoBehaviour
                 break;
         }
     }
+
 
     void SetCharacter3Animation()
     {
@@ -279,6 +307,7 @@ public class ID1Sprite : MonoBehaviour
         }
     }
 
+
     void SetCharacter4Animation()
     {
         switch (currentState)
@@ -315,10 +344,12 @@ public class ID1Sprite : MonoBehaviour
         }
     }
 
+
     public PlayerAnimState GetCurrentState()
     {
         return currentState;
     }
+
 
     public int GetPlayerID()
     {
