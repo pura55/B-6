@@ -119,7 +119,7 @@ public class TowerHealth : MonoBehaviour
         // 時間を元に戻す
         Time.timeScale = 1f;
 
-        // タイトルシーンへ移動
-        SceneManager.LoadScene("TitleScene");
+        // ゲームオーバーシーンへ移動
+        SceneManager.LoadScene("GameoverScene");
     }
 }
