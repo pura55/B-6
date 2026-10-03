@@ -14,6 +14,10 @@ public class ResultDisplay : MonoBehaviour
     public Transform skillIconParent;
     public Image skillIconPrefab;
 
+    // キャラクター選択IDのScriptableObject
+    [Header("キャラクター選択")]
+    [SerializeField] private SelectCharacterID selectCharacterID;
+
     void Start()
     {
         ShowResult();
@@ -54,16 +58,6 @@ public class ResultDisplay : MonoBehaviour
     // 獲得スキルの画像を表示
     void ShowAcquiredSkills()
     {
-        SkillManager skillManager =
-            FindFirstObjectByType<SkillManager>();
-
-        if (skillManager == null)
-        {
-            Debug.LogWarning(
-                "SkillManager が見つかりません！");
-            return;
-        }
-
         if (skillIconParent == null || skillIconPrefab == null)
         {
             Debug.LogWarning(
@@ -71,60 +65,76 @@ public class ResultDisplay : MonoBehaviour
             return;
         }
 
+        // シーンをまたいで保持している獲得スキル一覧
         List<SkillData> skills =
-            skillManager.GetAcquiredSkills();
+            AcquiredSkillData.acquiredSkills;
 
-        // 選択中のキャラクターIDを取得
-        SelectCharacterID selectCharacter =
-            FindFirstObjectByType<SelectCharacterID>();
+        Debug.Log("獲得スキルの登録数：" + skills.Count);
 
-        int characterID = selectCharacter != null
-            ? selectCharacter.GetSelectID()
+        // ScriptableObjectからキャラクターIDを取得
+        int characterID = selectCharacterID != null
+            ? selectCharacterID.GetSelectID()
             : 0;
+
+        Debug.Log("選択中のキャラクターID：" + characterID);
 
         foreach (SkillData skill in skills)
         {
-            if (skill == null) continue;
+            if (skill == null)
+                continue;
 
-            // アイコンを生成
+            // キャラクター別アイコンを選択
+            Sprite selectedIcon = null;
+
+            switch (characterID)
+            {
+                case 1:
+                    selectedIcon = skill.character1Icon;
+                    break;
+
+                case 2:
+                    selectedIcon = skill.character2Icon;
+                    break;
+
+                case 3:
+                    selectedIcon = skill.character3Icon;
+                    break;
+
+                case 4:
+                    selectedIcon = skill.character4Icon;
+                    break;
+
+                default:
+                    Debug.LogWarning(
+                        "キャラクターIDが不正です：" + characterID);
+                    break;
+            }
+
+            // キャラクター別アイコンがなければ共通アイコン
+            if (selectedIcon == null)
+            {
+                selectedIcon = skill.icon;
+            }
+
+            // 画像がない場合は生成しない
+            if (selectedIcon == null)
+            {
+                Debug.LogWarning(
+                    "アイコン未設定: " + skill.skillName +
+                    " / キャラクターID: " + characterID
+                );
+
+                continue;
+            }
+
+            // 画像がある場合だけアイコンを生成
             Image icon = Instantiate(
                 skillIconPrefab,
                 skillIconParent
             );
 
-            // キャラクター別アイコンを選択
-            switch (characterID)
-            {
-                case 1:
-                    icon.sprite = skill.character1Icon;
-                    break;
-
-                case 2:
-                    icon.sprite = skill.character2Icon;
-                    break;
-
-                case 3:
-                    icon.sprite = skill.character3Icon;
-                    break;
-
-                case 4:
-                    icon.sprite = skill.character4Icon;
-                    break;
-
-                default:
-                    icon.sprite = skill.icon;
-                    break;
-            }
-
-            // キャラクター別アイコンが未設定なら
-            // 共通アイコンを使用
-            if (icon.sprite == null)
-            {
-                icon.sprite = skill.icon;
-            }
-
-            // 画像がある場合だけ表示
-            icon.enabled = icon.sprite != null;
+            icon.sprite = selectedIcon;
+            icon.enabled = true;
         }
     }
 }

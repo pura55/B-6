@@ -1,9 +1,28 @@
+
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class SkillManager : MonoBehaviour
 {
+    // シーンを切り替えてもSkillManagerを保持
+    private static SkillManager instance;
+
+    void Awake()
+    {
+        // すでに別のSkillManagerが存在する場合
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        instance = this;
+
+        // シーン切り替え後も破棄しない
+        DontDestroyOnLoad(gameObject);
+    }
+
     [Header("テスト用")]
     public SkillData testSkill;
 
@@ -28,14 +47,10 @@ public class SkillManager : MonoBehaviour
     private Dictionary<SkillType, int> skillLevels =
         new Dictionary<SkillType, int>();
 
-    // 取得済みスキル管理
-    private List<SkillData> acquiredSkills =
-        new List<SkillData>();
-
     // 取得済みスキル一覧を取得
     public List<SkillData> GetAcquiredSkills()
     {
-        return acquiredSkills;
+        return AcquiredSkillData.acquiredSkills;
     }
 
     void Update()
@@ -147,7 +162,7 @@ public class SkillManager : MonoBehaviour
         // 初めて取得するスキルを保存
         if (currentLevel == 0)
         {
-            acquiredSkills.Add(data);
+            AcquiredSkillData.Add(data);
         }
 
         currentLevel++;
@@ -165,7 +180,7 @@ public class SkillManager : MonoBehaviour
 
         switch (data.type)
         {
-            //Playerstatus
+            // Player status
             case SkillType.AttackPower:
 
                 if (playerAttack != null)
@@ -236,7 +251,7 @@ public class SkillManager : MonoBehaviour
 
                 break;
 
-            //PlayerSkillattack
+            // Player Skill Attack
             case SkillType.ProjectileCount:
 
                 if (skillID1 != null)
@@ -307,7 +322,7 @@ public class SkillManager : MonoBehaviour
 
                 break;
 
-            //Playersupport
+            // Player support
             case SkillType.KillHeal:
 
                 if (maxhpup != null)
