@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameClearManager : MonoBehaviour
 {
@@ -49,6 +50,9 @@ public class GameClearManager : MonoBehaviour
                 Debug.Log($"{clearCount}回目クリア");
                 break;
         }
+
+        // ゲームクリア画面へ遷移
+        SceneManager.LoadScene("GameclearScene");
     }
 
 

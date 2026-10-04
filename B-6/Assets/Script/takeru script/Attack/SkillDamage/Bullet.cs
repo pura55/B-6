@@ -111,86 +111,18 @@ public class Bullet : MonoBehaviour
             if (!enemyCollider.CompareTag("Enemy"))
                 continue;
 
-<<<<<<< HEAD
 
             // Colliderが子オブジェクトにあっても
             // 親からEnemyHealthを探す
-=======
-            EnemyHealth health = enemy.GetComponent<EnemyHealth>();
-
-
-            if (health != null)
-            {
-                health.ReceivePlayerDamage(hitDamage);
-            }
-        }
-
-        nextDamageTime =
-            Time.time + damageInterval;
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (hasHit)
-            return;
-
-        // 壁に当たった
-        if (other.CompareTag("Wall"))
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        // 敵に当たった
-        if (other.CompareTag("Enemy"))
-        {
-            hasHit = true;
-            isDamageArea = true;
-
-            // 通常エフェクトOFF
-            if (normalEffect != null)
-            {
-                normalEffect.SetActive(false);
-            }
-
-            // ヒットエフェクトON
-            if (hitEffect != null)
-            {
-                hitEffect.SetActive(true);
-            }
-
-            // 最初の着弾ダメージ
->>>>>>> GameOverResult
             EnemyHealth health =
                 enemyCollider.GetComponentInParent<EnemyHealth>();
 
 
             if (health == null)
             {
-<<<<<<< HEAD
                 Debug.LogWarning(
                     "EnemyHealthが見つかりません：" +
                     enemyCollider.name
-=======
-                health.ReceivePlayerDamage(damage);
-            }
-
-            // 弾を停止
-            Rigidbody2D rb =
-                GetComponent<Rigidbody2D>();
-
-            if (rb != null)
-            {
-                rb.linearVelocity = Vector2.zero;
-            }
-
-            // 大きくする
-            transform.localScale =
-                new Vector3(
-                    hitScale,
-                    hitScale,
-                    transform.localScale.z
->>>>>>> GameOverResult
                 );
 
                 continue;
@@ -208,7 +140,9 @@ public class Bullet : MonoBehaviour
             );
 
 
-            health.ReceiveDamage(damage);
+            // プレイヤーのスキルによるダメージとして処理
+            // → 敵を倒した場合、ゲームオーバーの討伐数に反映される
+            health.ReceivePlayerDamage(damage);
         }
 
 

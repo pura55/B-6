@@ -16,6 +16,15 @@ MonoBehaviour:
   skillName: "\u30A2\u30A4\u30C6\u30E0\u30FB\u7D4C\u9A13\u5024\u53D6\u5F97\u7BC4\u56F2\u5897\u52A0"
   description: "\u30A2\u30A4\u30C6\u30E0\u30FB\u7D4C\u9A13\u5024\u306E\u53D6\u5F97\u7BC4\u56F2\u5897\u52A0"
   icon: {fileID: 1557993470072835900, guid: 2213cef53c6a84f4bb437f053e072463, type: 3}
+  character1Icon: {fileID: 0}
+  character2Icon: {fileID: 0}
+  character3Icon: {fileID: 0}
+  character4Icon: {fileID: 0}
+  resultIcon: {fileID: 7898653393071200662, guid: 4b58ec9fb4558c645a17f9ad5f880797, type: 3}
+  resultCharacter1Icon: {fileID: 0}
+  resultCharacter2Icon: {fileID: 0}
+  resultCharacter3Icon: {fileID: 0}
+  resultCharacter4Icon: {fileID: 0}
   level1: 2
   level2: 5
   level3: 10

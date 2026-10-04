@@ -16,6 +16,15 @@ MonoBehaviour:
   skillName: "\u6700\u5927HPUP"
   description: "\u6700\u5927HP\u304C\u5897\u3048\u308B"
   icon: {fileID: -3617562402377803786, guid: be0748ffb1ca4e04883bad521f6abf88, type: 3}
+  character1Icon: {fileID: 0}
+  character2Icon: {fileID: 0}
+  character3Icon: {fileID: 0}
+  character4Icon: {fileID: 0}
+  resultIcon: {fileID: -5744349784926347217, guid: 25ccf422b263d22458dd15b338711905, type: 3}
+  resultCharacter1Icon: {fileID: 0}
+  resultCharacter2Icon: {fileID: 0}
+  resultCharacter3Icon: {fileID: 0}
+  resultCharacter4Icon: {fileID: 0}
   level1: 20
   level2: 40
   level3: 60

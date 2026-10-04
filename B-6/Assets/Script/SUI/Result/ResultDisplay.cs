@@ -1,4 +1,3 @@
-
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -32,7 +31,7 @@ public class ResultDisplay : MonoBehaviour
 
         if (enemyDownText != null)
         {
-            enemyDownText.text = $"{kills}体";
+            enemyDownText.text = $"{kills}";
         }
 
         // プレイ時間
@@ -43,7 +42,7 @@ public class ResultDisplay : MonoBehaviour
 
         if (timeText != null)
         {
-            timeText.text = $"{minutes:00}分{seconds:00}秒";
+            timeText.text = $"{minutes:00}{seconds:00}";
         }
 
         // 防いだ落石の数
@@ -51,7 +50,7 @@ public class ResultDisplay : MonoBehaviour
 
         if (blockedRockText != null)
         {
-            blockedRockText.text = $"{blockedRocks}個";
+            blockedRockText.text = $"{blockedRocks}";
         }
     }
 
@@ -83,25 +82,28 @@ public class ResultDisplay : MonoBehaviour
             if (skill == null)
                 continue;
 
-            // キャラクター別アイコンを選択
+            // ========================================
+            // リザルト専用アイコンを選択
+            // ========================================
+
             Sprite selectedIcon = null;
 
             switch (characterID)
             {
                 case 1:
-                    selectedIcon = skill.character1Icon;
+                    selectedIcon = skill.resultCharacter1Icon;
                     break;
 
                 case 2:
-                    selectedIcon = skill.character2Icon;
+                    selectedIcon = skill.resultCharacter2Icon;
                     break;
 
                 case 3:
-                    selectedIcon = skill.character3Icon;
+                    selectedIcon = skill.resultCharacter3Icon;
                     break;
 
                 case 4:
-                    selectedIcon = skill.character4Icon;
+                    selectedIcon = skill.resultCharacter4Icon;
                     break;
 
                 default:
@@ -110,24 +112,37 @@ public class ResultDisplay : MonoBehaviour
                     break;
             }
 
-            // キャラクター別アイコンがなければ共通アイコン
+            // ========================================
+            // キャラクター専用リザルトアイコンが
+            // 設定されていなければ
+            // リザルト共通アイコンを使用
+            // ========================================
+
             if (selectedIcon == null)
             {
-                selectedIcon = skill.icon;
+                selectedIcon = skill.resultIcon;
             }
 
+            // ========================================
             // 画像がない場合は生成しない
+            // ========================================
+
             if (selectedIcon == null)
             {
                 Debug.LogWarning(
-                    "アイコン未設定: " + skill.skillName +
-                    " / キャラクターID: " + characterID
+                    "リザルト用アイコン未設定: " +
+                    skill.skillName +
+                    " / キャラクターID: " +
+                    characterID
                 );
 
                 continue;
             }
 
-            // 画像がある場合だけアイコンを生成
+            // ========================================
+            // アイコン生成
+            // ========================================
+
             Image icon = Instantiate(
                 skillIconPrefab,
                 skillIconParent

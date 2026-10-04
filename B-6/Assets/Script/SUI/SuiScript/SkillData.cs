@@ -6,9 +6,17 @@ public class SkillData : ScriptableObject
     public SkillType type;
 
     public string skillName;
+
     [TextArea]
     public string description;
 
+
+    // ========================================
+    // スキル選択・報酬画面用
+    // ========================================
+
+    // 共通アイコン
+    // キャラクター専用画像がない場合に使用
     public Sprite icon;
 
     // キャラクターごとのアイコン
@@ -17,19 +25,46 @@ public class SkillData : ScriptableObject
     public Sprite character3Icon;
     public Sprite character4Icon;
 
+
+    // ========================================
+    // リザルト画面用
+    // ========================================
+
+    // 共通リザルトアイコン
+    // キャラクター専用リザルト画像がない場合に使用
+    public Sprite resultIcon;
+
+    // キャラクターごとのリザルト専用アイコン
+    public Sprite resultCharacter1Icon;
+    public Sprite resultCharacter2Icon;
+    public Sprite resultCharacter3Icon;
+    public Sprite resultCharacter4Icon;
+
+
+    // ========================================
     // Lv1, Lv2, Lv3 の値
+    // ========================================
+
     public float level1;
     public float level2;
     public float level3;
+
 
     public float GetValue(int level)
     {
         switch (level)
         {
-            case 1: return level1;
-            case 2: return level2;
-            case 3: return level3;
-            default: return 0f;
+            case 1:
+                return level1;
+
+            case 2:
+                return level2;
+
+            case 3:
+                return level3;
+
+            default:
+                return 0f;
         }
     }
 }

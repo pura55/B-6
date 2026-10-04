@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 /// <summary>
 /// ノーマルエネミーマネージャー
@@ -90,19 +91,19 @@ public class MidBossManager : NomalEnemyManager
             ResetAnimation();
             return;
         }
-        else if(shortAttack.GetIsIdle()) // 待機時の時だけ攻撃へ遷移
-　      {
+        else if (shortAttack.GetIsIdle()) // 待機時の時だけ攻撃へ遷移
+        {
             enemyState = EnemyState.Attack;
             ResetAnimation();
             return;
         }
-        else if((isSkillShort? shortSkill.GetIsIdle() : weaponSkill.GetIsIdle()))
+        else if ((isSkillShort ? shortSkill.GetIsIdle() : weaponSkill.GetIsIdle()))
         {
             enemyState = EnemyState.Skill;
             ResetAnimation();
             return;
         }
-        
+
     }
 
     /// @brief 移動状態関数
@@ -161,7 +162,7 @@ public class MidBossManager : NomalEnemyManager
             shortAttack.SetStateAttack();
             return;
         }
-        else if(shortAttack.GetIsRecast()) // リキャスト状態の場合
+        else if (shortAttack.GetIsRecast()) // リキャスト状態の場合
         {
             // 前のイベントアニメーション（攻撃やスキル）が終了していたら
             if (!FinishedEventAnimation()) return;
@@ -263,19 +264,28 @@ public class MidBossManager : NomalEnemyManager
         //// =========================
         if (bossID == 11)
         {
-            GameClearManager gameClearManager =
-                FindFirstObjectByType<GameClearManager>();
+            StartCoroutine(WaitAndGameClear());
+        }
+    }
 
-            if (gameClearManager != null)
-            {
-                gameClearManager.GameClear();
-            }
-            else
-            {
-                Debug.LogWarning(
-                    "GameClearManagerがシーンにありません"
-                );
-            }
+    /// @brief 2秒後にゲームクリアする関数
+    private IEnumerator WaitAndGameClear()
+    {
+        // ボス撃破モーション後、2秒待つ
+        yield return new WaitForSeconds(2f);
+
+        GameClearManager gameClearManager =
+            FindFirstObjectByType<GameClearManager>();
+
+        if (gameClearManager != null)
+        {
+            gameClearManager.GameClear();
+        }
+        else
+        {
+            Debug.LogWarning(
+                "GameClearManagerがシーンにありません"
+            );
         }
     }
 
