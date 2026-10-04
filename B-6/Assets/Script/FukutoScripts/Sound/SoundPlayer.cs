@@ -3,7 +3,7 @@ using UnityEngine;
 /// <summary>
 /// サウンドプレイヤー
 /// 
-/// SEを再生する役割を担います
+/// SEやBGMを再生する役割を担います
 /// </summary>
 public class SoundPlayer : MonoBehaviour
 {
@@ -77,8 +77,27 @@ public class SoundPlayer : MonoBehaviour
         }
     }
 
+    /// @brief ピッチを設定する関数
     public void SetAudioPitch(float pitch)
     {
         audioSource.pitch = pitch;
+    }
+
+    /// @brief 通常音を設定する関数
+    public void SetNomalSound(AudioClip clip)
+    {
+        audioNomalSound = clip;
+    }
+
+    /// @brief BGMを設定する関数
+    public void SetBGM(AudioClip clip)
+    {
+        audioBGM = clip;
+    }
+
+    /// @brief 効果音を設定する関数
+    public void SetOneShot(AudioClip clip)
+    {
+        audioOneShot = clip;
     }
 }
