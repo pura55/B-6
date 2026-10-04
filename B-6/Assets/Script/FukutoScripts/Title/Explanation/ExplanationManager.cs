@@ -12,6 +12,7 @@ public class ExplanationManager : MonoBehaviour
     #region Config
     [SerializeField] private Sprite[] explanationSprites; // 説明のスプライト
     [SerializeField] private Image myImage;
+    [SerializeField] private Sprite mySprite;
     #endregion
 
     #region State
@@ -67,5 +68,15 @@ public class ExplanationManager : MonoBehaviour
         myImage.sprite = explanationSprites[currentElement];
     }
 
- 
+    /// @brief 現在の要素を取得する関数
+    public int GetCurrentElement()
+    {
+        return currentElement;
+    }
+
+    /// @brief スプライト配列の長さのを取得する関数
+    public int GetMaxElement ()
+    {
+        return spriteLength - 1; // 配列を要素に変換するため値を-1する
+    }
 }

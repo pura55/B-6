@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 /// <summary>
 /// フロントボタン
@@ -8,6 +9,7 @@ using UnityEngine;
 public class FrontButton : ButtonBase
 {
     [SerializeField] private ExplanationManager explanationManager; // ゲーム説明管理マネージャー
+    [SerializeField] private ExplanationButtonManager explanationButtonManager; // 説明ボタン管理
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,5 +20,6 @@ public class FrontButton : ButtonBase
     {
         base.OnClick();
         explanationManager.BackExplanation();
+        explanationButtonManager.ManageButton();
     }
 }

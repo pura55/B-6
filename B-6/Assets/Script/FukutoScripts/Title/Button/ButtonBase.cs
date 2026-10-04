@@ -7,10 +7,11 @@ using UnityEngine;
 /// </summary>
 public abstract class ButtonBase : MonoBehaviour
 {
-    [SerializeField] protected SoundPlayer soundPlayer; // サウンドプレイヤー
+    [SerializeField] protected ButtonSoundManager buttonSoundManager; // サウンド管理
+
     /// @brief ボタンを押す処理を行う関数
     public virtual void OnClick()
     {
-        soundPlayer.PlayOneShot();
+        buttonSoundManager.PlayButtonSound();
     }
 }

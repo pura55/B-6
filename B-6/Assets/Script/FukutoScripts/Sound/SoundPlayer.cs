@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 /// <summary>
 /// サウンドプレイヤー
@@ -18,6 +19,9 @@ public class SoundPlayer : MonoBehaviour
 
     [Header("SETTING")]
     [SerializeField] protected SettingValues settingValues; // 設定値
+    #endregion
+
+    #region State
     #endregion
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -53,6 +57,15 @@ public class SoundPlayer : MonoBehaviour
         audioSource.volume = settingValues.GetVolumeSE();
         AudioSetting(false, true);
         audioSource.PlayOneShot(audioOneShot);
+    }
+
+    public void PlayAtPoint()
+    {
+        audioSource.volume = settingValues.GetVolumeSE();
+        AudioSetting(false, true);
+        audioSource.PlayOneShot(audioOneShot);
+        Vector3 objectPosition = transform.position;
+        AudioSource.PlayClipAtPoint(audioOneShot, objectPosition);
     }
 
     /// @brief 音の設定をする関数
