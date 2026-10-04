@@ -1,9 +1,17 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
+/// <summary>
+/// ボススポナー
+/// 
+/// ボスを生成するクラス
+/// </summary>
 public class BossSpawner : BaseEnemySpawner
 {
     #region Config
-    [SerializeField] private int bossID = 9;
+    [SerializeField] private int bossID = 9; // ボスのID
+    [SerializeField] private int nomalEnemyNums = 8; // 雑魚敵の数
+    [SerializeField] private int debugBossID = 11;
     #endregion
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,6 +32,9 @@ public class BossSpawner : BaseEnemySpawner
             isSpawn = true;
             return;
         }
+
+        // デバック用のボスをスポーンする処理
+        DebugBossSpawn();
     }
 
     /// @brief 敵を生成する関数
@@ -35,7 +46,7 @@ public class BossSpawner : BaseEnemySpawner
             Debug.Log("敵のスポーン処理中");
 
             //オブジェクト生成
-            GameObject spawnedEnemy = GenerateInstance(bossID - 8); // 雑魚敵分idを減少（リストで管理しているため）
+            GameObject spawnedEnemy = GenerateInstance(bossID - nomalEnemyNums); // 雑魚敵分idを減少（リストで管理しているため）
 
             // ターゲットの参照を渡す
             PassTargetReference(spawnedEnemy, 1);
@@ -58,6 +69,18 @@ public class BossSpawner : BaseEnemySpawner
         if (enemyScript != null)
         {
             enemyScript.SetTargetTower(tower);
+        }
+    }
+
+    /// @brief デバック用のボススポーン関数
+    private void DebugBossSpawn()
+    {
+        if(Keyboard.current != null && Keyboard.current.bKey.wasPressedThisFrame)
+        {
+            if(debugBossID == bossID)
+            {
+                SpawnEnemy();
+            }
         }
     }
 }
