@@ -81,7 +81,7 @@ public class SelectButton : ButtonBase
         }
     }
 
-    /// @brief 逆側のボタンの画像をを解放する関数
+    /// @brief 逆側のボタンの画像を解放する関数
     public void OnImage()
     {
         if (myImage != null && cursorImage != null)

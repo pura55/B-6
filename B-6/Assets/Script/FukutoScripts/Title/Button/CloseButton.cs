@@ -3,17 +3,17 @@ using UnityEngine;
 /// <summary>
 /// クローズボタン
 /// 
-/// 設定を閉じるボタン
+/// スクリーンを閉じるボタン
 /// </summary>
 public class CloseButton : ButtonBase
 {
     #region Config
-    [SerializeField] private GameObject settingScreen; // 終了スクリーン
+    [SerializeField] private GameObject targetScreen; // 対象のスクリーン
     #endregion
 
     public override void OnClick()
     {
         base.OnClick();
-        settingScreen.SetActive(false);
+        targetScreen.SetActive(false);
     }
 }
