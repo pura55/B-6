@@ -206,6 +206,7 @@ MonoBehaviour:
   audioBGM: {fileID: 8300000, guid: 6a2ab7f02af5bf94194f33edb727b536, type: 3}
   audioOneShot: {fileID: 8300000, guid: 86262eaa22c0fde45808e0e70c0b4883, type: 3}
   audioSource: {fileID: -7886848446788986571}
+  settingValues: {fileID: 11400000, guid: 5db6af09ef67ef641ba255c0aef88167, type: 2}
 --- !u!82 &-7886848446788986571
 AudioSource:
   m_ObjectHideFlags: 0
