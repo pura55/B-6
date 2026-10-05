@@ -47,6 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonSoundManager
   soundPlayer: {fileID: 6077615121409095871}
+  buttunPitch: 1
+  buttonPush: {fileID: 8300000, guid: 6fc6ed27b7442cc44b836298bca16817, type: 3}
+  closePush: {fileID: 8300000, guid: 0848b554e973d0f4292ea582aa5d4989, type: 3}
 --- !u!114 &6077615121409095871
 MonoBehaviour:
   m_ObjectHideFlags: 0

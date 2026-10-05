@@ -1092,6 +1092,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7405283552273382124, guid: dea030ad2bcdd79488699870205c2a22, type: 3}
+      propertyPath: audioOneShot
+      value: 
+      objectReference: {fileID: 8300000, guid: 0848b554e973d0f4292ea582aa5d4989, type: 3}
     - target: {fileID: 8881900808780758415, guid: dea030ad2bcdd79488699870205c2a22, type: 3}
       propertyPath: m_Name
       value: SettingScreen
@@ -1211,6 +1215,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8229273043254458525, guid: 781a636d02359134f8a94416275ae903, type: 3}
+      propertyPath: audioOneShot
+      value: 
+      objectReference: {fileID: 8300000, guid: 0848b554e973d0f4292ea582aa5d4989, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

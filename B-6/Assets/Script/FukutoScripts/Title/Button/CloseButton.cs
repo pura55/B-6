@@ -13,7 +13,7 @@ public class CloseButton : ButtonBase
 
     public override void OnClick()
     {
-        base.OnClick();
+        buttonSoundManager.PlayCloseSound();
         targetScreen.SetActive(false);
     }
 }
