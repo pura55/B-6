@@ -1,4 +1,3 @@
-
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -197,14 +196,26 @@ public class SkillManager : MonoBehaviour
 
             case SkillType.AttackCooldown:
 
-                if (playerAttack != null)
+                if (playerProgressData != null)
                 {
-                    playerAttack.attackTime -= value;
-                    Debug.Log("攻撃間隔 -" + value);
+                    playerProgressData.atkCT -= value;
+
+                    if (playerProgressData.atkCT < 0f)
+                    {
+                        playerProgressData.atkCT = 0f;
+                    }
+
+                    Debug.Log("攻撃クールタイム -" + value);
+                    Debug.Log(
+                        "現在の攻撃クールタイム：" +
+                        playerProgressData.atkCT
+                    );
                 }
                 else
                 {
-                    Debug.LogError("AttackCoolDown が設定されていません！");
+                    Debug.LogError(
+                        "PlayerProgressData が設定されていません！"
+                    );
                 }
 
                 break;

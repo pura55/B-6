@@ -415,7 +415,7 @@ PrefabInstance:
     - target: {fileID: 5897684408298460439, guid: 14883e23418c85e4394056e178880ef4, type: 3}
       propertyPath: testSkill
       value: 
-      objectReference: {fileID: 11400000, guid: 6360cca916d6c47439f2d39c65624480, type: 2}
+      objectReference: {fileID: 11400000, guid: 5fdc2de48a495664292dab495dbf2626, type: 2}
     - target: {fileID: 5897684408298460439, guid: 14883e23418c85e4394056e178880ef4, type: 3}
       propertyPath: playerAttack
       value: 

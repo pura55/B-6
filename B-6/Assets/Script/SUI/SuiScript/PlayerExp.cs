@@ -19,9 +19,21 @@ public class PlayerExp : MonoBehaviour
     // レベルアップUI
     public LevelUpUI levelUpUI;
 
+    // サウンド
+    [SerializeField] private SoundPlayer soundPlayer;
+    [SerializeField] private AudioClip expMaxSound;
+
 
     void Start()
     {
+        // =========================
+        // EXP MAXサウンド設定
+        // =========================
+        if (soundPlayer != null)
+        {
+            soundPlayer.SetOneShot(expMaxSound);
+        }
+
         // =========================
         // XP Sliderを探す
         // =========================
@@ -86,6 +98,14 @@ public class PlayerExp : MonoBehaviour
 
         if (currentExp >= maxExp)
         {
+            // =========================
+            // EXP MAXサウンド
+            // =========================
+            if (soundPlayer != null)
+            {
+                soundPlayer.PlayOneShot();
+            }
+
             StartCoroutine(
                 LevelUpAnimation()
             );

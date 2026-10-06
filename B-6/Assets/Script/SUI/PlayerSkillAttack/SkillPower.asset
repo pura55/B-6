@@ -20,10 +20,11 @@ MonoBehaviour:
   character2Icon: {fileID: -3373629425359835486, guid: 571935b9b921cd944b1218c358b191c8, type: 3}
   character3Icon: {fileID: -1326908871480253505, guid: 9c57687267258b94bbf8743ae13f6040, type: 3}
   character4Icon: {fileID: -5294677425871963363, guid: ef2ed305facbc3b4883cf54a1784ade1, type: 3}
+  resultIcon: {fileID: 0}
   resultCharacter1Icon: {fileID: -1871936095129087943, guid: 1cd9b30174a71d44da641205c42e552e, type: 3}
   resultCharacter2Icon: {fileID: 4192167070700150029, guid: b9d77a554d0280140bb999ac45a3fd3d, type: 3}
   resultCharacter3Icon: {fileID: -3001779973479519033, guid: c09c54587e5ac5749a3dea05e5a6373b, type: 3}
   resultCharacter4Icon: {fileID: 2564817891570181751, guid: 2d450aaaeb0299543b14c389dfc2e20f, type: 3}
-  level1: 2
-  level2: 5
-  level3: 10
+  level1: 1
+  level2: 1
+  level3: 1

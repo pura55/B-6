@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class PlayerArrow : MonoBehaviour
 {
@@ -18,11 +19,26 @@ public class PlayerArrow : MonoBehaviour
     [Header("警告ライン点滅")]
     [SerializeField] private float warningBlinkSpeed = 0.5f;
 
+    [Header("警告サウンド")]
+    [SerializeField] private SoundPlayer soundPlayer;
+    [SerializeField] private AudioClip warningSound;
+
+    private bool isWarningSoundPlaying = false;
+
     private float warningBlinkTimer = 0f;
 
 
     void Start()
     {
+        // =========================
+        // 警告サウンド設定
+        // =========================
+        if (soundPlayer != null)
+        {
+            soundPlayer.SetNomalSound(warningSound);
+        }
+
+
         // =========================
         // 非表示のオブジェクトも含めて探す
         // =========================
@@ -126,6 +142,19 @@ public class PlayerArrow : MonoBehaviour
 
             warningBlinkTimer = 0f;
 
+            // =========================
+            // 警告音を停止
+            // =========================
+            if (isWarningSoundPlaying)
+            {
+                if (soundPlayer != null)
+                {
+                    soundPlayer.StopSounds();
+                }
+
+                isWarningSoundPlaying = false;
+            }
+
             return;
         }
 
@@ -136,6 +165,19 @@ public class PlayerArrow : MonoBehaviour
         arrowImage.gameObject.SetActive(true);
 
         dangerMark.SetActive(true);
+
+
+        // =========================
+        // 警告音を再生
+        // =========================
+        if (!isWarningSoundPlaying)
+        {
+            isWarningSoundPlaying = true;
+
+            StartCoroutine(
+                WarningSoundLoop()
+            );
+        }
 
 
         // =========================
@@ -321,6 +363,30 @@ public class PlayerArrow : MonoBehaviour
                     0f,
                     90f
                 );
+        }
+    }
+
+
+    // =========================
+    // 警告音を繰り返す
+    // =========================
+    IEnumerator WarningSoundLoop()
+    {
+        while (isWarningSoundPlaying)
+        {
+            if (soundPlayer != null &&
+                warningSound != null)
+            {
+                soundPlayer.PlaySound();
+
+                yield return new WaitForSeconds(
+                    warningSound.length
+                );
+            }
+            else
+            {
+                yield break;
+            }
         }
     }
 }

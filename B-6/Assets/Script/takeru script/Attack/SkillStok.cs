@@ -6,8 +6,8 @@ public class SkillStock : MonoBehaviour
     [SerializeField] private int maxStock = 1;
     [SerializeField] public int amount = 1;
 
-    [Header("1ストック回復する時間")]
-    [SerializeField] private float coolTime = 3f;
+    [Header("スキルクールタイム")]
+    [SerializeField] private PlayerProgressData playerProgressData;
 
     private int currentStock;
     private float coolTimer = 0f;
@@ -15,6 +15,19 @@ public class SkillStock : MonoBehaviour
     void Start()
     {
         currentStock = maxStock;
+
+        // PlayerProgressDataを自動取得
+        if (playerProgressData == null)
+        {
+            playerProgressData =
+                GetComponentInParent<PlayerProgressData>();
+        }
+
+        if (playerProgressData == null)
+        {
+            playerProgressData =
+                FindFirstObjectByType<PlayerProgressData>();
+        }
     }
 
     void Update()
@@ -30,7 +43,7 @@ public class SkillStock : MonoBehaviour
         coolTimer += Time.deltaTime;
 
         // CT終了
-        if (coolTimer >= coolTime)
+        if (coolTimer >= GetCoolTime())
         {
             currentStock++;
 
@@ -40,6 +53,17 @@ public class SkillStock : MonoBehaviour
                 $"<color=cyan>スキル回復</color> {currentStock}/{maxStock}"
             );
         }
+    }
+
+    // 現在のスキルクールタイム
+    private float GetCoolTime()
+    {
+        if (playerProgressData != null)
+        {
+            return playerProgressData.skillCT;
+        }
+
+        return 3f;
     }
 
     // スキルを使えるか
@@ -98,6 +122,8 @@ public class SkillStock : MonoBehaviour
     {
         if (currentStock >= maxStock)
             return 0f;
+
+        float coolTime = GetCoolTime();
 
         if (coolTime <= 0f)
             return 0f;

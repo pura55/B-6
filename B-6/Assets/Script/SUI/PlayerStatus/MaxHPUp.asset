@@ -25,6 +25,6 @@ MonoBehaviour:
   resultCharacter2Icon: {fileID: 0}
   resultCharacter3Icon: {fileID: 0}
   resultCharacter4Icon: {fileID: 0}
-  level1: 20
-  level2: 40
-  level3: 60
+  level1: 10
+  level2: 10
+  level3: 10
