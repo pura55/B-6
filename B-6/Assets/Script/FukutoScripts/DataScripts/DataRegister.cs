@@ -10,6 +10,7 @@ public class DataRegister : MonoBehaviour
     [SerializeField] private PlayerMasterData playerMasterData; // プレイヤーのマスター
     [SerializeField] private PlayerProgressData playerProgressData; // プレイヤーの進捗
     [SerializeField] private EnemyProgressData enemyProgressData; // エネミーの進捗
+    [SerializeField] private GameManager gameManager; // プレイヤースポナー
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -51,6 +52,9 @@ public class DataRegister : MonoBehaviour
         {
             Debug.LogError($"idが正しくありません");
         }
+
+        // プレイヤーをスポーンします
+        gameManager.PlayerSpawn();
     }
 
     /// @brief エネミーのデータを登録する関数

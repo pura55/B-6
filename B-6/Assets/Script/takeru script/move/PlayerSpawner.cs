@@ -34,11 +34,11 @@ public class PlayerSpawner : MonoBehaviour
             );
         }
 
-        SpawnPlayer();
+        //SpawnPlayer();
     }
 
 
-    private void SpawnPlayer()
+    public void SpawnPlayer()
     {
         if (playerPrefab == null)
         {
@@ -80,6 +80,7 @@ public class PlayerSpawner : MonoBehaviour
         if (moveScript != null)
         {
             moveScript.SetSpeed(playerProgressData.speed);
+            Debug.Log("スピード" + playerProgressData.speed);
         }
 
         RespawnUI respawnUI =

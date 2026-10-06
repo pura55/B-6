@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 {
     #region Config
     [SerializeField] private Fader fader; // フェイダー
+    [SerializeField] private PlayerSpawner playerSpawner; // プレイヤースポナー
     #endregion
 
     #region State
@@ -47,5 +48,14 @@ public class GameManager : MonoBehaviour
     public void ChangeTitleScene()
     {
         fader.SetFadeIn(title);
+    }
+
+    /// @brief プレイヤーのスポーンをする関数
+    public void PlayerSpawn()
+    {
+        if(playerSpawner != null)
+        {
+            playerSpawner.SpawnPlayer();
+        }
     }
 }

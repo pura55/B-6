@@ -611,6 +611,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   fader: {fileID: 7356196716648145893}
+  playerSpawner: {fileID: 8675808819865975397}
 --- !u!1 &6222023420938922212
 GameObject:
   m_ObjectHideFlags: 0
@@ -1592,6 +1593,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3311234406434560071, guid: 851aed0350ab2b94d96c95d28d30b9b3, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 487359319327074605}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
