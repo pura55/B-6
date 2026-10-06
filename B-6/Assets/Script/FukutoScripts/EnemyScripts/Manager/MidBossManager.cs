@@ -80,9 +80,6 @@ public class MidBossManager : NomalEnemyManager
 
         SetIdleAnimation();
 
-        // 被ダメージへの遷移処理
-        TransitionHit();
-
         // 対象に近づいていない場合
         if (!GetIsAttached())
         {
@@ -142,9 +139,6 @@ public class MidBossManager : NomalEnemyManager
         // 移動不可
         SetStopMovement(true);
 
-        // 被ダメージへの遷移処理
-        TransitionHit();
-
         // 敵から離れている & イベントアニメーションが終了していたら
         if (!GetIsAttached() && FinishedEventAnimation())
         {
@@ -184,9 +178,6 @@ public class MidBossManager : NomalEnemyManager
 
         // 移動不可
         SetStopMovement(true);
-
-        // 被ダメージへの遷移処理
-        TransitionHit();
 
         // 敵から離れている & イベントアニメーションが終了していたら
         if (!GetIsAttached() && FinishedEventAnimation())

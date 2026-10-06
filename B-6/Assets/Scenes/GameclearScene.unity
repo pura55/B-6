@@ -586,27 +586,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4559415654345913276, guid: 55e6b863604c2ad469c3da5ff83a37b6, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4559415654345913276, guid: 55e6b863604c2ad469c3da5ff83a37b6, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4559415654345913276, guid: 55e6b863604c2ad469c3da5ff83a37b6, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4559415654345913276, guid: 55e6b863604c2ad469c3da5ff83a37b6, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4559415654345913276, guid: 55e6b863604c2ad469c3da5ff83a37b6, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4559415654345913276, guid: 55e6b863604c2ad469c3da5ff83a37b6, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4559415654345913276, guid: 55e6b863604c2ad469c3da5ff83a37b6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -638,11 +638,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4559415654345913276, guid: 55e6b863604c2ad469c3da5ff83a37b6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -205.22421
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4559415654345913276, guid: 55e6b863604c2ad469c3da5ff83a37b6, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 320.2077
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4559415654345913276, guid: 55e6b863604c2ad469c3da5ff83a37b6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -802,6 +802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   fader: {fileID: 508675580}
+  playerSpawner: {fileID: 0}
 --- !u!1 &564710609
 GameObject:
   m_ObjectHideFlags: 0
