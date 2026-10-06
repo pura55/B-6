@@ -47,7 +47,9 @@ public class PlayerAttack : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerHealth = GetComponent<PlayerHealth>();
 
+        // ƒf[ƒ^‚Ìİ’è
         Attack = playerProgressData.atkDmg;
+        attackTime = playerProgressData.atkCT;
     }
 
 
