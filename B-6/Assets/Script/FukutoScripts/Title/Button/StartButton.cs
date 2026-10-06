@@ -11,14 +11,19 @@ public class StartButton : ButtonBase
     #region Config
     [SerializeField] private SelectAnimation selectAnimation;
     [SerializeField] private SelectCharacterID selectCharacterID;
-    [SerializeField] private SelectedExclamation selectExclamation;
+    [SerializeField] private SelectedExclamation selectExclamation; 
+    [SerializeField] private Fader fader; // フェイダー
+    #endregion
+
+    #region State
+    private int rockCharacterID = 4; // ロックがかかっているキャラクターのＩＤ
     #endregion
 
     public override void OnClick()
     {
         base.OnClick();
 
-        if (selectAnimation.GetCharacterID() == 4 && !selectCharacterID.canSelected)
+        if (selectAnimation.GetCharacterID() == rockCharacterID && !selectCharacterID.canSelected)
         {
             selectExclamation.SetAlpha();
             return;
@@ -28,7 +33,8 @@ public class StartButton : ButtonBase
         selectCharacterID.SetSelectID(selectAnimation.GetCharacterID());
 
         // シーン遷移
-        SceneManager.LoadScene("MainGame");
+        //SceneManager.LoadScene("MainGame");
+        fader.SetFadeIn("MainGame");
         return;
     }
 }

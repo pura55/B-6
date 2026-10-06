@@ -8,6 +8,8 @@ using UnityEngine.UI;
 /// </summary>
 public class EndScreen : ScreenBase
 {
+    #region Config
+    #endregion
     #region State
     private bool isEndPressed = false; // 終了ボタンのフラグ
     private bool isNoPressed = false; // Noボタンのフラグ
