@@ -32,6 +32,8 @@ public class EnemySpawnerManager : MonoBehaviour
     [SerializeField] private int waveInterval = 3; // ウェーブ間隔（分）
     [SerializeField] private GameObject Tower; // タワー
 
+    [SerializeField] private BgmManager bgmManager; // BGMマネージャー
+
     [SerializeField] private int upWaveID = 3; // ウェーブ間で繰り上げるID
     #endregion
 
@@ -103,6 +105,9 @@ public class EnemySpawnerManager : MonoBehaviour
                     spawnBossID =  randomBoss;
 
                     previousWave = waveCount; // ウェーブを設定
+
+                    // 中ボスBGMを再生
+                    bgmManager.SetMidbossBgm();
                     break;
 
                 case (int)GameWave.THIRD:
@@ -117,6 +122,9 @@ public class EnemySpawnerManager : MonoBehaviour
                     spawnBossID = (int)boss;
 
                     previousWave = waveCount; // ウェーブを設定
+
+                    // 最終BGMを再生
+                    bgmManager.SetFinalBgm();
                     break;
             }
         }
