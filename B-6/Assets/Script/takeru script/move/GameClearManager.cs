@@ -9,6 +9,7 @@ public class GameClearManager : MonoBehaviour
     // 同じボスで複数回クリア判定されるのを防ぐ
     private bool isCleared = false;
 
+    [SerializeField] private GameManager gameManager; // ゲームマネージャー
 
     /// <summary>
     /// ボスを倒したときに呼ぶ
@@ -52,7 +53,7 @@ public class GameClearManager : MonoBehaviour
         }
 
         // ゲームクリア画面へ遷移
-        SceneManager.LoadScene("GameclearScene");
+        gameManager.ChangeGameClear();
     }
 
 

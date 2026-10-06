@@ -67,11 +67,14 @@ public class Fader : MonoBehaviour
         if (maxAlpha <= alpha)
         {
             isFadeIn = false;
+
+            if(sceneName == string.Empty)
+            {
+                return;
+            }
             sceneChanger.SceneChange(sceneName);
             return;
         }
-
-        Debug.Log("フェードインが実行されています");
     }
 
     /// @brief フェードアウトを行う関数
@@ -81,7 +84,7 @@ public class Fader : MonoBehaviour
         float alpha = fade.color.a;
 
         // 時間経過で減少
-        alpha -= changeVelocity * Time.captureDeltaTime;
+        alpha -= changeVelocity * Time.deltaTime;
 
         fade.color = new Color(fadeColor.x, fadeColor.y, fadeColor.z, alpha);
 
@@ -108,5 +111,6 @@ public class Fader : MonoBehaviour
     {
         isFadeOut = true;
         fade.color = new Color(fadeColor.x, fadeColor.y, fadeColor.z, maxAlpha);
+        fade.enabled = true;
     }
 }

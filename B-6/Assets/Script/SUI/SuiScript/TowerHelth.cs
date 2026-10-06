@@ -25,6 +25,10 @@ public class TowerHealth : MonoBehaviour
     
     private GameTimer gameTimer;
 
+    [SerializeField] private GameManager gameManager; // ゲームマネージャー
+
+    private bool isCoalGaemover = false; // ゲームオーバーを読んだかどうかのフラグ
+
     // 初期化
     void Start()
     {
@@ -51,10 +55,13 @@ public class TowerHealth : MonoBehaviour
     // ダメージ処理
     public void TakeDamage(int damage)
     {
+        // ゲームオーバーが既に呼ばれている場合それ以上の処理を行わない
+        if(isCoalGaemover)
+        {
+            return;
+        }
         // HPを減らす
         currentHp -= damage;
-
-        //Debug.Log(damage + "ダメージ");
 
         // 0未満にならないようにする
         if (currentHp < 0)
@@ -128,6 +135,9 @@ public class TowerHealth : MonoBehaviour
         if (gameTimer != null) gameTimer.SaveElapsedTime();
 
         // ゲームオーバーシーンへ移動
-        SceneManager.LoadScene("GameoverScene");
+        // ゲームマネージャーに遷移を指示
+        gameManager.ChangeGameOver();
+
+        isCoalGaemover = true;
     }
 }
