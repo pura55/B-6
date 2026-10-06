@@ -35,6 +35,7 @@ public class PlayerHealth : MonoBehaviour
 
     // €–S’†‚©‚Ç‚¤‚©
     public bool IsDead { get; private set; } = false;
+    private float respawnEndTime = 0f;
 
 
     void Start()
@@ -179,6 +180,8 @@ public class PlayerHealth : MonoBehaviour
         // €–Só‘Ô
         IsDead = true;
 
+        respawnEndTime = Time.time + respawnTime;
+
 
         // =========================
         // “ü—Í‚ğ‹Ö~
@@ -222,6 +225,20 @@ public class PlayerHealth : MonoBehaviour
         return !IsDead;
     }
 
+    public float GetRespawnTimeRate()
+    {
+        if (!IsDead)
+            return 0f;
+
+        if (respawnTime <= 0f)
+            return 0f;
+
+        float remain = respawnEndTime - Time.time;
+
+        return Mathf.Clamp01(
+            remain / respawnTime
+        );
+    }
 
     /// <summary>
     /// ƒŠƒXƒ|[ƒ“‘Ò‹@

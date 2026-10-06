@@ -86,6 +86,9 @@ public class SkillManager : MonoBehaviour
         maxhpup =
             player.GetComponentInChildren<PlayerHealth>();
 
+        wall =
+            player.GetComponentInChildren<WallSkill>();
+
         skillID1 =
             player.GetComponentInChildren<SkillID1>();
 
@@ -381,6 +384,11 @@ public class SkillManager : MonoBehaviour
                 if (wall != null)
                 {
                     wall.coolTime -= value;
+
+                    if(wall.coolTime < 0)
+                    {
+                        wall.coolTime = 0;
+                    }
                     Debug.Log("壁立てクールタイム -" + value);
                 }
                 else

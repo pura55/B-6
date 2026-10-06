@@ -70,6 +70,17 @@ public class PlayerSpawner : MonoBehaviour
             Quaternion.identity
         );
 
+        PlayerHealth playerHealth =
+                spawnedPlayer.GetComponentInChildren<PlayerHealth>();
+
+        RespawnUI respawnUI =
+              FindFirstObjectByType<RespawnUI>();
+
+        if (respawnUI != null && playerHealth != null)
+        {
+            respawnUI.SetPlayer(playerHealth);
+        }
+
 
         // =========================
         // ê∂ê¨Ç≥ÇÍÇΩPlayerÇämîF
