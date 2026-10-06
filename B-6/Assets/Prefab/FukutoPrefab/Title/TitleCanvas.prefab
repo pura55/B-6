@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 6702841981073360584}
   - component: {fileID: 1822608778276652237}
   - component: {fileID: 1042587541818640025}
+  - component: {fileID: 3557496429294181120}
   m_Layer: 5
   m_Name: TitleCanvas
   m_TagString: Untagged
@@ -205,6 +206,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &3557496429294181120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6588761470812028185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c8b595656e514648bc04c0a8c4f8632, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  fader: {fileID: 5844045962086472749}
 --- !u!1 &7098388275557773174
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,6 +382,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5445484095554658587}
     m_Modifications:
+    - target: {fileID: 1632796093855712640, guid: 55e6b863604c2ad469c3da5ff83a37b6, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2807686149383023465, guid: 55e6b863604c2ad469c3da5ff83a37b6, type: 3}
       propertyPath: m_Name
       value: Fader
@@ -470,6 +488,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4559415654345913276, guid: 55e6b863604c2ad469c3da5ff83a37b6, type: 3}
   m_PrefabInstance: {fileID: 276452522428079892}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5844045962086472749 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5966162076223030073, guid: 55e6b863604c2ad469c3da5ff83a37b6, type: 3}
+  m_PrefabInstance: {fileID: 276452522428079892}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12653743d9b0bd042834ce807e412051, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Fader
 --- !u!1001 &1078693666594809064
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -12,7 +12,11 @@ public class StartButton : ButtonBase
     [SerializeField] private SelectAnimation selectAnimation;
     [SerializeField] private SelectCharacterID selectCharacterID;
     [SerializeField] private SelectedExclamation selectExclamation; 
-    [SerializeField] private Fader fader; // フェイダー
+    [SerializeField] private GameManager gameManager; // ゲームマネージャー
+    #endregion
+
+    #region State
+    private string mainGame = "MainGame";
     #endregion
 
     #region State
@@ -33,8 +37,7 @@ public class StartButton : ButtonBase
         selectCharacterID.SetSelectID(selectAnimation.GetCharacterID());
 
         // シーン遷移
-        //SceneManager.LoadScene("MainGame");
-        fader.SetFadeIn("MainGame");
+        gameManager.ChangeMainGame();
         return;
     }
 }

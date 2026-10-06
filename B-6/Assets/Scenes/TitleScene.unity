@@ -335,6 +335,17 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &1730387236 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3557496429294181120, guid: 327358eb5b5978a499f85c54399e6266, type: 3}
+  m_PrefabInstance: {fileID: 3240552136682939826}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c8b595656e514648bc04c0a8c4f8632, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
 --- !u!1001 &3240552136682939826
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -483,6 +494,10 @@ PrefabInstance:
       propertyPath: fader
       value: 
       objectReference: {fileID: 3240552136682939827}
+    - target: {fileID: 8092541166180326426, guid: 327358eb5b5978a499f85c54399e6266, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1730387236}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -6,6 +6,10 @@ public class TitleButton : MonoBehaviour
 {
     [SerializeField] private SoundPlayer soundPlayer;
 
+    [SerializeField] private GameManager gameManager; // ゲームマネージャー
+
+    private string title = "TitleScene"; // タイトルシーン
+
     public void GoToTitle()
     {
         soundPlayer.PlayOneShot();
@@ -16,6 +20,7 @@ public class TitleButton : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
 
-        SceneManager.LoadScene("TitleScene");
+        // タイトルシーンに遷移
+        gameManager.ChangeTitleScene();
     }
 }

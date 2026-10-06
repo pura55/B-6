@@ -90,4 +90,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Fader
   fade: {fileID: 1632796093855712640}
   sceneChanger: {fileID: 0}
-  changeVelocity: 2
+  changeVelocity: 0.4
