@@ -13,6 +13,8 @@ public class MoveScript : MonoBehaviour
     private PlayerHealth playerHealth;
     private PlayerInputLock inputLock;
 
+    [SerializeField] private PlayerProgressData playerProgressData;
+
     public bool IsMoving()
     {
         return move != Vector2.zero;
@@ -25,6 +27,7 @@ public class MoveScript : MonoBehaviour
         playerAttack = GetComponent<PlayerAttack>();
         playerHealth = GetComponent<PlayerHealth>();
         inputLock = GetComponent<PlayerInputLock>();
+        speed = playerProgressData.speed;
     }
 
     void Update()

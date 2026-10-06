@@ -4139,6 +4139,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: player
       objectReference: {fileID: 0}
+    - target: {fileID: 2927289969543421036, guid: c779a4f81b0e1b14d99f6ec554ac7bc5, type: 3}
+      propertyPath: playerProgressData
+      value: 
+      objectReference: {fileID: 11400000, guid: 21bc494655974a942b8c7c1b843e8755, type: 2}
     - target: {fileID: 3581673623702682658, guid: c779a4f81b0e1b14d99f6ec554ac7bc5, type: 3}
       propertyPath: expSlider
       value: 

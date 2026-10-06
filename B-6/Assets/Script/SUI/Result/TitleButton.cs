@@ -8,8 +8,6 @@ public class TitleButton : MonoBehaviour
 
     [SerializeField] private GameManager gameManager; // ゲームマネージャー
 
-    private string title = "TitleScene"; // タイトルシーン
-
     public void GoToTitle()
     {
         soundPlayer.PlayOneShot();

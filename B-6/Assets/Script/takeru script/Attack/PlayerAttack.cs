@@ -37,8 +37,8 @@ public class PlayerAttack : MonoBehaviour
     private HashSet<EnemyHealth> hitEnemies =
         new HashSet<EnemyHealth>();
 
-    [SerializeField]
-    private PlayerProgressData playerProgressData;
+    [SerializeField] private PlayerProgressData playerProgressData;
+
 
 
     void Start()
