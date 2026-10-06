@@ -7,13 +7,18 @@ using UnityEngine;
 /// </summary>
 public class HitTriggerManager : MonoBehaviour
 {
+    #region Config
+    [SerializeField] private bool isShortSkill = false; // 近接スキルのトリガー
+    #endregion
+
     #region State
     protected int statAtk; // 攻撃ステータス
     protected int statSkill; // スキルステータス
     protected bool isActiveTrigger = false; // 当たり判定のアクティブフラグ（true: アクティブ, false: 非アクティブ)
     protected Collider2D hitTrigger; // 当たり判定のトリガー
-    protected bool isSkill = false; // スキルフラグ
+    protected bool nowSkill = false; // スキルフラグ
     #endregion
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,6 +27,12 @@ public class HitTriggerManager : MonoBehaviour
 
         // 攻撃力を取得
         SetStatAttack();
+
+        // ボスの場合はスキルの攻撃力を取得
+        if(isShortSkill)
+        {
+            SetStatSkill();
+        }
     }
 
     // Update is called once per frame
@@ -33,24 +44,49 @@ public class HitTriggerManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // プレイヤーが判定内に入った場合
-        if (collision.CompareTag("Player"))
+        if(!nowSkill)
         {
-            // プレイヤーの体力の参照を取得
-            PlayerHealth playerHealth = collision.GetComponent<PlayerHealth>();
+            // プレイヤーが判定内に入った場合
+            if (collision.CompareTag("Player"))
+            {
+                // プレイヤーの体力の参照を取得
+                PlayerHealth playerHealth = collision.GetComponent<PlayerHealth>();
 
-            // プレイヤーのHPを減らす
-            playerHealth.ReceiveDamage(statAtk);
+                // プレイヤーのHPを減らす
+                playerHealth.ReceiveDamage(statAtk);
+            }
+
+            if (collision.CompareTag("Tower"))
+            {
+                // プレイヤーの体力の参照を取得
+                TowerHealth towerHealth = collision.GetComponent<TowerHealth>();
+
+                // プレイヤーのHPを減らす
+                towerHealth.TakeDamage(statAtk);
+            }
         }
-
-        if (collision.CompareTag("Tower"))
+        else
         {
-            // プレイヤーの体力の参照を取得
-            TowerHealth towerHealth = collision.GetComponent<TowerHealth>();
+            // プレイヤーが判定内に入った場合
+            if (collision.CompareTag("Player"))
+            {
+                // プレイヤーの体力の参照を取得
+                PlayerHealth playerHealth = collision.GetComponent<PlayerHealth>();
 
-            // プレイヤーのHPを減らす
-            towerHealth.TakeDamage(statAtk);
+                // プレイヤーのHPを減らす
+                playerHealth.ReceiveDamage(statSkill);
+            }
+
+            if (collision.CompareTag("Tower"))
+            {
+                // プレイヤーの体力の参照を取得
+                TowerHealth towerHealth = collision.GetComponent<TowerHealth>();
+
+                // プレイヤーのHPを減らす
+                towerHealth.TakeDamage(statSkill);
+            }
         }
+        
     }
 
     /// @brief 当たり判定のON・OFFをスイッチする関数
@@ -72,11 +108,34 @@ public class HitTriggerManager : MonoBehaviour
         isActiveTrigger = trigger;
     }
 
+    /// @brief スキル時の当たり判定のON・OFFフラグを設定する関数
+    public void SetSkillTrigger(bool trigger)
+    {
+        isActiveTrigger = trigger;
+
+        if (isActiveTrigger)
+        {
+            nowSkill = true;
+        }
+        else
+        {
+            nowSkill = false;
+        }
+    }
+
     /// @biref 攻撃力を設定する関数
     protected void SetStatAttack()
     {
         // 親のコンポーネントから取得
         ShortAttack shortAttack = GetComponentInParent<ShortAttack>();
         statAtk = shortAttack.GetStatAttack();
+    }
+
+    /// @biref スキルを設定する関数
+    private void SetStatSkill()
+    {
+        // 親のコンポーネントから取得
+        ShortSkill shortSkill = GetComponentInParent<ShortSkill>();
+        statSkill = shortSkill.GetStatSkill();
     }
 }

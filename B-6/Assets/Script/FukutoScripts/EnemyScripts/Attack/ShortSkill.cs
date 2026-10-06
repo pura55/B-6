@@ -8,7 +8,7 @@ using UnityEngine;
 public class ShortSkill : BaseEnemySkill
 {
     #region State
-    protected SkillTriggerManager skillTriggerManager; // 当たり判定
+    protected HitTriggerManager hitTriggerManager; // 当たり判定
     #endregion
 
     private void Start()
@@ -63,7 +63,7 @@ public class ShortSkill : BaseEnemySkill
         statSkill = enemyProgressData.GetIntStat(enemyID, skillStatName);
         recastInterval = enemyProgressData.GetFloatStat(enemyID, intervalStatName);
         midBossAnimation = gameObject.GetComponent<MidBossAnimation>();
-        skillTriggerManager = transform.GetChild(0).gameObject.GetComponent<SkillTriggerManager>();
+        hitTriggerManager = transform.GetChild(0).gameObject.GetComponent<HitTriggerManager>();
         skillState = EnemySkillState.idle;
     }
 
@@ -81,12 +81,12 @@ public class ShortSkill : BaseEnemySkill
     /// @brief 当たり判定をアクティブにする関数
     protected void ActiveHitBox()
     {
-        skillTriggerManager.SetHitTrigger(true);
+        hitTriggerManager.SetSkillTrigger(true);
     }
 
     /// @brief 攻撃フラグを非アクティブにする関数
     protected void InactiveHitBox()
     {
-        skillTriggerManager.SetHitTrigger(false);
+        hitTriggerManager.SetSkillTrigger(false);
     }
 }
