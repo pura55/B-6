@@ -13,8 +13,6 @@ public class MoveScript : MonoBehaviour
     private PlayerHealth playerHealth;
     private PlayerInputLock inputLock;
 
-    [SerializeField] private PlayerProgressData playerProgressData;
-
     public bool IsMoving()
     {
         return move != Vector2.zero;
@@ -27,7 +25,6 @@ public class MoveScript : MonoBehaviour
         playerAttack = GetComponent<PlayerAttack>();
         playerHealth = GetComponent<PlayerHealth>();
         inputLock = GetComponent<PlayerInputLock>();
-        speed = playerProgressData.speed;
     }
 
     void Update()
@@ -144,5 +141,11 @@ public class MoveScript : MonoBehaviour
                 );
             }
         }
+    }
+
+    /// @brief スピードを設定する関数
+    public void SetSpeed(float speed)
+    {
+        this.speed = speed;
     }
 }

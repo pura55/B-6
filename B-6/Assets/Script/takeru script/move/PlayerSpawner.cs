@@ -73,6 +73,15 @@ public class PlayerSpawner : MonoBehaviour
         PlayerHealth playerHealth =
                 spawnedPlayer.GetComponentInChildren<PlayerHealth>();
 
+        MoveScript moveScript =
+            spawnedPlayer.GetComponent<MoveScript>();
+
+        // ë¨ìxÇê›íË
+        if (moveScript != null)
+        {
+            moveScript.SetSpeed(playerProgressData.speed);
+        }
+
         RespawnUI respawnUI =
               FindFirstObjectByType<RespawnUI>();
 
