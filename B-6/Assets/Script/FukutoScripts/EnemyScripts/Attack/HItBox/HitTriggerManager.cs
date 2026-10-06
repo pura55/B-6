@@ -7,13 +7,12 @@ using UnityEngine;
 /// </summary>
 public class HitTriggerManager : MonoBehaviour
 {
-    #region Config
-    protected int statAtk;
-    #endregion
-
     #region State
+    protected int statAtk; // 攻撃ステータス
+    protected int statSkill; // スキルステータス
     protected bool isActiveTrigger = false; // 当たり判定のアクティブフラグ（true: アクティブ, false: 非アクティブ)
     protected Collider2D hitTrigger; // 当たり判定のトリガー
+    protected bool isSkill = false; // スキルフラグ
     #endregion
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -55,7 +54,7 @@ public class HitTriggerManager : MonoBehaviour
     }
 
     /// @brief 当たり判定のON・OFFをスイッチする関数
-     private void SwitchTrigger()
+     protected void SwitchTrigger()
     {
         if (isActiveTrigger)
         {
@@ -74,7 +73,7 @@ public class HitTriggerManager : MonoBehaviour
     }
 
     /// @biref 攻撃力を設定する関数
-    private void SetStatAttack()
+    protected void SetStatAttack()
     {
         // 親のコンポーネントから取得
         ShortAttack shortAttack = GetComponentInParent<ShortAttack>();
