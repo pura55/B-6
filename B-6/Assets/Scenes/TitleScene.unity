@@ -335,17 +335,6 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
---- !u!114 &1730387236 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3557496429294181120, guid: 327358eb5b5978a499f85c54399e6266, type: 3}
-  m_PrefabInstance: {fileID: 3240552136682939826}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c8b595656e514648bc04c0a8c4f8632, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameManager
 --- !u!1001 &3240552136682939826
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -354,38 +343,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1256897441032902667, guid: 327358eb5b5978a499f85c54399e6266, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1548943051877800596, guid: 327358eb5b5978a499f85c54399e6266, type: 3}
-      propertyPath: m_Color.a
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1548943051877800596, guid: 327358eb5b5978a499f85c54399e6266, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2675366567475442813, guid: 327358eb5b5978a499f85c54399e6266, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3077092903446140175, guid: 327358eb5b5978a499f85c54399e6266, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3790881453457135172, guid: 327358eb5b5978a499f85c54399e6266, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4468729707290733945, guid: 327358eb5b5978a499f85c54399e6266, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4680509957544084360, guid: 327358eb5b5978a499f85c54399e6266, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5445484095554658587, guid: 327358eb5b5978a499f85c54399e6266, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -466,54 +423,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5665229541954481133, guid: 327358eb5b5978a499f85c54399e6266, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5844045962086472749, guid: 327358eb5b5978a499f85c54399e6266, type: 3}
       propertyPath: sceneChanger
       value: 
       objectReference: {fileID: 7041351748222269143}
     - target: {fileID: 5844045962086472749, guid: 327358eb5b5978a499f85c54399e6266, type: 3}
       propertyPath: changeVelocity
-      value: 0.4
+      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 6588761470812028185, guid: 327358eb5b5978a499f85c54399e6266, type: 3}
       propertyPath: m_Name
       value: TitleCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 7015232920077053347, guid: 327358eb5b5978a499f85c54399e6266, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7886345809263149530, guid: 327358eb5b5978a499f85c54399e6266, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8092541166180326426, guid: 327358eb5b5978a499f85c54399e6266, type: 3}
-      propertyPath: fader
-      value: 
-      objectReference: {fileID: 3240552136682939827}
-    - target: {fileID: 8092541166180326426, guid: 327358eb5b5978a499f85c54399e6266, type: 3}
-      propertyPath: gameManager
-      value: 
-      objectReference: {fileID: 1730387236}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 327358eb5b5978a499f85c54399e6266, type: 3}
---- !u!114 &3240552136682939827 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5844045962086472749, guid: 327358eb5b5978a499f85c54399e6266, type: 3}
-  m_PrefabInstance: {fileID: 3240552136682939826}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12653743d9b0bd042834ce807e412051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Fader
 --- !u!1001 &7041351748222269142
 PrefabInstance:
   m_ObjectHideFlags: 0

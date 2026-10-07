@@ -219,6 +219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   fader: {fileID: 5844045962086472749}
+  playerSpawner: {fileID: 0}
 --- !u!1 &7098388275557773174
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,7 +312,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1455235936901449521
 RectTransform:
   m_ObjectHideFlags: 0
@@ -389,6 +390,10 @@ PrefabInstance:
     - target: {fileID: 2807686149383023465, guid: 55e6b863604c2ad469c3da5ff83a37b6, type: 3}
       propertyPath: m_Name
       value: Fader
+      objectReference: {fileID: 0}
+    - target: {fileID: 2807686149383023465, guid: 55e6b863604c2ad469c3da5ff83a37b6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4559415654345913276, guid: 55e6b863604c2ad469c3da5ff83a37b6, type: 3}
       propertyPath: m_Pivot.x
@@ -477,6 +482,10 @@ PrefabInstance:
     - target: {fileID: 4559415654345913276, guid: 55e6b863604c2ad469c3da5ff83a37b6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5966162076223030073, guid: 55e6b863604c2ad469c3da5ff83a37b6, type: 3}
+      propertyPath: changeVelocity
+      value: 1.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -607,6 +616,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SelectScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 9130539704104499442, guid: 89999eb4e8505554da3fbdb3b902ffe7, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 3557496429294181120}
     - target: {fileID: 9130539704104499442, guid: 89999eb4e8505554da3fbdb3b902ffe7, type: 3}
       propertyPath: buttonSoundManager
       value: 
@@ -1148,6 +1161,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5445484095554658587}
     m_Modifications:
+    - target: {fileID: 410468882939450238, guid: dea030ad2bcdd79488699870205c2a22, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1093723940105513027, guid: dea030ad2bcdd79488699870205c2a22, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1289500211334327282, guid: dea030ad2bcdd79488699870205c2a22, type: 3}
       propertyPath: buttonSoundManager
       value: 
@@ -1230,6 +1251,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2960005551493764800, guid: dea030ad2bcdd79488699870205c2a22, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3082501911348553228, guid: dea030ad2bcdd79488699870205c2a22, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6551971734133150628, guid: dea030ad2bcdd79488699870205c2a22, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7405283552273382124, guid: dea030ad2bcdd79488699870205c2a22, type: 3}
