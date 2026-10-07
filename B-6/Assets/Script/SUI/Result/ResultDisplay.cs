@@ -42,7 +42,7 @@ public class ResultDisplay : MonoBehaviour
 
         if (timeText != null)
         {
-            timeText.text = $"{minutes:00}{seconds:00}";
+            timeText.text = $"{minutes:00}:{seconds:00}";
         }
 
         // –h‚¢‚¾—Î‚Ì”
