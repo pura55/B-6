@@ -22,6 +22,7 @@ public class Fader : MonoBehaviour
     private bool isFadeOut = false; // フェードアウトのフラグ
     private string sceneName = string.Empty; // シーンの名前
     #endregion
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -31,20 +32,20 @@ public class Fader : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!isFadeIn && !isFadeOut)
+        if (!isFadeIn && !isFadeOut)
         {
             return;
         }
 
-        if(fade != null)
+        if (fade != null)
         {
-            if(isFadeIn)
+            if (isFadeIn)
             {
                 FadeIn();
                 return;
             }
 
-            if(isFadeOut)
+            if (isFadeOut)
             {
                 FadeOut();
                 return;
@@ -59,7 +60,7 @@ public class Fader : MonoBehaviour
         float alpha = fade.color.a;
 
         // 時間経過で減少
-        alpha += changeVelocity * Time.deltaTime;
+        alpha += changeVelocity * Time.unscaledDeltaTime;
 
         fade.color = new Color(fadeColor.x, fadeColor.y, fadeColor.z, alpha);
 
@@ -68,10 +69,11 @@ public class Fader : MonoBehaviour
         {
             isFadeIn = false;
 
-            if(sceneName == string.Empty)
+            if (sceneName == string.Empty)
             {
                 return;
             }
+
             sceneChanger.SceneChange(sceneName);
             return;
         }
@@ -84,7 +86,7 @@ public class Fader : MonoBehaviour
         float alpha = fade.color.a;
 
         // 時間経過で減少
-        alpha -= changeVelocity * Time.deltaTime;
+        alpha -= changeVelocity * Time.unscaledDeltaTime;
 
         fade.color = new Color(fadeColor.x, fadeColor.y, fadeColor.z, alpha);
 

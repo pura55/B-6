@@ -19,6 +19,9 @@ public class ResultDisplay : MonoBehaviour
 
     void Start()
     {
+        // ƒQ[ƒ€‚ÌŠÔ‚ğ’Êí‚É–ß‚·
+        Time.timeScale = 1f;
+
         ShowResult();
         ShowAcquiredSkills();
     }
