@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "SkillData", menuName = "Game/Skill Data")]
@@ -65,6 +66,29 @@ public class SkillData : ScriptableObject
 
             default:
                 return 0f;
+        }
+    }
+
+    /// @brief ステータスを設定する関数
+    public void SetStat(SkillMasterData　data)
+    {
+        // レベルごとの数値を格納
+        foreach(var entity in data.entities)
+        {
+            switch(entity.level)
+            {
+                case 1: // Lv.1
+                    level1 = entity.stat;
+                    break;
+                case 2: // Lv.2
+                    level2 = entity.stat;
+                    break;
+                case 3: // Lv.3
+                    level3 = entity.stat;
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
