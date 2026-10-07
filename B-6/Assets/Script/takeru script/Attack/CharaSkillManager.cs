@@ -62,7 +62,7 @@ public class CharaSkillManager : MonoBehaviour
             return;
 
 
-        if (Keyboard.current.qKey.wasPressedThisFrame)
+        if (Mouse.current.rightButton.wasPressedThisFrame)
         {
             UseSkill();
         }
