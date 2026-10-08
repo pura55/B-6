@@ -13,7 +13,12 @@ public class PlayerHealth : MonoBehaviour
     public float maxHP = 5;
     private float myHp = 0;
 
+    // 基本リスポーン時間
     public float respawnTime = 5.0f;
+
+    // 死亡するたびに増える時間
+    public float respawnTimeIncrease = 2.0f;
+
     public int killHeal = 0;
 
     #endregion
@@ -35,7 +40,15 @@ public class PlayerHealth : MonoBehaviour
 
     // 死亡中かどうか
     public bool IsDead { get; private set; } = false;
+
+    // リスポーン終了時刻
     private float respawnEndTime = 0f;
+
+    // 現在のリスポーン時間
+    private float currentRespawnTime;
+
+    // 死亡回数
+    private int deathCount = 0;
 
 
     void Start()
@@ -47,6 +60,10 @@ public class PlayerHealth : MonoBehaviour
         // データからHP取得
         maxHP = playerProgressData.hp;
         myHp = maxHP;
+
+
+        // リスポーン時間を初期値にする
+        currentRespawnTime = respawnTime;
 
 
         // Scene上のPlayerHPを取得
@@ -177,10 +194,24 @@ public class PlayerHealth : MonoBehaviour
             return;
 
 
+        // 死亡回数を増やす
+        deathCount++;
+
+
+        // 1回目は基本時間のまま
+        // 2回目以降は死亡するたびに＋2秒
+        currentRespawnTime =
+            respawnTime +
+            (deathCount - 1) * respawnTimeIncrease;
+
+
         // 死亡状態
         IsDead = true;
 
-        respawnEndTime = Time.time + respawnTime;
+
+        // 現在のリスポーン時間から終了時刻を計算
+        respawnEndTime =
+            Time.time + currentRespawnTime;
 
 
         // =========================
@@ -203,7 +234,12 @@ public class PlayerHealth : MonoBehaviour
 
 
         Debug.Log(
-            "<color=red>プレイヤー死亡</color>"
+            "<color=red>プレイヤー死亡</color> " +
+            "死亡回数: " +
+            deathCount +
+            " / リスポーンまで: " +
+            currentRespawnTime +
+            "秒"
         );
 
 
@@ -225,20 +261,29 @@ public class PlayerHealth : MonoBehaviour
         return !IsDead;
     }
 
+
+    /// <summary>
+    /// リスポーン待機時間の割合
+    /// </summary>
     public float GetRespawnTimeRate()
     {
         if (!IsDead)
             return 0f;
 
-        if (respawnTime <= 0f)
+
+        if (currentRespawnTime <= 0f)
             return 0f;
 
-        float remain = respawnEndTime - Time.time;
+
+        float remain =
+            respawnEndTime - Time.time;
+
 
         return Mathf.Clamp01(
-            remain / respawnTime
+            remain / currentRespawnTime
         );
     }
+
 
     /// <summary>
     /// リスポーン待機
@@ -247,13 +292,13 @@ public class PlayerHealth : MonoBehaviour
     {
         Debug.Log(
             "リスポーンまで " +
-            respawnTime +
+            currentRespawnTime +
             " 秒"
         );
 
 
         yield return new WaitForSeconds(
-            respawnTime
+            currentRespawnTime
         );
 
 
@@ -269,8 +314,10 @@ public class PlayerHealth : MonoBehaviour
         // 初期位置へ戻す
         transform.position = startPosition;
 
+
         // HP全回復
         myHp = maxHP;
+
 
         // HPバー更新
         if (hpSlider != null)
@@ -278,8 +325,10 @@ public class PlayerHealth : MonoBehaviour
             hpSlider.value = myHp;
         }
 
+
         // 生存状態に戻す
         IsDead = false;
+
 
         // 入力禁止解除
         if (inputLock != null)
@@ -287,16 +336,17 @@ public class PlayerHealth : MonoBehaviour
             inputLock.UnlockInput();
         }
 
+
         // リスポーンしたのでIdleへ
         playerAnimation.ChangeState(
             ID1Sprite.PlayerAnimState.Idle
         );
 
+
         Debug.Log(
             "<color=green>プレイヤーリスポーン</color>"
         );
     }
-
 
 
     /// <summary>

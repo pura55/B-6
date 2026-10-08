@@ -22,7 +22,7 @@ public class TowerHealth : MonoBehaviour
 
     // 赤バーのアニメーション用
     private Coroutine damageCoroutine;
-    
+
     private GameTimer gameTimer;
 
     [SerializeField] private GameManager gameManager; // ゲームマネージャー
@@ -56,10 +56,11 @@ public class TowerHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         // ゲームオーバーが既に呼ばれている場合それ以上の処理を行わない
-        if(isCoalGaemover)
+        if (isCoalGaemover)
         {
             return;
         }
+
         // HPを減らす
         currentHp -= damage;
 
@@ -127,9 +128,6 @@ public class TowerHealth : MonoBehaviour
     {
         // Time.timeScale = 0でも進む時間
         yield return new WaitForSecondsRealtime(3f);
-
-        // 時間を元に戻す
-        Time.timeScale = 1f;
 
         //時間を保存
         if (gameTimer != null) gameTimer.SaveElapsedTime();
