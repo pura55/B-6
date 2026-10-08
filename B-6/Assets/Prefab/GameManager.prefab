@@ -1522,6 +1522,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6852325516466677724}
     - target: {fileID: -5259913585566341552, guid: 989208ab221a78a42b89c49cd3ab3ca7, type: 3}
+      propertyPath: waveCycle
+      value: 
+      objectReference: {fileID: 11400000, guid: 20204f581ac4a984984645587b142d34, type: 2}
+    - target: {fileID: -5259913585566341552, guid: 989208ab221a78a42b89c49cd3ab3ca7, type: 3}
       propertyPath: bgmManager
       value: 
       objectReference: {fileID: 4055529664070784620}

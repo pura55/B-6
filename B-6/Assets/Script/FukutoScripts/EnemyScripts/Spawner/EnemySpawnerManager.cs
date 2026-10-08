@@ -34,6 +34,8 @@ public class EnemySpawnerManager : MonoBehaviour
 
     [SerializeField] private BgmManager bgmManager; // BGMマネージャー
 
+    [SerializeField] private WaveCycle waveCycle;
+
     [SerializeField] private int upWaveID = 3; // ウェーブ間で繰り上げるID
     #endregion
 
@@ -51,6 +53,7 @@ public class EnemySpawnerManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        waveInterval = (int)waveCycle.waveCycleMin;
         SetSpawnID();
     }
 
