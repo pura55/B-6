@@ -24,6 +24,8 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private bool onBoss = false; // ボスかどうかのフラグ
     private NomalEnemyManager nomalEnemyManager; // エネミーマネージャー
     private MidBossManager midBossManager; // 中ボス（ボス）のマネージャー
+
+    private DamageTextManager damageTextManager; // ダメージテキストマネージャー
     #endregion
 
     void Start()
@@ -52,6 +54,8 @@ public class EnemyHealth : MonoBehaviour
         {
             midBossManager = gameObject.GetComponent<MidBossManager>();
         }
+
+        damageTextManager = FindAnyObjectByType<DamageTextManager>();
     }
 
     /// @brief 被ダメージ処理を行う関数
@@ -90,6 +94,9 @@ public class EnemyHealth : MonoBehaviour
         enemyHp -= dmg;
         Debug.Log("敵のHP : " + enemyHp);
 
+        // ダメージ表示
+        damageTextManager.ShowDamageText(transform.position, dmg);
+
         // 0未満の場合0に設定
         if (enemyHp < 0)
         {
@@ -125,6 +132,9 @@ public class EnemyHealth : MonoBehaviour
         // ダメージ分体力を減少させる
         enemyHp -= dmg;
         Debug.Log("敵のHP : " + enemyHp);
+
+        // ダメージ表示
+        damageTextManager.ShowDamageText(transform.position, dmg);
 
         // 0未満の場合0に設定
         if (enemyHp < 0)
