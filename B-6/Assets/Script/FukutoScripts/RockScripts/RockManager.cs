@@ -8,7 +8,7 @@ using UnityEngine;
 public class RockManager : MonoBehaviour
 {
     #region Config
-    private float spawnInterval = 20f;    // スポーンのインターバル
+    private float spawnInterval = 30f;    // スポーンのインターバル
     [SerializeField] private const int maxSpawner = 4;
     #endregion
 
