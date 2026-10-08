@@ -1724,10 +1724,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fader
       objectReference: {fileID: 0}
-    - target: {fileID: 2807686149383023465, guid: 55e6b863604c2ad469c3da5ff83a37b6, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4559415654345913276, guid: 55e6b863604c2ad469c3da5ff83a37b6, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1754,19 +1750,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4559415654345913276, guid: 55e6b863604c2ad469c3da5ff83a37b6, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1920
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 4559415654345913276, guid: 55e6b863604c2ad469c3da5ff83a37b6, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1080
-      objectReference: {fileID: 0}
-    - target: {fileID: 4559415654345913276, guid: 55e6b863604c2ad469c3da5ff83a37b6, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4559415654345913276, guid: 55e6b863604c2ad469c3da5ff83a37b6, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
+      value: 1100
       objectReference: {fileID: 0}
     - target: {fileID: 4559415654345913276, guid: 55e6b863604c2ad469c3da5ff83a37b6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1820,10 +1808,6 @@ PrefabInstance:
       propertyPath: sceneChanger
       value: 
       objectReference: {fileID: 706580409}
-    - target: {fileID: 5966162076223030073, guid: 55e6b863604c2ad469c3da5ff83a37b6, type: 3}
-      propertyPath: changeVelocity
-      value: 1.8
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

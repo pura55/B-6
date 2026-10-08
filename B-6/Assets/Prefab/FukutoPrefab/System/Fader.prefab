@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4559415654345913276
 RectTransform:
   m_ObjectHideFlags: 0
@@ -90,4 +90,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Fader
   fade: {fileID: 1632796093855712640}
   sceneChanger: {fileID: 0}
-  changeVelocity: 0.4
+  changeVelocity: 1.8
