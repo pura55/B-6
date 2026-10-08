@@ -131,6 +131,7 @@ public class SelectAnimation : MonoBehaviour
             // キャラがアンロックされていない場合
             if(!isCharacterUnlocked && locked != null)
             {
+                isCharacterUnlocked = selectCharacterID.canSelected;
                 locked.enabled = true;
                 charaImage.color = new Color32(128, 128, 128, 255);
             }
