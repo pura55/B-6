@@ -8,7 +8,7 @@ using UnityEngine;
 /// スキルデータの骨格のクラス
 /// </summary>
 [Serializable]
-public class SkillMasterData : MonoBehaviour
+public class SkillMasterData
 {
     /// <summary>
     /// エンティティ
