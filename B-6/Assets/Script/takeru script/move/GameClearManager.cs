@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class GameClearManager : MonoBehaviour
 {
@@ -54,6 +54,15 @@ public class GameClearManager : MonoBehaviour
 
         // ゲームクリア画面へ遷移
         gameManager.ChangeGameClear();
+    }
+
+    /// @brief 2秒後にゲームクリアする関数
+    public IEnumerator WaitAndGameClear()
+    {
+        // ボス撃破モーション後、2秒待つ
+        yield return new WaitForSeconds(2f);
+
+        GameClear();
     }
 
 

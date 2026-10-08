@@ -1,5 +1,5 @@
 using UnityEngine;
-using System.Collections;
+
 
 /// <summary>
 /// ノーマルエネミーマネージャー
@@ -255,28 +255,20 @@ public class MidBossManager : NomalEnemyManager
         //// =========================
         if (bossID == 11)
         {
-            StartCoroutine(WaitAndGameClear());
-        }
-    }
-
-    /// @brief 2秒後にゲームクリアする関数
-    private IEnumerator WaitAndGameClear()
-    {
-        // ボス撃破モーション後、2秒待つ
-        yield return new WaitForSeconds(2f);
-
-        GameClearManager gameClearManager =
+            // ゲームクリアマネージャーを探す
+            GameClearManager gameClearManager =
             FindFirstObjectByType<GameClearManager>();
 
-        if (gameClearManager != null)
-        {
-            gameClearManager.GameClear();
-        }
-        else
-        {
-            Debug.LogWarning(
-                "GameClearManagerがシーンにありません"
-            );
+            if (gameClearManager != null)
+            {
+                StartCoroutine(gameClearManager.WaitAndGameClear());
+            }
+            else
+            {
+                Debug.LogWarning(
+                    "GameClearManagerがシーンにありません"
+                );
+            }
         }
     }
 
