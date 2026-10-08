@@ -15,7 +15,7 @@
             "atkDmg": 5,
             "atkCT": 1.2,
             "skillDmg": 10,
-            "skillCT": 5,
+            "skillCT": 9,
             "speed": 5
         },
         {
@@ -24,7 +24,7 @@
             "atkDmg": 5,
             "atkCT": 1.2,
             "skillDmg": 20,
-            "skillCT": 5,
+            "skillCT": 7,
             "speed": 5
         },
         {
