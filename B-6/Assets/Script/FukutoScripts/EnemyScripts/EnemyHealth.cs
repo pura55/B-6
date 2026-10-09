@@ -35,10 +35,10 @@ public class EnemyHealth : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.CompareTag("Rock"))
-        {
-            isHitRock = true;
-        }
+        //if (col.gameObject.CompareTag("Rock"))
+        //{
+        //    isHitRock = true;
+        //}
     }
 
     /// @brief 変数の初期化を行う関数
@@ -181,6 +181,13 @@ public class EnemyHealth : MonoBehaviour
         playerKillCount = 0;
     }
 
+    /// @brief 岩に当たったかどうかのフラグを設定する関数
+    public void SetHitRock()
+    {
+        isHitRock = true;
+        Debug.Log("敵に当たりました！");
+    }
+
     /// @brief 岩に当たったかどうかのフラグを返す関数
     public bool GetHitRock()
     {
@@ -203,5 +210,11 @@ public class EnemyHealth : MonoBehaviour
         }
 
         return false;
+    }
+
+    /// @biref　ダメージテキストマネージャーを設定する関数
+    public void SetDamageText(DamageTextManager manager)
+    {
+        damageTextManager = manager;
     }
 }

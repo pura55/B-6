@@ -54,7 +54,13 @@ public class NomalEnemyManager : BaseEnemyManager
     /// @brief ‘Ò‹@ó‘ÔŠÖ”
     protected override void Idle()
     {
-        if(TransitionDead())
+        // —Îƒqƒbƒg‚Ì‘JˆÚˆ—
+        if (GetHitRock())
+        {
+            SetIsDead();
+        }
+
+        if (TransitionDead())
         {
             return;
         }
@@ -64,7 +70,13 @@ public class NomalEnemyManager : BaseEnemyManager
         SetIdleAnimation();
 
         // —Îƒqƒbƒg‚Ì‘JˆÚˆ—
-        HitRock();
+        if (GetHitRock())
+        {
+            if (TransitionDead())
+            {
+                return;
+            }
+        }
 
         // ”íƒ_ƒ[ƒW‚Ö‚Ì‘JˆÚˆ—
         TransitionHit();
@@ -88,6 +100,12 @@ public class NomalEnemyManager : BaseEnemyManager
     /// @brief ˆÚ“®ó‘ÔŠÖ”
     protected override void Move()
     {
+        // —Îƒqƒbƒg‚Ì‘JˆÚˆ—
+        if (GetHitRock())
+        {
+            SetIsDead();
+        }
+
         if (TransitionDead())
         {
             return;
@@ -98,8 +116,6 @@ public class NomalEnemyManager : BaseEnemyManager
 
         SetMoveAnimation();
 
-        // —Îƒqƒbƒg‚Ì‘JˆÚˆ—
-        HitRock();
 
         // ”íƒ_ƒ[ƒW‚Ö‚Ì‘JˆÚˆ—
         TransitionHit();
@@ -116,6 +132,13 @@ public class NomalEnemyManager : BaseEnemyManager
     /// @brief UŒ‚ó‘ÔŠÖ”
     protected override void Attack()
     {
+        // —Îƒqƒbƒg‚Ì‘JˆÚˆ—
+        if (GetHitRock())
+        {
+            SetIsDead();
+        }
+
+        // €–S‚Ö‚Ì‘JˆÚˆ—
         if (TransitionDead())
         {
             return;
@@ -123,9 +146,6 @@ public class NomalEnemyManager : BaseEnemyManager
 
         // ˆÚ“®•s‰Â
         SetStopMovement(true);
-
-        // —Îƒqƒbƒg‚Ì‘JˆÚˆ—
-        HitRock();
 
         // ”íƒ_ƒ[ƒW‚Ö‚Ì‘JˆÚˆ—
         TransitionHit();
@@ -161,7 +181,13 @@ public class NomalEnemyManager : BaseEnemyManager
         SetStopMovement(true);
 
         // —Îƒqƒbƒg‚Ì‘JˆÚˆ—
-        HitRock();
+        if (GetHitRock())
+        {
+            if (TransitionDead())
+            {
+                return;
+            }
+        }
 
         //ƒ_ƒ[ƒW‚ğó‚¯‚Ä‚¢‚éÅ’†‚Å‚àƒAƒjƒ[ƒVƒ‡ƒ“‚ğŒJ‚è•Ô‚·‚½‚ß
         // ‘JˆÚˆ—‚ğ‹²‚Ş
@@ -219,19 +245,6 @@ public class NomalEnemyManager : BaseEnemyManager
 
     protected virtual void BossHit()
     {
-    }
-
-    /// @brief —Î‚ÉÕ“Ë‚µ‚½ê‡‚Ìˆ—‚ğs‚¤ŠÖ”
-    private void HitRock()
-    {
-        // —Î‚ÉÕ“Ë‚µ‚Ä‚¢‚½‚ç€–S‚Ö
-        if (GetHitRock())
-        {
-            if (TransitionDead())
-            {
-                return;
-            }
-        }
     }
 
     /// @brief €–S‚Ö‚Ì‘JˆÚˆ—‚ğs‚¤ŠÖ”

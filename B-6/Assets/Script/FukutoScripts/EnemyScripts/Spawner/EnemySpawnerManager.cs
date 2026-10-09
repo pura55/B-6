@@ -37,6 +37,8 @@ public class EnemySpawnerManager : MonoBehaviour
     [SerializeField] private WaveCycle waveCycle;
 
     [SerializeField] private int upWaveID = 3; // ウェーブ間で繰り上げるID
+
+    [SerializeField] private DamageTextManager damageTextManager;
     #endregion
 
     #region State
@@ -141,4 +143,6 @@ public class EnemySpawnerManager : MonoBehaviour
 
     /// brief@ タワーのオブジェクトを取得する関数
     public GameObject GetTower() { return Tower; }
+
+    public DamageTextManager GetDamageText() { return damageTextManager; }
 }

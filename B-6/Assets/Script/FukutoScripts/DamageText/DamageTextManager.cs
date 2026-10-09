@@ -10,7 +10,7 @@ public class DamageTextFactory : IPooledObjectFactory
     [SerializeField] private readonly Transform parent; // ダメージキャンバス
     #endregion
 
-    /// @brief 
+    /// @brief ファクトリーを生成する関数
     public DamageTextFactory(DamageText damageText, Transform parentTransform)
     {
         this.damageText = damageText;
@@ -56,6 +56,6 @@ public class DamageTextManager : MonoBehaviour
         // ダメージテキストをプールから取り出す
         DamageText damageText = textPool.GetFromPool() as DamageText;
 
-        damageText.SetDamage(damage);
+        damageText.SetInfo(position, damage);
     }
 }

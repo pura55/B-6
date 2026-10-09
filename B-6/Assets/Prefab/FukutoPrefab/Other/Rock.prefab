@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4791656490113822573}
   - component: {fileID: -7139938870585006975}
   - component: {fileID: -7886848446788986571}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Rock
   m_TagString: Rock
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 10
   m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_AngularDamping: 0.01
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -159,7 +159,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 2
+  m_Radius: 4
 --- !u!114 &9122733002518163298
 MonoBehaviour:
   m_ObjectHideFlags: 0

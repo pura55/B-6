@@ -67,6 +67,10 @@ public class NomalEnemySpawner : BaseEnemySpawner
 
             // ターゲットの参照を渡す
             PassTargetReference(spawnedEnemy, spawnID[random]);
+
+            EnemyHealth health = spawnedEnemy.GetComponent<EnemyHealth>();
+
+            health.SetDamageText(enemySpawnerManager.GetDamageText());
              
             //カウンターを増やす
             spawnCounter += 1;
