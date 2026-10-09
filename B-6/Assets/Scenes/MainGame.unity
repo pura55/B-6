@@ -190,7 +190,7 @@ PrefabInstance:
     - target: {fileID: 5897684408298460439, guid: 14883e23418c85e4394056e178880ef4, type: 3}
       propertyPath: testSkill
       value: 
-      objectReference: {fileID: 11400000, guid: f7d34f2e04d74264a94cdaf60fcc1bc4, type: 2}
+      objectReference: {fileID: 11400000, guid: 95a9283cee8cbf64581f15c1a3d3276e, type: 2}
     - target: {fileID: 6831310437037488438, guid: 14883e23418c85e4394056e178880ef4, type: 3}
       propertyPath: maxHp
       value: 5000
@@ -201,6 +201,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8625270275550186405, guid: 14883e23418c85e4394056e178880ef4, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9182876771795076071, guid: 14883e23418c85e4394056e178880ef4, type: 3}
+      propertyPath: m_Type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9182876771795076071, guid: 14883e23418c85e4394056e178880ef4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7696407034343936426, guid: 60132bcf73433aa469c55c94d7056361, type: 3}
+    - target: {fileID: 9182876771795076071, guid: 14883e23418c85e4394056e178880ef4, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9182876771795076071, guid: 14883e23418c85e4394056e178880ef4, type: 3}
+      propertyPath: m_FillMethod
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9182876771795076071, guid: 14883e23418c85e4394056e178880ef4, type: 3}
+      propertyPath: m_FillOrigin
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9182876771795076071, guid: 14883e23418c85e4394056e178880ef4, type: 3}
+      propertyPath: m_FillClockwise
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
