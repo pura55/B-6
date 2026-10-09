@@ -25,6 +25,6 @@ MonoBehaviour:
   resultCharacter2Icon: {fileID: 4192167070700150029, guid: b9d77a554d0280140bb999ac45a3fd3d, type: 3}
   resultCharacter3Icon: {fileID: -3001779973479519033, guid: c09c54587e5ac5749a3dea05e5a6373b, type: 3}
   resultCharacter4Icon: {fileID: 2564817891570181751, guid: 2d450aaaeb0299543b14c389dfc2e20f, type: 3}
-  level1: 1
-  level2: 1
-  level3: 1
+  level1: 5
+  level2: 10
+  level3: 15
