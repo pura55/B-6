@@ -12,7 +12,6 @@ public class ExplanationButtonManager : MonoBehaviour
     [SerializeField] private ExplanationManager explanationManager; // ゲーム説明マネージャー
     [SerializeField] private GameObject nextButton; // 次へボタン
     [SerializeField] private GameObject frontButton; // 前へボタン
-    [SerializeField] private float waitTime = 0.9f; // 待機時間
     #endregion
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

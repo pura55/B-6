@@ -15,14 +15,7 @@ public class TowerSize : BaseSize
         GetObjectSize();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    
-
+    /// @brief –h‰q‘ÎÛ‚ÌƒTƒCƒY‚ğæ“¾‚·‚éŠÖ”
     public Vector2 GetTowerSize()
     {
         return spriteSize;

@@ -16,10 +16,6 @@ public class StartButton : ButtonBase
     #endregion
 
     #region State
-    private string mainGame = "MainGame";
-    #endregion
-
-    #region State
     private int rockCharacterID = 4; // ロックがかかっているキャラクターのＩＤ
     #endregion
 
