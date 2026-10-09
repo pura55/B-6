@@ -106,7 +106,7 @@ public class PlayerHealth : MonoBehaviour
         if (Keyboard.current != null &&
             Keyboard.current.lKey.wasPressedThisFrame)
         {
-            Debug.Log("Lキー押した");
+            //Debug.Log("Lキー押した");
 
             ReceiveDamage(1);
         }
@@ -287,21 +287,24 @@ public class PlayerHealth : MonoBehaviour
 
 
     /// <summary>
-    /// リスポーン待機時間の割合（0から1へ増える）
+    /// リスポーン待機時間の割合
     /// </summary>
     public float GetRespawnTimeRate()
     {
         if (!IsDead)
             return 0f;
 
-        if (currentRespawnTime <= 0f)
-            return 1f;
 
-        float elapsed =
-            currentRespawnTime - (respawnEndTime - Time.time);
+        if (currentRespawnTime <= 0f)
+            return 0f;
+
+
+        float remain =
+            respawnEndTime - Time.time;
+
 
         return Mathf.Clamp01(
-            elapsed / currentRespawnTime
+            remain / currentRespawnTime
         );
     }
 
@@ -394,12 +397,6 @@ public class PlayerHealth : MonoBehaviour
 
         // HPバー更新
         UpdateHPSlider();
-
-
-        Debug.Log(
-            "キルヒール！ HP +" +
-            killHeal
-        );
     }
 
     /// @brief ダメージテキストマネージャーを設定する関数

@@ -889,7 +889,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerExp
   expSlider: {fileID: 0}
   level: 1
-  maxExp: 100
+  maxExp: 50
   pickupRange: 3
   levelUpUI: {fileID: 0}
   soundPlayer: {fileID: 6759992363909118530}

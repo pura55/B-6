@@ -37,15 +37,17 @@ public class ResultDisplay : MonoBehaviour
             enemyDownText.text = $"{kills}";
         }
 
-        // プレイ時間
+        // プレイ時間（ボス撃破時に保存された時間）
         float time = GameTimer.GetFinalElapsedTime();
+
+        Debug.Log("リザルトで取得した時間：" + time + "秒");
 
         int minutes = Mathf.FloorToInt(time / 60);
         int seconds = Mathf.FloorToInt(time % 60);
 
         if (timeText != null)
         {
-            timeText.text = $"{minutes:00}:{seconds:00}";
+            timeText.text = $"{minutes:0}:{seconds:00}";
         }
 
         // 防いだ落石の数
@@ -62,14 +64,12 @@ public class ResultDisplay : MonoBehaviour
     {
         if (skillIconParent == null || skillIconPrefab == null)
         {
-            Debug.LogWarning(
-                "スキル画像の表示設定が不足しています！");
+            Debug.LogWarning("スキル画像の表示設定が不足しています！");
             return;
         }
 
         // シーンをまたいで保持している獲得スキル一覧
-        List<SkillData> skills =
-            AcquiredSkillData.acquiredSkills;
+        List<SkillData> skills = AcquiredSkillData.acquiredSkills;
 
         Debug.Log("獲得スキルの登録数：" + skills.Count);
 
@@ -85,10 +85,6 @@ public class ResultDisplay : MonoBehaviour
             if (skill == null)
                 continue;
 
-            // ========================================
-            // リザルト専用アイコンを選択
-            // ========================================
-
             Sprite selectedIcon = null;
 
             switch (characterID)
@@ -96,40 +92,27 @@ public class ResultDisplay : MonoBehaviour
                 case 1:
                     selectedIcon = skill.resultCharacter1Icon;
                     break;
-
                 case 2:
                     selectedIcon = skill.resultCharacter2Icon;
                     break;
-
                 case 3:
                     selectedIcon = skill.resultCharacter3Icon;
                     break;
-
                 case 4:
                     selectedIcon = skill.resultCharacter4Icon;
                     break;
-
                 default:
-                    Debug.LogWarning(
-                        "キャラクターIDが不正です：" + characterID);
+                    Debug.LogWarning("キャラクターIDが不正です：" + characterID);
                     break;
             }
 
-            // ========================================
-            // キャラクター専用リザルトアイコンが
-            // 設定されていなければ
-            // リザルト共通アイコンを使用
-            // ========================================
-
+            // キャラクター専用アイコンがなければ共通アイコンを使用
             if (selectedIcon == null)
             {
                 selectedIcon = skill.resultIcon;
             }
 
-            // ========================================
             // 画像がない場合は生成しない
-            // ========================================
-
             if (selectedIcon == null)
             {
                 Debug.LogWarning(
@@ -138,19 +121,11 @@ public class ResultDisplay : MonoBehaviour
                     " / キャラクターID: " +
                     characterID
                 );
-
                 continue;
             }
 
-            // ========================================
             // アイコン生成
-            // ========================================
-
-            Image icon = Instantiate(
-                skillIconPrefab,
-                skillIconParent
-            );
-
+            Image icon = Instantiate(skillIconPrefab, skillIconParent);
             icon.sprite = selectedIcon;
             icon.enabled = true;
         }

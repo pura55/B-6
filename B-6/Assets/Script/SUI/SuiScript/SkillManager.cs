@@ -6,6 +6,7 @@ public class SkillManager : MonoBehaviour
 {
     // ƒV[ƒ“‚ðØ‚è‘Ö‚¦‚Ä‚àSkillManager‚ð•ÛŽ
     private static SkillManager instance;
+    public static SkillManager Instance => instance;
 
     void Awake()
     {

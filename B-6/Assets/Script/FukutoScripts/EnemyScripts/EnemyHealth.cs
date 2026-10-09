@@ -2,30 +2,30 @@ using UnityEngine;
 
 /// <summary>
 /// エネミーヘルス
-/// 
 /// 敵のHPを管理するクラス
 /// </summary>
 public class EnemyHealth : MonoBehaviour
 {
     #region Config
-    private int enemyHp = 5; // 敵のHP
+    private int enemyHp = 5;
     [SerializeField] private int enemyID = 0;
-    private static int playerKillCount = 0; // プレイヤーが倒した敵の数
-    private bool playerKillCounted = false; // 討伐数を重複して数えないためのフラグ
+    private static int playerKillCount = 0;
+    private bool playerKillCounted = false;
+    private bool finalBossTimerStopped = false;
     #endregion
 
     #region State
     private bool isHitRock = false;
-    private string hpStatName = "HP"; // ステータスの名前
-    [SerializeField] private EnemyProgressData enemyProgressData; // 敵のデータ
+    private string hpStatName = "HP";
+    [SerializeField] private EnemyProgressData enemyProgressData;
 
     [Header("ENEMY TYPE")]
-    [SerializeField] private bool onNomalEnemy = true; // 通常の敵かどうかのフラグ
-    [SerializeField] private bool onBoss = false; // ボスかどうかのフラグ
-    private NomalEnemyManager nomalEnemyManager; // エネミーマネージャー
-    private MidBossManager midBossManager; // 中ボス（ボス）のマネージャー
+    [SerializeField] private bool onNomalEnemy = true;
+    [SerializeField] private bool onBoss = false;
+    private NomalEnemyManager nomalEnemyManager;
+    private MidBossManager midBossManager;
 
-    private DamageTextManager damageTextManager; // ダメージテキストマネージャー
+    private DamageTextManager damageTextManager;
     #endregion
 
     void Start()
@@ -41,24 +41,36 @@ public class EnemyHealth : MonoBehaviour
         //}
     }
 
-    /// @brief 変数の初期化を行う関数
+    /// <summary>
+    /// 変数の初期化
+    /// </summary>
     private void InitValue()
     {
         enemyHp = enemyProgressData.GetIntStat(enemyID, hpStatName);
 
         if (onNomalEnemy)
         {
-            nomalEnemyManager = gameObject.GetComponent<NomalEnemyManager>();
+            nomalEnemyManager = GetComponent<NomalEnemyManager>();
         }
         else if (onBoss)
         {
-            midBossManager = gameObject.GetComponent<MidBossManager>();
+            midBossManager = GetComponent<MidBossManager>();
         }
 
         damageTextManager = FindAnyObjectByType<DamageTextManager>();
     }
 
-    /// @brief 被ダメージ処理を行う関数
+    /// <summary>
+    /// 敵IDを取得
+    /// </summary>
+    public int GetEnemyID()
+    {
+        return enemyID;
+    }
+
+    /// <summary>
+    /// 被ダメージ処理
+    /// </summary>
     public void ReceiveDamage(int dmg)
     {
         if (onNomalEnemy)
@@ -71,7 +83,9 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-    /// @brief プレイヤーの攻撃による被ダメージ処理を行う関数
+    /// <summary>
+    /// プレイヤーの攻撃による被ダメージ処理
+    /// </summary>
     public void ReceivePlayerDamage(int dmg)
     {
         if (onNomalEnemy)
@@ -84,36 +98,38 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-    /// @brief 普通の敵の被ダメージ処理を行う関数
+    /// <summary>
+    /// 通常の敵の被ダメージ処理
+    /// </summary>
     private void NomalEnemyReceive(int dmg, bool fromPlayer)
     {
-        // マネージャーの死亡フラグがtrueの時これ以降の処理を行わない
         if (nomalEnemyManager.GetIsDead()) return;
 
-        // ダメージ分体力を減少させる
         enemyHp -= dmg;
-        Debug.Log("敵のHP : " + enemyHp);
 
-        // ダメージ表示
-        damageTextManager.ShowDamageText(transform.position, dmg, DamageTextManager.Target.ENEMY);
+        if (damageTextManager != null)
+        {
+            damageTextManager.ShowDamageText(
+                transform.position, dmg, DamageTextManager.Target.ENEMY
+            );
+        }
 
-        // 0未満の場合0に設定
         if (enemyHp < 0)
         {
             enemyHp = 0;
         }
 
-        // 生きている場合
         if (IsAlive())
         {
             nomalEnemyManager.SetTakeHit();
         }
-        else // 死んでいる場合
+        else
         {
-            // 死亡フラグをtrue
             nomalEnemyManager.SetIsDead();
 
-            // プレイヤーが倒した場合のみ討伐数を加算
+            // EnemyID 11のボスが死亡したらタイマーを停止・保存
+            StopTimerIfFinalBoss();
+
             if (fromPlayer && !playerKillCounted)
             {
                 playerKillCount++;
@@ -123,36 +139,38 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-    /// @brief ボスの被ダメージ処理を行う関数
+    /// <summary>
+    /// ボスの被ダメージ処理
+    /// </summary>
     private void BossReceive(int dmg, bool fromPlayer)
     {
-        // マネージャーの死亡フラグがtrueの時これ以降の処理を行わない
         if (midBossManager.GetIsDead()) return;
 
-        // ダメージ分体力を減少させる
         enemyHp -= dmg;
-        Debug.Log("敵のHP : " + enemyHp);
 
-        // ダメージ表示
-        damageTextManager.ShowDamageText(transform.position, dmg, DamageTextManager.Target.ENEMY);
+        if (damageTextManager != null)
+        {
+            damageTextManager.ShowDamageText(
+                transform.position, dmg, DamageTextManager.Target.ENEMY
+            );
+        }
 
-        // 0未満の場合0に設定
         if (enemyHp < 0)
         {
             enemyHp = 0;
         }
 
-        // 生きている場合
         if (IsAlive())
         {
             midBossManager.SetTakeHit();
         }
-        else // 死んでいる場合
+        else
         {
-            // 死亡フラグをtrue
             midBossManager.SetIsDead();
 
-            // プレイヤーが倒した場合のみ討伐数を加算
+            // EnemyID 11のボスが死亡したらタイマーを停止・保存
+            StopTimerIfFinalBoss();
+
             if (fromPlayer && !playerKillCounted)
             {
                 playerKillCount++;
@@ -161,40 +179,78 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-    /// @brief 生死を判定するフラグ
-    private bool IsAlive()
+    /// <summary>
+    /// EnemyID 11の死亡時にタイマーを停止して保存
+    /// </summary>
+    private void StopTimerIfFinalBoss()
     {
-        // hpが0より大きい場合
-        if (enemyHp > 0) return true;
-        else return false;
+        if (enemyID != 11 || finalBossTimerStopped)
+        {
+            return;
+        }
+
+        finalBossTimerStopped = true;
+
+        GameTimer gameTimer = FindFirstObjectByType<GameTimer>();
+
+        if (gameTimer != null)
+        {
+            gameTimer.StopAndSaveTimer();
+            Debug.Log(
+                "EnemyID 11撃破。クリア時間：" +
+                GameTimer.GetFinalElapsedTime() + "秒"
+            );
+        }
+        else
+        {
+            Debug.LogError("GameTimerが見つかりません。時間を保存できませんでした。");
+        }
     }
 
-    /// @brief プレイヤーが倒した敵の数を返す関数
+    /// <summary>
+    /// 生死を判定
+    /// </summary>
+    private bool IsAlive()
+    {
+        return enemyHp > 0;
+    }
+
+    /// <summary>
+    /// プレイヤーが倒した敵の数を取得
+    /// </summary>
     public static int GetPlayerKillCount()
     {
         return playerKillCount;
     }
 
-    /// @brief プレイヤーが倒した敵の数をリセットする関数
+    /// <summary>
+    /// プレイヤーが倒した敵の数をリセット
+    /// </summary>
     public static void ResetPlayerKillCount()
     {
         playerKillCount = 0;
     }
 
-    /// @brief 岩に当たったかどうかのフラグを設定する関数
+    /// <summary>
+    /// 岩に当たったかどうかを設定
+    /// </summary>
     public void SetHitRock()
     {
         isHitRock = true;
         Debug.Log("敵に当たりました！");
     }
 
-    /// @brief 岩に当たったかどうかのフラグを返す関数
+    /// <summary>
+    /// 岩に当たったかどうかを取得
+    /// </summary>
     public bool GetHitRock()
     {
         return isHitRock;
     }
 
+    /// <summary>
     /// 敵が死亡しているかどうかを返す
+    /// </summary>
     public bool IsDead()
     {
         if (onNomalEnemy)
@@ -212,7 +268,9 @@ public class EnemyHealth : MonoBehaviour
         return false;
     }
 
-    /// @biref　ダメージテキストマネージャーを設定する関数
+    /// <summary>
+    /// ダメージテキストマネージャーを設定
+    /// </summary>
     public void SetDamageText(DamageTextManager manager)
     {
         damageTextManager = manager;

@@ -8,7 +8,7 @@ public class PlayerExp : MonoBehaviour
 
     public int level = 1;
 
-    public int maxExp = 100;
+    public int maxExp = 50;
     private int currentExp = 0;
 
     // 経験値取得範囲
@@ -23,45 +23,32 @@ public class PlayerExp : MonoBehaviour
     [SerializeField] private SoundPlayer soundPlayer;
     [SerializeField] private AudioClip expMaxSound;
 
-
     void Start()
     {
-        // =========================
         // EXP MAXサウンド設定
-        // =========================
         if (soundPlayer != null)
         {
             soundPlayer.SetOneShot(expMaxSound);
         }
 
-        // =========================
         // XP Sliderを探す
-        // =========================
         if (expSlider == null)
         {
-            GameObject expObject =
-                GameObject.Find("Expber");
+            GameObject expObject = GameObject.Find("Expber");
 
             if (expObject != null)
             {
-                expSlider =
-                    expObject.GetComponent<Slider>();
+                expSlider = expObject.GetComponent<Slider>();
             }
         }
 
-        // =========================
         // LevelUpUIを探す
-        // =========================
         if (levelUpUI == null)
         {
-            levelUpUI =
-                FindFirstObjectByType<LevelUpUI>();
+            levelUpUI = FindFirstObjectByType<LevelUpUI>();
         }
 
-
-        // =========================
         // XPバー初期設定
-        // =========================
         if (expSlider != null)
         {
             expSlider.minValue = 0;
@@ -70,19 +57,14 @@ public class PlayerExp : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning(
-                "ExpSliderが見つかりません"
-            );
+            Debug.LogWarning("ExpSliderが見つかりません");
         }
 
         if (levelUpUI == null)
         {
-            Debug.LogWarning(
-                "LevelUpUIが見つかりません"
-            );
+            Debug.LogWarning("LevelUpUIが見つかりません");
         }
     }
-
 
     public void AddExp(int amount)
     {
@@ -91,52 +73,73 @@ public class PlayerExp : MonoBehaviour
 
         currentExp += amount;
 
-        if (expSlider != null)
-        {
-            expSlider.value = currentExp;
-        }
-
         if (currentExp >= maxExp)
         {
-            // =========================
+            // 最大値で止めてゲージを満タンにする
+            currentExp = maxExp;
+            Debug.Log("現在の経験値: " + currentExp + " / " + maxExp);
+
+            if (currentExp >= maxExp)
+            {
+                Debug.Log("レベルアップ条件を満たしました");
+                expSlider.value = expSlider.maxValue;
+            }
+
             // EXP MAXサウンド
-            // =========================
             if (soundPlayer != null)
             {
                 soundPlayer.PlayOneShot();
             }
 
-            StartCoroutine(
-                LevelUpAnimation()
-            );
+            StartCoroutine(LevelUpAnimation());
+        }
+        else
+        {
+            if (expSlider != null)
+            {
+                expSlider.value = currentExp;
+            }
         }
     }
-
 
     IEnumerator LevelUpAnimation()
     {
         isLevelUp = true;
 
+        // ゲージを最大値に固定
         if (expSlider != null)
         {
+            expSlider.maxValue = maxExp;
             expSlider.value = maxExp;
         }
 
         yield return new WaitForSeconds(1f);
 
-        int remainExp =
-            currentExp - maxExp;
-
         level++;
 
-        Debug.Log(
-            "Level Up!! Lv." + level
-        );
+        Debug.Log("Level Up!! Lv." + level);
 
-        maxExp += 50;
+        // 取得済みスキル数を取得
+        int acquiredSkillCount = 0;
 
-        currentExp =
-            remainExp;
+        if (SkillManager.Instance != null)
+        {
+            acquiredSkillCount =
+                SkillManager.Instance.GetAcquiredSkills().Count;
+        }
+
+        // 5種類取得するまでは+30、6種類目からは+50
+        if (acquiredSkillCount <= 5)
+        {
+            maxExp += 30;
+        }
+        else
+        {
+            maxExp += 50;
+        }
+
+        // 次のレベルの経験値を初期化
+        currentExp = 0;
 
         if (expSlider != null)
         {
@@ -150,7 +153,6 @@ public class PlayerExp : MonoBehaviour
             levelUpUI.Open(this);
         }
     }
-
 
     public void FinishLevelUp()
     {
