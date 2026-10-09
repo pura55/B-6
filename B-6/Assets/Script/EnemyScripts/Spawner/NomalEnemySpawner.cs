@@ -45,7 +45,7 @@ public class NomalEnemySpawner : BaseEnemySpawner
         //現在の敵のスポーン数を超えたら処理を抜ける
         while (spawnCounter < currentSpawnIndex)
         {
-            Debug.Log("敵のスポーン処理中");
+            //Debug.Log("敵のスポーン処理中");
 
             // スポーンする敵IDを取得
             int[] spawnID = enemySpawnerManager.GetSpawnEnemies();

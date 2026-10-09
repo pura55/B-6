@@ -96,12 +96,14 @@ public class MidBossManager : NomalEnemyManager
         }
         else if (shortAttack.GetIsIdle())
         {
+            Debug.Log("Attack‚É‘JˆÚ‚µ‚Ü‚·");
             enemyState = EnemyState.Attack;
             ResetAnimation();
             return;
         }
         else if (isSkillShort ? shortSkill.GetIsIdle() : weaponSkill.GetIsIdle())
         {
+            Debug.Log("Skill‚É‘JˆÚ‚µ‚Ü‚·");
             enemyState = EnemyState.Skill;
             ResetAnimation();
             return;

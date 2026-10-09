@@ -61,4 +61,17 @@ public class BossMove : AggressiveMove
     {
         isHit = hit;
     }
+
+    ///// @brief ƒ{ƒX‚ªÚ‹ß‚µ‚«‚Á‚½‚©‚Ç‚¤‚©‚Ì”»’è
+    //private void BossAttaced()
+    //{
+    //    if (targetPlayer.CompareTag("Player"))
+    //    {
+    //        isAttached = true;
+    //    }
+    //    else
+    //    {
+    //        isAttached = false;
+    //    }
+    //}
 }

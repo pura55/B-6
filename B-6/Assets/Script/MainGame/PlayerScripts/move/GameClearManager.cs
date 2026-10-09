@@ -12,8 +12,11 @@ public class GameClearManager : MonoBehaviour
     // コルーチンの重複開始を防ぐ
     private bool isWaitingForClear = false;
 
+    private int wayOfReleaseCount = 3; // ４キャラ目解放までのカウント
+
     [SerializeField] private GameManager gameManager;
     [SerializeField] private int targetBossID = 11;
+    [SerializeField] private SelectCharacterID selectCharacterID;
 
     private void Start()
     {
@@ -88,30 +91,38 @@ public class GameClearManager : MonoBehaviour
         }
 
         isCleared = true;
-        clearCount++;
 
-        Debug.Log(
-            $"<color=yellow>ゲームクリア！ クリア回数 : {clearCount}</color>"
-        );
-
-        switch (clearCount)
+        switch (selectCharacterID.id)
         {
             case 1:
-                Debug.Log("1回目クリア");
+                Debug.Log("1キャラ目クリア");
+                clearCount++;
                 break;
 
             case 2:
-                Debug.Log("2回目クリア");
+                Debug.Log("2キャラ目クリア");
+                clearCount++;
                 break;
 
             case 3:
-                Debug.Log("3回目クリア");
+                Debug.Log("3キャラ目クリア");
+                clearCount++;
                 break;
 
             default:
                 Debug.Log($"{clearCount}回目クリア");
                 break;
         }
+
+        // 条件をクリアした場合4キャラ目を解放
+        if(wayOfReleaseCount <= clearCount)
+        {
+            selectCharacterID.canSelected = true;
+        }
+
+        Debug.Log(
+           $"<color=yellow>ゲームクリア！ クリア回数 : {clearCount}</color>"
+       );
 
         // GameManagerを取得
         if (gameManager == null)

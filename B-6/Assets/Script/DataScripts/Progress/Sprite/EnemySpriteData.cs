@@ -37,7 +37,7 @@ public class EnemySpriteData : ScriptableObject
         switch (spriteName)
         {
             case "IDLE": // 待機
-                Debug.Log("idleのスプライトが取得されました");
+                //Debug.Log("idleのスプライトが取得されました");
                 return enemiesSprites[element].idleSprite;
             case "ATTACK": // 攻撃
                 return enemiesSprites[element].attackSprite;
@@ -67,7 +67,7 @@ public class EnemySpriteData : ScriptableObject
 
         foreach (var entity in data.enemiesSprites)
         {
-            Debug.Log($"敵スプライトデータコピー中");
+            // Debug.Log($"敵スプライトデータコピー中");
 
             // 実体を作る
             Entity spritesEntity = new Entity();

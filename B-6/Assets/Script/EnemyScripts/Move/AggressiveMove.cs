@@ -70,26 +70,50 @@ public class AggressiveMove : BaseEnemyMove
 
         if (targetPlayer != null)
         {
-            currentTarget = targetPlayer;
-            // プレイヤーのサイズ取得
-            PlayerSize playerSize = targetPlayer.GetComponent<PlayerSize>();
-            targetSize = playerSize.GetPlayerSize();
-            stopPosition = stopFrontPlayer;
+            PlayerHealth health = targetPlayer.GetComponent<PlayerHealth>();
+
+            if(health.IsAlive())
+            {
+                NowTargetPlayer();
+            }
+            else
+            {
+                NowTargetTower(); ;
+            }
         }
         else
         {
-            currentTarget = targetTower;
-            ResetHitFlag();
-            // タワーのサイズを取得
-            TowerSize towerSize = targetTower.GetComponent<TowerSize>();
-            targetSize = towerSize.GetTowerSize();
-            stopPosition = stopFrontTower;
+            NowTargetTower();
         }
 
         if(currentTarget == null)
         {
+            Debug.Log("追従するターゲットが存在しません!");
             return;
         }
+    }
+
+    /// @brief 現在の目標をタワーに設定する関数
+    protected void NowTargetTower()
+    {
+        Debug.Log("ターゲット　：　タワー");
+        currentTarget = targetTower;
+        ResetHitFlag();
+        // タワーのサイズを取得
+        TowerSize towerSize = targetTower.GetComponent<TowerSize>();
+        targetSize = towerSize.GetTowerSize();
+        stopPosition = stopFrontTower;
+    }
+
+    /// @brief 現在の目標をプレイヤーに設定する関数
+    protected void NowTargetPlayer()
+    {
+        Debug.Log("ターゲット　：　プレイヤー");
+        currentTarget = targetPlayer;
+        // プレイヤーのサイズ取得
+        PlayerSize playerSize = targetPlayer.GetComponent<PlayerSize>();
+        targetSize = playerSize.GetPlayerSize();
+        stopPosition = stopFrontPlayer;
     }
 
     /// @brief ヒットフラグをリセットする関数
