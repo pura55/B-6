@@ -81,17 +81,7 @@ public class PlayerHealth : MonoBehaviour
 
 
         // HPバー初期設定
-        if (hpSlider != null)
-        {
-            hpSlider.maxValue = maxHP;
-            hpSlider.value = myHp;
-        }
-        else
-        {
-            Debug.LogWarning(
-                "PlayerHPのSliderが見つかりません"
-            );
-        }
+        UpdateHPSlider();
 
 
         playerAnimation =
@@ -130,6 +120,39 @@ public class PlayerHealth : MonoBehaviour
 
 
     /// <summary>
+    /// 最大HPアップ
+    /// </summary>
+    public void IncreaseMaxHP(float value)
+    {
+        maxHP += value;
+
+        // HPゲージを更新
+        UpdateHPSlider();
+
+        Debug.Log("最大HP +" + value);
+    }
+
+
+    /// <summary>
+    /// HPゲージ更新
+    /// </summary>
+    private void UpdateHPSlider()
+    {
+        if (hpSlider != null)
+        {
+            hpSlider.maxValue = maxHP;
+            hpSlider.value = myHp;
+        }
+        else
+        {
+            Debug.LogWarning(
+                "PlayerHPのSliderが見つかりません"
+            );
+        }
+    }
+
+
+    /// <summary>
     /// ダメージ処理
     /// </summary>
     public void ReceiveDamage(float dmg)
@@ -162,10 +185,7 @@ public class PlayerHealth : MonoBehaviour
 
 
         // HPバー更新
-        if (hpSlider != null)
-        {
-            hpSlider.value = myHp;
-        }
+        UpdateHPSlider();
 
 
         // 死亡
@@ -320,10 +340,7 @@ public class PlayerHealth : MonoBehaviour
 
 
         // HPバー更新
-        if (hpSlider != null)
-        {
-            hpSlider.value = myHp;
-        }
+        UpdateHPSlider();
 
 
         // 生存状態に戻す
@@ -374,11 +391,8 @@ public class PlayerHealth : MonoBehaviour
         }
 
 
-        if (hpSlider != null)
-        {
-            hpSlider.value =
-                myHp;
-        }
+        // HPバー更新
+        UpdateHPSlider();
 
 
         Debug.Log(

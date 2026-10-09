@@ -241,7 +241,7 @@ public class SkillManager : MonoBehaviour
 
                 if (maxhpup != null)
                 {
-                    maxhpup.maxHP += value;
+                    maxhpup.IncreaseMaxHP(value);
                     Debug.Log("最大HP +" + value);
                 }
                 else
@@ -385,10 +385,11 @@ public class SkillManager : MonoBehaviour
                 {
                     wall.coolTime -= value;
 
-                    if(wall.coolTime < 0)
+                    if (wall.coolTime < 0)
                     {
                         wall.coolTime = 0;
                     }
+
                     Debug.Log("壁立てクールタイム -" + value);
                 }
                 else
