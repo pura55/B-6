@@ -303,7 +303,7 @@ public class PlayerHealth : MonoBehaviour
             respawnEndTime - Time.time;
 
 
-        return Mathf.Clamp01(
+        return 1f - Mathf.Clamp01(
             remain / currentRespawnTime
         );
     }

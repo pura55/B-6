@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1473773789460758773, guid: 14883e23418c85e4394056e178880ef4, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1969828410130793537, guid: 14883e23418c85e4394056e178880ef4, type: 3}
       propertyPath: m_SizeDelta.x
       value: 25
@@ -178,6 +182,18 @@ PrefabInstance:
     - target: {fileID: 3033991418942743652, guid: 14883e23418c85e4394056e178880ef4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5380675129702930642, guid: 14883e23418c85e4394056e178880ef4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5380675129702930642, guid: 14883e23418c85e4394056e178880ef4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5380675129702930642, guid: 14883e23418c85e4394056e178880ef4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 5647495315321589112, guid: 14883e23418c85e4394056e178880ef4, type: 3}
       propertyPath: m_Name
