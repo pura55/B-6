@@ -287,24 +287,21 @@ public class PlayerHealth : MonoBehaviour
 
 
     /// <summary>
-    /// リスポーン待機時間の割合
+    /// リスポーン待機時間の割合（0から1へ増える）
     /// </summary>
     public float GetRespawnTimeRate()
     {
         if (!IsDead)
             return 0f;
 
-
         if (currentRespawnTime <= 0f)
-            return 0f;
+            return 1f;
 
-
-        float remain =
-            respawnEndTime - Time.time;
-
+        float elapsed =
+            currentRespawnTime - (respawnEndTime - Time.time);
 
         return Mathf.Clamp01(
-            remain / currentRespawnTime
+            elapsed / currentRespawnTime
         );
     }
 

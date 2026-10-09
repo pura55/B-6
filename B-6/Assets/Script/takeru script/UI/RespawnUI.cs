@@ -7,6 +7,9 @@ public class RespawnUI : MonoBehaviour
     [SerializeField] private Image respawnImage;
     [SerializeField] private Vector3 offset;
 
+    [SerializeField] private float fillSpeed = 1f;
+    private float currentFillAmount = 0f;
+
     void Update()
     {
         if (playerHealth == null || respawnImage == null)
