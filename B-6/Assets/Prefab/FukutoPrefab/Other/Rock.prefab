@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RockHit
   soundPlayer: {fileID: -7139938870585006975}
-  hitDamage: 50
+  hitDamage: 500
   waitTime: 0.6
   playPtich: 1.5
 --- !u!114 &-7139938870585006975
