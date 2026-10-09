@@ -2,15 +2,15 @@
     "damage_ct": [
         {
             "lv": 1,
-            "stat": 1
+            "stat": 0.1
         },
         {
             "lv": 2,
-            "stat": 2
+            "stat": 0.3
         },
         {
             "lv": 3,
-            "stat": 3
+            "stat": 0.6
         }
     ]
 }
