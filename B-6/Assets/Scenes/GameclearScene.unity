@@ -2081,7 +2081,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TitleButton
   soundPlayer: {fileID: 1880278808}
-  gameManager: {fileID: 0}
+  gameManager: {fileID: 532654308}
 --- !u!114 &1880278810
 MonoBehaviour:
   m_ObjectHideFlags: 0
