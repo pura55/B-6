@@ -56,7 +56,7 @@
         },
         {
             "id": 7,
-            "hp": 400,
+            "hp": 300,
             "atkDmg": 10,
             "atkCT": 1.2,
             "skillDmg": 0,
@@ -65,7 +65,7 @@
         },
         {
             "id": 8,
-            "hp": 400,
+            "hp": 300,
             "atkDmg": 10,
             "atkCT": 1.2,
             "skillDmg": 0,
@@ -77,9 +77,9 @@
             "hp": 500,
             "atkDmg": 10,
             "atkCT": 1.2,
-            "skillDmg": 25,
+            "skillDmg": 15,
             "skillCT": 10,
-            "speed": 0.5
+            "speed": 1
         },
         {
             "id": 10,
@@ -88,7 +88,7 @@
             "atkCT": 1.2,
             "skillDmg": 15,
             "skillCT": 10,
-            "speed": 0.5
+            "speed": 1
         },
         {
             "id": 11,
@@ -97,7 +97,7 @@
             "atkCT": 1,
             "skillDmg": 30,
             "skillCT": 8,
-            "speed": 0.5
+            "speed": 1.1
         }
     ]
 }
