@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 6794053952106093648}
   - component: {fileID: 862579099552445179}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: RockWarningCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
