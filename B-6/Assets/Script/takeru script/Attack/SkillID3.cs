@@ -15,6 +15,10 @@ public class SkillID3 : MonoBehaviour
     [Header("スキルストック")]
     [SerializeField] private SkillStock skillStock;
 
+    [Header("SOUND")]
+    [SerializeField] private SoundPlayer soundPlayer;
+    [SerializeField] private AudioClip artsSE; // スキルのSE
+
     //弾数を増やす
     public void AddBulletCount(int value)
     {
@@ -44,6 +48,9 @@ public class SkillID3 : MonoBehaviour
 
         if (!skillStock.UseStock())
             return false;
+
+        soundPlayer.SetOneShot(artsSE);
+        soundPlayer.PlayOneShot();
 
         Vector3 mousePos =
             Mouse.current.position.ReadValue();
