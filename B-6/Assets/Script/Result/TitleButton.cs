@@ -20,7 +20,6 @@ public class TitleButton : MonoBehaviour
         // リザルトに使用した情報をすべてリセット
         AcquiredSkillData.Clear();
         EnemyHealth.ResetPlayerKillCount();
-        EnemyDamaged.ResetPlayerKillCount();
         RockHit.ResetBlockedRockCount();
         GameTimer.ResetFinalElapsedTime();
 

@@ -29,8 +29,7 @@ public class ResultDisplay : MonoBehaviour
     void ShowResult()
     {
         // ì¢î∞êî
-        int kills = EnemyHealth.GetPlayerKillCount()
-                  + EnemyDamaged.GetPlayerKillCount();
+        int kills = EnemyHealth.GetPlayerKillCount();
 
         if (enemyDownText != null)
         {
