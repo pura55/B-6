@@ -13,8 +13,10 @@ public class MidBossManager : NomalEnemyManager
     #region State
     [Header("SKILL")]
     [SerializeField] private bool isSkillShort = false;
-    private WeaponSkill weaponSkill;
+    private WeaponSkill weaponSkill; // 武器スキル
     private ShortSkill shortSkill;
+    private int actionCount; // 行動をカウント
+    private const int maxActionCount = 5; // 行動値の最大カウント
     #endregion
 
     private void Start()
@@ -87,11 +89,13 @@ public class MidBossManager : NomalEnemyManager
         SetStopMovement(true);
         SetIdleAnimation();
 
-        if (!GetIsAttached())
+        // 近づいている場合　or 行動値が達していた場合
+        if (!GetIsAttached() || maxActionCount <= actionCount)
         {
             Debug.Log("Moveに遷移します");
             enemyState = EnemyState.Move;
             ResetAnimation();
+            actionCount = 0; // 行動値をリセット
             return;
         }
         else if (shortAttack.GetIsIdle())
@@ -99,6 +103,7 @@ public class MidBossManager : NomalEnemyManager
             Debug.Log("Attackに遷移します");
             enemyState = EnemyState.Attack;
             ResetAnimation();
+            actionCount++;
             return;
         }
         else if (isSkillShort ? shortSkill.GetIsIdle() : weaponSkill.GetIsIdle())
@@ -106,6 +111,7 @@ public class MidBossManager : NomalEnemyManager
             Debug.Log("Skillに遷移します");
             enemyState = EnemyState.Skill;
             ResetAnimation();
+            actionCount++;
             return;
         }
     }
