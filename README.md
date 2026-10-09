@@ -17,4 +17,4 @@
 ## 📷 スクリーンショット
 | Screenshot 1 / 画像１ | Screenshot 2 / 画像２ |
 | :---: | :---: |
-| ![Screen1]() | ![Screen2]() |
+| ![Screen1](https://github.com/pura55/B-6/blob/main/Screenshot/image_1.png) | ![Screen2]() |
