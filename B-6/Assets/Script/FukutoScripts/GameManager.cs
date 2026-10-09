@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     #region Config
     [SerializeField] private Fader fader; // フェイダー
     [SerializeField] private PlayerSpawner playerSpawner; // プレイヤースポナー
+    [SerializeField] private SoundPlayer soundPlayer; // サウンドプレイヤー
+    [SerializeField] private bool playBgm = false; // マネージャーでBGMを再生するかどうかのフラグ
     #endregion
 
     #region State
@@ -24,6 +26,10 @@ public class GameManager : MonoBehaviour
     {
         fader.SetFadeOut();
         Debug.Log("フェードアウトを命令します");
+        if(playBgm)
+        {
+            PlayBgm();
+        }
     }
 
     /// @brief メインゲームに遷移する関数
@@ -57,5 +63,11 @@ public class GameManager : MonoBehaviour
         {
             playerSpawner.SpawnPlayer();
         }
+    }
+
+    /// @brief bgmフラグがtrueの時再生を行う関数
+    private void PlayBgm()
+    {
+        soundPlayer.PlayBGM();
     }
 }
