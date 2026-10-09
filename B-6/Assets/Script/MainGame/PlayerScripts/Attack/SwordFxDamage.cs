@@ -56,7 +56,8 @@ public class SwordFxDamage : MonoBehaviour
 
         if(enemyHealth != null)
         {
-            enemyHealth.ReceiveDamage(effectDamage);
+            // プレイヤーからのダメージ判定を通知するためこの関数を使用する
+            enemyHealth.ReceivePlayerDamage(effectDamage);
             return;
         }
     }

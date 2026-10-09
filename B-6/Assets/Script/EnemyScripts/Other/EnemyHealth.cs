@@ -109,9 +109,7 @@ public class EnemyHealth : MonoBehaviour
 
         if (damageTextManager != null)
         {
-            damageTextManager.ShowDamageText(
-                transform.position, dmg, DamageTextManager.Target.ENEMY
-            );
+            damageTextManager.ShowDamageText(transform.position, dmg, DamageTextManager.Target.ENEMY);
         }
 
         if (enemyHp < 0)
@@ -150,9 +148,7 @@ public class EnemyHealth : MonoBehaviour
 
         if (damageTextManager != null)
         {
-            damageTextManager.ShowDamageText(
-                transform.position, dmg, DamageTextManager.Target.ENEMY
-            );
+            damageTextManager.ShowDamageText(transform.position, dmg, DamageTextManager.Target.ENEMY);
         }
 
         if (enemyHp < 0)
