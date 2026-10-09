@@ -232,7 +232,6 @@ public class NomalEnemyManager : BaseEnemyManager
         // ƒ_ƒ[ƒWó‚¯‚½‚ç
         if (isTakeHit)
         {
-            Debug.Log("Hit‚É‘JˆÚ‚µ‚Ü‚·");
             enemyState = EnemyState.Hit;
             isTakeHit = false;
             shortAttack.SetStateRecast();

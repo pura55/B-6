@@ -135,8 +135,10 @@ public class MidBossManager : NomalEnemyManager
 
         SetStopMovement(true);
 
+        // 対象に近づいていない＋アニメーションが終了したとき
         if (!GetIsAttached() && FinishedEventAnimation())
         {
+            // 待機へ遷移
             enemyState = EnemyState.Idle;
             ResetAnimation();
             return;
@@ -209,7 +211,6 @@ public class MidBossManager : NomalEnemyManager
         if (TransitionDead()) return;
 
         SetStopMovement(true);
-        TransitionHit();
 
         if (FinishedEventAnimation())
         {

@@ -30,7 +30,6 @@ public class WeaponTriggerManager : HitTriggerManager
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("トリガーON");
         // プレイヤーが判定内に入った場合
         if (collision.CompareTag("Player"))
         {
@@ -43,7 +42,6 @@ public class WeaponTriggerManager : HitTriggerManager
 
         if (collision.CompareTag("Tower"))
         {
-            Debug.Log("トリガーON");
             // プレイヤーの体力の参照を取得
             TowerHealth towerHealth = collision.GetComponent<TowerHealth>();
 
