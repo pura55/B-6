@@ -51,6 +51,10 @@ public class BossSpawner : BaseEnemySpawner
             // ターゲットの参照を渡す
             PassTargetReference(spawnedEnemy, 1);
 
+            EnemyHealth health = spawnedEnemy.GetComponent<EnemyHealth>();
+
+            health.SetDamageText(enemySpawnerManager.GetDamageText());
+
             //カウンターを増やす
             spawnCounter += 1;
         }

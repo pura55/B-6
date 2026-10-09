@@ -40,12 +40,28 @@ public class RockHit : MonoBehaviour
         {
             return;
         }
+        HitEnemy(collision);
 
         HitTower(collision);
 
         HitPlayer(collision);
 
         HitWall(collision);
+    }
+
+    /// @brief “G‚Ö‚ÌÕ“Ë”»’è‚ğs‚¤ŠÖ”
+    private void HitEnemy(Collision2D collision)
+    {
+        // “G‚ÉG‚ê‚½
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            EnemyHealth enemyHealth = collision.gameObject.GetComponent<EnemyHealth>();
+
+            if (enemyHealth != null)
+            {
+                enemyHealth.SetHitRock();
+            }
+        }
     }
 
     /// @brief –h‰q‘ÎÛ‚Ö‚ÌÕ“Ë”»’è‚ğs‚¤ŠÖ”
