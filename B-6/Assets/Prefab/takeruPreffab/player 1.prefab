@@ -873,6 +873,8 @@ MonoBehaviour:
   blinkDistance: 3
   bulletCount: 1
   skillStock: {fileID: 922019967771186706}
+  soundPlayer: {fileID: -2012798179515825635}
+  artsSE: {fileID: 8300000, guid: ea3ffa93cb350cb4891e91541b144ea4, type: 3}
 --- !u!114 &3581673623702682658
 MonoBehaviour:
   m_ObjectHideFlags: 0
