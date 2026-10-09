@@ -8,5 +8,5 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "WaveCycle_Scriptable")]
 public class WaveCycle : ScriptableObject
 {
-    public uint waveCycleMin = 1; // ウェーブ間の時間
+    public uint waveCycleMin = 3; // ウェーブ間の時間
 }

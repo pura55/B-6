@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8d6937fe6ce10c41b0bf513469d3db6, type: 3}
   m_Name: WaveCycleSO
   m_EditorClassIdentifier: Assembly-CSharp::WaveCycle
-  waveCycleMin: 1
+  waveCycleMin: 3
