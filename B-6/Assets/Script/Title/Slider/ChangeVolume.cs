@@ -35,6 +35,8 @@ public class ChangeVolume : SettingSliderBase
         {
             ChangeSE();
         }
+
+        ModifyPlayingAudios();
     }
 
     /// @brief BGMを変更する関数
@@ -47,5 +49,21 @@ public class ChangeVolume : SettingSliderBase
     private void ChangeSE()
     {
         settingValues.SetVolumeSE(mySlider.value);
+    }
+
+    /// @brief 再生中のすべてのオーディオのボリュームを変更する関数
+    private void ModifyPlayingAudios()
+    {
+        // シーン内にあるすべてのアクティブな AudioSource を取得
+        AudioSource[] allAudioSources = Object.FindObjectsByType<AudioSource>(FindObjectsSortMode.None);
+
+        foreach (AudioSource source in allAudioSources)
+        {
+            // 再生中のものだけを対象にする
+            if (source.isPlaying)
+            {
+                source.volume = mySlider.value;
+            }
+        }
     }
 }

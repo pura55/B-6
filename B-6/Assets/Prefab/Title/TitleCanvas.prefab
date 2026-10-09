@@ -94,7 +94,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &988279754284303375
 RectTransform:
   m_ObjectHideFlags: 0
@@ -965,7 +965,7 @@ MonoBehaviour:
   fader: {fileID: 5844045962086472749}
   playerSpawner: {fileID: 0}
   soundPlayer: {fileID: 0}
-  playBgm: 0
+  playBgm: 1
 --- !u!1 &7098388275557773174
 GameObject:
   m_ObjectHideFlags: 0
@@ -1058,7 +1058,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2470419429109557621
 RectTransform:
   m_ObjectHideFlags: 0
