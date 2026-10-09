@@ -263,6 +263,9 @@ MonoBehaviour:
   isCharge: 0
   stopSpriteIndex: 1
   chargeTime: 3
+  deathEffectTime: 2
+  loopSpeed: 75
+  waveSize: 0.01
 --- !u!114 &4414791695640219721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -574,6 +577,10 @@ PrefabInstance:
     - target: {fileID: -1828822045962500008, guid: e0f49487d57f23b48bef945c11e290d3, type: 3}
       propertyPath: onBossMove
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1828822045962500008, guid: e0f49487d57f23b48bef945c11e290d3, type: 3}
+      propertyPath: onNomalMove
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -1828822045962500008, guid: e0f49487d57f23b48bef945c11e290d3, type: 3}
       propertyPath: onAggressiveMove

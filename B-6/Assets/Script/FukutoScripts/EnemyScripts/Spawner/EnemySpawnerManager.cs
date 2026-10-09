@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 /// <summary>
 /// エネミースポナーマネージャー
@@ -77,7 +78,15 @@ public class EnemySpawnerManager : MonoBehaviour
         {
             waveCount = (int)GameWave.SECOND;
             SetSpawnID();
-        }      
+        }     
+        
+        if(Keyboard.current.tKey.isPressed)
+        {
+            // idに変換するためキャストする
+            int randomBoss = Random.Range((int)EnemyID.MID_BOSS_FIRST, (int)EnemyID.MID_BOSS_SECOND + baseUpID);
+            Debug.Log("生成ボス：" + randomBoss);
+            spawnBossID = randomBoss;
+        }
     }
 
     /// brief@ スポーンする敵のIDをセットする関数
@@ -107,6 +116,7 @@ public class EnemySpawnerManager : MonoBehaviour
 
                     // idに変換するためキャストする
                     int randomBoss = Random.Range((int)EnemyID.MID_BOSS_FIRST, (int)EnemyID.MID_BOSS_SECOND);
+                    Debug.Log("生成ボス："　+ randomBoss);
                     spawnBossID =  randomBoss;
 
                     previousWave = waveCount; // ウェーブを設定

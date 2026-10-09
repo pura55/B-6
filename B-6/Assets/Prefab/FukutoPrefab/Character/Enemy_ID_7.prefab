@@ -285,6 +285,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDamaged
   enemyID: 7
   enemyProgressData: {fileID: 11400000, guid: f1c5fd27d3e475c429457ece67e5af9d, type: 2}
+  onNomalEnemy: 1
+  onBoss: 0
 --- !u!114 &-8737387044889284480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,6 +308,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2570283839233665180}
     m_Modifications:
+    - target: {fileID: -1828822045962500008, guid: e0f49487d57f23b48bef945c11e290d3, type: 3}
+      propertyPath: onNomalMove
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -1828822045962500008, guid: e0f49487d57f23b48bef945c11e290d3, type: 3}
       propertyPath: onAggressiveMove
       value: 1
