@@ -42,6 +42,12 @@ public class DamageTextManager : MonoBehaviour
 
     private ObjectPool<DamageText> textPool; // オブジェクトのプール
 
+    public enum Target
+    {
+        ENEMY = 1,
+        PLAYER
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -51,11 +57,19 @@ public class DamageTextManager : MonoBehaviour
     }
 
     /// @brief ダメージを表示する関数
-    public void ShowDamageText(Vector3 position, int damage)
+    public void ShowDamageText(Vector3 position, int damage, Target target)
     {
         // ダメージテキストをプールから取り出す
         DamageText damageText = textPool.GetFromPool() as DamageText;
 
-        damageText.SetInfo(position, damage);
+        switch (target)
+        {
+            case Target.ENEMY:
+                damageText.SetInfo(position, damage, DamageText.TextColor.WHITE);
+                break;
+            case Target.PLAYER:
+                damageText.SetInfo(position, damage, DamageText.TextColor.RED);
+                break;
+        }
     }
 }

@@ -29,6 +29,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private PlayerProgressData playerProgressData;
     [SerializeField] private Slider hpSlider;
 
+    private DamageTextManager damageTextManager; // ダメージ表示
+
     #endregion
 
 
@@ -176,6 +178,8 @@ public class PlayerHealth : MonoBehaviour
             dmg
         );
 
+        // ダメージ表示
+        damageTextManager.ShowDamageText(transform.position, (int)dmg, DamageTextManager.Target.PLAYER);
 
         // HPがマイナスにならないようにする
         if (myHp < 0)
@@ -399,5 +403,11 @@ public class PlayerHealth : MonoBehaviour
             "キルヒール！ HP +" +
             killHeal
         );
+    }
+
+    /// @brief ダメージテキストマネージャーを設定する関数
+    public void SetDamageText(DamageTextManager damageText)
+    {
+        damageTextManager = damageText;
     }
 }

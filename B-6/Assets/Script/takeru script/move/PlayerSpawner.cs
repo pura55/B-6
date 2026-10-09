@@ -14,6 +14,9 @@ public class PlayerSpawner : MonoBehaviour
     [Header("プレイヤーデータ")]
     [SerializeField] private PlayerProgressData playerProgressData;
 
+    [Header("ダメージ表記")]
+    [SerializeField] private DamageTextManager damageTextManager;
+
     private GameObject spawnedPlayer;
 
 
@@ -73,6 +76,8 @@ public class PlayerSpawner : MonoBehaviour
         PlayerHealth playerHealth =
                 spawnedPlayer.GetComponentInChildren<PlayerHealth>();
 
+        
+
         MoveScript moveScript =
             spawnedPlayer.GetComponent<MoveScript>();
 
@@ -89,6 +94,9 @@ public class PlayerSpawner : MonoBehaviour
         if (respawnUI != null && playerHealth != null)
         {
             respawnUI.SetPlayer(playerHealth);
+
+            // ダメージを表示するため設定
+            playerHealth.SetDamageText(damageTextManager);
         }
 
 

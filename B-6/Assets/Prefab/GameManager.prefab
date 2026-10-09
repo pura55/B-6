@@ -3074,6 +3074,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3033991418942743652}
     m_Modifications:
+    - target: {fileID: 1462594933417722337, guid: f054138cc87247f4693537b243be91e1, type: 3}
+      propertyPath: damageTextManager
+      value: 
+      objectReference: {fileID: 3595237180632530281}
     - target: {fileID: 4456877282478334972, guid: f054138cc87247f4693537b243be91e1, type: 3}
       propertyPath: m_Name
       value: PlayerSpawner

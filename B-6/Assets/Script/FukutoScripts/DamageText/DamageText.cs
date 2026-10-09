@@ -21,6 +21,14 @@ public class DamageText : APooledObject
     private float velocity = 3f; // 移動速度
     #endregion
 
+    // テキストカラー
+    public enum TextColor
+    {
+        WHITE,
+        RED,
+        YELLOW
+    }
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -44,9 +52,21 @@ public class DamageText : APooledObject
     }
 
     /// @brief 情報を設定する関数
-    public void SetInfo(Vector3 position , int damage)
+    public void SetInfo(Vector3 position , int damage, TextColor color)
     {
-        textMeshPro.text = damage.ToString();
+        // テキストを設定
+        switch (color)
+        {
+            case TextColor.WHITE:
+                textMeshPro.color = Color.white;
+                textMeshPro.text = damage.ToString();
+                break;
+            case TextColor.RED:
+                textMeshPro.color = Color.red;
+                textMeshPro.text = "-" + damage;
+                break;
+        }
+
         rectTransform.position = new Vector3(position.x, position.y, position.z);
         velocity = speed;
         StartCoroutine(WaitToRelease());

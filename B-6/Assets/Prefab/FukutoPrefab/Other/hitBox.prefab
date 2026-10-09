@@ -28,9 +28,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4872855390637782889}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.3880571, y: -0.024043728, z: 1}
-  m_LocalScale: {x: 0.32029802, y: 0.18032786, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.18032786, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -152,6 +152,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3da7db9c2b507a441810be0a2f334d1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BaseHitBoxRotation
+  distanceRadius: 0.3
+  onNomalMove: 1
+  onAggressiveMove: 0
+  onBossMove: 0
+  notRotate: 0
   parentHeaded: {x: 0, y: 0, z: 0}
 --- !u!114 &6273628916789211173
 MonoBehaviour:
@@ -165,3 +170,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96fec8213e1fd7a4ab3b969e97bfd594, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HitTriggerManager
+  isShortSkill: 0

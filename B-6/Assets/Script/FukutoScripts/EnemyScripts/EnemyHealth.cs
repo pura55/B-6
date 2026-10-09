@@ -95,7 +95,7 @@ public class EnemyHealth : MonoBehaviour
         Debug.Log("敵のHP : " + enemyHp);
 
         // ダメージ表示
-        damageTextManager.ShowDamageText(transform.position, dmg);
+        damageTextManager.ShowDamageText(transform.position, dmg, DamageTextManager.Target.ENEMY);
 
         // 0未満の場合0に設定
         if (enemyHp < 0)
@@ -134,7 +134,7 @@ public class EnemyHealth : MonoBehaviour
         Debug.Log("敵のHP : " + enemyHp);
 
         // ダメージ表示
-        damageTextManager.ShowDamageText(transform.position, dmg);
+        damageTextManager.ShowDamageText(transform.position, dmg, DamageTextManager.Target.ENEMY);
 
         // 0未満の場合0に設定
         if (enemyHp < 0)
