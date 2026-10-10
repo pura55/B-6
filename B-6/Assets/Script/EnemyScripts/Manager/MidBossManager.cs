@@ -16,7 +16,7 @@ public class MidBossManager : NomalEnemyManager
     private WeaponSkill weaponSkill; // 武器スキル
     private ShortSkill shortSkill;
     private int actionCount; // 行動をカウント
-    private const int maxActionCount = 5; // 行動値の最大カウント
+    private const int maxActionCount = 3; // 行動値の最大カウント
     #endregion
 
     private void Start()
