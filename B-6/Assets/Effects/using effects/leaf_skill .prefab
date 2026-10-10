@@ -244,70 +244,10 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2360655870356088562, guid: 57a776ff377f3c44e8403e2067a4d41f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: -281928380770213411}
-    - targetCorrespondingSourceObject: {fileID: 2360655870356088562, guid: 57a776ff377f3c44e8403e2067a4d41f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: -1907393582898677511}
     - targetCorrespondingSourceObject: {fileID: 7898475362266832841, guid: 57a776ff377f3c44e8403e2067a4d41f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7065787862302301541}
   m_SourcePrefab: {fileID: 100100000, guid: 57a776ff377f3c44e8403e2067a4d41f, type: 3}
---- !u!1 &704252975334428810 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2360655870356088562, guid: 57a776ff377f3c44e8403e2067a4d41f, type: 3}
-  m_PrefabInstance: {fileID: 2955696541556405880}
-  m_PrefabAsset: {fileID: 0}
---- !u!58 &-281928380770213411
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 704252975334428810}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 1
---- !u!114 &-1907393582898677511
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 704252975334428810}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0548acd0ac319964fa86242707f55883, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SwordFxDamage
-  playerProgressData: {fileID: 11400000, guid: 21bc494655974a942b8c7c1b843e8755, type: 2}
 --- !u!1 &4943187839178713521 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7898475362266832841, guid: 57a776ff377f3c44e8403e2067a4d41f, type: 3}
