@@ -100,24 +100,6 @@ public class PlayerHealth : MonoBehaviour
         // 死亡中はデバッグ入力も受け付けない
         if (IsDead)
             return;
-
-
-        // デバッグ：Lキーで1ダメージ
-        if (Keyboard.current != null &&
-            Keyboard.current.lKey.wasPressedThisFrame)
-        {
-            //Debug.Log("Lキー押した");
-
-            ReceiveDamage(1);
-        }
-
-
-        // デバッグ：Pキーで即死
-        if (Keyboard.current != null &&
-            Keyboard.current.pKey.wasPressedThisFrame)
-        {
-            ReceiveDamage(myHp);
-        }
     }
 
 

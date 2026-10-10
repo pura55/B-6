@@ -93,8 +93,6 @@ public class PlayerAttack : MonoBehaviour
 
     void StartAttack()
     {
-        Debug.Log("y’ÊíUŒ‚ŠJnz");
-
         playerAnimation.ChangeState(
             ID1Sprite.PlayerAnimState.Attack
         );
@@ -293,8 +291,6 @@ public class PlayerAttack : MonoBehaviour
         isAttacking = false;
 
         hitEnemies.Clear();
-
-        Debug.Log("y’ÊíUŒ‚I—¹z");
     }
 
 

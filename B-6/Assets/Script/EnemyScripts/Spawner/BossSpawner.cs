@@ -32,9 +32,6 @@ public class BossSpawner : BaseEnemySpawner
             isSpawn = true;
             return;
         }
-
-        // デバック用のボスをスポーンする処理
-        DebugBossSpawn();
     }
 
     /// @brief 敵を生成する関数
