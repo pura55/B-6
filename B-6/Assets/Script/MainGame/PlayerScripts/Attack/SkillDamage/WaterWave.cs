@@ -91,8 +91,13 @@ public class WaterWave : MonoBehaviour
             }
 
             // ”g‚Æ“¯‚¶•ûŒüE“¯‚¶‘¬“x‚Å‰Ÿ‚·
-            pushedEnemies[i].position +=
-                moveAmount;
+            WaterPushLimiter limiter =
+      pushedEnemies[i].GetComponent<WaterPushLimiter>();
+
+            if (limiter != null)
+            {
+                limiter.AddPush(moveAmount);
+            }
         }
 
 
@@ -171,4 +176,14 @@ public class WaterWave : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (!other.CompareTag("Enemy"))
+            return;
+
+        // ”g‚©‚ç—£‚ê‚½“G‚ğ‰Ÿ‚µo‚µ‘ÎÛ‚©‚ç‰ğœ
+        pushedEnemies.Remove(other.transform);
+    }
+
 }

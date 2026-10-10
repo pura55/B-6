@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 8382550772505638371}
   - component: {fileID: 3775506764996155951}
   - component: {fileID: 6496487315031941128}
+  - component: {fileID: 4249255860598101684}
   m_Layer: 10
   m_Name: Enemy_ID_1
   m_TagString: Enemy
@@ -214,8 +215,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NomalEnemyManager
   onNomalMove: 1
   onAggressiveMove: 0
+  onBossMove: 0
   onNomalAnimation: 1
   onIncludeMovementAnimation: 0
+  onMidBossAnimation: 0
 --- !u!114 &-1039996338913881964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,6 +232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NomalMove
   enemyID: 1
+  stopFrontTower: {x: 0.45, y: 0.45}
   enemyProgressData: {fileID: 11400000, guid: f1c5fd27d3e475c429457ece67e5af9d, type: 2}
 --- !u!114 &6547313668685307093
 MonoBehaviour:
@@ -247,6 +251,7 @@ MonoBehaviour:
   enemyProgressData: {fileID: 11400000, guid: f1c5fd27d3e475c429457ece67e5af9d, type: 2}
   onNomalAnimation: 1
   onIncludeMovementAnimation: 0
+  onMidBossAnimation: 0
 --- !u!114 &8382550772505638371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,6 +266,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDamaged
   enemyID: 1
   enemyProgressData: {fileID: 11400000, guid: f1c5fd27d3e475c429457ece67e5af9d, type: 2}
+  onNomalEnemy: 1
+  onBoss: 0
 --- !u!114 &3775506764996155951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,9 +294,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NomalAnimation
   enemyId: 1
+  reverseFlip: 0
   onNomalMove: 1
   onAggressiveMove: 0
+  onBossMove: 0
   enemySpriteData: {fileID: 11400000, guid: 0ae569640c76edb4ab60e7dd549c57a5, type: 2}
+--- !u!114 &4249255860598101684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6449213048604919684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa0fa1b15b8b96f439abd88b3384d023, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WaterPushLimiter
+  maxPushSpeed: 3
 --- !u!1001 &8912553558857769182
 PrefabInstance:
   m_ObjectHideFlags: 0

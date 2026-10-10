@@ -24,6 +24,11 @@ public class GameClearManager : MonoBehaviour
         {
             gameManager = FindFirstObjectByType<GameManager>();
         }
+
+        if (selectCharacterID == null)
+        {
+            Debug.LogError("SelectCharacterIDのアセットが設定されていません！");
+        }
     }
 
     private void Update()
@@ -92,39 +97,43 @@ public class GameClearManager : MonoBehaviour
 
         isCleared = true;
 
-        switch (selectCharacterID.id)
+        if (selectCharacterID == null)
         {
-            case 1:
-                Debug.Log("1キャラ目クリア");
-                clearCount++;
-                break;
+            Debug.LogWarning("SelectCharacterIDが見つかりません");
+        }
+        else
+        {
+            switch (selectCharacterID.id)
+            {
+                case 1:
+                    Debug.Log("1キャラ目クリア");
+                    clearCount++;
+                    break;
 
-            case 2:
-                Debug.Log("2キャラ目クリア");
-                clearCount++;
-                break;
+                case 2:
+                    Debug.Log("2キャラ目クリア");
+                    clearCount++;
+                    break;
 
-            case 3:
-                Debug.Log("3キャラ目クリア");
-                clearCount++;
-                break;
+                case 3:
+                    Debug.Log("3キャラ目クリア");
+                    clearCount++;
+                    break;
 
-            default:
-                Debug.Log($"{clearCount}回目クリア");
-                break;
+                default:
+                    Debug.Log($"{clearCount}回目クリア");
+                    break;
+            }
+
+            // 3回クリアで4キャラ目解放
+            if (wayOfReleaseCount <= clearCount)
+            {
+                selectCharacterID.canSelected = true;
+            }
         }
 
-        // 条件をクリアした場合4キャラ目を解放
-        if(wayOfReleaseCount <= clearCount)
-        {
-            selectCharacterID.canSelected = true;
-        }
+        Debug.Log($"ゲームクリア！ クリア回数 : {clearCount}");
 
-        Debug.Log(
-           $"<color=yellow>ゲームクリア！ クリア回数 : {clearCount}</color>"
-       );
-
-        // GameManagerを取得
         if (gameManager == null)
         {
             gameManager = FindFirstObjectByType<GameManager>();
@@ -136,8 +145,8 @@ public class GameClearManager : MonoBehaviour
             return;
         }
 
-        // ゲームクリア画面へ遷移
         Debug.Log("GameclearSceneへの遷移を開始");
+
         gameManager.ChangeGameClear();
     }
 

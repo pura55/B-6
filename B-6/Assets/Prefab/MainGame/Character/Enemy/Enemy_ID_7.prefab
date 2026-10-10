@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 4414791695640219721}
   - component: {fileID: -5910053777904288716}
   - component: {fileID: -8737387044889284480}
+  - component: {fileID: 1845310783534242942}
   m_Layer: 10
   m_Name: Enemy_ID_7
   m_TagString: Enemy
@@ -300,6 +301,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DropExp
   expFromDrop: {fileID: 2135534983200611327, guid: df0a85e49373332449ac75a63cbecaf6, type: 3}
+--- !u!114 &1845310783534242942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6449213048604919684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa0fa1b15b8b96f439abd88b3384d023, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WaterPushLimiter
+  maxPushSpeed: 3
 --- !u!1001 &6282287894109612837
 PrefabInstance:
   m_ObjectHideFlags: 0
