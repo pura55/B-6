@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     #endregion
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         fader.SetFadeOut();
         Debug.Log("フェードアウトを命令します");
@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
     {
         if(playerSpawner != null)
         {
-            playerSpawner.SpawnPlayer();
+            //playerSpawner.SpawnPlayer();
         }
     }
 

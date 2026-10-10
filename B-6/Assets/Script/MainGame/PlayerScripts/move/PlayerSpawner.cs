@@ -20,7 +20,7 @@ public class PlayerSpawner : MonoBehaviour
     private GameObject spawnedPlayer;
 
 
-    void Start()
+    void Awake()
     {
         // =========================
         // ‘I‘ð‚µ‚½ƒLƒƒƒ‰ID‚ð”½‰f
@@ -37,7 +37,7 @@ public class PlayerSpawner : MonoBehaviour
             );
         }
 
-        //SpawnPlayer();
+        SpawnPlayer();
     }
 
 

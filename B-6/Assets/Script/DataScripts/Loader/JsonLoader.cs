@@ -12,7 +12,7 @@ public class JsonLoader : MonoBehaviour
     [SerializeField] private EnemyMasterData enemyMasterData; // エネミーマスターデータ
     [SerializeField] private SelectCharacterID selectCharacterID; // 選択したキャラクターのID
 
-    void Start()
+    void Awake()
     {
         // プレイヤーデータ読み込み
         LoadPlayerData();
